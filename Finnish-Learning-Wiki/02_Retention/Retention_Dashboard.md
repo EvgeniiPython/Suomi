@@ -1,13 +1,15 @@
 # Retention Dashboard
 
 ## Текущие приоритеты
-- `Jos huomaan virheen, korjaan sen heti.` — recall без подсказки.
-- Полный рабочий рассказ — 2–3 раза вечером, затем recall на следующем уроке.
-- `Saan 3D-mallin asiakkaalta.`
-- `Sen jälkeen teen osapiirustukset ja kokoonpanopiirustukset.`
+- `Anteeksi, saatan ehkä myöhästyä vähän.` — recall без подсказки; пока Active, но не Fully Automated.
+- `Voisimmeko siirtää tapaamista kello 17?` — recall + вариация времени.
+- `yhden tunnin` — короткий объектный/количественный drill.
+- `siirtää tapaamista` — закрепить partitive object.
+- `Kyllä, totta kai, ilmoitan ennen viittä.` — быстрый spoken recall.
+- `Jos huomaan virheen, korjaan sen heti.` — продолжить периодическое повторение.
 
 ## Следующий этап
-После устойчивого recall — `minun ei tarvinnut` и перенос конструкции в рассказ.
+После устойчивого recall сегодняшних рабочих чанков — `minun ei tarvinnut` и перенос конструкции в реальную рабочую историю.
 
 ## Принцип
-Повторение должно включать извлечение из памяти, а не только чтение или повтор за преподавателем.
+Повторение должно включать извлечение из памяти, вариацию и перенос в новый контекст, а не только чтение или повтор за преподавателем.
