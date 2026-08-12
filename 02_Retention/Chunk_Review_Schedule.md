@@ -12,15 +12,17 @@ For every newly activated chunk, schedule reviews at:
 
 A review is not just rereading: use recall first, then check/correct/retry, then vary the chunk and use it in context.
 
+When a due recall requires correction, the next review is scheduled conservatively at the next short interval rather than pretending the chunk was fully automatic.
+
 ## Active chunks
 
 | Chunk | Added | +1 day | +3 days | +7 days | +14 days | +30 days | Next Review | Status |
 |---|---|---|---|---|---|---|---|---|
-| **Saan 3D-mallin asiakkaalta.** | 2026-08-10 | 2026-08-11 | 2026-08-13 | 2026-08-17 | 2026-08-24 | 2026-09-09 | 2026-08-14 | Active — reviewed 2026-08-11 |
-| **Sen jälkeen teen osapiirustukset ja kokoonpanopiirustukset.** | 2026-08-10 | 2026-08-11 | 2026-08-13 | 2026-08-17 | 2026-08-24 | 2026-09-09 | 2026-08-14 | Active — reviewed 2026-08-11 |
-| **Jos huomaan virheen, korjaan sen heti.** | 2026-08-11 | 2026-08-12 | 2026-08-14 | 2026-08-18 | 2026-08-25 | 2026-09-10 | 2026-08-12 | Active — practiced 2026-08-11 |
-| **Minun ei tarvinnut korjata sitä uudestaan.** | 2026-08-11 | 2026-08-12 | 2026-08-14 | 2026-08-18 | 2026-08-25 | 2026-09-10 | 2026-08-12 | Active — recalled correctly 2026-08-11 |
-| **Teen piirustukset, koska tuotanto tarvitsee ne.** | 2026-08-11 | 2026-08-12 | 2026-08-14 | 2026-08-18 | 2026-08-25 | 2026-09-10 | 2026-08-12 | Active — practiced 2026-08-11 |
+| **Saan 3D-mallin asiakkaalta.** | 2026-08-10 | 2026-08-11 | 2026-08-13 | 2026-08-17 | 2026-08-24 | 2026-09-09 | 2026-08-14 | Active — recalled 2026-08-11 |
+| **Sen jälkeen teen osapiirustukset ja kokoonpanopiirustukset.** | 2026-08-10 | 2026-08-11 | 2026-08-13 | 2026-08-17 | 2026-08-24 | 2026-09-09 | 2026-08-14 | Active — recalled 2026-08-11 |
+| **Jos huomaan virheen, korjaan sen heti.** | 2026-08-11 | 2026-08-12 | 2026-08-14 | 2026-08-18 | 2026-08-25 | 2026-09-10 | 2026-08-13 | Active — recalled with correction 2026-08-12 |
+| **Minun ei tarvinnut korjata sitä uudestaan.** | 2026-08-11 | 2026-08-12 | 2026-08-14 | 2026-08-18 | 2026-08-25 | 2026-09-10 | 2026-08-13 | Active — recalled with correction 2026-08-12 |
+| **Teen piirustukset, koska tuotanto tarvitsee ne.** | 2026-08-11 | 2026-08-12 | 2026-08-14 | 2026-08-18 | 2026-08-25 | 2026-09-10 | 2026-08-13 | Active — recalled with correction 2026-08-12 |
 
 ## Established chunks to keep in long-term rotation
 
