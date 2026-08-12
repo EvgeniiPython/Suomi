@@ -1,21 +1,27 @@
 # Current State
 
-**Последнее занятие:** 11 августа 2026
+**Последнее занятие:** 12 августа 2026
 
 ## Текущий фокус
-Профессиональный финский: рабочий процесс проектирования, чертежи, производство, замечания и исправления.
+Профессиональный разговорный финский: договорённости о встречах, перенос времени, объяснение причин, возможное опоздание и подтверждение нового плана. Технический рабочий финский (3D-модель, чертежи, проверка и исправления) остаётся активным вторым контекстом.
 
-## Активный рассказ
-Saan 3D-mallin asiakkaalta. Sen jälkeen teen osapiirustukset ja kokoonpanopiirustukset. Sitten tarkistan piirustukset huolellisesti. Jos huomaan virheen, korjaan sen heti.
+## Активные чанки
+- `Voisimmeko siirtää tapaamista kello 17?`
+- `Koska mulla on palaveri samaan aikaan.`
+- `Kyllä, se sopii hyvin.`
+- `Anteeksi, saatan ehkä myöhästyä vähän.`
+- `Ilmoitan tarkemmin pian.`
+- `Kyllä, totta kai, ilmoitan ennen viittä.`
+- `Jos huomaan virheen, korjaan sen heti.`
 
-## Последние метрики
+## Последние метрики — 12.08.2026
 - Уверенность: 8/10
-- Беглость: 7.5/10
-- Точность: 6.5/10
-- Автоматизация: 7/10
-
-## Следующая грамматическая цель
-`minun ei tarvinnut`, затем imperfekti vs. perfekti и падежи дополнения.
+- Беглость: 7/10
+- Точность: 7/10
+- Автоматизация: 6.5/10
 
 ## Главная зона роста
-Точность форм `huomaan`, `virheen`, `korjaan` и цельное произношение длинных технических слов.
+Автоматический запуск правильной формы под нагрузкой: `saatan ... myöhästyä`, `siirtää tapaamista`, `yhden tunnin`, а также стабильное отсутствие лишнего `on` в `se sopii`.
+
+## Следующая грамматическая цель
+Вернуться к запланированной конструкции `minun ei tarvinnut`, затем imperfekti vs. perfekti и падежи дополнения.
