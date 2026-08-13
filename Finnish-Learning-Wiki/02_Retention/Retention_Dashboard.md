@@ -1,26 +1,33 @@
 # Retention Dashboard
 
-## Retention schedule — 12.08.2026
+## Retention schedule — 13.08.2026
 
 | Дата | Интервал | Задача | Приоритет |
 |---|---|---|---|
-| 13.08.2026 | D+1 | Recall всех рабочих чанков без подсказки; `saatan ehkä myöhästyä` первым | 🔴 High |
-| 15.08.2026 | D+3 | Recall + вариация времени/причины; `tapaamista`, `yhden tunnin` | 🔴 High |
-| 19.08.2026 | D+7 | Полный spoken recall диалога + перенос в новый контекст | 🔴 High |
+| 15.08.2026 | D+3 | Recall + вариация времени/причины; `tapaamiseen` / `tapaamisesta`; `samaan aikaan` | 🔴 High |
+| 19.08.2026 | D+7 | Полный spoken recall + перенос в новый рабочий контекст | 🔴 High |
 | 02.09.2026 | D+21 | Долгосрочный recall всех активных чанков | 🟡 Medium |
 | 12.09.2026 | D+31 | Контрольный recall и пересмотр статусов Active/Stable | 🟡 Medium |
 
+## Результат D+1 — 13.08.2026
+- Все пять целевых конструкций восстановлены к концу сессии.
+- Recall: **9/10**.
+- Грамматика: **8.5/10**.
+- Понимание: **9/10**.
+- Произношение: **8/10**.
+- Беглость: **7.5/10**.
+- Новые чанки не добавлялись.
+
 ## Текущие приоритеты
-- `Anteeksi, saatan ehkä myöhästyä vähän.` — recall без подсказки; пока Active, но не Fully Automated.
-- `Voisimmeko siirtää tapaamista kello 17?` — recall + вариация времени.
-- `yhden tunnin` — короткий drill.
+- `Anteeksi, saatan myöhästyä vähän.` — правильно восстановлен, но требует дальнейшей автоматизации.
+- `Voisimmeko siirtää tapaamisen kello seitsemäntoista?` — закрепить точную форму и вариации времени.
+- `tapaamiseen` vs. `tapaamisesta` — высокий приоритет на D+3.
 - `samaan aikaan` — закрепить правильную форму.
-- `siirtää tapaamista` — закрепить partitive object.
-- `Kyllä, totta kai, ilmoitan ennen viittä.` — быстрый spoken recall.
-- `Jos huomaan virheen, korjaan sen heti.` — продолжить периодическое повторение.
+- `Eilen en ehtinyt tulla tapaamiseen ajoissa.` — автоматизировать `ehtinyt` + `tapaamiseen` + `ajoissa`.
+- `Myöhästyin tapaamisesta eilen.` — поддерживать как прошлое время.
 
 ## Следующий этап
-После устойчивого recall сегодняшних рабочих чанков — `minun ei tarvinnut` и перенос конструкции в реальную рабочую историю.
+После устойчивого recall сегодняшних рабочих чанков — перейти к запланированной конструкции `minun ei tarvinnut` и перенести её в реальную рабочую историю.
 
 ## Принцип
 Повторение должно включать извлечение из памяти, вариацию и перенос в новый контекст, а не только чтение или повтор за преподавателем.
