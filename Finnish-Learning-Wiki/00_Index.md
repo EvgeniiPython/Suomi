@@ -7,8 +7,9 @@
 2. `00_System/Current_State.md`
 3. `01_Today/Today.md`
 4. `02_Retention/Retention_Dashboard.md`
-5. Активные чанки и приоритетные ошибки.
-6. Затем — `00_System/Lesson_Protocol.md`.
+5. Активные chunks и приоритетные ошибки.
+6. `00_System/Daily_Speaking_First_Protocol.md` — полный 90-минутный speaking-first тайминг.
+7. `00_System/Lesson_Protocol.md` — основной протокол урока.
 
 ## Основные разделы
 - `00_System/` — протоколы и текущее состояние.
@@ -25,4 +26,7 @@
 - `13_Cards/` — карточки и контрасты.
 
 ## Главный принцип
-Recall → Check → Correct → Retry → Variation → Transfer → Spoken Recall → Retention.
+
+**Attempt → Check → Correct → Repair → Second Output → Variation → Transfer → Spoken Recall → Retention**
+
+Главная цель — не изучить как можно больше нового материала, а быстрее сформировать самостоятельный доступ к финской речи.
