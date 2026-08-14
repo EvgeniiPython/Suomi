@@ -5,6 +5,8 @@
 ## Текущий фокус
 Профессиональный разговорный финский: договорённости о встречах, перенос времени, объяснение причин, возможное опоздание и описание прошедшего события. Технический рабочий финский (3D-модель, чертежи, проверка и исправления) остаётся активным вторым контекстом.
 
+Новый учебный акцент с 14.08: **Listening → Speaking**. Короткие истории/диалоги теперь используются как input для пересказа, выделения 2–3 полезных chunks и переноса в собственную речь.
+
 ## Активные чанки
 - `Voisimmeko siirtää tapaamisen kello 17?`
 - `Koska mulla on palaveri samaan aikaan.`
@@ -15,24 +17,35 @@
 - `Jos huomaan virheen, korjaan sen heti.`
 - `Myöhästyin tapaamisesta eilen.`
 - `Eilen en ehtinyt tulla tapaamiseen ajoissa.`
+- `Minun ei tarvinnut siirtää tapaamista, koska kokous peruttiin.` — новый чанк, введён 14.08; продолжить variation и delayed recall.
 
-## Последние метрики — 14.08.2026
+## Результат D+3 — 14.08.2026
+- Основной recall и transfer пройдены устойчиво.
+- `Anteeksi, saatan myöhästyä vähän, koska minulla on tapaaminen samaan aikaan.` — восстановлен самостоятельно после подсказки по форме `saatan`.
+- `Voimmeko siirtää tapaamisen kello viiteen?` — восстановлена после точечной коррекции `viiteen`.
+- Новый паттерн `Minun ei tarvinnut ...` успешно встроен в прошедшую ситуацию.
+- `Kokous peruttiin` закреплён как новый repair point.
+
+## Последние метрики — 14.08.2026 D+3
 - Recall: 8.5/10
-- Грамматика: 8.5/10
+- Грамматика: 8/10
 - Понимание: 9.5/10
+- Вариативность: 8.5/10
+- Transfer: 8.5/10
 - Беглость: 8/10
-- Произношение: 8/10
-- Самостоятельность: 8/10
+- Произношение: 7.5/10
+- Самостоятельность: 8.5/10
 
-## Главная зона роста
-Автоматический запуск правильной формы под нагрузкой: `tapaamiseen` в `tulla tapaamiseen ajoissa`, `samaan aikaan`, а также плавность длинного чанка `Eilen en ehtinyt tulla tapaamiseen ajoissa`.
+## Главные зоны роста
+- автоматический запуск `tapaamiseen` в `tulla tapaamiseen ajoissa`;
+- `samaan aikaan`;
+- `viiteen` в конструкциях переноса времени;
+- `peruttiin` и паттерн `minun ei tarvinnut ...`.
 
 ## Ближайшее retention
-**15.08.2026 (D+3):** recall без подсказки; вариация времени и причины; отдельный drill `tapaamiseen` vs. `tapaamisesta` и `samaan aikaan`.
+**Следующая сессия:** короткий recall без подсказок; повтор `minun ei tarvinnut ...`; 2–4 вариации с `peruttiin`; затем listening → speaking с короткой финской историей/диалогом и переносом 2–3 конструкций в собственную речь.
 
-Если D+3 проходит устойчиво без подсказок, перейти к 2–3 новым чанкам, начиная с `minun ei tarvinnut`, и сразу перенести их в рабочий диалог.
-
-Следующие контрольные точки: **19.08 (D+7), 02.09 (D+21), 12.09 (D+31)**.
+Следующие контрольные точки retention: **19.08 (D+7), 02.09 (D+21), 12.09 (D+31)**.
 
 ## Следующая грамматическая цель
-После устойчивого recall вернуться к запланированной конструкции `minun ei tarvinnut`, затем imperfekti vs. perfekti и падежи дополнения.
+После стабилизации `minun ei tarvinnut ...` — imperfekti vs. perfekti и падежи дополнения.
