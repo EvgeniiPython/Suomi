@@ -4,17 +4,24 @@
 1. Прочитать `00_System/Current_State.md`.
 2. Прочитать `01_Today/Today.md`.
 3. Прочитать `02_Retention/Retention_Dashboard.md`.
-4. Проверить активные чанки и приоритетные ошибки.
-5. Следовать `00_System/Lesson_Protocol.md`.
-6. Следовать `00_System/DATA_INTEGRITY.md` при любых изменениях базы.
-7. Начать с recall без подсказки.
+4. Проверить активные chunks и приоритетные ошибки.
+5. Прочитать `00_System/Daily_Speaking_First_Protocol.md` при необходимости восстановить полный 90-минутный тайминг.
+6. Следовать `00_System/Lesson_Protocol.md`.
+7. Следовать `00_System/Spoken_Recall_Protocol.md` для самостоятельной речи.
+8. Следовать `00_System/DATA_INTEGRITY.md` при любых изменениях базы.
+9. Начать с recall без подсказки.
 
 ## Правила
+- Главная цель урока — самостоятельная разговорная речь, а не количество нового материала.
 - Не добавлять новый материал, пока приоритетный recall не проверен.
 - Не перебивать длинный свободный рассказ; ждать сигнал пользователя «я закончил, говори».
-- При ступоре: Recall → Check → Correct → Retry.
+- При ступоре: Recall → Hint → Correct → Retry.
+- Для приоритетной ошибки: Error → Correct Pattern → Variation → Transfer → Delayed Recall.
+- После исправления обязательно получить второй output.
 - Не считать чанк автоматизированным только по повторению за преподавателем.
 - Для статуса Active нужны recall без подсказки, вариация и перенос в контекст.
+- Новые chunks дозировать по устойчивости recall; при нестабильном recall сначала repair и retention.
+- SRS использовать выборочно, преимущественно для production chunks, которые продолжают забываться.
 
 ## Целостность данных
 - Перед изменением: **Read → Compare → Merge/Update → Write → Verify**.
@@ -25,3 +32,6 @@
 
 ## После урока
 Обновить Session, Active Chunks, Errors, Progress, Retention, Today и Current State.
+
+## Главный цикл
+**Attempt → Check → Correct → Repair → Second Output → Variation → Transfer → Spoken Recall → Retention**
