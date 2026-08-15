@@ -62,11 +62,32 @@ D+3 подготовка продолжена. Новые чанки не доб
 - `samaan aikaan`
 - плавность `Eilen en ehtinyt tulla tapaamiseen ajoissa`
 
+## Spoken D+3 / Professional Meeting — 15.08.2026
+D+3 закреплён через отдельную spoken-сессию. Основные рабочие конструкции о договорённости, переносе встречи и опоздании были выведены в самостоятельную variation. Дополнительно отработаны guided-конструкции с `täytyy + infinitive` и `lounaan jälkeen`; они пока не считаются Active.
+
+### Основные chunks
+1. `Sovimme asiakkaan kanssa tapaamisen ensi viikolla.`
+2. `Ensi viikolla sovimme tapaamisen asiakkaan kanssa.`
+3. `Voimmeko siirtää tapaamisen kello seitsemäntoista?`
+4. `Se sopii minulle.` / `Se sopii mulle.`
+5. `Anteeksi, minä saatan myöhästyä.`
+
+### Guided production
+- `Huomenna minun täytyy lähettää kirjeen lounaan jälkeen.`
+- `Huomenna minun täytyy soittaa asiakkaalle lounaan jälkeen.`
+
+### Repair
+- `asiakaan` → `asiakkaan`
+- `se on sopii` → `se sopii`
+- `kirjan` → `kirjeen`
+- `lounasta` → `lounaan jälkeen`
+- `lähteä` → `lähettää`
+
+### Решение по retention
+Не повышать guided-конструкции до Active без отдельного blind recall. Следующая практика: `asiakkaan kanssa`, `tapaamisen`, `täytyy + infinitive`, `lounaan jälkeen`.
+
 ## Следующее retention-повторение
-- **15.08.2026 — D+3:** начать с blind recall; затем variation времени и причины; drill `tapaamiseen` / `tapaamisesta`, `samaan aikaan`; после этого короткий рабочий диалог.
-- Если recall устойчивый — перейти к **2–3 новым чанкам**, начиная с `minun ei tarvinnut`, и сразу перенести их в рабочий диалог.
-- Если recall нестабилен — новых chunks не добавлять; продолжить repair + variation + transfer.
-- **19.08.2026 — D+7:** полный spoken recall + transfer.
+- **19.08.2026 — D+7:** короткий recall без подсказок; `tapaamisesta`; `minun ei tarvinnut`; `peruttiin`; короткий listening → speaking. Добавить сегодняшние `täytyy + infinitive` и `lounaan jälkeen` только после blind recall.
 - **02.09.2026 — D+21:** долгосрочный контроль.
 - **12.09.2026 — D+31:** контрольный recall и пересмотр статусов.
 
