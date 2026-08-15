@@ -64,21 +64,43 @@
 - Повторять: `Sovimme asiakkaan kanssa tapaamisesta ensi viikolla`.
 - Реальная микро-задача: один раз вслух использовать конструкцию о том, что сегодня не нужно идти на работу, потому что выходной.
 
+## Дополнительная spoken-сессия — 15.08.2026
+### Выполнено
+- Blind/assisted recall и variation `Sovimme asiakkaan kanssa tapaamisen ensi viikolla.`
+- Variation с началом `Ensi viikolla ...`.
+- Production `Voimmeko siirtää tapaamisen kello seitsemäntoista?`.
+- Response `Se sopii minulle` и разговорный `Se sopii mulle`.
+- Production `Anteeksi, minä saatan myöhästyä.`
+- Guided production с `täytyy + infinitive`.
+- Guided production с `lounaan jälkeen`.
+- Финальный обратный перевод фразы про письмо.
+
+### Retention result
+Основные meeting chunks доступны для самостоятельной variation. `asiakkaan`, `lähettää`, `kirjeen`, `lounaan jälkeen` и `täytyy + infinitive` требуют дополнительного blind recall. Новые guided-конструкции не переводить в Active автоматически.
+
+### Ключевые repair
+- `asiakaan` → `asiakkaan`
+- `se on sopii` → `se sopii`
+- `lähteä` → `lähettää`
+- `kirjan` → `kirjeen`
+- `lounasta` → `lounaan jälkeen`
+
 ## Текущие приоритеты
-1. `Sovimme asiakkaan kanssa tapaamisesta ensi viikolla.` — приоритетный новый рабочий чанк.
-2. `tapaamiseen` vs. `tapaamisesta`.
-3. `Minun ei tarvinnut ...` + `Kokous peruttiin`.
-4. `viime hetkellä`.
-5. `asiakas tuli ajoissa`.
+1. `Sovimme asiakkaan kanssa tapaamisen ensi viikolla.` — рабочий chunk, продолжать автоматизацию.
+2. `asiakkaan kanssa` и `tapaamisen` — точность формы.
+3. `täytyy + infinitive` — вывести из guided production в самостоятельную речь.
+4. `lounaan jälkeen`.
+5. `tapaamiseen` vs. `tapaamisesta` и `samaan aikaan` по предыдущему retention-циклу.
 
 ## Улучшение протокола после урока
 1. Постепенно увеличить listening input до **30–60 секунд**, если понимание остаётся устойчивым.
 2. Оценивать ключевые chunks отдельно по **Recall / Fluency / Transfer**.
 3. Добавить ежедневную микро-практику: один раз вслух сказать одну фразу о реальном дне.
 4. Не добавлять новые chunks только ради объёма.
+5. Guided production не считать Active без отдельного blind recall.
 
 ## Следующий этап
-**19.08.2026:** короткий recall без подсказок → `tapaamisesta` → `Minun ei tarvinnut ...` → 2–4 вариации `peruttiin` → listening 30–60 секунд → retell → transfer. Новые chunks только при устойчивом recall/variation/transfer.
+**19.08.2026:** короткий recall без подсказок → `tapaamisesta` → `Minun ei tarvinnut ...` → 2–4 вариации `peruttiin` → listening 30–60 секунд → retell → transfer. В начале добавить blind recall сегодняшних `täytyy + infinitive` и `lounaan jälkeen`; новые chunks только при устойчивом recall/variation/transfer.
 
 ## Принцип
 Повторение включает извлечение, вариацию, перенос и delayed recall. Listening используется как источник полезных конструкций, которые быстро переводятся в самостоятельную речь.
