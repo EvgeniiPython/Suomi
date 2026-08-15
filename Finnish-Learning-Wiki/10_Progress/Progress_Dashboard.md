@@ -3,12 +3,26 @@
 ## Текущий этап
 Переход от заученных предложений к автоматическим чанкам и связной профессиональной речи.
 
-## Последние метрики
-**15.08.2026 — spoken D+3 / professional meeting**
-- Формальные числовые метрики отдельно не выставлялись.
-- Качественный результат: основные рабочие chunks воспроизводятся и варьируются; guided production с `täytyy + infinitive` пока требует repair.
+## Последняя сессия
+**15.08.2026 — extended spoken D+3 / professional meeting**
 
-**14.08.2026 — maintenance перед D+3**
+Качественный результат: пользователь самостоятельно восстановил и варьировал конструкции вокруг встречи, затем перенёс pattern в новую ситуацию и завершил урок самостоятельным коротким рассказом. `täytyy + infinitive`, `lähettää` и `lounaan jälkeen` пока требуют repair/повторного blind recall.
+
+### Что подтверждено
+- `asiakkaan kanssa` после repair используется корректно.
+- `sovimme tapaamisesta` воспроизводится в рабочих фразах.
+- `täytyy + infinitive` уже запускается в речи, но нестабильно.
+- `lounaan jälkeen` после repair вышло без подсказки во второй проверке.
+- `lähettää` всё ещё конкурирует с `lähteä`.
+- Transfer и Final Speaking Challenge выполнены.
+
+### Что не подтверждено
+- Полный Listening → Speaking этого урока не выполнен.
+- Final Recall из 3 разных предложений с главным pattern не выполнен.
+- Поэтому эти элементы переносятся в следующий урок, а не считаются выполненными задним числом.
+
+## Последние формальные метрики
+**14.08.2026 — maintenance**
 - Recall: 8.5/10
 - Грамматика: 8.5/10
 - Понимание: 9.5/10
@@ -23,17 +37,15 @@
 - Произношение: 8/10
 - Беглость: 7.5/10
 
-## Предыдущая точка
-**12.08.2026**
-- Уверенность: 8/10
-- Беглость: 7/10
-- Точность: 7/10
-- Автоматизация: 6.5/10
-
-## Наблюдение
-15.08 основные профессиональные конструкции о договорённости, переносе встречи и опоздании вышли в самостоятельную variation. Особенно полезна способность менять порядок компонентов: `Sovimme asiakkaan kanssa tapaamisen ensi viikolla` → `Ensi viikolla sovimme tapaamisen asiakkaan kanssa`.
-
-При этом морфология `asiakkaan`, лексическое различение `lähettää` / `lähteä`, `kirjeen` и `lounaan jälkeen` пока требует подсказок. `täytyy + infinitive` использован в production, но пока не автоматизирован.
+Новые числовые оценки 15.08 не выставлялись, чтобы не создавать ложную точность.
 
 ## Следующий приоритет
-Blind recall сегодняшних chunks → repair `asiakkaan`, `lähettää kirjeen`, `lounaan jälkeen` → 2–3 вариации с `täytyy + infinitive` → затем возврат к retention-приоритетам `tapaamiseen` / `tapaamisesta` и `samaan aikaan`. Новые chunks только при устойчивом recall и transfer.
+1. Blind recall `täytyy + infinitive`.
+2. Repair/variation `lähettää sähköposti`.
+3. Stabilize `lounaan jälkeen`.
+4. `asiakkaan kanssa` + `tapaamisesta`.
+5. Return to `tapaamiseen` / `tapaamisesta` and `samaan aikaan`.
+6. Complete listening → speaking and Final Recall.
+
+## Системное решение
+Предложение пользователя: не добавлять отдельную новую метрику Fluency. Протокол не изменён; остаются три основные метрики **Recall / Fluency / Transfer**.
