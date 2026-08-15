@@ -1,11 +1,11 @@
 # Current State
 
-**Последнее занятие:** 14 августа 2026
+**Последнее занятие:** 15 августа 2026
 
 ## Текущий фокус
 Профессиональный разговорный финский: договорённости о встречах, перенос времени, объяснение причин, возможное опоздание и описание прошедшего события. Технический рабочий финский (3D-модель, чертежи, проверка и исправления) остаётся активным вторым контекстом.
 
-Новый учебный акцент с 14.08: **Listening → Understanding → Retell → Variation → Transfer**. Короткие истории/диалоги теперь используются как input для пересказа, выделения 2–3 полезных chunks и переноса в собственную речь.
+Новый учебный акцент: **Listening → Understanding → Retell → Variation → Transfer**. Короткие истории/диалоги используются как input для пересказа, выделения 2–3 полезных chunks и переноса в собственную речь.
 
 ## Активные чанки
 - `Voisimmeko siirtää tapaamisen kello 17?`
@@ -17,46 +17,57 @@
 - `Jos huomaan virheen, korjaan sen heti.`
 - `Myöhästyin tapaamisesta eilen.`
 - `Eilen en ehtinyt tulla tapaamiseen ajoissa.`
-- `Minun ei tarvinnut siirtää tapaamista, koska kokous peruttiin.` — новый чанк, введён 14.08; продолжить variation и delayed recall.
+- `Minun ei tarvinnut siirtää tapaamista, koska kokous peruttiin.`
 
 ## Новые контекстные элементы
 - `lääkärillä`
 - `minulla oli`
+- `viime hetkellä`
+- `asiakas tuli ajoissa`
+- `Sovimme asiakkaan kanssa tapaamisesta ensi viikolla.` — пока рабочий, но требует повторения.
 
-## Результат D+3 — 14.08.2026
-- Основной recall и transfer пройдены устойчиво.
-- `Anteeksi, saatan myöhästyä vähän, koska minulla on tapaaminen samaan aikaan.` — восстановлен самостоятельно после минимальной подсказки.
-- `Voimmeko siirtää tapaamisen kello viiteen?` — восстановлена после точечной коррекции `viiteen`.
-- Новый паттерн `Minun ei tarvinnut ...` успешно встроен в прошедшую ситуацию.
-- `Kokous peruttiin` закреплён как новый repair point.
+## Результат занятия — 15.08.2026
+- Recall `Minun ei tarvinnut ...` восстановлен после одной коррекции `tarvitsi → tarvinnut`.
+- `Kokous peruttiin` восстановлен и использован в transfer.
+- `viime hetkellä` успешно встроен в предложение.
+- Variation `asiakas tuli ajoissa` выполнен самостоятельно после коррекции `tulin → tuli`.
+- Listening → Retell выполнен: общий смысл истории понят, пересказ на финском выполнен с минимальной коррекцией.
+- Free Speaking / Transfer выполнен; более свободная конструкция `Sovimme asiakkaan kanssa tapaamisesta ensi viikolla` пока менее автоматична и остаётся в retention.
+- Финальный контроль без подсказки выполнен.
+- Reflection выполнен.
 
-## Результат нового Listening → Speaking trial — 14.08.2026
-- Общий смысл короткой истории понят самостоятельно.
-- Пересказ выполнен на финском после минимальной коррекции.
-- Variation с новой причиной (`lääkärillä`) выполнен самостоятельно.
-- `tapaamiseen` первоначально заменялось на `tapaaminen`; ошибка исправлена и сразу повторена.
-- Новый режим показал рабочий перенос из listening в speaking и будет использоваться регулярно.
+## Метрики — 15.08.2026
+- Recall: **8.5/10**
+- Грамматика: **8/10**
+- Понимание: **9.5/10**
+- Вариативность: **8.5/10**
+- Transfer: **8/10**
+- Беглость: **8/10**
+- Произношение: **7.5/10**
+- Самостоятельность: **8.5/10**
 
-## Последние метрики — 14.08.2026 D+3
-- Recall: 8.5/10
-- Грамматика: 8/10
-- Понимание: 9.5/10
-- Вариативность: 8.5/10
-- Transfer: 8.5/10
-- Беглость: 8/10
-- Произношение: 7.5/10
-- Самостоятельность: 8.5/10
+## Reflection
+- Стало легче и быстрее вспоминать предыдущий чанк.
+- Требует повторения: `Sovimme asiakkaan kanssa tapaamisesta ensi viikolla`.
+- Реальная микро-задача: вслух использовать конструкцию для описания выходного дня, например мысль «Мне не нужно сегодня идти на работу, потому что выходной».
 
 ## Главные зоны роста
 - автоматический запуск `tapaamiseen` в `tulla tapaamiseen ajoissa`;
-- `samaan aikaan`;
-- `viiteen` в конструкциях переноса времени;
-- `peruttiin` и паттерн `minun ei tarvinnut ...`.
+- `tapaamisesta` в `Sovimme asiakkaan kanssa tapaamisesta ...`;
+- `viime hetkellä`;
+- `peruttiin` и `minun ei tarvinnut ...`;
+- согласование лица/формы глагола: `asiakas tuli`, не `asiakas tulin`.
 
 ## Ближайшее retention
-**Следующая сессия:** короткий recall без подсказок; повтор `minun ei tarvinnut ...`; 2–4 вариации с `peruttiin`; затем listening → speaking с короткой финской историей/диалогом и переносом 2–3 конструкций в собственную речь.
+Следующая сессия: короткий recall; `Sovimme asiakkaan kanssa tapaamisesta ensi viikolla`; 2–4 вариации `Minun ei tarvinnut ...`; затем listening → speaking с чуть более длинным input (примерно 30–60 секунд), если понимание остаётся устойчивым.
 
 Следующие контрольные точки retention: **19.08 (D+7), 02.09 (D+21), 12.09 (D+31)**.
+
+## Улучшения протокола
+- Увеличивать listening input постепенно до 30–60 секунд при устойчивом понимании.
+- Оценивать ключевые chunks отдельно по **Recall / Fluency / Transfer**.
+- Добавить ежедневную микро-практику: один раз вслух сказать одну фразу о реальном дне.
+- Не увеличивать объём новых chunks только ради заполнения урока.
 
 ## Следующая грамматическая цель
 После стабилизации `minun ei tarvinnut ...` — imperfekti vs. perfekti и падежи дополнения.
