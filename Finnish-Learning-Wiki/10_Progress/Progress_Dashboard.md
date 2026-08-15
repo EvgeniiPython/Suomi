@@ -4,6 +4,10 @@
 Переход от заученных предложений к автоматическим чанкам и связной профессиональной речи.
 
 ## Последние метрики
+**15.08.2026 — spoken D+3 / professional meeting**
+- Формальные числовые метрики отдельно не выставлялись.
+- Качественный результат: основные рабочие chunks воспроизводятся и варьируются; guided production с `täytyy + infinitive` пока требует repair.
+
 **14.08.2026 — maintenance перед D+3**
 - Recall: 8.5/10
 - Грамматика: 8.5/10
@@ -27,7 +31,9 @@
 - Автоматизация: 6.5/10
 
 ## Наблюдение
-14.08 recall и понимание выглядят устойчиво, а беглость немного улучшилась. Пользователь самостоятельно использовал причину и предложение нового времени в короткой вариации и смог перенести `samaan aikaan` в новый контекст после repair. При этом `tapaamiseen` и плавность длинного чанка `tulla tapaamiseen ajoissa` ещё требуют автоматизации под нагрузкой.
+15.08 основные профессиональные конструкции о договорённости, переносе встречи и опоздании вышли в самостоятельную variation. Особенно полезна способность менять порядок компонентов: `Sovimme asiakkaan kanssa tapaamisen ensi viikolla` → `Ensi viikolla sovimme tapaamisen asiakkaan kanssa`.
+
+При этом морфология `asiakkaan`, лексическое различение `lähettää` / `lähteä`, `kirjeen` и `lounaan jälkeen` пока требует подсказок. `täytyy + infinitive` использован в production, но пока не автоматизирован.
 
 ## Следующий приоритет
-На D+3 сначала recall без подсказки и вариация; затем drill `tapaamiseen` vs. `tapaamisesta` и `samaan aikaan`. После устойчивого recall перейти к 2–3 новым чанкам, начиная с `minun ei tarvinnut`, и сразу использовать их в рабочем диалоге.
+Blind recall сегодняшних chunks → repair `asiakkaan`, `lähettää kirjeen`, `lounaan jälkeen` → 2–3 вариации с `täytyy + infinitive` → затем возврат к retention-приоритетам `tapaamiseen` / `tapaamisesta` и `samaan aikaan`. Новые chunks только при устойчивом recall и transfer.
