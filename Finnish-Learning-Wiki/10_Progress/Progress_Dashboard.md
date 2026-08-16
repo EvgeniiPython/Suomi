@@ -4,22 +4,25 @@
 Переход от заученных предложений к автоматическим чанкам и связной профессиональной речи.
 
 ## Последняя сессия
-**15.08.2026 — extended spoken D+3 / professional meeting**
+**16.08.2026 — Speaking-First extended lesson**
 
-Качественный результат: пользователь самостоятельно восстановил и варьировал конструкции вокруг встречи, затем перенёс pattern в новую ситуацию и завершил урок самостоятельным коротким рассказом. `täytyy + infinitive`, `lähettää` и `lounaan jälkeen` пока требуют repair/повторного blind recall.
+Качественный результат: пользователь самостоятельно восстановил и варьировал конструкции вокруг `täytyy + infinitive`, звонка/e-mail клиенту и договорённости о встрече; выполнил listening → speaking, transfer, Finnish dialogue, Final Speaking Challenge и Final Recall. Deep Processing выявил собственную типичную ошибку: после `täytyy` пользователь склонен ставить личную форму глагола вместо infinitive.
 
 ### Что подтверждено
-- `asiakkaan kanssa` после repair используется корректно.
-- `sovimme tapaamisesta` воспроизводится в рабочих фразах.
-- `täytyy + infinitive` уже запускается в речи, но нестабильно.
-- `lounaan jälkeen` после repair вышло без подсказки во второй проверке.
-- `lähettää` всё ещё конкурирует с `lähteä`.
+- `minun täytyy + infinitive` используется в нескольких разных ситуациях.
+- `lounaan jälkeen` воспроизводится без подсказки после repair.
+- `sovimme tapaamisesta ensi viikolle` восстанавливается после повторной попытки.
+- `lähetän tänään sähköpostin` воспроизведено после коррекции.
 - Transfer и Final Speaking Challenge выполнены.
+- Final Recall: 3 разных предложения с `minun täytyy + infinitive` выполнены.
+- Listening → Speaking выполнен с общим пониманием, Meaning Blocks и retell.
 
-### Что не подтверждено
-- Полный Listening → Speaking этого урока не выполнен.
-- Final Recall из 3 разных предложений с главным pattern не выполнен.
-- Поэтому эти элементы переносятся в следующий урок, а не считаются выполненными задним числом.
+### Что остаётся нестабильным
+- `täytyy` + infinitive требует delayed blind recall.
+- `lähettää` всё ещё конкурирует с `lähteä`.
+- `en soita` требует отдельного контроля формы отрицания.
+- `ensi viikolla` vs. `ensi viikolle`.
+- `tapaamiseen` vs. `tapaamisesta`.
 
 ## Последние формальные метрики
 **14.08.2026 — maintenance**
@@ -37,15 +40,15 @@
 - Произношение: 8/10
 - Беглость: 7.5/10
 
-Новые числовые оценки 15.08 не выставлялись, чтобы не создавать ложную точность.
+Новые числовые оценки 16.08 не выставлялись, чтобы не создавать ложную точность.
 
 ## Следующий приоритет
-1. Blind recall `täytyy + infinitive`.
+1. Blind recall `minun täytyy + infinitive`.
 2. Repair/variation `lähettää sähköposti`.
 3. Stabilize `lounaan jälkeen`.
 4. `asiakkaan kanssa` + `tapaamisesta`.
-5. Return to `tapaamiseen` / `tapaamisesta` and `samaan aikaan`.
-6. Complete listening → speaking and Final Recall.
+5. `tapaamiseen` / `tapaamisesta` и `ensi viikolla` / `ensi viikolle`.
+6. Delayed recall по расписанию.
 
 ## Системное решение
-Предложение пользователя: не добавлять отдельную новую метрику Fluency. Протокол не изменён; остаются три основные метрики **Recall / Fluency / Transfer**.
+Предложение пользователя не вводить отдельную новую метрику Fluency сохраняется. Протокол не изменён; остаются три основные метрики **Recall / Fluency / Transfer**.
