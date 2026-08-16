@@ -14,42 +14,50 @@
 - 80–87: Final Speaking Challenge + Final Recall.
 - 87–90: retention / lesson record.
 
-## Spoken D+3 / extended lesson — 15.08.2026
+## Speaking-First Extended Lesson — 16.08.2026
 
-### Что реально выполнено
-- Blind recall `sovimme asiakkaan kanssa tapaamisesta ensi viikolle`.
-- Variation `tapaamisesta huomiseksi`.
-- Cold recall `minun täytyy soittaa asiakkaalle lounaan jälkeen`.
-- Transfer в новой ситуации с отправкой e-mail.
-- Короткий Finnish Dialogue.
+### Полный результат
+Сегодня полный учебный цикл закрыт после дополнительного Deep Processing и Retention.
+
+### Выполнено
+- Blind recall target chunks.
+- Listening → Speaking: 30–60 секунд input, общий смысл, Meaning Blocks, самостоятельный пересказ.
+- Deep Processing вокруг `minun täytyy + infinitive`.
+- Controlled speaking и variation.
+- Cold recall.
+- Transfer в новой ситуации.
+- Finnish Dialogue.
 - Error Repair + Second Chance.
-- Final Speaking Challenge: самостоятельный рассказ о завтрашнем рабочем дне.
+- Final Speaking Challenge.
+- Final Recall: 3 разных предложения с `minun täytyy + infinitive`.
+- Retention / lesson record.
 
-### Что не было выполнено
-- Полный Listening → Speaking блок.
-- Полный Final Recall: 3 разных новых предложения с главным pattern.
+### Основные patterns
+1. `Minun täytyy soittaa asiakkaalle lounaan jälkeen.`
+2. `Lounaan jälkeen minun täytyy lähettää sähköposti asiakkaalle.`
+3. `Sovimme tapaamisesta ensi viikolle.`
+4. `Minun täytyy tarkistaa piirustukset huolellisesti.`
 
-### Текущие target chunks
-1. `Sovimme asiakkaan kanssa tapaamisesta ensi viikolle.`
-2. `Minun täytyy soittaa asiakkaalle lounaan jälkeen.`
-3. `Lounaan jälkeen minun täytyy lähettää sähköposti asiakkaalle.`
-4. `Me sovimme tapaamisesta huomiseksi.`
+### Что закрепилось
+- `minun täytyy + infinitive` запускается в нескольких ситуациях.
+- `lounaan jälkeen` вышло без подсказки во второй проверке.
+- `sovimme tapaamisesta ensi viikolle` восстановлено после повторной попытки.
+- `lähetän tänään sähköpostin` воспроизведено после repair.
+- `asiakkaan kanssa` сохраняется как рабочая форма после коррекции.
 
-### Repair
-- `asiakaan` → `asiakkaan`
-- нестабильное `täytyy` → `täytyy`
-- `lähteä` → `lähettää`
-- `kirjan` → `kirjeen`
-- `lounasta` → `lounaan jälkeen`
-
-## Следующий урок
-Начать без подсказок. Сначала четыре target chunks, затем максимум 3 приоритетных repair. После устойчивого recall — variation и transfer. Затем короткий listening 30–60 секунд → retell. В конце обязательно выполнить пропущенный Final Recall: 3 разных предложения с `täytyy + infinitive`.
+### Главные ошибки
+- `täytyy` + личная форма глагола → после `täytyy` нужен infinitive.
+- `lähteä` → `lähettää` в значении «отправить».
+- `en soittaa` → `en soita` в отрицательной конструкции.
+- `ensi viikolla` vs. `ensi viikolle`.
+- `tapaamiseen` vs. `tapaamisesta`.
 
 ## Retention
-- **19.08.2026:** blind recall + repair + variation/transfer; при устойчивом recall — listening → speaking.
-- **22.08.2026:** delayed recall сегодняшних нестабильных chunks.
+- **17.08.2026:** короткий blind recall основных chunks.
+- **19.08.2026:** D+3 — recall + repair + variation/transfer.
+- **22.08.2026:** delayed recall нестабильных chunks.
 - **02.09.2026:** долгосрочный recall.
 - **12.09.2026:** контроль и пересмотр статусов.
 
-## Не делать
-Не добавлять новые chunks только ради объёма. Guided production не считать Active без самостоятельного blind recall и transfer.
+## Следующий урок
+Начать без подсказок с `minun täytyy + infinitive`, `lähettää sähköposti`, `lounaan jälkeen`, `sovimme tapaamisesta`. Приоритет — `täytyy` и `lähettää`; новые chunks добавлять только при устойчивом recall + variation + transfer.
