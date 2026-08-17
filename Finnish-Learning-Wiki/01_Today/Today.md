@@ -17,7 +17,7 @@
 ## Speaking-First Extended Lesson — 16.08.2026
 
 ### Полный результат
-Сегодня полный учебный цикл закрыт после дополнительного Deep Processing и Retention.
+Полный учебный цикл закрыт после дополнительного Deep Processing и Retention.
 
 ### Выполнено
 - Blind recall target chunks.
@@ -38,26 +38,59 @@
 3. `Sovimme tapaamisesta ensi viikolle.`
 4. `Minun täytyy tarkistaa piirustukset huolellisesti.`
 
-### Что закрепилось
-- `minun täytyy + infinitive` запускается в нескольких ситуациях.
-- `lounaan jälkeen` вышло без подсказки во второй проверке.
-- `sovimme tapaamisesta ensi viikolle` восстановлено после повторной попытки.
-- `lähetän tänään sähköpostin` воспроизведено после repair.
-- `asiakkaan kanssa` сохраняется как рабочая форма после коррекции.
+## Speaking-First Retention / Completion — 17.08.2026
 
-### Главные ошибки
-- `täytyy` + личная форма глагола → после `täytyy` нужен infinitive.
-- `lähteä` → `lähettää` в значении «отправить».
-- `en soittaa` → `en soita` в отрицательной конструкции.
-- `ensi viikolla` vs. `ensi viikolle`.
-- `tapaamiseen` vs. `tapaamisesta`.
+### Статус
+**Урок закрыт.** D+1 retention и продолжение незавершённых элементов предыдущего extended lesson выполнены. Новые chunks не добавлялись.
+
+### Выполнено сегодня
+- Blind recall основных chunks без подсказок.
+- Listening → Speaking с коротким input, Meaning Blocks и самостоятельным retell.
+- Deep Processing для `minun täytyy + infinitive`.
+- Controlled speaking.
+- Variation Chain: время/обстоятельство, отрицание, причина.
+- Cold Recall / повторное извлечение.
+- Transfer в новой ситуации.
+- Finnish Dialogue: `Milloin lähetät sähköpostin?` → `Huomenna lounaan jälkeen.`
+- Error Repair + Second Chance по `en soita`, `en lähetä`, `lähetän`, `lähettää`.
+- Final Speaking Challenge: самостоятельный рассказ о рабочем дне с работой, письмом, Teams-встречей и чертежами.
+- Final Recall: 3 самостоятельных предложения с `minun täytyy + infinitive`.
+- Retention result подготовлен к следующему recall.
+
+### Метрики — качественный статус
+- **Recall:** `minun täytyy + infinitive` — Semi-active / близко к Active; конструкция запускается самостоятельно, но формы иногда требуют repair.
+- **Fluency:** средняя/нестабильная; заметны паузы при выборе форм `lähetän / en lähetä / en soita`.
+- **Transfer:** достигнут, но пока нестабилен в новых ситуациях.
+- **Listening → Speaking:** выполнен; общий смысл и основные Meaning Blocks восстановлены.
+- **Variation:** выполнена; отрицание и причина добавляются к базовой конструкции.
+- **Dialogue:** рабочий уровень; ответы на прямые вопросы воспроизводятся, follow-up требует ещё автоматизации.
+- **Second Chance:** частично успешен; `en soita` стало доступнее без подсказки, `lähetä/lähetän` остаётся зоной внимания.
+
+### Что закрепилось
+- `minun täytyy + infinitive` используется в работе, дома и планах.
+- `lounaan jälkeen` воспроизводится устойчивее.
+- `en soita` и `en lähetä` теперь распознаются как отрицательные формы, но требуют дополнительной автоматизации.
+- `lähetän sähköpostin` и `lähetä sähköpostia` остаются различаемыми, но ещё конкурируют с `lähteä`.
+- `sovimme tapaamisesta` остаётся рабочим pattern.
+
+### Приоритеты следующего занятия
+1. Автоматизировать `en soita / soitan`.
+2. Автоматизировать `en lähetä / lähetän / lähettää`.
+3. Повторить `lounaan jälkeen` и `sovimme tapaamisesta` в новых контекстах.
+4. Только после устойчивого recall + variation + transfer рассматривать новые chunks.
+
+### Retention schedule
+- **19.08.2026:** D+3 — recall + максимум 3 repair + 2–4 variation + transfer; listening → speaking только при устойчивом recall.
+- **22.08.2026:** delayed recall нестабильных chunks.
+- **02.09.2026:** долгосрочный recall профессиональных chunks.
+- **12.09.2026:** контрольный recall и пересмотр статусов Active/Semi-active.
+
+### Важное правило
+Сегодняшний урок закрыт, но закрытие урока **не означает**, что все patterns стали Active. Нестабильные формы остаются в retention и Error Log; новые chunks не добавлять автоматически.
 
 ## Retention
-- **17.08.2026:** короткий blind recall основных chunks.
+- **17.08.2026:** D+1 blind recall — выполнен.
 - **19.08.2026:** D+3 — recall + repair + variation/transfer.
 - **22.08.2026:** delayed recall нестабильных chunks.
 - **02.09.2026:** долгосрочный recall.
 - **12.09.2026:** контроль и пересмотр статусов.
-
-## Следующий урок
-Начать без подсказок с `minun täytyy + infinitive`, `lähettää sähköposti`, `lounaan jälkeen`, `sovimme tapaamisesta`. Приоритет — `täytyy` и `lähettää`; новые chunks добавлять только при устойчивом recall + variation + transfer.
