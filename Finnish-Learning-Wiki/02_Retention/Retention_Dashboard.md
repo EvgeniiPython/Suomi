@@ -11,6 +11,7 @@
 | 12.09.2026 | D+27 | Контрольный recall и пересмотр статусов Active/Semi-active | 🟡 Medium |
 
 ## Speaking-First Extended Lesson — 16.08.2026
+
 ### Выполнено
 - Blind recall target chunks.
 - Полный Listening → Speaking с input примерно 30–60 секунд.
@@ -31,19 +32,63 @@
 - `lähettää sähköposti`: Semi-active; `lähettää` всё ещё конкурирует с `lähteä`.
 - `asiakkaan kanssa`: рабочая форма после repair.
 
+## D+1 Completion — 17.08.2026
+
+### Статус
+**Закрыто.** D+1 recall выполнен, незавершённые элементы предыдущего extended lesson закрыты на уровне учебного цикла. Новые chunks не добавлялись.
+
+### Выполненные блоки
+- Retrieval / blind recall.
+- Listening → Speaking.
+- Deep Processing / Encoding.
+- Controlled Speaking.
+- Variation Chain.
+- Cold Recall.
+- Transfer.
+- Finnish Dialogue.
+- Error Repair + Second Chance.
+- Final Speaking Challenge.
+- Final Recall.
+- Retention / lesson record.
+
+### Качественные метрики
+| Chunk / pattern | Recall | Fluency | Transfer | Итоговый статус |
+|---|---|---|---|---|
+| `minun täytyy + infinitive` | устойчивый, но с локальными repair | средняя | достигнут, нестабилен | Semi-active → близко к Active |
+| `lounaan jälkeen` | хороший | средняя/хорошая | работает | Semi-active / стабильнее |
+| `sovimme tapaamisesta` | рабочий | средняя | работает, нужна автоматизация | Semi-active |
+| `lähettää sähköposti` | рабочий, но с конкуренцией `lähteä` | нестабильная | требует повторения | Semi-active |
+| `en soita / soitan` | распознаётся, после Second Chance лучше | нестабильная | требует нового контекста | Active form under repair |
+| `en lähetä / lähetän` | различение появилось, но формы смешиваются | нестабильная | нестабилен | Semi-active |
+| `asiakkaan kanssa` | рабочий | средняя | работает | Semi-active / рабочая форма |
+
+### Ошибки и Second Chance
+1. `täytyy` + личная форма → после `täytyy` нужен infinitive. Повторно проверено; правило понятно, автоматизм ещё закрепляется.
+2. `lähteä` vs. `lähettää`. Конкуренция сохраняется.
+3. `en soittaa` → `en soita`. Second Chance дал улучшение.
+4. `en lähetä` vs. `lähetän`. Главная активная зона на следующий recall.
+5. `ensi viikolla` vs. `ensi viikolle`. Продолжать в контексте `sovimme tapaamisesta`.
+6. `tapaamiseen` vs. `tapaamisesta`. Продолжать автоматизацию формы.
+
+### Следующие действия
+**19.08.2026 — D+3:** blind recall → максимум 3 repair → 2–4 variation → transfer; listening → speaking только если recall устойчив.
+
+**22.08.2026 — D+6:** delayed recall без подсказок: `täytyy`, `lähettää`, `lounaan jälkeen`, `asiakkaan kanssa`, `tapaamisesta`.
+
+**02.09.2026 — D+17:** долгосрочный recall профессиональных chunks.
+
+**12.09.2026 — D+27:** контрольный recall и пересмотр Active/Semi-active.
+
+### Правило новых chunks
+Не добавлять новые chunks автоматически. Сначала добиться устойчивого recall + variation + transfer по текущим зонам внимания.
+
 ## Главные ошибки
 1. `täytyy` + личная форма → после `täytyy` нужен infinitive.
 2. `lähteä` vs. `lähettää`.
 3. `en soittaa` → `en soita`.
 4. `ensi viikolla` vs. `ensi viikolle`.
 5. `tapaamiseen` vs. `tapaamisesta`.
-
-## Следующий этап
-**17.08.2026:** короткий blind recall без подсказок. Не добавлять новые chunks автоматически.
-
-**19.08.2026:** blind recall → максимум 3 repair → variation → transfer; затем listening → speaking только при устойчивом recall.
-
-**22.08.2026:** delayed recall нестабильных chunks.
+6. `en lähetä` vs. `lähetän`.
 
 ## Принцип
 Guided production не считается Active без самостоятельного blind recall и transfer. Новые chunks добавляются только при устойчивом recall + variation + transfer.
