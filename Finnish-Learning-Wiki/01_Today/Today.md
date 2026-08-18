@@ -91,39 +91,57 @@
 ## Speaking-First Lesson — 18.08.2026
 
 ### Статус
-**Урок полностью закрыт.** Это дополнительный урок между D+1 и D+3. Обязательная retention-точка остаётся 19.08.2026.
+**Урок полностью закрыт.** Это дополнительный урок между D+1 и D+3. Обязательная retention-точка остаётся **19.08.2026**.
 
-### Выполнено
-- Cold recall `minun täytyy + infinitive`, `en soita`, `en lähetä`.
-- Controlled speaking и repair.
-- Variation Chain с отрицанием и причиной.
-- Transfer в рабочей ситуации.
-- Finnish Dialogue: `Milloin lähetät sähköpostin?` → `Huomenna lounaan jälkeen` → `asiakkaalle huomenna lounaan jälkeen`.
-- Error Repair + Second Chance: `en soittaa` → `en soita`; `en lähettä` → `en lähetä`; `sähköpostin` → `sähköpostia` в отрицательной конструкции.
-- Final Speaking Challenge: рассказ о завтрашнем дне — работа, курс, семья, прогулка вдоль Aurajoki.
-- Final Recall: `Tänään minun täytyy mennä kurssille`; `Minä en soita asiakkaalle, koska olen väsynyt`; `Me sovimme, että minä lähetän sähköpostin huomenna aamulla`.
-- Retention / lesson record.
+### Формат и покрытие протокола
+- Retrieval / recall: выполнено.
+- Listening → Speaking: отдельный input в этой сессии не проводился; не считать выполненным задним числом.
+- Controlled speaking + variation: выполнено.
+- Cold recall: выполнено.
+- Transfer: выполнен в рабочем и условном контексте.
+- Finnish dialogue: выполнен в форме последовательного разговора с коллегой.
+- Error Repair + Second Chance: выполнено через Hint → Repair → повторное самостоятельное воспроизведение.
+- Final Speaking Challenge: выполнен.
+- Final Recall: 3 предложения без подсказки выполнены правильно.
+- Retention / lesson record: сохранён в `03_Sessions/2026-08-18.md`.
 
-### Качественные метрики
-- **Recall:** `minun täytyy + infinitive` — рабочий и самостоятельно запускается; Semi-active → близко к Active.
-- **Fluency:** средняя; паузы сохраняются при отрицательных формах и выборе окончания.
-- **Transfer:** выполнен в новой рабочей ситуации; смысл и порядок действий сохраняются.
-- **Variation:** выполнена; время, отрицание, причина и последовательность действий использованы.
-- **Dialogue:** рабочий; прямой вопрос и follow-up с `huomenna lounaan jälkeen` выполнены.
-- **Second Chance:** успешный локально; `en soita` и `en lähetä` воспроизведены после repair.
-- **Final Speaking:** выполнен связный рассказ без полного шаблона.
-- **Final Recall:** 3 самостоятельных предложения выполнены.
+### Что реально закрепилось
+- `minun täytyy + infinitive` — рабочий, близко к Active; конструкция самостоятельно комбинируется с несколькими действиями.
+- `lounaan jälkeen` — стабильно воспроизводится.
+- `ennen lounasta` — усвоено, но требуется delayed recall.
+- `tapaamisen jälkeen` — рабочий / близко к Active.
+- `soittaa asiakkaalle` — активно используется в новых контекстах.
+- `lähettää hänelle sähköposti` — рабочая конструкция; продолжать контролировать объект/падеж.
+- `saada projekti valmiiksi` — Semi-active → рабочий; восстановлен после repair и затем использован самостоятельно.
+- `pyytää häntä tekemään` — новый рабочий chunk; пока Semi-active.
+- `jos en ehdi saada projektia valmiiksi, ...` — рабочая условная конструкция, требующая повторного delayed recall.
 
-### Ошибки / зоны внимания
-1. `täytyy` + личная форма — правило понятно, но автоматизм нужно продолжать.
-2. `lähteä` vs. `lähettää` — сохраняется конкуренция.
-3. `en soittaa` → `en soita` — исправлено, но требует delayed recall.
-4. `en lähettä` → `en lähetä` — форма требует автоматизации.
-5. `sähköpostin` vs. `sähköpostia` — падеж зависит от конструкции; продолжать в контексте `en lähetä sähköpostia` / `lähetän sähköpostin`.
-6. `ensi viikolla / ensi viikolle` и `tapaamiseen / tapaamisesta` — сохраняются в retention.
+### Приоритетные ошибки / repair
+1. `lounan` → `lounaan`.
+2. `asiakkalle / asiakaan` → `asiakkaalle`.
+3. `tavata asiakaan kanssa` → `tavata asiakas`.
+4. `eilen louna` → `ennen lounasta`.
+5. `ammulla / aammulla` → `aamulla`.
+6. `Tapaan jälkeen` → `tapaamisen jälkeen`.
+7. `uudesta projektesta` → `uudesta projektista`.
+8. `en ehtinyt / soitin` в будущем условии → `en ehdi / soitan`.
+9. `projektin` → `projektia` в `en ehdi saada projektia valmiiksi`.
+10. `asiakkalle` → `asiakkaalle`; `homenna` → `huomenna`.
+11. `Pyydän tekemään` → `Pyydän häntä tekemään`.
 
-### Итог
-**Новых chunks не добавлено.** Урок закрыт без учебного долга. Следующая обязательная точка — 19.08.2026 D+3.
+### Статус после урока
+- **Active / Flexible:** `minun täytyy + infinitive`, `soittaa asiakkaalle`, `tapaamisen jälkeen`.
+- **Semi-active / Guided:** `ennen lounasta`, `saada projekti valmiiksi`, `pyytää häntä tekemään`, условная цепочка `jos en ehdi...`.
+- Не повышать новые chunks до Active только по одному успешному уроку.
+
+### Retention schedule
+- **19.08.2026 — D+3:** blind recall без подсказок; максимум 3 repair; 2–4 variation; transfer.
+- **22.08.2026:** delayed recall нестабильных chunks.
+- **02.09.2026:** долгосрочный recall профессиональных chunks.
+- **12.09.2026:** контрольный recall и пересмотр статусов Active/Semi-active.
+
+### Ограничение на новые chunks
+До успешного delayed recall `pyytää häntä tekemään`, `saada projekti valmiiksi`, `ennen lounasta` и условной цепочки новые chunks не вводить автоматически.
 
 ## Retention
 - **17.08.2026:** D+1 blind recall — выполнен.
