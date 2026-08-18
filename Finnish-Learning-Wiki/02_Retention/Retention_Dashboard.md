@@ -76,7 +76,7 @@
 **Полностью закрыто.** Это дополнительный урок между D+1 и D+3. Следующая обязательная retention-точка остаётся 19.08.2026.
 
 ### Выполненные блоки
-- Cold recall / retrieval.
+- Retrieval / blind recall.
 - Controlled speaking.
 - Variation Chain.
 - Transfer.
@@ -86,51 +86,49 @@
 - Final Recall.
 - Retention / lesson record.
 
+### Важное покрытие протокола
+Отдельный полноценный Listening → Speaking input в этой сессии не проводился; не считать этот блок выполненным задним числом.
+
 ### Качественные метрики
 | Chunk / pattern | Recall | Fluency | Transfer | Итоговый статус |
 |---|---|---|---|---|
 | `minun täytyy + infinitive` | самостоятельный, локальные repair | средняя | достигнут | Semi-active → близко к Active |
-| `lounaan jälkeen` | хороший | хорошая | работает | Semi-active / стабильнее |
-| `sovimme tapaamisesta` | рабочий | средняя | работает | Semi-active |
-| `lähettää / lähteä` | различение ещё требует внимания | нестабильная | требует повторения | Semi-active |
-| `en soita / soitan` | после repair воспроизводится | нестабильная | достигнут в диалоге | Active form under repair |
-| `en lähetä / lähetän` | различение есть, форма ещё конкурирует | нестабильная | частично стабилен | Semi-active |
-| `sähköpostia / sähköpostin` | контекстное различение после repair | средняя | работает в простых фразах | Semi-active |
+| `lounaan jälkeen` | хороший | хорошая | работает | Active-watch / стабильнее |
+| `ennen lounasta` | после repair воспроизведён самостоятельно | средняя | ограниченно проверен | Semi-active / delayed recall |
+| `tapaamisen jälkeen` | самостоятельно после первого repair | хорошая | достигнут | Active-watch |
+| `soittaa asiakkaalle` | устойчиво используется в новых контекстах | хорошая | достигнут | Active / Flexible |
+| `lähettää hänelle sähköposti` | самостоятельно используется | средняя | достигнут | Active-watch |
+| `saada projekti valmiiksi` | после repair затем использован самостоятельно | средняя | достигнут | Semi-active → рабочий |
+| `pyytää häntä tekemään` | после repair воспроизведён и применён самостоятельно | средняя | начальный transfer | Semi-active |
+| `jos en ehdi saada projektia valmiiksi...` | полная цепочка восстановлена после repair | средняя | достигнут | Semi-active / delayed recall |
 
 ### Выполнено в речи
-- `Tänään minun täytyy mennä kurssille.`
-- `Minä en soita asiakkaalle, koska olen väsynyt.`
-- `Me sovimme, että minä lähetän sähköpostin huomenna aamulla.`
-- Transfer: `Tänään en lähetä sähköpostia, koska olen väsynyt.`
-- Dialogue: `Milloin lähetät sähköpostin?` → `Huomenna lounaan jälkeen.` → `Joo, asiakkaalle huomenna lounaan jälkeen.`
-- Final Speaking: рассказ о завтрашнем дне с работой, курсом, семьёй и прогулкой вдоль Aurajoki.
+- `Huomenna aamulla minun täytyy tavata asiakas.`
+- `Tapaamisen jälkeen minun täytyy soittaa asiakkaalle ja lähettää hänelle sähköposti ennen lounasta.`
+- `Töiden jälkeen minun täytyy mennä kurssille. Sen jälkeen minun täytyy viettää aikaa perheeni kanssa.`
+- `Olen väsynyt, joten minun täytyy mennä kotiin.`
+- `Okei, voin saada tämän projektin valmiiksi huomenna aamulla.`
+- `Jos en ehdi saada projektia valmiiksi, soitan asiakkaalle ja pyydän häntä tekemään sen huomenna.`
+- `Soitan asiakkaalle ja pyydän häntä tekemään ne huomenna, koska tänään minulla ei ole aikaa.`
+
+### Финальный recall
+Без подсказки выполнены три target sentences:
+1. `Tapamisen jälkeen minun täytyy soittaa asiakkaalle.`
+2. `Lounaan jälkeen minun täytyy lähettää hänelle sähköposti.`
+3. `Jos en ehdi saada projektia valmiiksi, soitan asiakkaalle.`
+
+Все три произведены правильно.
 
 ### Ошибки / Second Chance
-1. `en soittaa` → `en soita`: исправлено после repair и повторено без подсказки; delayed mixed-choice check ещё нужен.
-2. `en lähettä` → `en lähetä`: исправлено после repair; delayed mixed-choice check ещё нужен.
-3. `sähköpostin` vs. `sähköpostia`: различение отработано в `lähetän sähköpostin` и `en lähetä sähköpostia`.
-4. `täytyy` + infinitive: правило удерживается, но требует delayed recall.
-5. `lähteä` vs. `lähettää`: конкуренция сохраняется и относится к contrast-selection.
-6. `ensi viikolla / ensi viikolle` и `tapaamiseen / tapaamisesta`: оставить в retention.
-
-### System Evidence
-
-С 18.08 для ключевых patterns применяется:
-
-```text
-Mastery Ladder: active -> consolidating -> stable -> dormant
-Evidence Score: 0–3
-Unlabeled Mixed Choice for competing forms
-Error Cause classification
-```
+Основные repair: `lounan → lounaan`, `asiakkalle/asiakaan → asiakkaalle`, `tavata asiakaan kanssa → tavata asiakas`, `eilen louna → ennen lounasta`, `ammulla/aammulla → aamulla`, `Tapaan jälkeen → tapaamisen jälkeen`, `projektesta → projektista`, смешение `en ehtinyt/soitin` с будущим `en ehdi/soitan`, `projektin → projektia`, `Pyydän tekemään → Pyydän häntä tekemään`.
 
 ### Итог
-Новые chunks **не добавлялись**. Урок закрыт без учебного долга. Основные активные зоны остаются Semi-active/active-watch и продолжают retention.
+Новые chunks **не добавлялись**. Урок закрыт без учебного долга. Новые patterns не повышать до Active только по одному успешному уроку; нужен delayed blind recall + variation + transfer.
 
 ## Следующая обязательная точка
 **19.08.2026 — D+3:** blind recall → максимум 3 repair → 2–4 variation → unlabeled mixed-choice → transfer; listening → speaking только при устойчивом recall.
 
-**22.08.2026 — D+6:** delayed recall без подсказок: `täytyy`, `lähettää`, `lounaan jälkeen`, `asiakkaan kanssa`, `tapaamisesta`.
+**22.08.2026 — D+6:** delayed recall без подсказок: `täytyy`, `lähettää`, `lounaan jälkeen`, `ennen lounasta`, `tapaamisen jälkeen`, `saada projekti valmiiksi`, `pyytää häntä tekemään`.
 
 **02.09.2026 — D+17:** долгосрочный recall профессиональных chunks.
 
@@ -147,6 +145,7 @@ Error Cause classification
 5. `tapaamiseen` vs. `tapaamisesta`.
 6. `en lähetä` vs. `lähetän`.
 7. `sähköpostia` vs. `sähköpostin` по контексту.
+8. `pyytää häntä tekemään` и `saada projekti valmiiksi` теперь добавлены как новые retention-приоритеты.
 
 ## Source of Truth
 - [[../00_System/Lesson_Protocol]]
