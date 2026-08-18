@@ -82,10 +82,10 @@ These older metrics remain historical. We now use the explicit 0–3 evidence sc
 
 ```text
 en soita / soitan -> contrast_selection + retrieval
- en lähetä / lähetän -> contrast_selection + retrieval
+en lähetä / lähetän -> contrast_selection + retrieval
 sähköpostia / sähköpostin -> contrast_selection
 lähettää / lähteä -> contrast_selection
- täytyy + infinitive -> retrieval under processing load
+täytyy + infinitive -> retrieval under processing load
 ```
 
 ## Next Measurement Point
