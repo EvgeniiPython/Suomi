@@ -1,6 +1,6 @@
 ---
 title: Metrics And Audit
- type: system-rule
+type: system-rule
 source: archive recovery + 2026-08-18 system upgrade
 tags: [metrics, audit, progress, speaking]
 ---
@@ -43,11 +43,7 @@ Speaking state: automatic / hesitant / blocked
 
 Never fabricate a numeric value. If the lesson did not measure it, write `not measured`.
 
-## Historical Data Rule
-
-Do not backfill exact numeric metrics into old lessons unless the original evidence supports the number. Reconstructed values must be labeled `reconstructed`.
-
-## Quarterly-Style Lesson Audit
+## Biweekly Audit
 
 Every 14 days, compare:
 
