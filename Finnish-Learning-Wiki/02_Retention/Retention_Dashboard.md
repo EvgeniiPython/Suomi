@@ -70,8 +70,54 @@
 5. `ensi viikolla` vs. `ensi viikolle`. Продолжать в контексте `sovimme tapaamisesta`.
 6. `tapaamiseen` vs. `tapaamisesta`. Продолжать автоматизацию формы.
 
-### Следующие действия
-**19.08.2026 — D+3:** blind recall → максимум 3 repair → 2–4 variation → transfer; listening → speaking только если recall устойчив.
+## Speaking-First Lesson Completion — 18.08.2026
+
+### Статус
+**Полностью закрыто.** Это дополнительный урок между D+1 и D+3. Следующая обязательная retention-точка остаётся 19.08.2026.
+
+### Выполненные блоки
+- Cold recall / retrieval.
+- Controlled speaking.
+- Variation Chain.
+- Transfer.
+- Finnish Dialogue.
+- Error Repair + Second Chance.
+- Final Speaking Challenge.
+- Final Recall.
+- Retention / lesson record.
+
+### Качественные метрики
+| Chunk / pattern | Recall | Fluency | Transfer | Итоговый статус |
+|---|---|---|---|---|
+| `minun täytyy + infinitive` | самостоятельный, локальные repair | средняя | достигнут | Semi-active → близко к Active |
+| `lounaan jälkeen` | хороший | хорошая | работает | Semi-active / стабильнее |
+| `sovimme tapaamisesta` | рабочий | средняя | работает | Semi-active |
+| `lähettää / lähteä` | различение ещё требует внимания | нестабильная | требует повторения | Semi-active |
+| `en soita / soitan` | после repair воспроизводится | нестабильная | достигнут в диалоге | Active form under repair |
+| `en lähetä / lähetän` | различение есть, форма ещё конкурирует | нестабильная | частично стабилен | Semi-active |
+| `sähköpostia / sähköpostin` | контекстное различение после repair | средняя | работает в простых фразах | Semi-active |
+
+### Выполнено в речи
+- `Tänään minun täytyy mennä kurssille.`
+- `Minä en soita asiakkaalle, koska olen väsynyt.`
+- `Me sovimme, että minä lähetän sähköpostin huomenna aamulla.`
+- Transfer: `Tänään en lähetä sähköpostia, koska olen väsynyt.`
+- Dialogue: `Milloin lähetät sähköpostin?` → `Huomenna lounaan jälkeen.` → `Joo, asiakkaalle huomenna lounaan jälkeen.`
+- Final Speaking: рассказ о завтрашнем дне с работой, курсом, семьёй и прогулкой вдоль Aurajoki.
+
+### Ошибки / Second Chance
+1. `en soittaa` → `en soita`: исправлено после repair и повторено без подсказки.
+2. `en lähettä` → `en lähetä`: исправлено после repair.
+3. `sähköpostin` vs. `sähköpostia`: различение отработано в `lähetän sähköpostin` и `en lähetä sähköpostia`.
+4. `täytyy` + infinitive: правило удерживается, но требует delayed recall.
+5. `lähteä` vs. `lähettää`: конкуренция сохраняется.
+6. `ensi viikolla / ensi viikolle` и `tapaamiseen / tapaamisesta`: оставить в retention.
+
+### Итог
+Новые chunks **не добавлялись**. Урок закрыт без учебного долга. Основные активные зоны остаются Semi-active и продолжают retention.
+
+### Следующая обязательная точка
+**19.08.2026 — D+3:** blind recall → максимум 3 repair → 2–4 variation → transfer; listening → speaking только при устойчивом recall.
 
 **22.08.2026 — D+6:** delayed recall без подсказок: `täytyy`, `lähettää`, `lounaan jälkeen`, `asiakkaan kanssa`, `tapaamisesta`.
 
@@ -89,6 +135,7 @@
 4. `ensi viikolla` vs. `ensi viikolle`.
 5. `tapaamiseen` vs. `tapaamisesta`.
 6. `en lähetä` vs. `lähetän`.
+7. `sähköpostia` vs. `sähköpostin` по контексту.
 
 ## Принцип
 Guided production не считается Active без самостоятельного blind recall и transfer. Новые chunks добавляются только при устойчивом recall + variation + transfer.
