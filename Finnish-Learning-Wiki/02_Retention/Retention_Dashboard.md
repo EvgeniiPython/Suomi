@@ -5,8 +5,8 @@
 | Дата | Интервал | Задача | Приоритет |
 |---|---|---|---|
 | 17.08.2026 | D+1 | Короткий blind recall: `minun täytyy + infinitive`; `lähettää sähköposti`; `lounaan jälkeen`; `sovimme tapaamisesta` | 🔴 High |
-| 19.08.2026 | D+3 | Recall + repair + 2–4 variation + transfer; при устойчивом recall короткий listening → speaking | 🔴 High |
-| 22.08.2026 | D+6 / delayed recall | Без подсказок: `täytyy`, `lähettää`, `lounaan jälkeen`, `asiakkaan kanssa`, `tapaamisesta` | 🔴 High |
+| 19.08.2026 | D+3 | Recall + максимум 3 repair + 2–4 variation + unlabeled mixed-choice + transfer; listening → speaking только при устойчивом recall | 🔴 High |
+| 22.08.2026 | D+6 / delayed recall | Без подсказок: `täytyy`, `lähettää`, `lounaan jälkeen`, `asiakkaan kanssa`, `tapaamisesta`; mixed-choice при конкурирующих формах | 🔴 High |
 | 02.09.2026 | D+17 | Долгосрочный recall профессиональных chunks | 🟡 Medium |
 | 12.09.2026 | D+27 | Контрольный recall и пересмотр статусов Active/Semi-active | 🟡 Medium |
 
@@ -106,18 +106,29 @@
 - Final Speaking: рассказ о завтрашнем дне с работой, курсом, семьёй и прогулкой вдоль Aurajoki.
 
 ### Ошибки / Second Chance
-1. `en soittaa` → `en soita`: исправлено после repair и повторено без подсказки.
-2. `en lähettä` → `en lähetä`: исправлено после repair.
+1. `en soittaa` → `en soita`: исправлено после repair и повторено без подсказки; delayed mixed-choice check ещё нужен.
+2. `en lähettä` → `en lähetä`: исправлено после repair; delayed mixed-choice check ещё нужен.
 3. `sähköpostin` vs. `sähköpostia`: различение отработано в `lähetän sähköpostin` и `en lähetä sähköpostia`.
 4. `täytyy` + infinitive: правило удерживается, но требует delayed recall.
-5. `lähteä` vs. `lähettää`: конкуренция сохраняется.
+5. `lähteä` vs. `lähettää`: конкуренция сохраняется и относится к contrast-selection.
 6. `ensi viikolla / ensi viikolle` и `tapaamiseen / tapaamisesta`: оставить в retention.
 
-### Итог
-Новые chunks **не добавлялись**. Урок закрыт без учебного долга. Основные активные зоны остаются Semi-active и продолжают retention.
+### System Evidence
 
-### Следующая обязательная точка
-**19.08.2026 — D+3:** blind recall → максимум 3 repair → 2–4 variation → transfer; listening → speaking только при устойчивом recall.
+С 18.08 для ключевых patterns применяется:
+
+```text
+Mastery Ladder: active -> consolidating -> stable -> dormant
+Evidence Score: 0–3
+Unlabeled Mixed Choice for competing forms
+Error Cause classification
+```
+
+### Итог
+Новые chunks **не добавлялись**. Урок закрыт без учебного долга. Основные активные зоны остаются Semi-active/active-watch и продолжают retention.
+
+## Следующая обязательная точка
+**19.08.2026 — D+3:** blind recall → максимум 3 repair → 2–4 variation → unlabeled mixed-choice → transfer; listening → speaking только при устойчивом recall.
 
 **22.08.2026 — D+6:** delayed recall без подсказок: `täytyy`, `lähettää`, `lounaan jälkeen`, `asiakkaan kanssa`, `tapaamisesta`.
 
@@ -126,7 +137,7 @@
 **12.09.2026 — D+27:** контрольный recall и пересмотр Active/Semi-active.
 
 ### Правило новых chunks
-Не добавлять новые chunks автоматически. Сначала добиться устойчивого recall + variation + transfer по текущим зонам внимания.
+Не добавлять новые chunks автоматически. Сначала добиться устойчивого recall + variation + transfer; при active grammar trigger расширение останавливается.
 
 ## Главные ошибки
 1. `täytyy` + личная форма → после `täytyy` нужен infinitive.
@@ -137,5 +148,9 @@
 6. `en lähetä` vs. `lähetän`.
 7. `sähköpostia` vs. `sähköpostin` по контексту.
 
-## Принцип
-Guided production не считается Active без самостоятельного blind recall и transfer. Новые chunks добавляются только при устойчивом recall + variation + transfer.
+## Source of Truth
+- [[../00_System/Lesson_Protocol]]
+- [[../00_System/Mastery_Criteria]]
+- [[../00_System/Grammar_Trigger_Rule]]
+- [[../00_System/Metrics_And_Audit]]
+- [[Retention_Rules]]
