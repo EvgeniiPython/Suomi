@@ -41,7 +41,7 @@
 ## Speaking-First Retention / Completion — 17.08.2026
 
 ### Статус
-**Урок закрыт.** D+1 retention и продолжение незавершённых элементов предыдущего extended lesson выполнены. Новые chunks не добавлялись.
+**Урок закрыт.** D+1 retention и продолжение незавершённых элементов предыдущего extended lesson выполнены. Uudet chunks eivät olleet mukana.
 
 ### Выполнено сегодня
 - Blind recall основных chunks без подсказок.
@@ -88,8 +88,46 @@
 ### Важное правило
 Сегодняшний урок закрыт, но закрытие урока **не означает**, что все patterns стали Active. Нестабильные формы остаются в retention и Error Log; новые chunks не добавлять автоматически.
 
+## Speaking-First Lesson — 18.08.2026
+
+### Статус
+**Урок полностью закрыт.** Это дополнительный урок между D+1 и D+3. Обязательная retention-точка остаётся 19.08.2026.
+
+### Выполнено
+- Cold recall `minun täytyy + infinitive`, `en soita`, `en lähetä`.
+- Controlled speaking и repair.
+- Variation Chain с отрицанием и причиной.
+- Transfer в рабочей ситуации.
+- Finnish Dialogue: `Milloin lähetät sähköpostin?` → `Huomenna lounaan jälkeen` → `asiakkaalle huomenna lounaan jälkeen`.
+- Error Repair + Second Chance: `en soittaa` → `en soita`; `en lähettä` → `en lähetä`; `sähköpostin` → `sähköpostia` в отрицательной конструкции.
+- Final Speaking Challenge: рассказ о завтрашнем дне — работа, курс, семья, прогулка вдоль Aurajoki.
+- Final Recall: `Tänään minun täytyy mennä kurssille`; `Minä en soita asiakkaalle, koska olen väsynyt`; `Me sovimme, että minä lähetän sähköpostin huomenna aamulla`.
+- Retention / lesson record.
+
+### Качественные метрики
+- **Recall:** `minun täytyy + infinitive` — рабочий и самостоятельно запускается; Semi-active → близко к Active.
+- **Fluency:** средняя; паузы сохраняются при отрицательных формах и выборе окончания.
+- **Transfer:** выполнен в новой рабочей ситуации; смысл и порядок действий сохраняются.
+- **Variation:** выполнена; время, отрицание, причина и последовательность действий использованы.
+- **Dialogue:** рабочий; прямой вопрос и follow-up с `huomenna lounaan jälkeen` выполнены.
+- **Second Chance:** успешный локально; `en soita` и `en lähetä` воспроизведены после repair.
+- **Final Speaking:** выполнен связный рассказ без полного шаблона.
+- **Final Recall:** 3 самостоятельных предложения выполнены.
+
+### Ошибки / зоны внимания
+1. `täytyy` + личная форма — правило понятно, но автоматизм нужно продолжать.
+2. `lähteä` vs. `lähettää` — сохраняется конкуренция.
+3. `en soittaa` → `en soita` — исправлено, но требует delayed recall.
+4. `en lähettä` → `en lähetä` — форма требует автоматизации.
+5. `sähköpostin` vs. `sähköpostia` — падеж зависит от конструкции; продолжать в контексте `en lähetä sähköpostia` / `lähetän sähköpostin`.
+6. `ensi viikolla / ensi viikolle` и `tapaamiseen / tapaamisesta` — сохраняются в retention.
+
+### Итог
+**Новых chunks не добавлено.** Урок закрыт без учебного долга. Следующая обязательная точка — 19.08.2026 D+3.
+
 ## Retention
 - **17.08.2026:** D+1 blind recall — выполнен.
+- **18.08.2026:** дополнительный Speaking-First урок — закрыт; retention record внесён.
 - **19.08.2026:** D+3 — recall + repair + variation/transfer.
 - **22.08.2026:** delayed recall нестабильных chunks.
 - **02.09.2026:** долгосрочный recall.
