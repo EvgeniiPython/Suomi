@@ -46,7 +46,7 @@ tapaamiseen / tapaamisesta
 
 ```text
 en soita / soitan -> contrast_selection + retrieval
- en lähetä / lähetän -> contrast_selection + retrieval
+en lähetä / lähetän -> contrast_selection + retrieval
 lähettää / lähteä -> contrast_selection
 sähköpostia / sähköpostin -> contrast_selection
 täytyy + infinitive -> retrieval under processing load
