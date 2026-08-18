@@ -7,7 +7,7 @@
 
 **Attempt → Check → Correct → Repair → Second Output → Variation Chain → Cold Recall → Transfer → Finnish Dialogue → Second Chance → Final Speaking Challenge → Final Recall → Retention**
 
-Система расширена несколькими механизмами из Finnish Learning OS Master v3.0, но они являются **поддерживающими**, а не заменяют ядро.
+Система расширена механизмами из Finnish Learning OS Master v3.0, но они являются **поддерживающими**, а не заменяют ядро.
 
 ### Выбранные усилители
 - **Variation Chain**: после успешного ответа сделать 3–4 короткие вариации того же pattern.
@@ -21,7 +21,11 @@
 - **Structured Error Log** для повторяющихся ошибок.
 - **Micro-Shadowing** 2–5 минут только при реальной пользе.
 - **Recall / Fluency / Transfer** — три главные метрики для ключевых chunks.
-- **Weekly Review** — раз в неделю оцениваем накопленный прогресс.
+- **0–3 Evidence Score** — дополнительная шкала силы доказательства, не заменяющая три главные метрики.
+- **Error Cause** — при повторной ошибке классифицируем вероятную причину: encoding, retrieval, contrast selection, processing load или pronunciation blocker.
+- **Mixed Choice Check** — обязательная unlabeled-проверка, когда конкурируют формы.
+- **Mastery Ladder** — active → consolidating → stable → dormant.
+- **Biweekly Audit** — раз в 14 дней проверяем движение статусов, повторяющиеся ошибки и retention.
 
 ## 90-минутная структура
 
@@ -34,7 +38,7 @@
 5. **Real Situation / Finnish Dialogue — 20 мин**: новая ситуация, самостоятельная речь и короткие диалоги преимущественно на финском.
 6. **Error Repair + Second Chance — 10 мин**: максимум 3 приоритетные ошибки; hint → self-correction → повторная проверка позже.
 7. **Final Speaking Challenge + Final Recall — 7 мин**: рассказ по ситуации без подсказок, затем 3 новых предложения с главным pattern.
-8. **Retention / lesson record — 3 мин**: активные patterns, нестабильные ошибки и даты повторения. Не заменять этот блок вопросом «что понял?». 
+8. **Retention / lesson record — 3 мин**: активные patterns, mastery state, нестабильные ошибки, метрики и даты повторения. Не заменять этот блок вопросом «что понял?». 
 
 ## Правило помощи
 
@@ -79,6 +83,70 @@
 
 Ошибка считается действительно исправленной только если пользователь позже воспроизводит правильную форму без подсказки. Если ошибка возвращается, она остаётся активной в Error Log и получает новую дату повторения.
 
+## Error Cause
+
+Для повторяющейся ошибки или speaking blocker, когда evidence supports it, фиксируем **одну основную причину**:
+
+```text
+encoding = форма/концепт ещё не известны надёжно
+retrieval = форма известна, но не достаётся во время output
+contrast_selection = выбрана конкурирующая форма
+processing_load = форма ломается внутри длинной фразы/речи
+pronunciation_blocker = проблема возникает на уровне звука/ритма
+```
+
+Причина должна менять следующий drill. Не назначать причину каждому единичному slip.
+
+## Mixed Choice Check
+
+Если две или более формы конкурируют, после repair обязательно дать минимум одну **unlabeled mixed-choice check**.
+
+Не сообщать заранее, какое правило проверяется. Prompt должен заставлять выбрать форму по смыслу.
+
+Типичные контрасты:
+
+```text
+present / past
+affirmative / negative
+passive present / passive past
+location / direction
+total object / ongoing object
+```
+
+## Mastery Ladder
+
+Для каждого ключевого pattern используем:
+
+```text
+active -> consolidating -> stable -> dormant
+```
+
+Урок может повысить статус только при достаточном evidence; исправленная фраза сразу после подсказки не считается delayed mastery.
+
+### 0–3 Evidence Score
+
+```text
+0 = not yet
+1 = assisted
+2 = independent in familiar context
+3 = flexible in changed context
+```
+
+Score не заменяет Recall / Fluency / Transfer. Он суммирует качество evidence на данном этапе.
+
+### Stable Gate
+
+Чтобы pattern стал `stable`, нужны:
+
+```text
+correct tomorrow
+correct +3 days
+correct +7 days
+at least one new personal context
+one unlabeled mixed-choice check when competing forms exist
+no priority error in the evidence series
+```
+
 ## Final Speaking Challenge
 
 В конце урока не повторяем отдельные слова и не спрашиваем только о понимании материала.
@@ -120,7 +188,7 @@
 
 Повторяющаяся ошибка фиксируется как:
 
-**Error → Correct Pattern → Reason → Missing Concept → Repair → Variation → Transfer → Second Chance → Review Date**
+**Error → Correct Pattern → Cause → Reason → Missing Concept → Repair → Variation → Transfer → Second Chance → Review Date**
 
 Ошибки не исправляются все подряд. Приоритет — повторяющиеся, мешающие пониманию и блокирующие автоматизм.
 
@@ -131,14 +199,16 @@
 - **Fluency** — насколько быстро и без остановок она выходит;
 - **Transfer** — работает ли она в новом контексте.
 
-Другие показатели остаются вспомогательными.
+Числовые Accuracy / Repair Rate / Contrast Success добавляются только когда в уроке было достаточно наблюдаемых попыток; не создавать ложную точность.
 
-## Weekly Review
+## Weekly / Biweekly Review
 
-Раз в неделю сравниваем:
+Раз в неделю или в рамках 14-дневного аудита сравниваем:
 - какие chunks стали Active/Stable;
-- какие ошибки повторяются;
+- какие ошибки повторяются и по какой причине;
 - как меняются Recall / Fluency / Transfer;
+- какие 0–3 evidence scores изменились;
+- сколько mixed-choice checks пройдено;
 - сколько было meaningful listening → speaking;
 - какие темы и ситуации расширились;
 - что переносится в реальную речь.
@@ -149,8 +219,14 @@
 
 - **Устойчивый recall + variation + transfer** → 2–3 новых чанка.
 - **Recall в целом устойчивый, но есть 1–2 локальные ошибки** → repair; затем 1–2 новых.
-- **Recall нестабилен** → новых чанков не добавлять.
+- **Recall нестабилен или активен grammar trigger** → новых чанков не добавлять.
 
 ## Главное правило
 
 **Не копировать всю Learning OS. Берём только механизмы, которые усиливают самостоятельную речь, и сохраняем наше разговорное ядро главным.**
+
+Ссылки:
+- [[Mastery_Criteria]]
+- [[Grammar_Trigger_Rule]]
+- [[Metrics_And_Audit]]
+- [[../02_Retention/Retention_Rules]]
