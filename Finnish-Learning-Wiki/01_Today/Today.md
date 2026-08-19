@@ -143,10 +143,50 @@
 ### Ограничение на новые chunks
 До успешного delayed recall `pyytää häntä tekemään`, `saada projekti valmiiksi`, `ennen lounasta` и условной цепочки новые chunks не вводить автоматически.
 
+## Speaking-First Retention — 19.08.2026 (D+3)
+
+### Статус
+**Урок закрыт.** Обязательный D+3 retention-блок выполнен: blind recall → repair → variation → transfer. Новые chunks не вводились.
+
+### Выполнено
+- **Blind recall:** целевые конструкции воспроизводились без готового финского шаблона.
+- **Repair:** приоритетно отработаны формы вокруг `en ehdi / soitan`, `ennen lounasta`, `tapaamisen jälkeen` и порядка слов. В ходе занятия потребовалось больше трёх корректирующих заходов; это зафиксировано как превышение лимита repair, а не как основание продлевать урок.
+- **Variation:** выполнены вариации с `ennen lounasta`, `tapaamisen jälkeen`, отрицанием/действием и изменением ситуации.
+- **Transfer:** выполнен в новой ситуации: `Jos en ehdi, soitan etukäteen.`
+- **Second Chance:** ключевая условная рамка была повторно воспроизведена после подсказки и затем без подсказки.
+
+### Реальные выходы пользователя
+- `Huomenna lounaan jälkeen minun täytyy soittaa asiakkaalle.`
+- `Huomenna ennen lounasta en kirjoita asiakkaalle.`
+- `Jos en ehdi huomenna, soitan asiakkaalle.`
+- `Jos en ehdi, soitan etukäteen.`
+
+### Retention / mastery note
+- `ennen lounasta` — успешно извлечено в новом контексте; оставить в retention.
+- `tapaamisen jälkeen` — успешно извлечено в variation; оставить в retention.
+- `saada projekti valmiiksi` — не повышать до Active; delayed recall остаётся обязательным.
+- `pyytää häntä tekemään` — не повышать до Active; delayed recall остаётся обязательным.
+- `jos en ehdi ...` — рабочая конструкция, но продолжить delayed recall в новом содержании.
+- `soittaa asiakkaalle` — уверенно используется в новых контекстах.
+
+### Метрики — качественно
+- **Recall:** улучшен; ключевые формы запускаются самостоятельно после короткого repair.
+- **Fluency:** всё ещё нестабильна при условной конструкции; паузы и перестройки сохраняются.
+- **Transfer:** достигнут в изменённой ситуации.
+- **Evidence:** достаточно для закрытия D+3 retention, но недостаточно для перевода нестабильных chunks в Active.
+
+### Следующее повторение
+- **22.08.2026:** delayed recall нестабильных chunks, прежде всего `saada projekti valmiiksi`, `pyytää häntä tekemään`, `jos en ehdi...`, а также retention `ennen lounasta`.
+- **02.09.2026:** долгосрочный recall профессиональных chunks.
+- **12.09.2026:** контрольный recall и пересмотр статусов Active/Semi-active.
+
+### Важное правило
+Не считать все patterns Active только потому, что D+3 закрыт. Следующая цель — delayed recall и перенос в новый личный/рабочий контекст.
+
 ## Retention
 - **17.08.2026:** D+1 blind recall — выполнен.
 - **18.08.2026:** дополнительный Speaking-First урок — закрыт; retention record внесён.
-- **19.08.2026:** D+3 — recall + repair + variation/transfer.
+- **19.08.2026:** D+3 — выполнен и закрыт; recall + repair + variation + transfer.
 - **22.08.2026:** delayed recall нестабильных chunks.
 - **02.09.2026:** долгосрочный recall.
 - **12.09.2026:** контроль и пересмотр статусов.
