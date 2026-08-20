@@ -1,0 +1,28 @@
+name: Finnish Learning Audit
+
+on:
+  push:
+    paths:
+      - "Finnish-Learning-Wiki/**"
+      - "engine/**"
+      - ".github/workflows/learning-audit.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-learning-system:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run read-only learning audit
+        run: python engine/validate_learning_system.py
