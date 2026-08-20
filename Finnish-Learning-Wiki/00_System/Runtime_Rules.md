@@ -2,7 +2,7 @@
 title: Runtime Rules
 type: system-rule
 source: archive recovery + 2026-08-20 continuation protocol
- tags: [runtime, lesson, metrics, data-integrity, continuation]
+tags: [runtime, lesson, metrics, data-integrity, continuation]
 ---
 
 # Runtime Rules
