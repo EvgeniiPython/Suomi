@@ -98,14 +98,15 @@ def validate_sessions(results: list[tuple[str, str, str]]) -> None:
         text = read_text(path)
         lower = text.lower()
         has_date_heading = bool(re.search(r"^# .*20\d{2}", text, flags=re.MULTILINE))
-        has_content = any(marker in lower for marker in legacy_content_markers)
-        has_modern = any(marker in lower for marker in modern_markers)
+        has_legacy_content = any(marker in lower for marker in legacy_content_markers)
+        has_modern_content = any(marker in lower for marker in modern_markers)
+        has_content = has_legacy_content or has_modern_content
 
         if not has_date_heading or not has_content:
             malformed += 1
             continue
 
-        if not has_modern:
+        if not has_modern_content:
             legacy += 1
 
         # High-value deterministic consistency checks. These do not judge
