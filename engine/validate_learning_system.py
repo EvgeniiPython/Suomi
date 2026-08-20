@@ -8,6 +8,7 @@ reasoning remains in the Markdown protocols and the lesson model.
 
 from __future__ import annotations
 
+import re
 import sys
 from pathlib import Path
 
@@ -54,33 +55,74 @@ def validate_system_files(results: list[tuple[str, str, str]]) -> None:
 
 
 def validate_sessions(results: list[tuple[str, str, str]]) -> None:
+    """Validate both legacy and current session records.
+
+    Historical sessions predate the new diary/audit protocol and use several
+    legitimate schemas (e.g. Topic/Result, Metrics/Next step, Retention).
+    They must not fail merely because they lack the newer word 'lesson' or a
+    modern retention heading. Newer records can be checked more strictly.
+    """
     session_files = sorted(SESSIONS.glob("*.md")) if SESSIONS.exists() else []
     if not session_files:
         add_result(results, WARN, "Session records", "No session Markdown files found")
         return
 
-    failures = 0
+    malformed = 0
+    legacy = 0
     warnings = 0
 
+    legacy_content_markers = (
+        "## тема",
+        "## фокус",
+        "## что закрепляли",
+        "## материал",
+        "## основные чанки",
+        "## основной чанк",
+        "## active material",
+        "## goal",
+        "## result",
+        "## результат",
+        "## ход урока",
+        "## lesson design",
+    )
+    modern_markers = (
+        "## статус",
+        "## status",
+        "## mastery / retention",
+        "## retention result",
+        "## candidate chunks",
+        "## что реально вышло",
+    )
+
     for path in session_files:
-        text = read_text(path).lower()
-        if not ("lesson" in text and "retention" in text):
-            failures += 1
+        text = read_text(path)
+        lower = text.lower()
+        has_date_heading = bool(re.search(r"^# .*20\\d{2}", text, flags=re.MULTILINE))
+        has_content = any(marker in lower for marker in legacy_content_markers)
+        has_modern = any(marker in lower for marker in modern_markers)
+
+        if not has_date_heading or not has_content:
+            malformed += 1
             continue
+
+        if not has_modern:
+            legacy += 1
 
         # High-value deterministic consistency checks. These do not judge
         # whether the lesson was pedagogically good; they only catch obvious
         # missing-record contradictions.
-        if "new chunk" in text and any(flag in text for flag in ("unstable", "failed transfer", "transfer: fail")):
+        if "new chunk" in lower and any(flag in lower for flag in ("unstable", "failed transfer", "transfer: fail")):
             warnings += 1
 
-        if "stable" in text and "evidence" not in text:
+        if "stable" in lower and "evidence" not in lower:
             warnings += 1
 
-    if failures:
-        add_result(results, FAIL, "Session structure", f"{failures} session file(s) lack basic durable record fields")
+    if malformed:
+        add_result(results, FAIL, "Session structure", f"{malformed} session file(s) are malformed or lack recognizable durable record structure")
+    elif legacy:
+        add_result(results, PASS, "Session structure", f"Checked {len(session_files)} session file(s); {legacy} legacy-format record(s) retained")
     else:
-        add_result(results, PASS, "Session structure", f"Checked {len(session_files)} session file(s)")
+        add_result(results, PASS, "Session structure", f"Checked {len(session_files)} current-format session file(s)")
 
     if warnings:
         add_result(results, WARN, "Potential evidence conflicts", f"Found {warnings} item(s) needing human review")
@@ -102,8 +144,6 @@ def validate_protocol_content(results: list[tuple[str, str, str]]) -> None:
         "Rule новых chunks",
     ]
     lesson_lower = lesson_protocol.lower()
-    # The repository uses Russian prose in several protocol headings while
-    # keeping the technical terms in English; support both current forms.
     phrase_variants = {
         "Rule новых chunks": ("правило новых chunks", "новых chunks"),
     }
