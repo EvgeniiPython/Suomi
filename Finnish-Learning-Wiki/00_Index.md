@@ -11,6 +11,12 @@
 6. `00_System/Daily_Speaking_First_Protocol.md` — полный 90-минутный speaking-first тайминг.
 7. `00_System/Lesson_Protocol.md` — основной протокол урока.
 
+## Завершение урока
+1. `00_System/Lesson_Diary_Protocol.md` — что сохранять после урока и как фиксировать решения.
+2. `00_System/Session_Record_Schema.md` — канонический формат `Session Result` для новых завершённых уроков.
+3. `00_System/DATA_INTEGRITY.md` — правила безопасного объединения и записи истории.
+4. `engine/validate_learning_system.py` — read-only автоматическая проверка структуры и evidence consistency.
+
 ## Основные разделы
 - `00_System/` — протоколы и текущее состояние.
 - `01_Today/` — план ближайшего занятия.
