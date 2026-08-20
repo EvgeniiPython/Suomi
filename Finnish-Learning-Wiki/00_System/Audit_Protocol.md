@@ -2,7 +2,7 @@
 title: Audit Protocol
 type: system-rule
 source: 2026-08-20 agent-architecture upgrade + persistent audit state
- tags: [audit, verification, evidence, runtime, continuation]
+tags: [audit, verification, evidence, runtime, continuation]
 ---
 
 # Audit Protocol
