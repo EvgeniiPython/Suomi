@@ -52,7 +52,7 @@ def main() -> int:
     args = parser.parse_args()
 
     log = Path(args.log).read_text(encoding="utf-8", errors="replace")
-    if "FAIL" in log:
+    if args.exit_code != 0:
         audit_status = "FAIL"
     elif "WARNING" in log:
         audit_status = "PASS_WITH_WARNINGS"
