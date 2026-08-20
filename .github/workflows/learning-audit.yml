@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   validate-learning-system:
@@ -25,4 +25,32 @@ jobs:
           python-version: "3.12"
 
       - name: Run read-only learning audit
-        run: python engine/validate_learning_system.py
+        id: audit
+        shell: bash
+        run: |
+          set +e
+          python engine/validate_learning_system.py 2>&1 | tee audit.log
+          status=${PIPESTATUS[0]}
+          echo "exit_code=$status" >> "$GITHUB_OUTPUT"
+          exit "$status"
+
+      - name: Generate persistent audit state
+        if: always()
+        run: |
+          python engine/generate_audit_state.py \
+            --log audit.log \
+            --exit-code "${{ steps.audit.outputs.exit_code || '1' }}"
+
+      - name: Commit audit state
+        if: always()
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Finnish-Learning-Wiki/00_System/Latest_Audit_State.json
+          if git diff --cached --quiet; then
+            echo "No audit-state change to commit"
+          else
+            git commit -m "chore: update latest audit state [skip ci]"
+            git push
+          fi
