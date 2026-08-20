@@ -8,7 +8,6 @@ reasoning remains in the Markdown protocols and the lesson model.
 
 from __future__ import annotations
 
-import re
 import sys
 from pathlib import Path
 
@@ -60,13 +59,12 @@ def validate_sessions(results: list[tuple[str, str, str]]) -> None:
         add_result(results, WARN, "Session records", "No session Markdown files found")
         return
 
-    required_markers = ("#", "lesson", "error", "retention")
     failures = 0
     warnings = 0
 
     for path in session_files:
         text = read_text(path).lower()
-        if not any(marker in text for marker in required_markers):
+        if not ("lesson" in text and "retention" in text):
             failures += 1
             continue
 
@@ -80,12 +78,12 @@ def validate_sessions(results: list[tuple[str, str, str]]) -> None:
             warnings += 1
 
     if failures:
-        add_result(results, FAIL, "Session structure", f"{failures} session file(s) lack basic record structure")
+        add_result(results, FAIL, "Session structure", f"{failures} session file(s) lack basic durable record fields")
     else:
         add_result(results, PASS, "Session structure", f"Checked {len(session_files)} session file(s)")
 
     if warnings:
-        add_result(results, WARN, "Potential evidence conflicts", f"Found {warnings} item(s) needing review")
+        add_result(results, WARN, "Potential evidence conflicts", f"Found {warnings} item(s) needing human review")
     else:
         add_result(results, PASS, "Potential evidence conflicts", "No obvious deterministic conflicts detected")
 
@@ -101,11 +99,26 @@ def validate_protocol_content(results: list[tuple[str, str, str]]) -> None:
         "Transfer",
         "Second Chance",
         "Mastery Ladder",
-        "Rule of new chunks",
+        "Rule новых chunks",
     ]
-    missing = [p for p in required_phrases if p.lower() not in lesson_protocol.lower()]
+    lesson_lower = lesson_protocol.lower()
+    # The repository uses Russian prose in several protocol headings while
+    # keeping the technical terms in English; support both current forms.
+    phrase_variants = {
+        "Rule новых chunks": ("правило новых chunks", "новых chunks"),
+    }
+
+    missing = []
+    for phrase in required_phrases:
+        if phrase.lower() in lesson_lower:
+            continue
+        variants = phrase_variants.get(phrase, ())
+        if variants and any(v in lesson_lower for v in variants):
+            continue
+        missing.append(phrase)
+
     if missing:
-        add_result(results, WARN, "Lesson protocol core", "Expected phrases missing: " + ", ".join(missing))
+        add_result(results, WARN, "Lesson protocol core", "Expected markers missing: " + ", ".join(missing))
     else:
         add_result(results, PASS, "Lesson protocol core", "Core learning loop markers present")
 
@@ -113,7 +126,8 @@ def validate_protocol_content(results: list[tuple[str, str, str]]) -> None:
         "Require Second Output after correction.",
         "New chunks require stable recall + variation + transfer",
     ]
-    missing_runtime = [p for p in runtime_requirements if p.lower() not in runtime_rules.lower()]
+    runtime_lower = runtime_rules.lower()
+    missing_runtime = [p for p in runtime_requirements if p.lower() not in runtime_lower]
     if missing_runtime:
         add_result(results, FAIL, "Runtime gates", "Missing required rule(s): " + ", ".join(missing_runtime))
     else:
