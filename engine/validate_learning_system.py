@@ -97,7 +97,7 @@ def validate_sessions(results: list[tuple[str, str, str]]) -> None:
     for path in session_files:
         text = read_text(path)
         lower = text.lower()
-        has_date_heading = bool(re.search(r"^# .*20\\d{2}", text, flags=re.MULTILINE))
+        has_date_heading = bool(re.search(r"^# .*20\d{2}", text, flags=re.MULTILINE))
         has_content = any(marker in lower for marker in legacy_content_markers)
         has_modern = any(marker in lower for marker in modern_markers)
 
