@@ -54,6 +54,25 @@ def validate_system_files(results: list[tuple[str, str, str]]) -> None:
         add_result(results, PASS, "Required system protocols", "All required files are present")
 
 
+def has_explicit_stable_status(text: str) -> bool:
+    """Return True only for an explicit mastery/status assertion of 'stable'.
+
+    A bare occurrence of 'stable' is not evidence of a stable learner state:
+    session notes legitimately discuss phrases such as 'not stable',
+    'not fully stable', 'stable recall', or 'stable' as a protocol concept.
+    The audit should flag only an explicit status/mastery assertion.
+    """
+    stable_status_patterns = (
+        r"\bstatus\s*[:=-]\s*stable\b",
+        r"\bmastery\s*(?:/|and)?\s*retention\s*[:=-]\s*stable\b",
+        r"\bretention\s*(?:status)?\s*[:=-]\s*stable\b",
+        r"\bmastery\s*[:=-]\s*stable\b",
+        r"\b(?:chunk|item|target)\s+status\s*[:=-]\s*stable\b",
+    )
+    lower = text.lower()
+    return any(re.search(pattern, lower) for pattern in stable_status_patterns)
+
+
 def validate_sessions(results: list[tuple[str, str, str]]) -> None:
     """Validate both legacy and current session records.
 
@@ -115,7 +134,10 @@ def validate_sessions(results: list[tuple[str, str, str]]) -> None:
         if "new chunk" in lower and any(flag in lower for flag in ("unstable", "failed transfer", "transfer: fail")):
             warnings += 1
 
-        if "stable" in lower and "evidence" not in lower:
+        # Only treat an explicit mastery/status assertion as evidence that a
+        # chunk is declared stable. Do not trigger on incidental or negated
+        # mentions such as "not fully stable" or "stable recall".
+        if has_explicit_stable_status(text) and "evidence" not in lower:
             warnings += 1
 
     if malformed:
