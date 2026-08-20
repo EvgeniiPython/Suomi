@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Generate a small machine-readable audit state for runtime consumers.
+"""Generate machine-readable audit state for runtime consumers.
 
-The validator remains read-only with respect to learner records. This helper
-only materializes its audit result into the dedicated runtime-state file when
-called by CI.
+Legacy session records are never treated as protocol-complete. Only a
+canonical-v1 session with an explicit Session Result can produce a
+COMPLETED/PARTIAL protocol state.
 """
 from __future__ import annotations
 
@@ -29,13 +29,24 @@ def field(text: str, name: str) -> str | None:
     return m.group(1).strip() if m else None
 
 
-def latest_session():
-    files = sorted(SESSIONS.glob("*.md"), reverse=True)
-    for path in files:
-        text = path.read_text(encoding="utf-8")
-        if "record_schema: canonical-v1" in text.lower() and "## session result" in text.lower():
-            return path, text
-    return None, ""
+def session_info(path: Path) -> dict:
+    text = path.read_text(encoding="utf-8")
+    canonical = "record_schema: canonical-v1" in text.lower()
+    has_result = "## session result" in text.lower()
+    return {"path": path, "text": text, "canonical": canonical, "has_result": has_result,
+            "eligible": canonical and has_result}
+
+
+def latest_sessions():
+    latest = None
+    latest_canonical = None
+    for path in sorted(SESSIONS.glob("*.md"), key=lambda p: p.name, reverse=True):
+        info = session_info(path)
+        if latest is None:
+            latest = info
+        if latest_canonical is None and info["eligible"]:
+            latest_canonical = info
+    return latest, latest_canonical
 
 
 def list_field(text: str, name: str) -> list[str]:
@@ -59,32 +70,56 @@ def main() -> int:
     else:
         audit_status = "PASS"
 
-    path, text = latest_session()
-    missing = list_field(text, "missing_stages")
-    completed = list_field(text, "completed_stages")
-    continuation = (field(text, "continuation_required") or "NO").upper()
-    resume = (field(text, "continuation_next_stage") or "NONE").lower()
-    lesson_status = (field(text, "lesson_status") or "UNKNOWN").upper()
+    latest, canonical = latest_sessions()
 
-    state = {
-        "schema": "audit-state-v1",
-        "generated_at_utc": datetime.now(timezone.utc).isoformat(),
-        "audit_status": audit_status,
-        "validator_exit_code": args.exit_code,
-        "latest_session": path.name if path else None,
-        "lesson_status": lesson_status,
-        "protocol_status": "COMPLETED" if not missing else "PARTIAL",
-        "required_stage_count": len(STAGES),
-        "completed_stage_count": len(completed),
-        "missing_stages": missing,
-        "continuation_required": continuation,
-        "resume_stage": resume,
-        "runtime_action": (
-            "Continue the lesson from RESUME_STAGE before unrelated new material."
-            if continuation == "YES" else
-            "No continuation required; follow normal runtime selection."
-        ),
-    }
+    if canonical is None:
+        state = {
+            "schema": "audit-state-v2",
+            "generated_at_utc": datetime.now(timezone.utc).isoformat(),
+            "audit_status": audit_status,
+            "validator_exit_code": args.exit_code,
+            "latest_session": latest["path"].name if latest else None,
+            "latest_session_schema_status": "LEGACY" if latest else "NONE",
+            "latest_canonical_session": None,
+            "lesson_status": "UNKNOWN",
+            "protocol_status": "UNKNOWN",
+            "required_stage_count": len(STAGES),
+            "completed_stage_count": 0,
+            "missing_stages": [],
+            "continuation_required": "UNKNOWN",
+            "resume_stage": "NONE",
+            "runtime_action": (
+                "Convert the latest lesson record to canonical-v1 and run the audit again."
+                if latest else "Create a canonical-v1 session result before evaluating completion."
+            ),
+        }
+    else:
+        text = canonical["text"]
+        missing = list_field(text, "missing_stages")
+        completed = list_field(text, "completed_stages")
+        continuation = (field(text, "continuation_required") or "NO").upper()
+        resume = (field(text, "continuation_next_stage") or "NONE").lower()
+        lesson_status = (field(text, "lesson_status") or "UNKNOWN").upper()
+        state = {
+            "schema": "audit-state-v2",
+            "generated_at_utc": datetime.now(timezone.utc).isoformat(),
+            "audit_status": audit_status,
+            "validator_exit_code": args.exit_code,
+            "latest_session": latest["path"].name if latest else canonical["path"].name,
+            "latest_session_schema_status": "CANONICAL_V1" if latest and latest["eligible"] else "LEGACY",
+            "latest_canonical_session": canonical["path"].name,
+            "lesson_status": lesson_status,
+            "protocol_status": "COMPLETED" if not missing else "PARTIAL",
+            "required_stage_count": len(STAGES),
+            "completed_stage_count": len(completed),
+            "missing_stages": missing,
+            "continuation_required": continuation,
+            "resume_stage": resume,
+            "runtime_action": (
+                "Continue the lesson from RESUME_STAGE before unrelated new material."
+                if continuation == "YES" else "No continuation required; follow normal runtime selection."
+            ),
+        }
 
     OUT.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(state, ensure_ascii=False))
