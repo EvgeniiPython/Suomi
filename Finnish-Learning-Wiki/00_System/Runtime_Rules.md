@@ -1,8 +1,8 @@
 ---
 title: Runtime Rules
 type: system-rule
-source: archive recovery + 2026-08-18 system upgrade
-tags: [runtime, lesson, metrics, data-integrity]
+source: archive recovery + 2026-08-20 continuation protocol
+ tags: [runtime, lesson, metrics, data-integrity, continuation]
 ---
 
 # Runtime Rules
@@ -32,7 +32,48 @@ For a normal lesson, load the current state, active focus, due retention, and re
 16. New completed lessons must use record_schema: canonical-v1 and finish with one canonical Session Result block.
 17. Mastery state is declared only in the canonical current_level field, not by incidental prose.
 18. PROMOTE and current_level: STABLE require explicit evidence; immediate post-correction success is not delayed mastery.
+19. Every new session must record Protocol Completion. The validator is authoritative for detecting missing required macro-stages.
+20. If CONTINUATION_REQUIRED is YES, the next lesson resumes from RESUME_STAGE before unrelated new material is introduced.
+21. A partial or interrupted lesson is valid historical evidence when saved correctly; it is not treated as a failed lesson.
+22. Never silently mark an incomplete lesson COMPLETED merely because the record was saved.
 ```
+
+## Required Protocol Completion Stages
+
+For a normal full lesson, the runtime tracks these eight macro-stages:
+
+```text
+retrieval
+listening_speaking
+deep_processing
+controlled_speaking
+finnish_dialogue
+error_repair_second_chance
+final_challenge_recall
+retention_record
+```
+
+Optional techniques such as Micro-Shadowing are not completion gates.
+
+## Continuation Runtime
+
+When a lesson stops before all required macro-stages are complete:
+
+```text
+1. Save the lesson normally.
+2. Set lesson_status to PARTIAL or INTERRUPTED.
+3. Record completed_stages and missing_stages.
+4. Set continuation_required: YES.
+5. Set continuation_next_stage to the first unfinished stage.
+6. Explain the reason for stopping.
+7. Give a concrete Next Step action.
+8. The validator emits CONTINUATION_REQUIRED: YES.
+9. On the next lesson, load that continuation directive before selecting new material.
+10. Resume at the named stage; do not replay the entire previous lesson unless evidence shows that recall has degraded.
+11. After continuation, record the new session separately. Never rewrite the historical session to make it look complete.
+```
+
+The continuation signal is a runtime instruction, not a mastery decision.
 
 ## Short Recall Completion Gate
 
@@ -52,6 +93,8 @@ At lesson close, update the smallest set of durable files needed for:
 
 ```text
 lesson result
+protocol completion state
+continuation state
 mastery state
 error watch
 retention schedule
@@ -71,4 +114,5 @@ trigger counts are consistent
 delayed retention tasks are not silently dropped
 historical numeric metrics are not fabricated
 new session records use canonical-v1
+continuation directives are not silently dropped
 ```
