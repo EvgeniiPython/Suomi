@@ -1,15 +1,17 @@
 {
-  "schema": "audit-state-v1",
-  "generated_at_utc": "2026-08-20T19:55:12.482918+00:00",
+  "schema": "audit-state-v2",
+  "generated_at_utc": "2026-08-20T20:02:57.693419+00:00",
   "audit_status": "PASS",
   "validator_exit_code": 0,
-  "latest_session": null,
+  "latest_session": "2026-08-20.md",
+  "latest_session_schema_status": "LEGACY",
+  "latest_canonical_session": null,
   "lesson_status": "UNKNOWN",
-  "protocol_status": "COMPLETED",
+  "protocol_status": "UNKNOWN",
   "required_stage_count": 8,
   "completed_stage_count": 0,
   "missing_stages": [],
-  "continuation_required": "NO",
-  "resume_stage": "none",
-  "runtime_action": "No continuation required; follow normal runtime selection."
+  "continuation_required": "UNKNOWN",
+  "resume_stage": "NONE",
+  "runtime_action": "Convert the latest lesson record to canonical-v1 and run the audit again."
 }
