@@ -30,6 +30,52 @@ Retention decisions
 Next actions
 ```
 
+## Canonical closing record
+
+Starting with the canonical-v1 protocol, every new completed lesson must finish with a structured `## Session Result` section using `record_schema: canonical-v1`.
+
+The narrative portion of the lesson may use normal prose. The final durable state must not rely on prose wording alone.
+
+Required canonical fields:
+
+```text
+record_schema: canonical-v1
+lesson_status: COMPLETED | PARTIAL | INTERRUPTED
+primary_skill:
+
+## Evidence
+observed:
+evidence_score: 0 | 1 | 2 | 3
+
+## Chunk Decisions
+candidate:
+decision: ACCEPT | REJECT | DEFER | PROMOTE | KEEP | DEMOTE
+reason:
+evidence:
+next_action:
+
+## Mastery
+current_level: ACTIVE | CONSOLIDATING | STABLE | DORMANT
+reason:
+evidence:
+
+## Retention
+status: SCHEDULED | DUE | PASSED | FAILED | NOT_APPLICABLE
+next_review:
+evidence:
+
+## Errors
+recurring:
+correction:
+cause:
+next_action:
+
+## Next Step
+next_action:
+```
+
+See `Session_Record_Schema.md` for the authoritative field semantics and validation rules.
+
 ## Decision Record
 
 For every meaningful state-changing decision, record:
@@ -61,4 +107,4 @@ If the actual lesson diverged materially from the planned sequence, record the d
 
 ## Closing Rule
 
-At lesson close, the diary must remain concise enough to audit. Prefer evidence and decisions over narrative commentary.
+At lesson close, the diary must remain concise enough to audit. Prefer evidence and decisions over narrative commentary. Do not use narrative mentions of `stable` as a substitute for the canonical `current_level` field.
