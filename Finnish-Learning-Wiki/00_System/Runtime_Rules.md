@@ -29,6 +29,9 @@ For a normal lesson, load the current state, active focus, due retention, and re
 13. Record numeric auxiliary metrics only when actually measured.
 14. Complete required trigger actions before changing topic.
 15. New chunks require stable recall + variation + transfer; active triggers block automatic expansion.
+16. New completed lessons must use record_schema: canonical-v1 and finish with one canonical Session Result block.
+17. Mastery state is declared only in the canonical current_level field, not by incidental prose.
+18. PROMOTE and current_level: STABLE require explicit evidence; immediate post-correction success is not delayed mastery.
 ```
 
 ## Short Recall Completion Gate
@@ -55,7 +58,7 @@ retention schedule
 progress evidence
 ```
 
-Do not create duplicate or conflicting records.
+For new completed lessons, the lesson file itself must also contain the canonical `Session Result` block defined in `Session_Record_Schema.md`. Do not create duplicate or conflicting records.
 
 ## Audit Rule
 
@@ -67,4 +70,5 @@ mastery states agree with lesson evidence
 trigger counts are consistent
 delayed retention tasks are not silently dropped
 historical numeric metrics are not fabricated
+new session records use canonical-v1
 ```
