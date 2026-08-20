@@ -1,0 +1,15 @@
+{
+  "schema": "audit-state-v1",
+  "generated_at_utc": "2026-08-20T19:55:12.482918+00:00",
+  "audit_status": "PASS",
+  "validator_exit_code": 0,
+  "latest_session": null,
+  "lesson_status": "UNKNOWN",
+  "protocol_status": "COMPLETED",
+  "required_stage_count": 8,
+  "completed_stage_count": 0,
+  "missing_stages": [],
+  "continuation_required": "NO",
+  "resume_stage": "none",
+  "runtime_action": "No continuation required; follow normal runtime selection."
+}
