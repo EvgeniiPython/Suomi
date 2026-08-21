@@ -1,8 +1,8 @@
 {
   "schema": "audit-state-v2",
-  "generated_at_utc": "2026-08-21T14:44:32.515389+00:00",
-  "audit_status": "FAIL",
-  "validator_exit_code": 1,
+  "generated_at_utc": "2026-08-21T14:46:56.491267+00:00",
+  "audit_status": "PASS_WITH_WARNINGS",
+  "validator_exit_code": 0,
   "latest_session": "2026-08-21_Session_Record.md",
   "latest_session_schema_status": "CANONICAL_V1",
   "latest_canonical_session": "2026-08-21_Session_Record.md",
@@ -17,6 +17,6 @@
     "retention_record"
   ],
   "continuation_required": "YES",
-  "resume_stage": "final_challenge_recall",
+  "resume_stage": "listening_speaking",
   "runtime_action": "Continue the lesson from RESUME_STAGE before unrelated new material."
 }
