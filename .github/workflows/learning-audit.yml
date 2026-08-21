@@ -71,9 +71,6 @@ jobs:
 
           git commit -m "chore: update latest audit state [skip ci]"
 
-          # The remote main branch may have advanced while the audit was running.
-          # Rebase the generated audit-state commit onto the current remote main
-          # before pushing, instead of failing with a non-fast-forward rejection.
           git fetch origin main
           git rebase origin/main
           git push origin HEAD:main
