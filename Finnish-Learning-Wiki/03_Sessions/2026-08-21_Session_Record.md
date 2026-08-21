@@ -37,63 +37,70 @@ Listening → Speaking и Deep Processing не были проведены. По
 ## Session Result
 record_schema: canonical-v1
 lesson_status: PARTIAL
-primary_skill: `lähettää` ↔ `lähteä` в профессиональной речи
+primary_skill: professional spoken Finnish — delayed retrieval and flexible production of `täytyy`, `lähetän / lähden`, object forms, and conditional work communication
 
 ### Evidence
-observed: independent retrieval improved during same-session repair; changed-context contrast production achieved at the end; earlier repeated contrast-selection errors remained; delayed mastery not demonstrated.
-evidence_score: 2
+observed: Independent recall and changed-context production were demonstrated for `lounaan jälkeen`, `täytyy + infinitive`, `lähetän / lähden`, `soitan asiakkaalle`, `jos en ehdi...`, `saada projektia valmiiksi`, `pyydän häntä tekemään`, and `lähetän sähköpostin`. The learner successfully repaired recurring forms after hints and produced a correct final conditional sentence: `Jos en ehdi lähettää 3D-mallia lounaan jälkeen, soitan asiakkaalle etukäteen.` Listening-to-speaking input and a separate deep-processing stage were not conducted in this session.
+evidence_score: 3
 
 ### Protocol Completion
 required_stages: retrieval, listening_speaking, deep_processing, controlled_speaking, finnish_dialogue, error_repair_second_chance, final_challenge_recall, retention_record
-completed_stages: retrieval, controlled_speaking, finnish_dialogue, error_repair_second_chance
-missing_stages: listening_speaking, deep_processing, final_challenge_recall, retention_record
+completed_stages: retrieval, controlled_speaking, finnish_dialogue, error_repair_second_chance, final_challenge_recall, retention_record
+missing_stages: listening_speaking, deep_processing
 continuation_required: YES
-continuation_reason: canonical completion evidence is incomplete; delayed independent closure and retention evidence are still required.
+continuation_reason: The lesson reached strong independent production, but the required Listening → Speaking and Deep Processing stages were not completed. Per protocol, the lesson must remain PARTIAL rather than being marked complete.
 continuation_next_stage: listening_speaking
 
 ### Chunk Decisions
-candidate: `lähettää / lähteä`
+candidate: `lähetän / lähden`
 decision: KEEP
-reason: contrast is improving in same-session repair but is not yet proven stable across delayed recall.
-evidence: repeated earlier unaided contrast errors followed by successful same-session independent contrast production.
-next_action: delayed blind recall in a changed context; do not promote to stable yet.
+reason: Competing forms were successfully distinguished in mixed-choice and changed-context production, but delayed evidence is still required before promotion to stable mastery.
+evidence: Correct independent outputs included `Huomenna lähetän sähköpostin asiakkaalle` and `Huomenna lähden kotiin töiden jälkeen`.
+next_action: Delayed blind recall in a later retention cycle.
 
 ### Chunk Decisions
-candidate: `minun täytyy + infinitive`
+candidate: `täytyy / täytyi + infinitive`
 decision: KEEP
-reason: useful and independently accessible, but broader delayed evidence is still needed.
-evidence: successful use in familiar and changed contexts.
-next_action: retention check; do not promote solely from today's evidence.
+reason: The learner correctly switched between present/future and past context after repair and used the infinitive after both forms.
+evidence: `Huomenna lounaan jälkeen minun täytyy lähettää sähköposti asiakkaalle.` and `Eilen tapaamisen jälkeen minun täytyi lähettää sähköposti asiakkaalle.`
+next_action: Delayed recall and changed-context production.
 
 ### Chunk Decisions
-candidate: `lähetän sähköpostin`
+candidate: `sähköposti / sähköpostia`
 decision: KEEP
-reason: independently produced at the end of the repair cycle, but delayed evidence is not yet available.
-evidence: independent production in current session.
-next_action: blind recall in a new context.
+reason: The learner initially used the wrong object form in a negative construction, then independently corrected it on Second Chance.
+evidence: `Jos en ehdi lähettää sähköpostia tänään, soitan sinulle etukäteen.`
+next_action: Repeat unlabeled mixed-choice and delayed production.
 
 ### Chunk Decisions
-candidate: `lähden kotiin`
+candidate: `saada projektia valmiiksi` / `pyytää häntä tekemään`
 decision: KEEP
-reason: independently produced after contrast repair, but delayed evidence is not yet available.
-evidence: independent production in current session.
-next_action: blind recall in a new context.
+reason: Both patterns were independently rebuilt after repair and transferred to a changed time context, but delayed evidence is still required.
+evidence: `Jos en ehdi saada projektia valmiiksi tänään, soitan asiakkaalle ja pyydän häntä tekemään sen ensi viikolla.`
+next_action: Delayed blind recall without grammatical labels.
+
+### Chunk Decisions
+candidate: new chunks
+decision: DEFER
+reason: The active grammar/retention work is not yet fully consolidated and the session is PARTIAL.
+evidence: The learner still showed retrieval and spelling errors around `asiakkaalle`, `lähettää`, `lounaan`, and object selection during free production.
+next_action: Continue retention and missing protocol stages before introducing unrelated material.
 
 ### Mastery
 current_level: CONSOLIDATING
-reason: core constructions are usable and contrast accuracy improved during repair, but delayed cross-session evidence is still missing.
-evidence: independent successful outputs mixed with earlier repeated unaided errors in the same session; delayed rebuild has not yet been completed.
+reason: Correct second outputs and changed-context production were demonstrated, but delayed mastery evidence and the full required protocol were not completed.
+evidence: Multiple independent outputs were correct after repair; final recall was correct, but this is immediate/same-session evidence and does not establish stable mastery.
 
 ### Retention
 status: SCHEDULED
 next_review: 2026-08-22
-evidence: current session produced improved independent output, but retention must be checked after a delay.
+evidence: Delayed blind recall is due for the unstable competing forms and professional chunks, especially `lähetän / lähden`, `sähköpostin / sähköpostia`, `saada projektia valmiiksi`, `pyytää häntä tekemään`, and `jos en ehdi...`.
 
 ### Errors
-recurring: `lähettää` ↔ `lähteä`; `lähetän` vs `lähettää`; object and case forms in `sähköposti`, `lounaan`, `projektia`; `kotiin` vs `kotona`.
-correction: distinguish sending from leaving; use personal present `lähetän`; use context-appropriate object/case forms; use `kotiin` for direction and `kotona` for location.
-cause: primarily contrast_selection / retrieval; processing_load appears in longer speech.
-next_action: delayed blind recall and mixed-choice before topic expansion.
+recurring: `lounan → lounaan`; `asiakalle/asiaakkalle → asiakkaalle`; `soitta/lähettä → soittaa/lähettää`; `Mina → Minä`; `lähetän / lähden`; object selection with `sähköposti / sähköpostia`; `täytyy / täytyi` in relation to time context.
+correction: Repair was applied through Hint → Correct Pattern → Second Chance → Variation/Transfer.
+cause: retrieval, contrast_selection, spelling/processing load, and object-case selection.
+next_action: Delayed blind recall; keep corrections in active monitoring.
 
 ### Next Step
-next_action: Next lesson begins with the first missing protocol stage, Listening → Speaking, then continues with Deep Processing and later Final Recall/Retention. The immediate lexical repair target remains `lähetän / lähden`.
+next_action: Resume from `listening_speaking`, then complete `deep_processing`; after that perform delayed recall/retention before considering promotion or new chunks.
