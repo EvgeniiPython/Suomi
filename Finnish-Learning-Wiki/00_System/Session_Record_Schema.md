@@ -1,47 +1,33 @@
 ---
-title: Canonical Session Record Schema
+title: Canonical Session Result Schema
 type: system-rule
 version: canonical-v1
-source: 2026-08-20 lesson-record hardening
+source: 2026-08-21 schema-validator alignment
 tags: [session, diary, evidence, mastery, retention, audit, continuation]
 ---
 
-# Canonical Session Record Schema
+# Canonical Session Result Schema
 
 ## Purpose
 
-All new lessons must end with one machine-readable, human-readable `Session Result` block. The lesson narrative may remain natural and detailed, but durable state must be recorded in the canonical fields below.
+All new lessons must end with exactly one canonical `## Session Result` section. The lesson narrative may remain natural and detailed before that section. Durable state is recorded only inside `Session Result`.
 
-This schema prevents ambiguous wording from being mistaken for a state change and gives the read-only validator stable fields to audit.
+The Python validator checks this exact structure. Markdown protocols remain the source of truth for pedagogical policy.
 
-## Required marker
-
-New session records use:
+## Canonical structure
 
 ```text
 record_schema: canonical-v1
-```
 
-and contain exactly one final section:
-
-```text
 ## Session Result
-```
-
-Historical/legacy sessions are retained and are not rewritten only to satisfy this schema.
-
-## Canonical fields
-
-```text
-record_schema: canonical-v1
 lesson_status: COMPLETED | PARTIAL | INTERRUPTED
 primary_skill:
 
-## Evidence
+### Evidence
 observed:
 evidence_score: 0 | 1 | 2 | 3
 
-## Protocol Completion
+### Protocol Completion
 required_stages: retrieval, listening_speaking, deep_processing, controlled_speaking, finnish_dialogue, error_repair_second_chance, final_challenge_recall, retention_record
 completed_stages:
 missing_stages:
@@ -49,36 +35,38 @@ continuation_required: YES | NO
 continuation_reason:
 continuation_next_stage:
 
-## Chunk Decisions
+### Chunk Decisions
 candidate:
 decision: ACCEPT | REJECT | DEFER | PROMOTE | KEEP | DEMOTE
 reason:
 evidence:
 next_action:
 
-## Mastery
+### Mastery
 current_level: ACTIVE | CONSOLIDATING | STABLE | DORMANT
 reason:
 evidence:
 
-## Retention
+### Retention
 status: SCHEDULED | DUE | PASSED | FAILED | NOT_APPLICABLE
 next_review:
 evidence:
 
-## Errors
+### Errors
 recurring:
 correction:
 cause:
 next_action:
 
-## Next Step
+### Next Step
 next_action:
 ```
 
-## Protocol Completion semantics
+Multiple chunk decisions are represented by repeating the complete `### Chunk Decisions` block. The validator checks each block independently.
 
-The canonical protocol has eight required macro-stages:
+## Required protocol stages
+
+The eight required macro-stages are:
 
 1. `retrieval`
 2. `listening_speaking`
@@ -89,30 +77,54 @@ The canonical protocol has eight required macro-stages:
 7. `final_challenge_recall`
 8. `retention_record`
 
-These are the minimum completion gates for a normal full lesson. Optional techniques such as Micro-Shadowing are not required completion stages.
+Optional techniques are not completion gates.
 
-The lesson record must explicitly state which required stages were completed. The validator compares `completed_stages` with `required_stages` and derives whether continuation is required.
+## Completion semantics
 
 If one or more required stages are missing:
 
 - `lesson_status` must be `PARTIAL` or `INTERRUPTED`;
 - `continuation_required` must be `YES`;
-- `missing_stages` must list the unfinished stages;
-- `continuation_reason` must explain why the lesson stopped;
-- `continuation_next_stage` must identify the first stage to resume;
-- `Next Step.next_action` must tell the next lesson what to do.
+- `missing_stages` must exactly equal the required stages not in `completed_stages`;
+- `continuation_reason` is required;
+- `continuation_next_stage` must be the first missing stage;
+- `### Next Step.next_action` is required.
 
 If all required stages are completed:
 
 - `lesson_status` may be `COMPLETED`;
 - `continuation_required` must be `NO`;
-- `missing_stages` should be empty or `NONE`.
+- `missing_stages` must be empty or `NONE`;
+- no `continuation_next_stage` should be declared.
 
-The validator does not silently convert a partial lesson into a completed one and does not invent missing stages.
+The validator never invents missing evidence or converts `PARTIAL` into `COMPLETED`.
+
+## Evidence and mastery semantics
+
+`evidence_score` means:
+
+- `0` = not yet;
+- `1` = assisted / model or heavy hint required;
+- `2` = independent in a familiar context;
+- `3` = flexible independent use in a changed context.
+
+A score of `3` in one lesson is not stable mastery.
+
+`current_level: CONSOLIDATING` requires evidence of a correct second output and at least one delayed rebuild according to `Mastery_Criteria.md`.
+
+`current_level: STABLE` requires the delayed +1/+3/+7 evidence series, a new personal context, and a passed unlabeled mixed-choice check when competing forms exist. Immediate post-correction success is never sufficient.
+
+The validator checks these prerequisites only when they are explicitly represented in the canonical evidence text. It does not infer pedagogical mastery from prose outside `Session Result`.
+
+## Retention semantics
+
+`SCHEDULED` means a delayed check is planned but not yet passed. `PASSED` requires explicit evidence of the completed retention check. `FAILED` requires explicit evidence of failure. `NOT_APPLICABLE` is reserved for cases where retention genuinely does not apply.
+
+A `PARTIAL` lesson normally remains `SCHEDULED` until delayed evidence exists.
 
 ## Continuation directive
 
-When validation detects missing required stages, it emits a machine-readable continuation signal:
+For incomplete sessions the validator emits:
 
 ```text
 CONTINUATION_REQUIRED: YES
@@ -121,25 +133,12 @@ MISSING_STAGES: <remaining missing stages>
 ACTION: Continue the lesson from RESUME_STAGE before introducing unrelated new material.
 ```
 
-This signal is an instruction to the next lesson runtime, not a new learner result. The original session record remains unchanged.
+This is a runtime instruction, not learner evidence.
 
-## Status semantics
+## Historical records
 
-- `lesson_status` describes the session itself, not mastery.
-- `current_level` is the only canonical field that declares the mastery state of the primary pattern/chunk.
-- The word `stable` elsewhere in the lesson narrative is descriptive text, not a state declaration.
-- `evidence_score` must describe observed evidence from the lesson; do not infer a score from intention or explanation alone.
-- `PROMOTE` or `current_level: STABLE` requires explicit evidence and must not be based only on an immediately corrected answer.
-- If there is no meaningful mastery change, record the current level and state that no promotion occurred rather than inventing evidence.
-
-## Multiple chunks
-
-If several chunks require decisions, repeat a complete `Chunk Decisions` block for each chunk. Do not combine unrelated decisions into one sentence.
+Legacy records before the canonical-v1 adoption date may remain in their historical format. New records must use the canonical structure above.
 
 ## No fabricated precision
 
-If a metric was not measured, leave it out or mark it as not measured. Never invent accuracy, fluency, transfer, review dates, or evidence scores merely to complete the template.
-
-## Closing principle
-
-The narrative explains what happened. The canonical `Session Result` explains what the system is allowed to believe after the lesson. If the lesson is incomplete, the record also tells the next runtime exactly where to continue.
+Do not invent accuracy, fluency, transfer, review dates, evidence scores, or mastery evidence. If something was not measured, say so explicitly or omit it where the schema permits.
