@@ -49,7 +49,7 @@ completed_stages: retrieval, controlled_speaking, finnish_dialogue, error_repair
 missing_stages: listening_speaking, deep_processing, final_challenge_recall, retention_record
 continuation_required: YES
 continuation_reason: canonical completion evidence is incomplete; delayed independent closure and retention evidence are still required.
-continuation_next_stage: final_challenge_recall
+continuation_next_stage: listening_speaking
 
 ### Chunk Decisions
 candidate: `lähettää / lähteä`
@@ -96,4 +96,4 @@ cause: primarily contrast_selection / retrieval; processing_load appears in long
 next_action: delayed blind recall and mixed-choice before topic expansion.
 
 ### Next Step
-next_action: Next lesson begins with blind recall of `lähetän / lähden`, then changed-context mixed-choice. If successful, complete Final Recall and Retention Record; only then evaluate whether promotion is justified.
+next_action: Next lesson begins with the first missing protocol stage, Listening → Speaking, then continues with Deep Processing and later Final Recall/Retention. The immediate lexical repair target remains `lähetän / lähden`.
