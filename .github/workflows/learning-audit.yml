@@ -41,6 +41,14 @@ jobs:
             --log audit.log \
             --exit-code "${{ steps.audit.outputs.exit_code || '1' }}"
 
+      - name: Send audit report to Telegram
+        if: always()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python engine/send_audit_report_telegram.py
+
       - name: Commit audit state
         if: always()
         shell: bash
