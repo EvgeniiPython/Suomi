@@ -1,6 +1,6 @@
 {
   "schema": "audit-state-v2",
-  "generated_at_utc": "2026-08-21T16:27:45.669281+00:00",
+  "generated_at_utc": "2026-08-21T16:31:57.574609+00:00",
   "audit_status": "PASS_WITH_WARNINGS",
   "validator_exit_code": 0,
   "latest_session": "2026-08-21_Session_Record.md",
@@ -9,12 +9,10 @@
   "lesson_status": "PARTIAL",
   "protocol_status": "PARTIAL",
   "required_stage_count": 8,
-  "completed_stage_count": 4,
+  "completed_stage_count": 6,
   "missing_stages": [
     "listening_speaking",
-    "deep_processing",
-    "final_challenge_recall",
-    "retention_record"
+    "deep_processing"
   ],
   "continuation_required": "YES",
   "resume_stage": "listening_speaking",
