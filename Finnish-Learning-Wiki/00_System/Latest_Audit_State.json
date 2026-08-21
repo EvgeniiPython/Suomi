@@ -1,20 +1,17 @@
 {
   "schema": "audit-state-v2",
-  "generated_at_utc": "2026-08-21T16:43:47.808068+00:00",
+  "generated_at_utc": "2026-08-21T17:53:00+00:00",
   "audit_status": "PASS_WITH_WARNINGS",
   "validator_exit_code": 0,
   "latest_session": "2026-08-21_Session_Record.md",
   "latest_session_schema_status": "CANONICAL_V1",
   "latest_canonical_session": "2026-08-21_Session_Record.md",
-  "lesson_status": "PARTIAL",
-  "protocol_status": "PARTIAL",
+  "lesson_status": "COMPLETED",
+  "protocol_status": "COMPLETE",
   "required_stage_count": 8,
-  "completed_stage_count": 6,
-  "missing_stages": [
-    "listening_speaking",
-    "deep_processing"
-  ],
-  "continuation_required": "YES",
-  "resume_stage": "listening_speaking",
-  "runtime_action": "Continue the lesson from RESUME_STAGE before unrelated new material."
+  "completed_stage_count": 8,
+  "missing_stages": [],
+  "continuation_required": "NO",
+  "resume_stage": null,
+  "runtime_action": "Lesson complete. Start the next session with delayed blind recall of the active retention targets."
 }
