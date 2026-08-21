@@ -14,8 +14,17 @@ Date: 2026-08-21
 ## Initial plan
 Retrieval → repair → variation → transfer → dialogue → final speaking → recall → retention.
 
+## Continuation Work Performed
+После первоначальной части урока продолжили по continuation directive: Micro Grammar Repair по контрасту `lähettää ↔ lähteä`, controlled contrast, changed-context production и unlabeled mixed-choice.
+
+Новые связанные формы, которые пользователь самостоятельно произвёл в конце цикла:
+- `Minä lähetän sähköpostin.`
+- `Minä lähden kotiin.`
+
+Это положительное новое evidence, но оно не является delayed mastery.
+
 ## Observed evidence
-Пользователь самостоятельно воспроизводил `minun täytyy + infinitive`, `lounaan jälkeen`, `soittaa asiakkaalle`, `lähettää sähköposti asiakkaalle`, но повторно путал `lähettää` и `lähteä` в unaided retrieval. В длинной речи также появились ошибки с объектом и падежами.
+Пользователь самостоятельно воспроизводил `minun täytyy + infinitive`, `lounaan jälkeen`, `soittaa asiakkaalle`, `lähetän sähköpostin` и `lähden kotiin`. При этом в ходе текущего урока ранее повторялась путаница `lähettää` / `lähteä`, а в длинной речи появлялись ошибки с объектом и падежами.
 
 ## Priority errors
 - `lähettää` ↔ `lähteä`
@@ -23,35 +32,38 @@ Retrieval → repair → variation → transfer → dialogue → final speaking 
 - `sähköposti` ↔ `sähköpostin`
 - `lounaan`
 - `projektia` / `saada projekti valmiiksi`
+- `kotiin` ↔ `kotona` в направлении vs. местонахождении
 
 ## Repairs performed
-Проведены несколько repair cycles и повторных попыток. Correct output после подсказки достигался, но delayed independent closure не доказана.
+Проведены несколько repair cycles. Дополнительно выполнены contrast examples и unlabeled mixed-choice. В конце пользователь независимо произвёл `Minä lähetän sähköpostin` и `Minä lähden kotiin`.
+
+Correct output после подсказки и в коротком изменённом контексте достигался, но достаточного delayed independent closure по системному критерию ещё нет.
 
 ## Important deviations from plan
-Listening → Speaking и Deep Processing не были проведены. Полная Variation Chain, unlabeled Mixed Choice, Final Recall и retention record не были завершены.
+Listening → Speaking и Deep Processing не были проведены. Полная canonical Variation Chain и formal retention record не были завершены. Final Recall в требуемой форме трёх независимых предложений без последующей подсказки также не считается полностью закрытым.
 
 record_schema: canonical-v1
 lesson_status: PARTIAL
 primary_skill: `lähettää` ↔ `lähteä` в профессиональной речи
 
 ## Evidence
-observed: independent retrieval частично успешен; changed-context speaking выполнен; repeated contrast-selection errors remained; immediate repair success есть, delayed mastery не доказана.
-evidence_score: 1-2
+observed: independent retrieval improved during same-session repair; changed-context contrast production achieved at the end; earlier repeated contrast-selection errors remained; delayed mastery not demonstrated.
+evidence_score: 2
 
 ## Protocol Completion
 required_stages: retrieval, listening_speaking, deep_processing, controlled_speaking, finnish_dialogue, error_repair_second_chance, final_challenge_recall, retention_record
-completed_stages: retrieval, controlled_speaking, finnish_dialogue
-missing_stages: listening_speaking, deep_processing, error_repair_second_chance, final_challenge_recall, retention_record
+completed_stages: retrieval, controlled_speaking, finnish_dialogue, error_repair_second_chance
+missing_stages: listening_speaking, deep_processing, final_challenge_recall, retention_record
 continuation_required: YES
-continuation_reason: canonical completion evidence is incomplete; repeated `lähettää/lähteä` contrast error still needs delayed independent closure.
-continuation_next_stage: error_repair_second_chance
+continuation_reason: canonical completion evidence is incomplete; delayed independent closure and retention evidence are still required.
+continuation_next_stage: final_challenge_recall
 
 ## Chunk Decisions
 candidate: `lähettää / lähteä`
 decision: KEEP
-reason: existing priority contrast remains active; no evidence for stable closure.
-evidence: repeated unaided contrast-selection errors despite successful immediate repair.
-next_action: Micro Grammar Repair → unlabeled mixed choice → delayed changed-context recall.
+reason: contrast is improving in same-session repair but is not yet proven stable across delayed recall.
+evidence: repeated earlier unaided contrast errors followed by successful same-session independent contrast production.
+next_action: delayed blind recall in a changed context; do not promote to stable yet.
 
 candidate: `minun täytyy + infinitive`
 decision: KEEP
@@ -59,21 +71,33 @@ reason: useful and independently accessible, but broader delayed evidence is sti
 evidence: successful use in familiar and changed contexts.
 next_action: retention check; do not promote solely from today's evidence.
 
+candidate: `lähetän sähköpostin`
+decision: KEEP
+reason: independently produced at the end of the repair cycle, but delayed evidence is not yet available.
+evidence: independent production in current session.
+next_action: blind recall in a new context.
+
+candidate: `lähden kotiin`
+decision: KEEP
+reason: independently produced after contrast repair, but delayed evidence is not yet available.
+evidence: independent production in current session.
+next_action: blind recall in a new context.
+
 ## Mastery
 current_level: CONSOLIDATING
-reason: core constructions are usable, but contrast selection remains unstable.
-evidence: independent successful outputs mixed with repeated unaided errors.
+reason: core constructions are usable and contrast accuracy improved during repair, but delayed cross-session evidence is still missing.
+evidence: independent successful outputs mixed with earlier repeated unaided errors in the same session.
 
 ## Retention
 status: SCHEDULED
-next_review: next lesson / delayed changed-context check
- evidence: current lesson contains immediate repair but not sufficient delayed evidence for stable mastery.
+next_review: 2026-08-22
+ evidence: current session produced improved independent output, but retention must be checked after a delay.
 
 ## Errors
-recurring: `lähettää` ↔ `lähteä`; `lähetän` vs `lähettää`; object and case forms in `sähköposti`, `lounaan`, `projektia`.
-correction: distinguish sending from leaving; use personal present `lähetän`; use context-appropriate object/case forms.
+recurring: `lähettää` ↔ `lähteä`; `lähetän` vs `lähettää`; object and case forms in `sähköposti`, `lounaan`, `projektia`; `kotiin` vs `kotona`.
+correction: distinguish sending from leaving; use personal present `lähetän`; use context-appropriate object/case forms; use `kotiin` for direction and `kotona` for location.
 cause: primarily contrast_selection / retrieval; processing_load appears in longer speech.
-next_action: finish Micro Grammar Repair and delayed mixed-choice check before topic expansion.
+next_action: delayed blind recall and mixed-choice before topic expansion.
 
 ## Next Step
-next_action: Continue the current lesson. Do not introduce unrelated new material. Resume with Micro Grammar Repair, then Variation Chain, unlabeled Mixed Choice, Final Recall, and Retention record.
+next_action: Next lesson begins with blind recall of `lähetän / lähden`, then a changed-context mixed-choice check. If successful, complete Final Recall and Retention Record; only then evaluate whether promotion is justified.
