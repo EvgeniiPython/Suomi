@@ -1,17 +1,22 @@
 {
   "schema": "audit-state-v2",
-  "generated_at_utc": "2026-08-21T12:52:20.820198+00:00",
+  "generated_at_utc": "2026-08-21T12:52:37.982448+00:00",
   "audit_status": "FAIL",
   "validator_exit_code": 1,
   "latest_session": "2026-08-21_Session_Record.md",
-  "latest_session_schema_status": "LEGACY",
-  "latest_canonical_session": null,
-  "lesson_status": "UNKNOWN",
-  "protocol_status": "UNKNOWN",
+  "latest_session_schema_status": "CANONICAL_V1",
+  "latest_canonical_session": "2026-08-21_Session_Record.md",
+  "lesson_status": "PARTIAL",
+  "protocol_status": "PARTIAL",
   "required_stage_count": 8,
-  "completed_stage_count": 0,
-  "missing_stages": [],
-  "continuation_required": "UNKNOWN",
-  "resume_stage": "NONE",
-  "runtime_action": "Convert the latest lesson record to canonical-v1 and run the audit again."
+  "completed_stage_count": 4,
+  "missing_stages": [
+    "listening_speaking",
+    "deep_processing",
+    "final_challenge_recall",
+    "retention_record"
+  ],
+  "continuation_required": "YES",
+  "resume_stage": "final_challenge_recall",
+  "runtime_action": "Continue the lesson from RESUME_STAGE before unrelated new material."
 }
