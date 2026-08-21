@@ -11,8 +11,8 @@ on:
 permissions:
   contents: write
 
-# Prevent two audit runs from trying to update Latest_Audit_State.json
-# on main at the same time.
+# Only one audit may publish Latest_Audit_State.json at a time.
+# A later run waits for the current run instead of racing it.
 concurrency:
   group: finnish-learning-audit
   cancel-in-progress: false
@@ -24,6 +24,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -47,30 +49,64 @@ jobs:
             --log audit.log \
             --exit-code "${{ steps.audit.outputs.exit_code || '1' }}"
 
-      - name: Send audit report to Telegram
+      # Keep the generated state outside the Git worktree. This lets us
+      # synchronize with the newest main without creating a rebase conflict.
+      - name: Preserve generated audit state
         if: always()
+        run: cp Finnish-Learning-Wiki/00_System/Latest_Audit_State.json "$RUNNER_TEMP/Latest_Audit_State.json"
+
+      # Publish only after synchronizing with the latest main. The generated
+      # state is reapplied on top of origin/main, so concurrent user commits
+      # are preserved and Latest_Audit_State.json cannot create a rebase
+      # conflict.
+      - name: Commit and push audit state
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          state_file="Finnish-Learning-Wiki/00_System/Latest_Audit_State.json"
+          saved_state="$RUNNER_TEMP/Latest_Audit_State.json"
+
+          for attempt in 1 2 3; do
+            echo "Publish attempt $attempt/3"
+            git fetch origin main
+
+            # Start from current remote main. This preserves commits that
+            # arrived while the audit was running.
+            git reset --hard origin/main
+            cp "$saved_state" "$state_file"
+
+            git add "$state_file"
+
+            if git diff --cached --quiet; then
+              echo "No audit-state change to commit"
+              exit 0
+            fi
+
+            git commit -m "chore: update latest audit state [skip ci]"
+
+            if git push origin HEAD:main; then
+              echo "Audit state published successfully"
+              exit 0
+            fi
+
+            echo "Push raced with a newer main commit; retrying..."
+            git reset --hard origin/main
+          done
+
+          echo "ERROR: Could not publish audit state after 3 attempts" >&2
+          exit 1
+
+      # Telegram is deliberately AFTER publication. A failed commit/reconcile
+      # cannot therefore produce a misleading audit notification.
+      - name: Send audit report to Telegram
+        if: success()
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-          python engine/send_audit_report_telegram.py
-
-      - name: Commit audit state
-        if: always()
-        shell: bash
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          git add Finnish-Learning-Wiki/00_System/Latest_Audit_State.json
-
-          if git diff --cached --quiet; then
-            echo "No audit-state change to commit"
-            exit 0
-          fi
-
-          git commit -m "chore: update latest audit state [skip ci]"
-
-          git fetch origin main
-          git rebase origin/main
-          git push origin HEAD:main
+          python engine/send_audit_report_telegram.py --state "$RUNNER_TEMP/Latest_Audit_State.json"
