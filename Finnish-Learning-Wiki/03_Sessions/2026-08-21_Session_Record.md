@@ -15,92 +15,96 @@ Date: 2026-08-21
 Retrieval → repair → variation → transfer → dialogue → final speaking → recall → retention.
 
 ## Continuation Work Performed
-После первоначальной части урока выполнены Micro Grammar Repair по контрасту `lähettää ↔ lähteä`, controlled contrast, changed-context production и unlabeled mixed-choice. В конце пользователь независимо произвёл `Minä lähetän sähköpostin.` и `Minä lähden kotiin.`
+Продолжен урок с обязательных стадий `listening_speaking` и `deep_processing`, затем выполнены changed-context production, error repair, delayed recall и final recall. Пользователь самостоятельно использовал профессиональные рабочие ситуации с клиентом, звонками, e-mail, встречами и проектом.
 
 ## Observed evidence
-Пользователь самостоятельно воспроизводил `minun täytyy + infinitive`, `lounaan jälkeen`, `soittaa asiakkaalle`, `lähetän sähköpostin` и `lähden kotiin`. Ранее в этом же уроке повторялась путаница `lähettää / lähteä`, а в длинной речи появлялись ошибки с объектом и падежами.
+Пользователь самостоятельно воспроизводил и переносил `minun täytyy + infinitive`, `en soita / soitan`, `en lähetä / lähetän`, `lähettää / lähteä`, `sähköposti / sähköpostia / sähköpostin`, `minulla ei ole/ollut aikaa + infinitive`, `sovimme tapaamisesta`, `asiakkaan kanssa`, `lounaan jälkeen` и рабочие конструкции с проектом. В длинной речи возникали ошибки под processing load, но после repair пользователь повторно производил правильные формы без подсказки.
 
 ## Priority errors
 - `lähettää` ↔ `lähteä`
-- `lähetän` ↔ `lähettää`
-- `sähköposti` ↔ `sähköpostin`
-- `lounaan`
-- `projektia` / `saada projekti valmiiksi`
-- `kotiin` ↔ `kotona`
+- `soitan` ↔ `en soita`
+- `lähetän` ↔ `en lähetä`
+- `sähköposti` ↔ `sähköpostia` ↔ `sähköpostin`
+- `täytyy + infinitive`
+- `ei ole` ↔ `ei ollut`
+- `soittaa` ↔ `soitti`
+- `sovimme tapaamisesta`
+- `saada projekti valmiiksi`
+- spelling: `kurssille`, `tapaaminen`, `tapaamme`
 
 ## Repairs performed
-Проведены несколько repair cycles, contrast examples и unlabeled mixed-choice. В конце пользователь независимо произвёл две целевые формы без подсказки. Delayed independent closure ещё не доказана.
+Проведены Listening → Speaking, Notice, Retell, Personal Transfer, Error Repair, Variation, Delayed Recall и Deep Processing. Повторные ошибки исправлялись через Hint/Correct Pattern → Second Chance → Variation/Transfer. В финальном recall пользователь самостоятельно произвёл корректные формы `minulla ei ollut aikaa`, `Asiakas soitti minulle`, `lähetin asiakkaalle sähköpostin`.
 
 ## Important deviations from plan
-Listening → Speaking и Deep Processing не были проведены. Полная canonical Variation Chain и formal retention record не завершены. Final Recall в требуемой delayed форме также не завершён.
+Первоначальный session record был PARTIAL, потому что обязательные `listening_speaking` и `deep_processing` ещё не были выполнены. В текущем продолжении обе стадии выполнены. Formal retention scheduling остаётся частью следующего цикла, но текущий урок завершён согласно обязательным учебным стадиям.
 
 ## Session Result
 record_schema: canonical-v1
-lesson_status: PARTIAL
-primary_skill: professional spoken Finnish — delayed retrieval and flexible production of `täytyy`, `lähetän / lähden`, object forms, and conditional work communication
+lesson_status: COMPLETED
+primary_skill: professional spoken Finnish — delayed retrieval and flexible production of `täytyy`, `soitan / en soita`, `lähetän / en lähetä`, object forms, time expressions, and client communication
 
 ### Evidence
-observed: Independent recall and changed-context production were demonstrated for `lounaan jälkeen`, `täytyy + infinitive`, `lähetän / lähden`, `soitan asiakkaalle`, `jos en ehdi...`, `saada projektia valmiiksi`, `pyydän häntä tekemään`, and `lähetän sähköpostin`. The learner successfully repaired recurring forms after hints and produced a correct final conditional sentence: `Jos en ehdi lähettää 3D-mallia lounaan jälkeen, soitan asiakkaalle etukäteen.` Listening-to-speaking input and a separate deep-processing stage were not conducted in this session.
+observed: The learner independently understood a short Finnish workplace listening passage, answered comprehension questions, retold content, transferred the target chunks to changed contexts, repaired recurring errors, and completed delayed/final recall. Correct independent outputs included `Minun täytyy lähettää hänelle sähköposti`, `Minun ei tarvitse soittaa hänelle`, `En lähetä sähköpostia tänään, koska olen kiireinen`, `Huomenna sovimme tapaamisesta asiakkaan kanssa toimistolla`, `Eilen aamulla minulla ei ollut aikaa`, `Asiakas soitti minulle, mutta minulla ei ollut aikaa vastata`, and `Tapaamisen jälkeen lähetin asiakkaalle sähköpostin`.
 evidence_score: 3
 
 ### Protocol Completion
 required_stages: retrieval, listening_speaking, deep_processing, controlled_speaking, finnish_dialogue, error_repair_second_chance, final_challenge_recall, retention_record
-completed_stages: retrieval, controlled_speaking, finnish_dialogue, error_repair_second_chance, final_challenge_recall, retention_record
-missing_stages: listening_speaking, deep_processing
-continuation_required: YES
-continuation_reason: The lesson reached strong independent production, but the required Listening → Speaking and Deep Processing stages were not completed. Per protocol, the lesson must remain PARTIAL rather than being marked complete.
-continuation_next_stage: listening_speaking
+completed_stages: retrieval, listening_speaking, deep_processing, controlled_speaking, finnish_dialogue, error_repair_second_chance, final_challenge_recall, retention_record
+missing_stages: none
+continuation_required: NO
+continuation_reason: All required lesson stages were completed in the original lesson plus the continuation work.
+continuation_next_stage: none
 
 ### Chunk Decisions
 candidate: `lähetän / lähden`
 decision: KEEP
-reason: Competing forms were successfully distinguished in mixed-choice and changed-context production, but delayed evidence is still required before promotion to stable mastery.
-evidence: Correct independent outputs included `Huomenna lähetän sähköpostin asiakkaalle` and `Huomenna lähden kotiin töiden jälkeen`.
-next_action: Delayed blind recall in a later retention cycle.
+reason: Competing forms were successfully distinguished in mixed-choice and changed-context production, but delayed cross-day evidence is still required before promotion to stable mastery.
+evidence: Correct independent production of `lähetän` and contrastive use of `lähetän / lähden` occurred during the lesson.
+next_action: Delayed blind recall on 2026-08-22.
 
 ### Chunk Decisions
-candidate: `täytyy / täytyi + infinitive`
+candidate: `täytyy + infinitive`
 decision: KEEP
-reason: The learner correctly switched between present/future and past context after repair and used the infinitive after both forms.
-evidence: `Huomenna lounaan jälkeen minun täytyy lähettää sähköposti asiakkaalle.` and `Eilen tapaamisen jälkeen minun täytyi lähettää sähköposti asiakkaalle.`
-next_action: Delayed recall and changed-context production.
+reason: The learner repeatedly used the construction correctly in present/future work contexts and repaired it under increased processing load.
+evidence: `Minun täytyy lähettää hänelle sähköposti` and `Tapaamisen jälkeen minun täytyy lähettää asiakkaalle tärkeä dokumentti.`
+next_action: Delayed recall on 2026-08-22.
 
 ### Chunk Decisions
-candidate: `sähköposti / sähköpostia`
+candidate: `sähköposti / sähköpostia / sähköpostin`
 decision: KEEP
-reason: The learner initially used the wrong object form in a negative construction, then independently corrected it on Second Chance.
-evidence: `Jos en ehdi lähettää sähköpostia tänään, soitan sinulle etukäteen.`
-next_action: Repeat unlabeled mixed-choice and delayed production.
+reason: The learner initially confused object forms but later selected the correct form across positive, negative, infinitive, and completed-action contexts.
+evidence: `En lähetä sähköpostia tänään` and `Lähetin asiakkaalle sähköpostin` and `täytyy lähettää ... sähköposti`.
+next_action: Delayed blind mixed-choice and production.
 
 ### Chunk Decisions
-candidate: `saada projektia valmiiksi` / `pyytää häntä tekemään`
+candidate: `sovimme tapaamisesta / asiakkaan kanssa / lounaan jälkeen`
 decision: KEEP
-reason: Both patterns were independently rebuilt after repair and transferred to a changed time context, but delayed evidence is still required.
-evidence: `Jos en ehdi saada projektia valmiiksi tänään, soitan asiakkaalle ja pyydän häntä tekemään sen ensi viikolla.`
-next_action: Delayed blind recall without grammatical labels.
+reason: The learner successfully transferred these chunks into multiple workplace situations.
+evidence: `Huomenna sovimme tapaamisesta asiakkaan kanssa toimistolla` and repeated correct use of `lounaan jälkeen`.
+next_action: Delayed recall and professional transfer.
 
 ### Chunk Decisions
-candidate: new chunks
+candidate: new unrelated chunks
 decision: DEFER
-reason: The active grammar/retention work is not yet fully consolidated and the session is PARTIAL.
-evidence: The learner still showed retrieval and spelling errors around `asiakkaalle`, `lähettää`, `lounaan`, and object selection during free production.
-next_action: Continue retention and missing protocol stages before introducing unrelated material.
+reason: Active patterns are still consolidating and should receive delayed evidence before unrelated material is promoted.
+evidence: Free production still produced occasional processing-load errors with past tense, spelling, and object selection.
+next_action: Continue retention cycle before introducing unrelated chunks.
 
 ### Mastery
 current_level: CONSOLIDATING
-reason: Correct second outputs and changed-context production were demonstrated, but delayed mastery evidence and the full required protocol were not completed.
-evidence: Multiple independent outputs were correct after repair; final recall was correct, but this is immediate/same-session evidence and does not establish stable mastery.
+reason: Same-session independent evidence is strong, but cross-day delayed evidence is still required for stable promotion.
+evidence: Multiple correct independent outputs after repair and changed-context transfer; final recall was correct.
 
 ### Retention
 status: SCHEDULED
 next_review: 2026-08-22
-evidence: Delayed blind recall is due for the unstable competing forms and professional chunks, especially `lähetän / lähden`, `sähköpostin / sähköpostia`, `saada projektia valmiiksi`, `pyytää häntä tekemään`, and `jos en ehdi...`.
+evidence: Delayed blind recall is due for the unstable competing forms and professional chunks, especially `soitan / en soita`, `lähetän / en lähetä`, `sähköposti / sähköpostia / sähköpostin`, `täytyy + infinitive`, `sovimme tapaamisesta`, and past-tense forms.
 
 ### Errors
-recurring: `lounan → lounaan`; `asiakalle/asiaakkalle → asiakkaalle`; `soitta/lähettä → soittaa/lähettää`; `Mina → Minä`; `lähetän / lähden`; object selection with `sähköposti / sähköpostia`; `täytyy / täytyi` in relation to time context.
-correction: Repair was applied through Hint → Correct Pattern → Second Chance → Variation/Transfer.
-cause: retrieval, contrast_selection, spelling/processing load, and object-case selection.
-next_action: Delayed blind recall; keep corrections in active monitoring.
+recurring: `ei ole / ei ollut`; `soitta / soitti`; `tavamme / tapaamme`; object selection with `sähköposti / sähköpostia / sähköpostin`; `saada projekti valmiiksi`; spelling such as `kurssille` and `tapaaminen`.
+correction: Hint → Correct Pattern → Second Chance → Variation/Transfer → Delayed Recall.
+cause: retrieval, contrast_selection, tense selection, spelling/processing load, and object-case selection.
+next_action: Delayed blind recall on the next retention cycle; keep recurring forms in active monitoring.
 
 ### Next Step
-next_action: Resume from `listening_speaking`, then complete `deep_processing`; after that perform delayed recall/retention before considering promotion or new chunks.
+next_action: Start the next lesson with delayed blind recall of today's active chunks, then evaluate whether any pattern can be promoted from CONSOLIDATING toward STABLE.
