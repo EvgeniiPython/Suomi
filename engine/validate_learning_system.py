@@ -2,7 +2,7 @@
 """Read-only structural validator for the Finnish Learning Wiki.
 
 The Markdown protocols remain the pedagogical source of truth. This validator
-checks that new canonical-v1 session records are structurally and logically
+checks that canonical-v1 session records are structurally and logically
 consistent with those rules; it does not invent mastery decisions.
 """
 from __future__ import annotations
@@ -30,10 +30,15 @@ REQUIRED_STAGES = (
     "retention_record",
 )
 VALID_STATUS = {"COMPLETED", "PARTIAL", "INTERRUPTED"}
-VALID_DECISIONS = {"ACCEPT", "REJECT", "DEFER", "PROMOTE", "KEEP", "DEMOTE"}
 VALID_LEVELS = {"ACTIVE", "CONSOLIDATING", "STABLE", "DORMANT"}
 VALID_RETENTION = {"SCHEDULED", "DUE", "PASSED", "FAILED", "NOT_APPLICABLE"}
 VALID_CONTINUATION = {"YES", "NO"}
+
+# Session records are the only files validated against canonical-v1. Other
+# documents may live in 03_Sessions (for example Closure_Checklist) but are
+# supporting artifacts, not session records, and must not fail the session
+# schema gate.
+SESSION_RECORD_RE = re.compile(r"^\d{4}-\d{2}-\d{2}_Session_Record\.md$")
 
 
 def read_text(path: Path) -> str:
@@ -59,16 +64,6 @@ def list_field(text: str, field: str) -> list[str]:
     if not value or value.upper() in {"NONE", "N/A", "NOT_APPLICABLE"}:
         return []
     return [x.strip().lower() for x in re.split(r"[,;]", value) if x.strip()]
-
-
-def section(text: str, heading: str) -> str:
-    """Return content until the next heading of the same or higher level."""
-    m = re.search(rf"(?is)^## {re.escape(heading)}\s*$", text, re.MULTILINE)
-    if not m:
-        return ""
-    tail = text[m.end():]
-    n = re.search(r"(?m)^## (?!#)", tail)
-    return tail[:n.start()] if n else tail
 
 
 def subsection(text: str, heading: str) -> str:
@@ -128,13 +123,10 @@ def validate_canonical(text: str):
     problems = []
     if "record_schema: canonical-v1" not in text.lower():
         problems.append("missing record_schema: canonical-v1")
-    # Canonical-v1 requires one final Session Result wrapper.
     result_positions = list(re.finditer(r"(?im)^## Session Result\s*$", text))
     if len(result_positions) != 1:
         problems.append("canonical-v1 requires exactly one final ## Session Result section")
         return problems
-    if result_positions[0].end() < text.rfind("\n") and text[result_positions[0].end():].strip() == "":
-        pass
     result = text[result_positions[0].end():]
     if re.search(r"(?m)^## ", result):
         problems.append("Session Result must contain all canonical data; no sibling ## sections may follow it")
@@ -156,30 +148,26 @@ def validate_canonical(text: str):
     if retention_status not in VALID_RETENTION:
         problems.append("invalid or missing Retention status")
     protocol = subsection(result, "Protocol Completion")
-    p, missing, continuation = validate_protocol(protocol)
+    p, missing, _ = validate_protocol(protocol)
     problems.extend(p)
     if status in {"PARTIAL", "INTERRUPTED"} and not field_value(subsection(result, "Next Step"), "next_action"):
         problems.append("partial/interrupted lesson requires Next Step.next_action")
     if missing and status == "COMPLETED":
         problems.append("lesson_status cannot be COMPLETED while required stages are missing")
-    # Formal mastery prerequisites, without inventing pedagogy.
     mastery = subsection(result, "Mastery")
-    mastery_evidence = field_value(mastery, "evidence")
+    mastery_evidence = field_value(mastery, "evidence") or ""
     if level == "STABLE":
-        if not mastery_evidence:
-            problems.append("STABLE requires explicit Mastery evidence")
         if "delayed" not in mastery_evidence.lower():
             problems.append("STABLE requires delayed evidence to be named")
         if "mixed-choice" not in mastery_evidence.lower() and "mixed choice" not in mastery_evidence.lower():
             problems.append("STABLE requires unlabeled mixed-choice evidence to be named")
-    # Score semantics are checked at the minimum formal level: score 2/3 must
-    # have independent evidence; score 3 must mention changed-context/transfer.
     evidence = subsection(result, "Evidence")
     observed = field_value(evidence, "observed") or ""
     score_int = int(score)
-    if score_int >= 2 and "independent" not in (observed + " " + mastery_evidence).lower():
+    combined = (observed + " " + mastery_evidence).lower()
+    if score_int >= 2 and "independent" not in combined:
         problems.append("evidence_score >= 2 requires explicit independent evidence")
-    if score_int == 3 and not any(x in (observed + " " + mastery_evidence).lower() for x in ("changed context", "changed-context", "transfer")):
+    if score_int == 3 and not any(x in combined for x in ("changed context", "changed-context", "transfer")):
         problems.append("evidence_score 3 requires changed-context or transfer evidence")
     return problems
 
@@ -191,36 +179,32 @@ def validate_system_files(results):
 
 
 def validate_sessions(results, directives):
-    files = sorted(SESSIONS.glob("*.md")) if SESSIONS.exists() else []
+    files = sorted(p for p in SESSIONS.glob("*.md") if SESSION_RECORD_RE.match(p.name)) if SESSIONS.exists() else []
     if not files:
-        add_result(results, WARN, "Session records", "No session Markdown files found")
+        add_result(results, WARN, "Session records", "No canonical Session_Record files found")
         return
     malformed = 0
     failures = []
-    legacy = canonical = 0
     for path in files:
         text = read_text(path)
         lower = text.lower()
         session_date = extract_session_date(path, text)
         if "record_schema: canonical-v1" in lower:
-            canonical += 1
             problems = validate_canonical(text)
-            if problems:
-                if session_date and session_date >= CANONICAL_REQUIRED_FROM:
-                    failures.append(f"{path.name}: " + "; ".join(problems))
-            if "continuation_required: YES" in lower:
+            if problems and session_date and session_date >= CANONICAL_REQUIRED_FROM:
+                failures.append(f"{path.name}: " + "; ".join(problems))
+            if "continuation_required: yes" in lower:
                 block = subsection(text, "Protocol Completion")
                 resume = field_value(block, "continuation_next_stage")
                 missing = list_field(block, "missing_stages")
                 directives.append(f"{path.name}: RESUME_STAGE={resume}; MISSING_STAGES={','.join(missing)}")
         else:
-            legacy += 1
             if session_date and session_date >= CANONICAL_REQUIRED_FROM:
                 failures.append(f"{path.name}: missing canonical-v1 Session Result")
         if not re.search(r"^# .*20\d{2}", text, re.MULTILINE):
             malformed += 1
-    add_result(results, FAIL if malformed else PASS, "Session structure", f"Checked {len(files)} session file(s); {canonical} canonical, {legacy} legacy")
-    add_result(results, FAIL if failures else PASS, "Canonical session records", " | ".join(failures) if failures else "All applicable canonical-v1 records are structurally consistent")
+    add_result(results, FAIL if malformed else PASS, "Session structure", f"Checked {len(files)} Session_Record file(s)")
+    add_result(results, FAIL if failures else PASS, "Canonical session records", " | ".join(failures) if failures else "All applicable canonical-v1 Session_Record files are structurally consistent")
     add_result(results, WARN if directives else PASS, "Lesson continuation", f"{len(directives)} session(s) require continuation" if directives else "No continuation directives")
 
 
