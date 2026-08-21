@@ -60,6 +60,7 @@ jobs:
       # are preserved and Latest_Audit_State.json cannot create a rebase
       # conflict.
       - name: Commit and push audit state
+        id: publish
         if: always()
         shell: bash
         run: |
@@ -101,10 +102,10 @@ jobs:
           echo "ERROR: Could not publish audit state after 3 attempts" >&2
           exit 1
 
-      # Telegram is deliberately AFTER publication. A failed commit/reconcile
-      # cannot therefore produce a misleading audit notification.
+      # Telegram is deliberately AFTER successful publication. A failed
+      # audit can still be reported, but only after its state is safely saved.
       - name: Send audit report to Telegram
-        if: success()
+        if: always() && steps.publish.outcome == 'success'
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
