@@ -4,12 +4,56 @@
 1. Прочитать `00_System/Current_State.md`.
 2. Прочитать `01_Today/Today.md`.
 3. Прочитать `02_Retention/Retention_Dashboard.md`.
-4. Проверить активные chunks и приоритетные ошибки.
-5. Прочитать `00_System/Daily_Speaking_First_Protocol.md` при необходимости восстановить полный 90-минутный тайминг.
-6. Следовать `00_System/Lesson_Protocol.md`.
-7. Следовать `00_System/Spoken_Recall_Protocol.md` для самостоятельной речи.
-8. Следовать `00_System/DATA_INTEGRITY.md` при любых изменениях базы.
-9. Начать с recall без подсказки.
+4. **Обязательно прочитать `00_System/Latest_Audit_State.json`.**
+5. Проверить активные chunks и приоритетные ошибки.
+6. Прочитать `00_System/Daily_Speaking_First_Protocol.md` при необходимости восстановить полный 90-минутный тайминг.
+7. Следовать `00_System/Lesson_Protocol.md`.
+8. Следовать `00_System/Spoken_Recall_Protocol.md` для самостоятельной речи.
+9. Следовать `00_System/DATA_INTEGRITY.md` при любых изменениях базы.
+10. Определить фактическую точку продолжения по `Latest_Audit_State.json`.
+
+## Runtime Continuation State
+
+`00_System/Latest_Audit_State.json` — машинно-читаемое runtime-состояние текущего протокола урока. Оно обязательно читается при каждом старте урока.
+
+### Приоритет продолжения
+
+Если JSON содержит:
+
+```text
+continuation_required = "YES"
+```
+
+то поле:
+
+```text
+resume_stage
+```
+
+**обязательно определяет первую стадию текущего урока.**
+
+В этом случае:
+- не начинать урок заново с Retrieval/Blind Recall;
+- не выбирать произвольный новый материал;
+- не добавлять новые chunks до завершения требуемых стадий;
+- сначала продолжить с `resume_stage`;
+- затем последовательно закрыть остальные незавершённые стадии согласно `Lesson_Protocol.md`;
+- только после закрытия continuation state возвращаться к обычному выбору материала.
+
+Если `continuation_required = "NO"`, продолжать по обычному runtime selection и текущему учебному состоянию.
+
+Если `protocol_status = "PARTIAL"` и `resume_stage` указан, считать урок незавершённым независимо от того, что `Current_State.md`, `Today.md` или retention notes могут предлагать другой стартовый drill.
+
+### Источник истины для runtime continuation
+
+- `Latest_Audit_State.json` определяет **незавершённость протокола и точку продолжения**.
+- `Current_State.md` определяет **учебный контекст, mastery, ошибки и приоритеты**.
+- `Today.md` и `Retention_Dashboard.md` определяют **план и retention-контекст**.
+- При конфликте по точке продолжения `Latest_Audit_State.json` имеет приоритет.
+
+### Защита от ложного restart
+
+Нельзя интерпретировать `lesson_status = "PARTIAL"` как новый урок. Если `continuation_required = "YES"`, текущий урок должен быть продолжен с `resume_stage`.
 
 ## Правила
 - Главная цель урока — самостоятельная разговорная речь, а не количество нового материала.
