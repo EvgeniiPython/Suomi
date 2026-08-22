@@ -1,17 +1,5 @@
 #!/usr/bin/env python3
-"""Send the latest machine-readable audit state to Telegram.
-
-Configuration is supplied through environment variables so Telegram
-credentials never have to be committed to the repository.
-
-Required environment variables:
-  TELEGRAM_BOT_TOKEN
-  TELEGRAM_CHAT_ID
-
-Usage:
-  python engine/send_audit_report_telegram.py
-  python engine/send_audit_report_telegram.py --state path/to/state.json
-"""
+"""Send the latest machine-readable audit state to Telegram."""
 from __future__ import annotations
 
 import argparse
@@ -55,11 +43,13 @@ def build_message(state: dict) -> str:
     protocol = state.get("protocol_status", "UNKNOWN")
     continuation = state.get("continuation_required", "UNKNOWN")
     missing = state.get("missing_stages") or []
+    session_type = state.get("session_type", "UNKNOWN")
 
     lines = [
         "🇫🇮 <b>Finnish Learning System — Audit</b>",
         "",
         f"{icon} <b>Audit:</b> {audit_status}",
+        f"<b>Session type:</b> {session_type}",
         f"<b>Protocol:</b> {protocol}",
         f"<b>Lesson:</b> {pretty(state.get('lesson_status'))}",
         f"<b>Validator exit code:</b> {pretty(state.get('validator_exit_code'))}",
