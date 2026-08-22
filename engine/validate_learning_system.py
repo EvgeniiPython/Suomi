@@ -39,6 +39,11 @@ VALID_CONTINUATION = {"YES", "NO"}
 # supporting artifacts, not session records, and must not fail the session
 # schema gate.
 SESSION_RECORD_RE = re.compile(r"^\d{4}-\d{2}-\d{2}_Session_Record\.md$")
+# A daily file named YYYY-MM-DD.md is session-like, but is not a canonical
+# record. After canonical-v1 adoption it is an error when such a file exists
+# without a matching YYYY-MM-DD_Session_Record.md, because it would otherwise
+# be silently ignored by the audit-state generator.
+DAILY_SESSION_RE = re.compile(r"^(\d{4})-(\d{2})-(\d{2})\.md$")
 
 
 def read_text(path: Path) -> str:
@@ -178,6 +183,31 @@ def validate_system_files(results):
     add_result(results, FAIL if missing else PASS, "Required system protocols", "Missing: " + ", ".join(missing) if missing else "All required files are present")
 
 
+def validate_daily_session_naming(results):
+    if not SESSIONS.exists():
+        return
+    problems = []
+    for path in sorted(SESSIONS.glob("*.md")):
+        m = DAILY_SESSION_RE.match(path.name)
+        if not m:
+            continue
+        session_date = date(int(m.group(1)), int(m.group(2)), int(m.group(3)))
+        if session_date < CANONICAL_REQUIRED_FROM:
+            continue
+        canonical = SESSIONS / f"{session_date.isoformat()}_Session_Record.md"
+        if not canonical.exists():
+            problems.append(
+                f"{path.name}: session-like daily record is not canonical; "
+                f"create {canonical.name} instead"
+            )
+    add_result(
+        results,
+        FAIL if problems else PASS,
+        "Canonical session naming",
+        " | ".join(problems) if problems else "All post-adoption dated session records use canonical filenames",
+    )
+
+
 def validate_sessions(results, directives):
     files = sorted(p for p in SESSIONS.glob("*.md") if SESSION_RECORD_RE.match(p.name)) if SESSIONS.exists() else []
     if not files:
@@ -212,6 +242,7 @@ def main() -> int:
     results = []
     directives = []
     validate_system_files(results)
+    validate_daily_session_naming(results)
     validate_sessions(results, directives)
     for status, check, detail in results:
         print(f"[{status}] {check}: {detail}")
