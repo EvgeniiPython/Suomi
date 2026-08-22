@@ -11,6 +11,10 @@
 
 **Attempt → Check → Correct → Repair → Second Output → Variation → Cold Recall → Transfer → Finnish Dialogue → Second Chance → Final Speaking Challenge → Final Recall → Retention**
 
+## Unannounced Recall Sampling
+
+Во время `FULL_LESSON` периодически проверяются 1–3 ранее изученных patterns/chunks, которые не являются главным фокусом текущего урока. Выбор делается без предупреждения и с большим вниманием к `CONSOLIDATING`, реже к `STABLE` и `DORMANT` items. Цель — проверить спонтанный recall вне недавно отработанного материала.
+
 ## Усилители системы
 
 - Mastery Ladder: `active → consolidating → stable → dormant`
