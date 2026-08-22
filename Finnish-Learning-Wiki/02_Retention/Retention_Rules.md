@@ -25,6 +25,40 @@ Tomorrow: rebuild from memory + one small variation.
 
 Use the shortest schedule that matches the current mastery state; do not mechanically drill every item at every interval.
 
+## Unannounced Sampling
+
+Previously learned patterns may also be sampled without warning during normal `FULL_LESSON` activities. This is an additional check of spontaneous retrieval, not a separate retention schedule.
+
+Use 1–3 samples when appropriate, selecting primarily from:
+
+```text
+CONSOLIDATING → more frequent
+STABLE → occasional
+DORMANT → rare
+```
+
+Do not repeatedly sample the same item in consecutive lessons. The learner should not be told which pattern is being tested before responding.
+
+Classify the spontaneous result as:
+
+```text
+AUTOMATIC
+HESITANT
+REPAIRABLE
+FAILED
+```
+
+Repeated main-lesson practice of the same target is not independent sampling evidence.
+
+Interpret sampling together with mastery and retention evidence:
+
+```text
+AUTOMATIC + correct → evidence of retained accessibility
+HESITANT → continue monitoring; do not promote on this evidence alone
+REPAIRABLE → keep under consolidation and sample again later
+FAILED → targeted retention/repair required
+```
+
 ## Mixed Choice Rule
 
 Do not name the target grammar before a delayed transfer check. Mix 3–5 prompts that require choosing among nearby forms, for example:
