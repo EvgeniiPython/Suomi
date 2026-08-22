@@ -1,20 +1,31 @@
 {
-  "schema": "audit-state-v2",
-  "generated_at_utc": "2026-08-22T13:00:24.204409+00:00",
+  "schema": "audit-state-v3",
+  "generated_at_utc": "2026-08-22T13:00:37.874082+00:00",
   "audit_status": "FAIL",
   "validator_exit_code": 1,
   "latest_session": "2026-08-22_Session_Record.md",
   "latest_session_schema_status": "CANONICAL_V1",
   "latest_canonical_session": "2026-08-22_Session_Record.md",
+  "session_type": "FULL_LESSON",
   "lesson_status": "PARTIAL",
   "protocol_status": "PARTIAL",
   "required_stage_count": 8,
   "completed_stage_count": 6,
+  "required_stages": [
+    "retrieval",
+    "listening_speaking",
+    "deep_processing",
+    "controlled_speaking",
+    "finnish_dialogue",
+    "error_repair_second_chance",
+    "final_challenge_recall",
+    "retention_record"
+  ],
   "missing_stages": [
     "listening_speaking",
     "deep_processing"
   ],
   "continuation_required": "YES",
   "resume_stage": "listening_speaking",
-  "runtime_action": "Continue the lesson from RESUME_STAGE before unrelated new material."
+  "runtime_action": "Continue the previous session from RESUME_STAGE before selecting a new session type."
 }
