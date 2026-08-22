@@ -1,81 +1,115 @@
 # SESSION BOOT
 
 ## Перед каждым уроком
-1. Прочитать `00_System/Current_State.md`.
-2. Прочитать `01_Today/Today.md`.
-3. Прочитать `02_Retention/Retention_Dashboard.md`.
-4. **Обязательно прочитать `00_System/Latest_Audit_State.json`.**
-5. Проверить активные chunks и приоритетные ошибки.
-6. Прочитать `00_System/Daily_Speaking_First_Protocol.md` при необходимости восстановить полный 90-минутный тайминг.
-7. Следовать `00_System/Lesson_Protocol.md`.
-8. Следовать `00_System/Spoken_Recall_Protocol.md` для самостоятельной речи.
-9. Следовать `00_System/DATA_INTEGRITY.md` при любых изменениях базы.
-10. Определить фактическую точку продолжения по `Latest_Audit_State.json`.
 
-## Runtime Continuation State
+1. Прочитать `00_System/Latest_Audit_State.json`.
+2. Прочитать `00_System/Current_State.md`.
+3. Прочитать `01_Today/Today.md`.
+4. Прочитать `02_Retention/Retention_Dashboard.md`.
+5. Проверить Active Focus и приоритетные ошибки.
+6. Следовать `00_System/Lesson_Protocol.md`.
+7. Использовать `00_System/Daily_Speaking_First_Protocol.md` для `FULL_LESSON`.
+8. Для `RETENTION_SESSION` использовать retention-маршрут из `Lesson_Protocol.md`.
+9. При изменениях базы соблюдать `DATA_INTEGRITY.md`.
 
-`00_System/Latest_Audit_State.json` — машинно-читаемое runtime-состояние текущего протокола урока. Оно обязательно читается при каждом старте урока.
+## Runtime decision order
 
-### Приоритет продолжения
+`Latest_Audit_State.json` определяет незавершённость предыдущей сессии и точку continuation.
 
-Если JSON содержит:
+### 1. Continuation имеет абсолютный приоритет
 
-```text
-continuation_required = "YES"
-```
-
-то поле:
+Если:
 
 ```text
-resume_stage
+continuation_required = YES
 ```
 
-**обязательно определяет первую стадию текущего урока.**
+то:
 
-В этом случае:
-- не начинать урок заново с Retrieval/Blind Recall;
-- не выбирать произвольный новый материал;
-- не добавлять новые chunks до завершения требуемых стадий;
-- сначала продолжить с `resume_stage`;
-- затем последовательно закрыть остальные незавершённые стадии согласно `Lesson_Protocol.md`;
-- только после закрытия continuation state возвращаться к обычному выбору материала.
+- сохранить `session_type` предыдущей сессии;
+- начать именно с `resume_stage`;
+- закрыть остальные незавершённые обязательные стадии этого же типа;
+- не превращать continuation в `RETENTION_SESSION` только потому, что сегодня наступил retention date;
+- не выбирать новый материал, пока continuation не закрыт.
 
-Если `continuation_required = "NO"`, продолжать по обычному runtime selection и текущему учебному состоянию.
+Continuation — это режим продолжения, а не третий тип сессии.
 
-Если `protocol_status = "PARTIAL"` и `resume_stage` указан, считать урок незавершённым независимо от того, что `Current_State.md`, `Today.md` или retention notes могут предлагать другой стартовый drill.
+### 2. Если continuation не требуется
 
-### Источник истины для runtime continuation
+Если:
 
-- `Latest_Audit_State.json` определяет **незавершённость протокола и точку продолжения**.
-- `Current_State.md` определяет **учебный контекст, mastery, ошибки и приоритеты**.
-- `Today.md` и `Retention_Dashboard.md` определяют **план и retention-контекст**.
-- При конфликте по точке продолжения `Latest_Audit_State.json` имеет приоритет.
+```text
+continuation_required = NO
+```
 
-### Защита от ложного restart
+то определить тип текущей сессии:
 
-Нельзя интерпретировать `lesson_status = "PARTIAL"` как новый урок. Если `continuation_required = "YES"`, текущий урок должен быть продолжен с `resume_stage`.
+```text
+Today.session_type, если он явно задан;
+иначе RETENTION_SESSION, если есть due retention;
+иначе FULL_LESSON.
+```
 
-## Правила
-- Главная цель урока — самостоятельная разговорная речь, а не количество нового материала.
-- Не добавлять новый материал, пока приоритетный recall не проверен.
-- Не перебивать длинный свободный рассказ; ждать сигнал пользователя «я закончил, говори».
-- При ступоре: Recall → Hint → Correct → Retry.
-- Для приоритетной ошибки: Error → Correct Pattern → Variation → Transfer → Delayed Recall.
-- После исправления обязательно получить второй output.
-- Не считать чанк автоматизированным только по повторению за преподавателем.
-- Для статуса Active нужны recall без подсказки, вариация и перенос в контекст.
-- Новые chunks дозировать по устойчивости recall; при нестабильном recall сначала repair и retention.
-- SRS использовать выборочно, преимущественно для production chunks, которые продолжают забываться.
+Тип должен быть явно зафиксирован в Session Record:
 
-## Целостность данных
-- Перед изменением: **Read → Compare → Merge/Update → Write → Verify**.
-- Никогда не перезаписывать существующий файл без предварительного чтения.
-- Дата не является уникальным идентификатором сессии: несколько занятий одного дня хранятся отдельными блоками в одном дневном файле.
-- При конфликте не выбирать молча и не удалять историю; сохранить контекст и явно отметить конфликт.
-- Если файл изменился после чтения, перечитать его и повторить цикл изменения.
+```text
+FULL_LESSON
+RETENTION_SESSION
+```
+
+### 3. Тип определяет completion gate
+
+`FULL_LESSON` требует 8 macro-stages:
+
+```text
+retrieval
+listening_speaking
+deep_processing
+controlled_speaking
+finnish_dialogue
+error_repair_second_chance
+final_challenge_recall
+retention_record
+```
+
+`RETENTION_SESSION` требует 6 macro-stages:
+
+```text
+retrieval
+controlled_speaking
+finnish_dialogue
+error_repair_second_chance
+final_challenge_recall
+retention_record
+```
+
+`listening_speaking` и `deep_processing` в retention не считаются пропущенными, если они не использовались.
+
+## Источники истины
+
+- `Latest_Audit_State.json` — незавершённость, session type и continuation point.
+- `Current_State.md` — текущее учебное состояние, mastery, ошибки и контекст.
+- `Today.md` — оперативная цель и явно выбранный тип сессии.
+- `Retention_Dashboard.md` — due retention и retention context.
+- `Lesson_Protocol.md` — правила проведения соответствующего типа.
+
+При конфликте по continuation приоритет у `Latest_Audit_State.json`.
+
+## Правила урока
+
+- Главная цель — самостоятельная разговорная речь.
+- Не добавлять новые chunks при незавершённом continuation или нестабильном retention.
+- Не выдавать готовый ответ до минимальной подсказки и попытки самостоятельной коррекции.
+- Для длинной речи ждать сигнала пользователя «я закончил, говори».
+- После исправления получать второй output.
+- Для конкурирующих форм использовать unlabeled mixed-choice.
+- Значимую ошибку проверять через Second Chance позже в новом контексте.
+- Не объявлять mastery стабильным по одной успешной сессии.
 
 ## После урока
-Обновить Session, Active Chunks, Errors, Progress, Retention, Today и Current State.
 
-## Главный цикл
-**Attempt → Check → Correct → Repair → Second Output → Variation → Transfer → Spoken Recall → Retention**
+Обновить соответствующие durable records и записать один canonical Session Result с явным `session_type`.
+
+## Главный принцип
+
+Сначала определить **тип сессии и continuation**, затем выполнять соответствующий маршрут. Нельзя использовать правила `FULL_LESSON` для `RETENTION_SESSION` и наоборот.
