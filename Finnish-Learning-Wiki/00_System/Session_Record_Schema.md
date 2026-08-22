@@ -1,9 +1,9 @@
 ---
 title: Canonical Session Result Schema
 type: system-rule
-version: canonical-v1
-source: 2026-08-21 schema-validator alignment
-tags: [session, diary, evidence, mastery, retention, audit, continuation]
+version: canonical-v2
+source: 2026-08-22 session-type alignment
+tags: [session, diary, evidence, mastery, retention, audit, continuation, session-type]
 ---
 
 # Canonical Session Result Schema
@@ -12,12 +12,52 @@ tags: [session, diary, evidence, mastery, retention, audit, continuation]
 
 All new lessons must end with exactly one canonical `## Session Result` section. The lesson narrative may remain natural and detailed before that section. Durable state is recorded only inside `Session Result`.
 
-The Python validator checks this exact structure. Markdown protocols remain the source of truth for pedagogical policy.
+Canonical-v2 adds an explicit `session_type` so the validator and runtime know which protocol gates apply. Historical canonical-v1 records remain valid and are treated as `FULL_LESSON` unless a newer canonical record explicitly declares another type.
+
+## Session types
+
+```text
+FULL_LESSON
+RETENTION_SESSION
+```
+
+`CONTINUATION` is not a third session type. It is a runtime mode that resumes the previously declared session type until its required stages are closed.
+
+### FULL_LESSON
+
+A normal Speaking-First lesson. All eight macro-stages are required:
+
+1. `retrieval`
+2. `listening_speaking`
+3. `deep_processing`
+4. `controlled_speaking`
+5. `finnish_dialogue`
+6. `error_repair_second_chance`
+7. `final_challenge_recall`
+8. `retention_record`
+
+### RETENTION_SESSION
+
+A D+1 / D+3 / D+6 / long-term retention session. It is designed to test delayed retrieval and transfer rather than introduce a full new lesson.
+
+Required macro-stages:
+
+1. `retrieval`
+2. `controlled_speaking`
+3. `finnish_dialogue`
+4. `error_repair_second_chance`
+5. `final_challenge_recall`
+6. `retention_record`
+
+`transfer`, `variation`, `cold_recall`, `mixed_choice`, and `second_chance` remain required behaviors where applicable, but they are evidence inside these macro-stages rather than separate completion gates.
+
+`listening_speaking` and `deep_processing` are optional in a RETENTION_SESSION and must not be recorded as missing merely because the retention route did not use them.
 
 ## Canonical structure
 
 ```text
-record_schema: canonical-v1
+record_schema: canonical-v2
+session_type: FULL_LESSON | RETENTION_SESSION
 
 ## Session Result
 lesson_status: COMPLETED | PARTIAL | INTERRUPTED
@@ -28,7 +68,7 @@ observed:
 evidence_score: 0 | 1 | 2 | 3
 
 ### Protocol Completion
-required_stages: retrieval, listening_speaking, deep_processing, controlled_speaking, finnish_dialogue, error_repair_second_chance, final_challenge_recall, retention_record
+required_stages:
 completed_stages:
 missing_stages:
 continuation_required: YES | NO
@@ -64,22 +104,9 @@ next_action:
 
 Multiple chunk decisions are represented by repeating the complete `### Chunk Decisions` block. The validator checks each block independently.
 
-## Required protocol stages
-
-The eight required macro-stages are:
-
-1. `retrieval`
-2. `listening_speaking`
-3. `deep_processing`
-4. `controlled_speaking`
-5. `finnish_dialogue`
-6. `error_repair_second_chance`
-7. `final_challenge_recall`
-8. `retention_record`
-
-Optional techniques are not completion gates.
-
 ## Completion semantics
+
+The `required_stages` field must match the declared `session_type`.
 
 If one or more required stages are missing:
 
@@ -87,7 +114,7 @@ If one or more required stages are missing:
 - `continuation_required` must be `YES`;
 - `missing_stages` must exactly equal the required stages not in `completed_stages`;
 - `continuation_reason` is required;
-- `continuation_next_stage` must be the first missing stage;
+- `continuation_next_stage` must be the first missing required stage;
 - `### Next Step.next_action` is required.
 
 If all required stages are completed:
@@ -99,6 +126,12 @@ If all required stages are completed:
 
 The validator never invents missing evidence or converts `PARTIAL` into `COMPLETED`.
 
+## Continuation semantics
+
+When `continuation_required: YES`, the next runtime must resume the same `session_type` from `continuation_next_stage` before selecting unrelated new material or a new session type.
+
+A continuation does not create a new protocol definition. It closes the unfinished stages of the existing session type.
+
 ## Evidence and mastery semantics
 
 `evidence_score` means:
@@ -108,36 +141,21 @@ The validator never invents missing evidence or converts `PARTIAL` into `COMPLET
 - `2` = independent in a familiar context;
 - `3` = flexible independent use in a changed context.
 
-A score of `3` in one lesson is not stable mastery.
+A score of `3` in one session is not stable mastery.
 
 `current_level: CONSOLIDATING` requires evidence of a correct second output and at least one delayed rebuild according to `Mastery_Criteria.md`.
 
 `current_level: STABLE` requires the delayed +1/+3/+7 evidence series, a new personal context, and a passed unlabeled mixed-choice check when competing forms exist. Immediate post-correction success is never sufficient.
 
-The validator checks these prerequisites only when they are explicitly represented in the canonical evidence text. It does not infer pedagogical mastery from prose outside `Session Result`.
-
 ## Retention semantics
 
 `SCHEDULED` means a delayed check is planned but not yet passed. `PASSED` requires explicit evidence of the completed retention check. `FAILED` requires explicit evidence of failure. `NOT_APPLICABLE` is reserved for cases where retention genuinely does not apply.
 
-A `PARTIAL` lesson normally remains `SCHEDULED` until delayed evidence exists.
-
-## Continuation directive
-
-For incomplete sessions the validator emits:
-
-```text
-CONTINUATION_REQUIRED: YES
-RESUME_STAGE: <first missing stage>
-MISSING_STAGES: <remaining missing stages>
-ACTION: Continue the lesson from RESUME_STAGE before introducing unrelated new material.
-```
-
-This is a runtime instruction, not learner evidence.
+A completed `RETENTION_SESSION` normally records the current retention check as `PASSED` or schedules its next delayed check.
 
 ## Historical records
 
-Legacy records before the canonical-v1 adoption date may remain in their historical format. New records must use the canonical structure above.
+Legacy records before canonical-v2 may remain in their historical format. Canonical-v1 records remain valid. New records should use canonical-v2 and must explicitly declare `session_type`.
 
 ## No fabricated precision
 
