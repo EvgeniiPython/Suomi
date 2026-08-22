@@ -1,252 +1,184 @@
 # Lesson Protocol
 
-## Ядро системы
-Наша система остаётся **Speaking-First**. Материал считается полезным только тогда, когда он переходит в самостоятельную речь.
+## System model
 
-Главный цикл:
+Наша система остаётся **Speaking-First**, но теперь различает два типа сессий:
 
-**Attempt → Check → Correct → Repair → Second Output → Variation Chain → Cold Recall → Transfer → Finnish Dialogue → Second Chance → Final Speaking Challenge → Final Recall → Retention**
+```text
+FULL_LESSON
+RETENTION_SESSION
+```
 
-Система расширена механизмами из Finnish Learning OS Master v3.0, но они являются **поддерживающими**, а не заменяют ядро.
+Continuation не является третьим типом. Это режим продолжения незавершённой сессии её исходного типа.
 
-### Выбранные усилители
-- **Variation Chain**: после успешного ответа сделать 3–4 короткие вариации того же pattern.
-- **Cold Recall**: после 3–5 упражнений убрать подсказки и проверить самостоятельное воспроизведение.
-- **Transfer**: использовать тот же pattern в новой ситуации без готового предложения.
-- **Finnish Dialogue**: после controlled practice переходить к коротким диалогам преимущественно на финском.
-- **Second Chance**: существенная ошибка возвращается позже в новом контексте; она считается закрытой только после повторного правильного использования без подсказки.
-- **Final Speaking Challenge**: в конце пользователь самостоятельно рассказывает о ситуации по-фински без подсказок.
-- **Final Recall**: вместо вопроса «что ты понял?» пользователь без подсказок создаёт 3 разных предложения с главным pattern урока.
-- **Meaning Blocks** для listening: сначала смысловые блоки, а не перевод каждого предложения.
-- **Structured Error Log** для повторяющихся ошибок.
-- **Micro-Shadowing** 2–5 минут только при реальной пользе.
-- **Recall / Fluency / Transfer** — три главные метрики для ключевых chunks.
-- **0–3 Evidence Score** — дополнительная шкала силы доказательства, не заменяющая три главные метрики.
-- **Error Cause** — при повторной ошибке классифицируем вероятную причину: encoding, retrieval, contrast selection, processing load или pronunciation blocker.
-- **Mixed Choice Check** — обязательная unlabeled-проверка, когда конкурируют формы.
-- **Mastery Ladder** — active → consolidating → stable → dormant.
-- **Biweekly Audit** — раз в 14 дней проверяем движение статусов, повторяющиеся ошибки и retention.
+Главный учебный цикл:
 
-## 90-минутная структура
+**Attempt → Check → Correct → Repair → Second Output → Variation → Cold Recall → Transfer → Finnish Dialogue → Second Chance → Final Speaking Challenge → Final Recall → Retention**
 
-Подробный тайминг хранится в `00_System/Daily_Speaking_First_Protocol.md`.
+## FULL_LESSON
+
+### Цель
+Полный 90-минутный урок: развитие самостоятельной речи, controlled practice, listening-to-speaking, deep processing и перенос в новые ситуации.
+
+### Обязательные macro-stages
 
 1. **Retrieval — 10 мин**: старые chunks и приоритетные ошибки без подсказки.
-2. **Listening → Speaking — 15 мин**: короткий input, смысловые блоки, пересказ и 2–3 полезных chunks.
+2. **Listening → Speaking — 15 мин**: короткий input, общий смысл, meaning blocks, пересказ и 2–3 полезных chunks.
 3. **Deep Processing / Encoding — 10 мин**: маленькая concept network вокруг 2–3 полезных chunks; без длинной лекции.
-4. **Controlled Speaking — 15 мин**: попытка → 3–4 вариации → после 3–5 упражнений cold recall.
-5. **Real Situation / Finnish Dialogue — 20 мин**: новая ситуация, самостоятельная речь и короткие диалоги преимущественно на финском.
-6. **Error Repair + Second Chance — 10 мин**: максимум 3 приоритетные ошибки; hint → self-correction → повторная проверка позже.
-7. **Final Speaking Challenge + Final Recall — 7 мин**: рассказ по ситуации без подсказок, затем 3 новых предложения с главным pattern.
-8. **Retention / lesson record — 3 мин**: активные patterns, mastery state, нестабильные ошибки, метрики и даты повторения. Не заменять этот блок вопросом «что понял?». 
+4. **Controlled Speaking — 15 мин**: попытка → 3–4 вариации → cold recall.
+5. **Real Situation / Finnish Dialogue — 20 мин**: самостоятельная речь и короткий диалог преимущественно на финском.
+6. **Error Repair + Second Chance — 10 мин**: максимум 3 приоритетные ошибки и повторная проверка позже.
+7. **Final Speaking Challenge + Final Recall — 7 мин**: свободная задача и 3 новых предложения с главным pattern.
+8. **Retention / Lesson Record — 3 мин**: durable state, retention date, errors и canonical Session Result.
 
-## Правило помощи
+Для `FULL_LESSON` все восемь stages обязательны.
 
-Если пользователь ошибся:
+## RETENTION_SESSION
+
+### Цель
+Проверить delayed retrieval, автоматизацию и transfer уже изученных patterns. Новые chunks не являются целью и добавляются только при устойчивом evidence и отсутствии блокирующих triggers.
+
+### Обязательные macro-stages
+
+1. **Retrieval** — blind recall 3–5 приоритетных chunks/patterns.
+2. **Controlled Speaking** — 3–4 вариации, cold recall и при необходимости unlabeled mixed-choice.
+3. **Finnish Dialogue** — короткий диалог с follow-up, преимущественно на финском.
+4. **Error Repair + Second Chance** — максимум 3 приоритетные ошибки, затем повторная проверка.
+5. **Final Speaking Challenge + Final Recall** — самостоятельный changed-context output и 3 предложения с главным pattern.
+6. **Retention / Lesson Record** — зафиксировать результат, mastery evidence, next review и remaining errors.
+
+### Optional в retention
+
+`Listening → Speaking` и `Deep Processing` можно добавить, когда они реально усиливают конкретный retention task. Их отсутствие **не является missing stage** и не превращает retention session в PARTIAL.
+
+### Правило retention
+
+Retention session должна быть направлена на recall и transfer, а не на механическое воспроизведение старого урока. Для competing forms unlabeled mixed-choice является обязательным, когда это релевантно.
+
+## Continuation
+
+Если сессия любого типа завершена не полностью:
+
+```text
+lesson_status = PARTIAL | INTERRUPTED
+continuation_required = YES
+continuation_next_stage = first missing required stage
+```
+
+Следующая сессия:
+
+1. сохраняет исходный `session_type`;
+2. начинает с `continuation_next_stage`;
+3. закрывает остальные missing stages этого же типа;
+4. не переключается на новый session type только из-за due retention;
+5. только после полного закрытия continuation возвращается к обычному runtime selection.
+
+Пример:
+
+```text
+FULL_LESSON
+6/8
+missing: listening_speaking, deep_processing
+        ↓
+CONTINUATION
+        ↓
+listening_speaking
+        ↓
+deep_processing
+        ↓
+FULL_LESSON complete
+```
+
+## Помощь
 
 **Attempt → Hint 1 → Self-correction → Hint 2 if needed → Answer only as last resort → Retry**
 
-Подсказка должна быть минимальной. Готовый ответ не выдаётся сразу, если пользователь способен продолжить с подсказкой.
+Не выдавать готовый ответ, пока пользователь способен продолжить с подсказкой.
 
 ## Variation Chain
 
-После успешного воспроизведения важного pattern сделать **3–4 последовательные вариации**. Менять по одному параметру: время, субъект, объект, обстоятельство, отрицание, вопрос, причина или дополнительная информация.
-
-Цель — не запомнить одно предложение, а научиться запускать и перестраивать конструкцию.
+После успешного воспроизведения важного pattern сделать 3–4 вариации, меняя по одному параметру: субъект, время, объект, обстоятельство, отрицание, вопрос или причина.
 
 ## Cold Recall
 
-После примерно **3–5 упражнений** по одному pattern проводится самостоятельная проверка без подсказки и без готового финского предложения.
-
-Если recall успешен → перейти к transfer.
-Если recall нестабилен → repair + ещё несколько упражнений; новые chunks не добавлять только ради продвижения.
+После примерно 3–5 упражнений убрать подсказки и проверить самостоятельное воспроизведение.
 
 ## Transfer
 
-После controlled practice тот же pattern используется в **новой ситуации**, а не просто переводится в слегка изменённом предложении.
-
-Хорошая задача transfer не содержит готовой финской конструкции, требует понять ситуацию, самостоятельно выбрать знакомый pattern и меняет контекст или коммуникативную цель.
+Задача должна менять ситуацию или коммуникативную цель и заставлять пользователя самому распознать подходящий pattern.
 
 ## Finnish Dialogue
 
-После controlled practice преподаватель использует короткие диалоги:
+**Question → User answer → Follow-up → User response**.
 
-**Question → User answer → Follow-up → User response**
-
-Русский используется только при необходимости для краткого объяснения или подсказки. Диалог должен опираться на уже отработанный pattern и постепенно расширять его в естественной коммуникации.
+Русский используется только для краткой подсказки или объяснения, когда это действительно необходимо.
 
 ## Second Chance
 
-Каждая существенная ошибка, исправленная во время урока, получает **вторую проверку позже**.
+Значимая ошибка возвращается позже в новом контексте:
 
-**Error → Hint/Repair → Correct Output → Delayed Re-test → New Context**
+**Error → Repair → Correct Output → Delayed Re-test → New Context**
 
-Ошибка считается действительно исправленной только если пользователь позже воспроизводит правильную форму без подсказки. Если ошибка возвращается, она остаётся активной в Error Log и получает новую дату повторения.
-
-## Error Cause
-
-Для повторяющейся ошибки или speaking blocker, когда evidence supports it, фиксируем **одну основную причину**:
-
-```text
-encoding = форма/концепт ещё не известны надёжно
-retrieval = форма известна, но не достаётся во время output
-contrast_selection = выбрана конкурирующая форма
-processing_load = форма ломается внутри длинной фразы/речи
-pronunciation_blocker = проблема возникает на уровне звука/ритма
-```
-
-Причина должна менять следующий drill. Не назначать причину каждому единичному slip.
+Исправление сразу после модели не является delayed mastery.
 
 ## Mixed Choice Check
 
-Если две или более формы конкурируют, после repair обязательно дать минимум одну **unlabeled mixed-choice check**.
-
-Не сообщать заранее, какое правило проверяется. Prompt должен заставлять выбрать форму по смыслу.
-
-Типичные контрасты:
-
-```text
-present / past
-affirmative / negative
-passive present / passive past
-location / direction
-total object / ongoing object
-```
-
-## Mastery Ladder
-
-Для каждого ключевого pattern используем:
-
-```text
-active -> consolidating -> stable -> dormant
-```
-
-Урок может повысить статус только при достаточном evidence; исправленная фраза сразу после подсказки не считается delayed mastery.
-
-### 0–3 Evidence Score
-
-```text
-0 = not yet
-1 = assisted
-2 = independent in familiar context
-3 = flexible in changed context
-```
-
-Score не заменяет Recall / Fluency / Transfer. Он суммирует качество evidence на данном этапе.
-
-### Stable Gate
-
-Чтобы pattern стал `stable`, нужны:
-
-```text
-correct tomorrow
-correct +3 days
-correct +7 days
-at least one new personal context
-one unlabeled mixed-choice check when competing forms exist
-no priority error in the evidence series
-```
-
-## Final Speaking Challenge
-
-В конце урока не повторяем отдельные слова и не спрашиваем только о понимании материала.
-
-Пользователь получает реальную или правдоподобную ситуацию и должен **самостоятельно рассказать/объяснить её по-фински без подсказок**. Задача должна объединять несколько patterns урока и по возможности один ранее изученный pattern.
-
-## Final Recall
-
-После Final Speaking Challenge выбрать главный pattern урока и попросить:
-
-> «Без подсказок назови 3 разных предложения, которые ты можешь построить с этой конструкцией.»
-
-По возможности предложения должны относиться к разным ситуациям, например работа, дом и планы.
+При конкурирующих формах после repair дать минимум одну unlabeled mixed-choice check. Не объявлять заранее, какое правило проверяется.
 
 ## Listening усиленный протокол
 
+Для `FULL_LESSON`:
+
 **Listen → Big Picture → Meaning Blocks → Recall → Notice → optional Shadowing → Retell → Variation → Transfer → Delayed Recall**
 
-Правила:
-- первый проход без текста;
-- сначала понять, что произошло, кто участвует, почему и что было дальше;
-- не переводить весь input;
-- второй проход используется для деталей и 2–3 полезных chunks;
-- пересказ должен быть самостоятельным;
-- shadowing занимает не более 2–5 минут и не обязателен на каждом уроке.
+Первый проход — без текста; не переводить input целиком.
 
 ## Deep Processing
 
-Для 1–2 центральных chunks задаём короткие вопросы:
+Для 1–2 центральных chunks:
+
 - Где я это реально использую?
 - Что можно изменить, сохранив структуру?
-- Какая причина/ситуация естественно приводит к этой фразе?
+- Какая ситуация естественно приводит к этой фразе?
 - С чем её легко перепутать?
 - Какой личный пример я могу сказать?
 
-Цель — создать **маленькую смысловую сеть**, а не список слов.
+Цель — маленькая смысловая сеть, а не длинная грамматическая лекция.
 
-## Error Log
+## Mastery
 
-Повторяющаяся ошибка фиксируется как:
+Используем:
 
-**Error → Correct Pattern → Cause → Reason → Missing Concept → Repair → Variation → Transfer → Second Chance → Review Date**
+```text
+active → consolidating → stable → dormant
+```
 
-Ошибки не исправляются все подряд. Приоритет — повторяющиеся, мешающие пониманию и блокирующие автоматизм.
+Для stable нужны delayed +1/+3/+7 evidence, новый личный контекст и mixed-choice check при конкурирующих формах.
 
-## Три главные метрики
+## New chunks
 
-Для ключевых chunks:
-- **Recall** — запускается ли конструкция без подсказки;
-- **Fluency** — насколько быстро и без остановок она выходит;
-- **Transfer** — работает ли она в новом контексте.
-
-Числовые Accuracy / Repair Rate / Contrast Success добавляются только когда в уроке было достаточно наблюдаемых попыток; не создавать ложную точность.
-
-## Weekly / Biweekly Review
-
-Раз в неделю или в рамках 14-дневного аудита сравниваем:
-- какие chunks стали Active/Stable;
-- какие ошибки повторяются и по какой причине;
-- как меняются Recall / Fluency / Transfer;
-- какие 0–3 evidence scores изменились;
-- сколько mixed-choice checks пройдено;
-- сколько было meaningful listening → speaking;
-- какие темы и ситуации расширились;
-- что переносится в реальную речь.
-
-## Правило новых chunks
-
-Переход к новым chunks определяется устойчивостью существующего материала под нагрузкой.
-
-- **Устойчивый recall + variation + transfer** → 2–3 новых чанка.
-- **Recall в целом устойчивый, но есть 1–2 локальные ошибки** → repair; затем 1–2 новых.
-- **Recall нестабилен или активен grammar trigger** → новых чанков не добавлять.
+```text
+устойчивый recall + variation + transfer → 2–3 новых chunks
+локальные ошибки при в целом устойчивом recall → repair → максимум 1–2 новых
+нестабильный recall или активный trigger → новых chunks не добавлять
+```
 
 ## Canonical Session Result
 
-Каждый новый **завершённый** урок должен заканчиваться одним структурированным блоком `## Session Result` по схеме `canonical-v1` из `Session_Record_Schema.md`.
+Каждая новая сессия должна заканчиваться одной canonical `## Session Result` записью с:
 
-Основная часть урока может оставаться естественным повествованием. Однако итоговое состояние системы должно быть выражено только через канонические поля:
+- `session_type`;
+- `lesson_status`;
+- evidence;
+- protocol completion;
+- chunk decisions;
+- mastery;
+- retention;
+- errors;
+- next step.
 
-- `lesson_status` — состояние самого урока;
-- `primary_skill` — основной навык/pattern;
-- `Evidence` — наблюдаемое evidence и score 0–3;
-- `Chunk Decisions` — отдельные решения по новым/изменяемым chunks;
-- `Mastery.current_level` — единственное каноническое поле состояния mastery;
-- `Retention.status` и `next_review` — состояние retention;
-- `Errors` — повторяющиеся ошибки и следующий шаг;
-- `Next Step` — ближайшее действие системы.
-
-Слова `stable`, `active`, `consolidating` и т.п. внутри обычного повествования не являются изменением состояния. Изменение состояния фиксируется только в соответствующем каноническом поле.
-
-Исторические записи не переписываются только ради приведения к новой схеме; canonical-v1 применяется к новым завершённым урокам.
+Для `FULL_LESSON` completion проверяется по 8 stages. Для `RETENTION_SESSION` — по 6 stages.
 
 ## Главное правило
 
-**Не копировать всю Learning OS. Берём только механизмы, которые усиливают самостоятельную речь, и сохраняем наше разговорное ядро главным.**
-
-Ссылки:
-- [[Mastery_Criteria]]
-- [[Grammar_Trigger_Rule]]
-- [[Metrics_And_Audit]]
-- [[../02_Retention/Retention_Rules]]
-- [[Session_Record_Schema]]
+Сначала определить **session type + continuation**, затем выполнять соответствующий маршрут. Нельзя требовать восемь stages от retention session и нельзя использовать retention shortcut для незавершённого full lesson.
