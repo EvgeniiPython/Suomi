@@ -219,10 +219,13 @@ def validate_canonical(text: str, session_date: date, registry: dict[str, dict[s
 
 
 def validate_system_files(results):
-    existing = {p.name for p in SYSTEM.glob("*.md")}
-    required = set(REQUIRED_SYSTEM_FILES) | {REGISTRY_PATH.name}
-    missing = sorted(required - existing - {REGISTRY_PATH.name} if not REGISTRY_PATH.exists() else required - existing)
-    add_result(results, FAIL if missing else PASS, "Required system protocols", "Missing: " + ", ".join(missing) if missing else "All required files and registry are present")
+    missing = []
+    for name in REQUIRED_SYSTEM_FILES:
+        if not (SYSTEM / name).exists():
+            missing.append(name)
+    if not REGISTRY_PATH.exists():
+        missing.append(REGISTRY_PATH.name)
+    add_result(results, FAIL if missing else PASS, "Required system protocols", "Missing: " + ", ".join(sorted(missing)) if missing else "All required files and registry are present")
 
 
 def validate_daily_session_naming(results):
