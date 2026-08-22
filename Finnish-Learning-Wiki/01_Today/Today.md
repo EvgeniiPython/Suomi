@@ -6,7 +6,7 @@
 session_type: FULL_LESSON
 ```
 
-`FULL_LESSON` is the normal route because the 22.08 retention session is now closed and the next scheduled long-term retention is 02.09.2026.
+`FULL_LESSON` is the normal route because the 22.08 retention session is closed and the next scheduled long-term retention is 02.09.2026.
 
 If `Latest_Audit_State.json` later reports `continuation_required = YES`, continuation overrides this plan and preserves the previous session type.
 
@@ -27,18 +27,8 @@ If `Latest_Audit_State.json` later reports `continuation_required = YES`, contin
 
 ## Full lesson route
 
-```text
-Retrieval
-→ Listening → Speaking
-→ Deep Processing
-→ Controlled Speaking
-→ Finnish Dialogue
-→ Error Repair + Second Chance
-→ Final Speaking Challenge + Final Recall
-→ Retention / Lesson Record
-```
-
-All 8 macro-stages are required for this session type.
+The required stage list is defined centrally in `00_System/Session_Types_Registry.json`.
+The pedagogical route is defined in `00_System/Lesson_Protocol.md`.
 
 ## Retention
 
