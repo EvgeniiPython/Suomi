@@ -1,32 +1,34 @@
 {
   "schema": "session-types-registry-v1",
-  "FULL_LESSON": {
-    "description": "Normal 90-minute Speaking-First lesson.",
-    "required_stages": [
-      "retrieval",
-      "listening_speaking",
-      "deep_processing",
-      "controlled_speaking",
-      "finnish_dialogue",
-      "error_repair_second_chance",
-      "final_challenge_recall",
-      "retention_record"
-    ],
-    "optional_stages": []
-  },
-  "RETENTION_SESSION": {
-    "description": "D+1/D+3/D+6/long-term delayed-recall session.",
-    "required_stages": [
-      "retrieval",
-      "controlled_speaking",
-      "finnish_dialogue",
-      "error_repair_second_chance",
-      "final_challenge_recall",
-      "retention_record"
-    ],
-    "optional_stages": [
-      "listening_speaking",
-      "deep_processing"
-    ]
+  "sessions": {
+    "FULL_LESSON": {
+      "description": "Normal 90-minute Speaking-First lesson.",
+      "required_stages": [
+        "retrieval",
+        "listening_speaking",
+        "deep_processing",
+        "controlled_speaking",
+        "finnish_dialogue",
+        "error_repair_second_chance",
+        "final_challenge_recall",
+        "retention_record"
+      ],
+      "optional_stages": []
+    },
+    "RETENTION_SESSION": {
+      "description": "D+1/D+3/D+6/long-term delayed-recall session.",
+      "required_stages": [
+        "retrieval",
+        "controlled_speaking",
+        "finnish_dialogue",
+        "error_repair_second_chance",
+        "final_challenge_recall",
+        "retention_record"
+      ],
+      "optional_stages": [
+        "listening_speaking",
+        "deep_processing"
+      ]
+    }
   }
 }
