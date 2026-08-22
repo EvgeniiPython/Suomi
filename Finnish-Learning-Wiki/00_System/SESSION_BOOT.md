@@ -1,115 +1,70 @@
 # SESSION BOOT
 
-## Перед каждым уроком
+## Runtime routing
 
-1. Прочитать `00_System/Latest_Audit_State.json`.
-2. Прочитать `00_System/Current_State.md`.
-3. Прочитать `01_Today/Today.md`.
-4. Прочитать `02_Retention/Retention_Dashboard.md`.
-5. Проверить Active Focus и приоритетные ошибки.
-6. Следовать `00_System/Lesson_Protocol.md`.
-7. Использовать `00_System/Daily_Speaking_First_Protocol.md` для `FULL_LESSON`.
-8. Для `RETENTION_SESSION` использовать retention-маршрут из `Lesson_Protocol.md`.
-9. При изменениях базы соблюдать `DATA_INTEGRITY.md`.
+Перед уроком прочитать:
 
-## Runtime decision order
+1. `00_System/Latest_Audit_State.json`
+2. `00_System/Current_State.md`
+3. `01_Today/Today.md`
+4. `02_Retention/Retention_Dashboard.md`
+5. `00_System/Lesson_Protocol.md`
+6. `00_System/Session_Types_Registry.json`
 
-`Latest_Audit_State.json` определяет незавершённость предыдущей сессии и точку continuation.
-
-### 1. Continuation имеет абсолютный приоритет
-
-Если:
+### Decision order
 
 ```text
-continuation_required = YES
+1. Latest_Audit_State
+2. continuation_required?
+3. session_type
+4. Today / due retention
+5. matching Lesson_Protocol route
 ```
 
-то:
+### Continuation
+
+Если `continuation_required = YES`:
 
 - сохранить `session_type` предыдущей сессии;
-- начать именно с `resume_stage`;
-- закрыть остальные незавершённые обязательные стадии этого же типа;
-- не превращать continuation в `RETENTION_SESSION` только потому, что сегодня наступил retention date;
-- не выбирать новый материал, пока continuation не закрыт.
+- начать с `resume_stage`;
+- закрыть остальные missing required stages этого же типа;
+- не переключаться на `RETENTION_SESSION` из-за due retention;
+- не вводить unrelated new material;
+- после закрытия continuation вернуться к обычному runtime selection.
 
-Continuation — это режим продолжения, а не третий тип сессии.
+Continuation — это режим, а не третий тип сессии.
 
-### 2. Если continuation не требуется
+### Normal selection
 
-Если:
-
-```text
-continuation_required = NO
-```
-
-то определить тип текущей сессии:
+Если `continuation_required = NO`:
 
 ```text
-Today.session_type, если он явно задан;
-иначе RETENTION_SESSION, если есть due retention;
-иначе FULL_LESSON.
+Today.session_type
+→ иначе due retention → RETENTION_SESSION
+→ иначе FULL_LESSON
 ```
 
-Тип должен быть явно зафиксирован в Session Record:
+Тип обязательно записывается в следующий canonical Session Record.
 
-```text
-FULL_LESSON
-RETENTION_SESSION
-```
+### Type routing
 
-### 3. Тип определяет completion gate
+- `FULL_LESSON` → полный Speaking-First маршрут из `Lesson_Protocol.md`.
+- `RETENTION_SESSION` → retention-маршрут из `Lesson_Protocol.md`.
+- Required/optional stages берутся только из `Session_Types_Registry.json`.
 
-`FULL_LESSON` требует 8 macro-stages:
+### Sources of truth
 
-```text
-retrieval
-listening_speaking
-deep_processing
-controlled_speaking
-finnish_dialogue
-error_repair_second_chance
-final_challenge_recall
-retention_record
-```
+- `Latest_Audit_State.json` — continuation и текущий audit state.
+- `Today.md` — оперативный план и явно выбранный session type.
+- `Retention_Dashboard.md` — due/upcoming retention.
+- `Current_State.md` — текущий учебный snapshot.
+- `Session_Types_Registry.json` — canonical machine-readable stages by type.
+- `Lesson_Protocol.md` — canonical pedagogical route.
 
-`RETENTION_SESSION` требует 6 macro-stages:
+### Rule
 
-```text
-retrieval
-controlled_speaking
-finnish_dialogue
-error_repair_second_chance
-final_challenge_recall
-retention_record
-```
+Сначала определить `session_type + continuation`, затем выполнять соответствующий маршрут. Не смешивать rules `FULL_LESSON` и `RETENTION_SESSION`.
 
-`listening_speaking` и `deep_processing` в retention не считаются пропущенными, если они не использовались.
+### After lesson
 
-## Источники истины
-
-- `Latest_Audit_State.json` — незавершённость, session type и continuation point.
-- `Current_State.md` — текущее учебное состояние, mastery, ошибки и контекст.
-- `Today.md` — оперативная цель и явно выбранный тип сессии.
-- `Retention_Dashboard.md` — due retention и retention context.
-- `Lesson_Protocol.md` — правила проведения соответствующего типа.
-
-При конфликте по continuation приоритет у `Latest_Audit_State.json`.
-
-## Правила урока
-
-- Главная цель — самостоятельная разговорная речь.
-- Не добавлять новые chunks при незавершённом continuation или нестабильном retention.
-- Не выдавать готовый ответ до минимальной подсказки и попытки самостоятельной коррекции.
-- Для длинной речи ждать сигнала пользователя «я закончил, говори».
-- После исправления получать второй output.
-- Для конкурирующих форм использовать unlabeled mixed-choice.
-- Значимую ошибку проверять через Second Chance позже в новом контексте.
-- Не объявлять mastery стабильным по одной успешной сессии.
-
-## После урока
-
-Обновить соответствующие durable records и записать один canonical Session Result с явным `session_type`.
-
-## Главный принцип
-
-Сначала определить **тип сессии и continuation**, затем выполнять соответствующий маршрут. Нельзя использовать правила `FULL_LESSON` для `RETENTION_SESSION` и наоборот.
+Сохранить один canonical Session Record и обновить только необходимые durable state files.
