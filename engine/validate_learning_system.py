@@ -3,10 +3,12 @@
 
 Markdown protocols remain the pedagogical source of truth. The validator checks
 canonical session records against the protocol gates for their declared
-session type and never invents mastery decisions.
+session type and reads the required/optional stage definitions from the
+central Session_Types_Registry.json.
 """
 from __future__ import annotations
 
+import json
 import re
 import sys
 from datetime import date
@@ -16,6 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 WIKI = ROOT / "Finnish-Learning-Wiki"
 SESSIONS = WIKI / "03_Sessions"
 SYSTEM = WIKI / "00_System"
+REGISTRY_PATH = SYSTEM / "Session_Types_Registry.json"
 
 REQUIRED_SYSTEM_FILES = {
     "Lesson_Protocol.md", "Runtime_Rules.md", "Current_State.md",
@@ -27,29 +30,33 @@ REQUIRED_SYSTEM_FILES = {
 PASS, WARN, FAIL = "PASS", "WARNING", "FAIL"
 CANONICAL_REQUIRED_FROM = date(2026, 8, 21)
 SESSION_TYPE_REQUIRED_FROM = date(2026, 8, 22)
-
-FULL_STAGES = (
-    "retrieval", "listening_speaking", "deep_processing", "controlled_speaking",
-    "finnish_dialogue", "error_repair_second_chance", "final_challenge_recall",
-    "retention_record",
-)
-RETENTION_STAGES = (
-    "retrieval", "controlled_speaking", "finnish_dialogue",
-    "error_repair_second_chance", "final_challenge_recall", "retention_record",
-)
-STAGES_BY_TYPE = {
-    "FULL_LESSON": FULL_STAGES,
-    "RETENTION_SESSION": RETENTION_STAGES,
-}
-VALID_SESSION_TYPES = set(STAGES_BY_TYPE)
 VALID_STATUS = {"COMPLETED", "PARTIAL", "INTERRUPTED"}
 VALID_LEVELS = {"ACTIVE", "CONSOLIDATING", "STABLE", "DORMANT"}
 VALID_RETENTION = {"SCHEDULED", "DUE", "PASSED", "FAILED", "NOT_APPLICABLE"}
 VALID_CONTINUATION = {"YES", "NO"}
 VALID_SCHEMAS = {"canonical-v1", "canonical-v2"}
-
 SESSION_RECORD_RE = re.compile(r"^\d{4}-\d{2}-\d{2}_Session_Record\.md$")
 DAILY_SESSION_RE = re.compile(r"^(\d{4})-(\d{2})-(\d{2})\.md$")
+
+
+def load_registry() -> dict[str, dict[str, list[str]]]:
+    try:
+        raw = json.loads(REGISTRY_PATH.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise RuntimeError(f"Cannot load Session_Types_Registry.json: {exc}") from exc
+    sessions = raw.get("sessions")
+    if not isinstance(sessions, dict) or not sessions:
+        raise RuntimeError("Session_Types_Registry.json must contain a non-empty 'sessions' object")
+    registry: dict[str, dict[str, list[str]]] = {}
+    for session_type, spec in sessions.items():
+        required = spec.get("required_stages")
+        optional = spec.get("optional_stages", [])
+        if not isinstance(required, list) or not all(isinstance(x, str) for x in required):
+            raise RuntimeError(f"Registry entry {session_type} has invalid required_stages")
+        if not isinstance(optional, list) or not all(isinstance(x, str) for x in optional):
+            raise RuntimeError(f"Registry entry {session_type} has invalid optional_stages")
+        registry[session_type] = {"required_stages": required, "optional_stages": optional}
+    return registry
 
 
 def read_text(path: Path) -> str:
@@ -98,27 +105,26 @@ def extract_session_date(path: Path, text: str) -> date | None:
         return None
 
 
-def validate_protocol(block: str, session_type: str):
+def validate_protocol(block: str, session_type: str, registry: dict[str, dict[str, list[str]]]):
     problems = []
-    required = list_field(block, "required_stages")
+    spec = registry[session_type]
+    expected = set(spec["required_stages"])
     completed = set(list_field(block, "completed_stages"))
     declared_missing = set(list_field(block, "missing_stages"))
-    expected = set(STAGES_BY_TYPE[session_type])
     continuation = canonical_value(block, "continuation_required")
     resume = field_value(block, "continuation_next_stage")
 
-    if set(required) != expected:
-        problems.append(
-            f"required_stages does not match {session_type}: " + ", ".join(STAGES_BY_TYPE[session_type])
-        )
+    if set(list_field(block, "required_stages")) != expected:
+        problems.append(f"required_stages does not match registry for {session_type}")
 
-    unknown = sorted(completed - expected)
+    allowed = expected | set(spec["optional_stages"])
+    unknown = sorted(completed - allowed)
     if unknown:
         problems.append("unknown or disallowed completed stage(s): " + ", ".join(unknown))
 
-    missing = [s for s in STAGES_BY_TYPE[session_type] if s not in completed]
+    missing = [stage for stage in spec["required_stages"] if stage not in completed]
     if declared_missing != set(missing):
-        problems.append("missing_stages does not match completed_stages for session type")
+        problems.append("missing_stages does not match required stages for session type")
 
     if continuation not in VALID_CONTINUATION:
         problems.append("invalid or missing continuation_required")
@@ -127,7 +133,7 @@ def validate_protocol(block: str, session_type: str):
         if continuation != "YES":
             problems.append("incomplete protocol requires continuation_required: YES")
         if not resume or resume.strip().lower() != missing[0]:
-            problems.append("continuation_next_stage must be the first missing stage")
+            problems.append("continuation_next_stage must be the first missing required stage")
         if not field_value(block, "continuation_reason"):
             problems.append("incomplete protocol requires continuation_reason")
     else:
@@ -139,7 +145,7 @@ def validate_protocol(block: str, session_type: str):
     return problems, missing
 
 
-def validate_canonical(text: str, session_date: date):
+def validate_canonical(text: str, session_date: date, registry: dict[str, dict[str, list[str]]]):
     problems = []
     schema = (canonical_value(text, "record_schema") or "").lower()
     if schema not in VALID_SCHEMAS:
@@ -152,24 +158,17 @@ def validate_canonical(text: str, session_date: date):
 
     if session_date >= SESSION_TYPE_REQUIRED_FROM:
         session_type = canonical_value(text, "session_type")
-        if session_type not in VALID_SESSION_TYPES:
-            problems.append("canonical-v2 requires session_type: FULL_LESSON or RETENTION_SESSION")
+        if session_type not in registry:
+            problems.append("canonical-v2 requires a registered session_type")
             return problems
     else:
         session_type = canonical_value(text, "session_type") or "FULL_LESSON"
-
-    if session_type not in VALID_SESSION_TYPES:
-        problems.append(f"invalid session_type: {session_type}")
-        return problems
 
     result = text[result_positions[0].end():]
     if re.search(r"(?m)^## ", result):
         problems.append("Session Result must contain all canonical data; no sibling ## sections may follow it")
 
-    required_subsections = (
-        "Evidence", "Protocol Completion", "Chunk Decisions", "Mastery",
-        "Retention", "Errors", "Next Step"
-    )
+    required_subsections = ("Evidence", "Protocol Completion", "Chunk Decisions", "Mastery", "Retention", "Errors", "Next Step")
     for name in required_subsections:
         if not re.search(rf"(?im)^### {re.escape(name)}\s*$", result):
             problems.append(f"Session Result missing ### {name}")
@@ -191,7 +190,7 @@ def validate_canonical(text: str, session_date: date):
         problems.append("invalid or missing Retention status")
 
     protocol = subsection(result, "Protocol Completion")
-    p, missing = validate_protocol(protocol, session_type)
+    p, missing = validate_protocol(protocol, session_type, registry)
     problems.extend(p)
 
     if status in {"PARTIAL", "INTERRUPTED"} and not field_value(subsection(result, "Next Step"), "next_action"):
@@ -221,13 +220,9 @@ def validate_canonical(text: str, session_date: date):
 
 def validate_system_files(results):
     existing = {p.name for p in SYSTEM.glob("*.md")}
-    missing = sorted(REQUIRED_SYSTEM_FILES - existing)
-    add_result(
-        results,
-        FAIL if missing else PASS,
-        "Required system protocols",
-        "Missing: " + ", ".join(missing) if missing else "All required files are present",
-    )
+    required = set(REQUIRED_SYSTEM_FILES) | {REGISTRY_PATH.name}
+    missing = sorted(required - existing - {REGISTRY_PATH.name} if not REGISTRY_PATH.exists() else required - existing)
+    add_result(results, FAIL if missing else PASS, "Required system protocols", "Missing: " + ", ".join(missing) if missing else "All required files and registry are present")
 
 
 def validate_daily_session_naming(results):
@@ -244,23 +239,14 @@ def validate_daily_session_naming(results):
         canonical = SESSIONS / f"{session_date.isoformat()}_Session_Record.md"
         if not canonical.exists():
             problems.append(f"{path.name}: create {canonical.name} instead")
-    add_result(
-        results,
-        FAIL if problems else PASS,
-        "Canonical session naming",
-        " | ".join(problems) if problems else "All post-adoption dated session records use canonical filenames",
-    )
+    add_result(results, FAIL if problems else PASS, "Canonical session naming", " | ".join(problems) if problems else "All post-adoption dated session records use canonical filenames")
 
 
-def validate_sessions(results, directives):
-    files = sorted(
-        p for p in SESSIONS.glob("*.md") if SESSION_RECORD_RE.match(p.name)
-    ) if SESSIONS.exists() else []
-
+def validate_sessions(results, directives, registry):
+    files = sorted(p for p in SESSIONS.glob("*.md") if SESSION_RECORD_RE.match(p.name)) if SESSIONS.exists() else []
     if not files:
         add_result(results, WARN, "Session records", "No canonical Session_Record files found")
         return
-
     malformed = 0
     failures = []
     type_counts: dict[str, int] = {}
@@ -270,59 +256,39 @@ def validate_sessions(results, directives):
         lower = text.lower()
         session_date = extract_session_date(path, text)
         if "record_schema: canonical-" in lower:
-            problems = validate_canonical(text, session_date or date.min)
+            problems = validate_canonical(text, session_date or date.min, registry)
             if problems and session_date and session_date >= CANONICAL_REQUIRED_FROM:
                 failures.append(f"{path.name}: " + "; ".join(problems))
-
             session_type = canonical_value(text, "session_type") or "FULL_LESSON"
             type_counts[session_type] = type_counts.get(session_type, 0) + 1
-
             if "continuation_required: yes" in lower:
                 block = subsection(text, "Protocol Completion")
                 resume = field_value(block, "continuation_next_stage")
                 missing = list_field(block, "missing_stages")
-                directives.append(
-                    f"{path.name}: TYPE={session_type}; RESUME_STAGE={resume}; MISSING_STAGES={','.join(missing)}"
-                )
-        else:
-            if session_date and session_date >= CANONICAL_REQUIRED_FROM:
-                failures.append(f"{path.name}: missing canonical session schema")
-
+                directives.append(f"{path.name}: TYPE={session_type}; RESUME_STAGE={resume}; MISSING_STAGES={','.join(missing)}")
+        elif session_date and session_date >= CANONICAL_REQUIRED_FROM:
+            failures.append(f"{path.name}: missing canonical session schema")
         if not re.search(r"^# .*20\d{2}", text, re.MULTILINE):
             malformed += 1
 
-    add_result(
-        results,
-        FAIL if malformed else PASS,
-        "Session structure",
-        f"Checked {len(files)} Session_Record file(s)",
-    )
-    add_result(
-        results,
-        FAIL if failures else PASS,
-        "Canonical session records",
-        " | ".join(failures) if failures else "All applicable canonical session records are structurally consistent",
-    )
-    add_result(
-        results,
-        WARN if directives else PASS,
-        "Lesson continuation",
-        f"{len(directives)} session(s) require continuation" if directives else "No continuation directives",
-    )
-    add_result(
-        results,
-        PASS,
-        "Session types",
-        "none" if not type_counts else ", ".join(f"{k}={v}" for k, v in sorted(type_counts.items())),
-    )
+    add_result(results, FAIL if malformed else PASS, "Session structure", f"Checked {len(files)} Session_Record file(s)")
+    add_result(results, FAIL if failures else PASS, "Canonical session records", " | ".join(failures) if failures else "All applicable canonical session records are structurally consistent")
+    add_result(results, WARN if directives else PASS, "Lesson continuation", f"{len(directives)} session(s) require continuation" if directives else "No continuation directives")
+    add_result(results, PASS, "Session types", "none" if not type_counts else ", ".join(f"{k}={v}" for k, v in sorted(type_counts.items())))
 
 
 def main() -> int:
     results = []
     directives = []
+    try:
+        registry = load_registry()
+    except RuntimeError as exc:
+        print(f"[FAIL] Session type registry: {exc}")
+        return 1
+
     validate_system_files(results)
     validate_daily_session_naming(results)
-    validate_sessions(results, directives)
+    validate_sessions(results, directives, registry)
 
     for status, check, detail in results:
         print(f"[{status}] {check}: {detail}")
@@ -330,12 +296,10 @@ def main() -> int:
     failures = sum(status == FAIL for status, _, _ in results)
     warnings = sum(status == WARN for status, _, _ in results)
     print(f"SUMMARY: FAIL={failures} WARNING={warnings} PASS={len(results)-failures-warnings}")
-
     if directives:
         print("CONTINUATION DIRECTIVES:")
         for directive in directives:
             print(directive)
-
     return 1 if failures else 0
 
 
