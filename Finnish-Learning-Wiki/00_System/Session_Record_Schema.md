@@ -12,7 +12,15 @@ tags: [session, diary, evidence, mastery, retention, audit, continuation, sessio
 
 All new lessons must end with exactly one canonical `## Session Result` section. The lesson narrative may remain natural and detailed before that section. Durable state is recorded only inside `Session Result`.
 
-Canonical-v2 adds an explicit `session_type` so the validator and runtime know which protocol gates apply. Historical canonical-v1 records remain valid and are treated as `FULL_LESSON` unless a newer canonical record explicitly declares another type.
+Canonical-v2 adds explicit `session_type` so the runtime and validator know which protocol gates apply.
+
+### Machine source
+
+`00_System/Session_Types_Registry.json` is the single machine-readable source for required and optional macro-stages by session type.
+
+This document is the canonical human-readable documentation of that contract. Do not maintain a second machine-readable stage list elsewhere.
+
+Historical canonical-v1 records remain valid and are treated as `FULL_LESSON` unless a newer canonical record explicitly declares another type.
 
 ## Session types
 
@@ -25,7 +33,7 @@ RETENTION_SESSION
 
 ### FULL_LESSON
 
-A normal Speaking-First lesson. All eight macro-stages are required:
+A normal Speaking-First lesson. The registry defines all eight required macro-stages:
 
 1. `retrieval`
 2. `listening_speaking`
@@ -38,9 +46,9 @@ A normal Speaking-First lesson. All eight macro-stages are required:
 
 ### RETENTION_SESSION
 
-A D+1 / D+3 / D+6 / long-term retention session. It is designed to test delayed retrieval and transfer rather than introduce a full new lesson.
+A D+1 / D+3 / D+6 / long-term retention session designed to test delayed retrieval and transfer rather than introduce a full new lesson.
 
-Required macro-stages:
+The registry defines these six required macro-stages:
 
 1. `retrieval`
 2. `controlled_speaking`
@@ -49,9 +57,9 @@ Required macro-stages:
 5. `final_challenge_recall`
 6. `retention_record`
 
-`transfer`, `variation`, `cold_recall`, `mixed_choice`, and `second_chance` remain required behaviors where applicable, but they are evidence inside these macro-stages rather than separate completion gates.
+`transfer`, `variation`, `cold_recall`, `mixed_choice`, and `second_chance` are behaviors/evidence inside macro-stages rather than separate completion gates.
 
-`listening_speaking` and `deep_processing` are optional in a RETENTION_SESSION and must not be recorded as missing merely because the retention route did not use them.
+`listening_speaking` and `deep_processing` are optional in a `RETENTION_SESSION` when they add real value.
 
 ## Canonical structure
 
@@ -106,7 +114,7 @@ Multiple chunk decisions are represented by repeating the complete `### Chunk De
 
 ## Completion semantics
 
-The `required_stages` field must match the declared `session_type`.
+The `required_stages` field must match the declared `session_type` and the central registry.
 
 If one or more required stages are missing:
 
@@ -155,7 +163,7 @@ A completed `RETENTION_SESSION` normally records the current retention check as 
 
 ## Historical records
 
-Legacy records before canonical-v2 may remain in their historical format. Canonical-v1 records remain valid. New records should use canonical-v2 and must explicitly declare `session_type`.
+Legacy records before canonical-v2 may remain in historical format. Canonical-v1 records remain valid. New records should use canonical-v2 and must explicitly declare `session_type`.
 
 ## No fabricated precision
 
