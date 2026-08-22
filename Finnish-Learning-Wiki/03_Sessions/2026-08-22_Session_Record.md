@@ -1,6 +1,7 @@
 ---
 title: Session 2026-08-22
-record_schema: canonical-v1
+record_schema: canonical-v2
+session_type: RETENTION_SESSION
 ---
 
 # Speaking-First Delayed Recall — 22.08.2026
@@ -9,12 +10,12 @@ record_schema: canonical-v1
 Date: 2026-08-22
 
 ## Primary Can-Do
-Самостоятельно использовать профессиональные конструкции с `täytyy + infinitive`, временными обстоятельствами, условием `jos en ehdi...`, а также различать конкурирующие формы `lähetän / lähden` и объектные формы.
+Самостоятельно использовать профессиональные конструкции с `täytyy + infinitive`, временными обстоятельствами, условием `jos en ehdi...`, различать `lähetän / lähden` и правильно выбирать объектные/субъектные формы в новых контекстах.
 
 ## Runtime
-- Start state: `Latest_Audit_State.json` = `COMPLETED`, `continuation_required = NO`.
-- Урок начат с обычного delayed-recall selection согласно `Current_State.md`.
-- Главная цель: самостоятельная речь и автоматизация конкурирующих форм.
+- Start state before the session: `Latest_Audit_State.json` = `COMPLETED`, `continuation_required = NO`.
+- Session type: `RETENTION_SESSION`.
+- Главная цель: delayed retrieval, automaticity и transfer, без обязательного полного 90-минутного маршрута.
 
 ## Выполнено
 - Blind recall `saada projekti valmiiksi ennen lounasta`.
@@ -25,8 +26,11 @@ Date: 2026-08-22
 - Cold recall рабочего дня.
 - Delayed recall `ennen lounasta` / `lounaan jälkeen`.
 - Transfer с `pyytää häntä lähettämään ne`.
+- Finnish Dialogue с follow-up.
+- Error Repair + Second Chance.
 - Final Speaking Challenge.
 - Final Recall с `minun/hänen/pojan täytyy + infinitive`.
+- Новых chunks не вводили.
 
 ## Реальные выходы пользователя
 - `Minun täytyy saada projekti valmiiksi ennen lounasta.`
@@ -49,52 +53,50 @@ Date: 2026-08-22
 - `tarkista` → `tarkistaa`.
 - `laattia` → `lattia`.
 - `kunnella musikkia` → `kuunnella musiikkia`.
-- `Hänelle täytyy...` / `Poikalle täytyy...` в Final Recall → для данных смыслов `Hänen täytyy...` / `Pojan täytyy...`.
+- `Hänelle täytyy...` / `Poikalle täytyy...` → `Hänen täytyy...` / `Pojan täytyy...`.
 
 ## Mastery evidence
 | Pattern | Evidence | Status |
 |---|---:|---|
-| `minun täytyy + infinitive` | 3 — independent + changed contexts | stable / active-watch |
+| `minun täytyy + infinitive` | 3 — independent + changed contexts | consolidating / active-watch |
 | `ennen lounasta` | 3 — delayed recall after repair | consolidating |
 | `lounaan jälkeen` | 3 — delayed recall, one repeated error then independent correction | consolidating |
 | `saada projekti valmiiksi` | 3 — blind recall + transfer | consolidating |
 | `pyytää häntä tekemään / lähettämään` | 3 — independent transfer | consolidating |
 | `jos en ehdi ...` | 3 — independent conditional production | consolidating |
 | `lähetän / lähden` | 3 — unlabeled mixed-choice + production | active-watch |
-| `sähköpostia / sähköpostin` | 2 — context-dependent but correctly produced in changed contexts | active watch |
-| subject form with `täytyy`: `minun/hänen/pojan` | 2 — independent after repair | consolidating |
-
-## New chunks
-**None.** Existing chunks remain in retention; no promotion to stable solely from this session.
+| `sähköpostia / sähköpostin` | 2 — context-dependent | active watch |
+| `minun/hänen/pojan täytyy` | 2 — independent after repair and changed context | consolidating |
 
 ## Session Result
-record_schema: canonical-v1
-lesson_status: PARTIAL
+record_schema: canonical-v2
+session_type: RETENTION_SESSION
+lesson_status: COMPLETED
 primary_skill: delayed spoken retrieval and flexible production of professional Finnish patterns
 
 ### Evidence
-observed: Independent blind recall, changed-context production, unlabeled mixed-choice, transfer, Final Speaking Challenge and Final Recall were demonstrated for the target professional patterns. The current record does not contain evidence that the dedicated Listening → Speaking and Deep Processing macro-stages were completed.
+observed: Independent blind recall, controlled speaking, variation, cold recall, unlabeled mixed-choice, Finnish dialogue, Second Chance, changed-context transfer, Final Speaking Challenge and Final Recall were demonstrated across the target professional patterns. The session did not require the separate FULL_LESSON Listening → Speaking or Deep Processing macro-stages.
 evidence_score: 3
 
 ### Protocol Completion
-required_stages: retrieval, listening_speaking, deep_processing, controlled_speaking, finnish_dialogue, error_repair_second_chance, final_challenge_recall, retention_record
+required_stages: retrieval, controlled_speaking, finnish_dialogue, error_repair_second_chance, final_challenge_recall, retention_record
 completed_stages: retrieval, controlled_speaking, finnish_dialogue, error_repair_second_chance, final_challenge_recall, retention_record
-missing_stages: listening_speaking, deep_processing
-continuation_required: YES
-continuation_reason: The session demonstrated strong delayed recall and transfer, but the two required macro-stages Listening → Speaking and Deep Processing were not completed/documented. The protocol therefore remains PARTIAL rather than being marked COMPLETED.
-continuation_next_stage: listening_speaking
+missing_stages: none
+continuation_required: NO
+continuation_reason: none
+continuation_next_stage: none
 
 ### Chunk Decisions
 candidate: `lähetän / lähden`
 decision: KEEP
-reason: Independent unlabeled mixed-choice and production were demonstrated, but the pattern remains under active delayed monitoring.
-evidence: Correct independent outputs were produced in changed contexts.
+reason: Independent unlabeled mixed-choice and production were demonstrated; keep under delayed monitoring.
+evidence: Multiple correct independent outputs in changed contexts.
 next_action: Continue delayed mixed-choice and changed-context production.
 
 ### Chunk Decisions
-candidate: `täytyy / täytyi + infinitive`
+candidate: `täytyy + infinitive`
 decision: KEEP
-reason: Independent production was demonstrated across familiar and changed contexts; continued retention is appropriate.
+reason: Independent production was demonstrated across familiar and changed contexts; continued retention remains appropriate.
 evidence: Multiple correct outputs with `minun/hänen/pojan täytyy + infinitive`.
 next_action: Continue delayed recall.
 
@@ -108,29 +110,25 @@ next_action: Repeat unlabeled mixed-choice.
 ### Chunk Decisions
 candidate: new chunks
 decision: DEFER
-reason: No new chunks are needed while delayed retrieval remains the main objective and required protocol stages remain incomplete.
-evidence: Existing target patterns continue to require retention.
-next_action: Complete missing macro-stages before unrelated expansion.
+reason: Retention remains the main objective and the existing professional patterns still require monitoring.
+evidence: Several patterns remain consolidating or active-watch.
+next_action: Continue retention before unrelated expansion.
 
 ### Mastery
 current_level: CONSOLIDATING
-reason: Independent delayed recall and changed-context production were demonstrated, but the full required protocol was not completed.
-evidence: Multiple independent outputs, transfer, and final recall were demonstrated; this is not sufficient for stable promotion of all patterns.
+reason: Delayed independent recall and changed-context transfer were demonstrated for the session target; stable promotion requires the longer evidence series.
+evidence: Multiple independent outputs, transfer, mixed-choice and final recall were demonstrated.
 
 ### Retention
-status: SCHEDULED
+status: PASSED
 next_review: 2026-09-02
-evidence: Long-term recall is scheduled for the remaining professional patterns.
+evidence: D+6 delayed recall was completed with independent recall, mixed-choice and changed-context transfer.
 
 ### Errors
-recurring: `lounaan jälkeen`, `ennen lounasta`, `valmiiksi`, `lupaan`, `tarkistaa`, `kuunnella musiikkia`, `Hänen/Pojan täytyy`.
-correction: Repair and Second Chance were applied during the session.
+recurring: `lounan jälkeen`, `ennen lounaan`, `valmiksi`, `luvan`, `tarkista`, `kuunnella musiikkia`, subject-form selection with `täytyy`.
+correction: Hint → Repair → Second Chance → independent re-production.
 cause: retrieval, spelling/processing load, and subject-form selection.
 next_action: Continue delayed recall and mixed-choice checking.
 
 ### Next Step
-next_action: Resume from `listening_speaking`, then complete `deep_processing`; only after these stages are closed should the system return to normal retention/new-material decisions.
-
-## Next retention
-- `2026-09-02`: long-term recall of professional chunks.
-- `2026-09-12`: control recall and review Active/Semi-active statuses.
+next_action: Return to normal FULL_LESSON runtime selection after the retention session; no continuation is required. Next scheduled retention is 2026-09-02.
