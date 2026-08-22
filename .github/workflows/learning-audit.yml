@@ -11,11 +11,11 @@ on:
 permissions:
   contents: write
 
-# Only one audit may publish Latest_Audit_State.json at a time.
-# A later run waits for the current run instead of racing it.
+# Keep only the newest audit run. Older runs can report stale state and send
+# duplicate Telegram notifications when several lesson commits arrive close together.
 concurrency:
   group: finnish-learning-audit
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   validate-learning-system:
