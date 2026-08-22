@@ -2,8 +2,8 @@
 """Generate machine-readable audit state for runtime consumers.
 
 Canonical-v1 records are retained as historical FULL_LESSON records. New
-canonical-v2 records declare an explicit session_type so required stages are
-computed from the session route rather than from one global eight-stage list.
+canonical-v2 records declare an explicit session_type. Required/optional
+stages are loaded from the central Session_Types_Registry.json.
 """
 from __future__ import annotations
 
@@ -16,23 +16,31 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 WIKI = ROOT / "Finnish-Learning-Wiki"
 SESSIONS = WIKI / "03_Sessions"
-OUT = WIKI / "00_System" / "Latest_Audit_State.json"
-
-FULL_STAGES = (
-    "retrieval", "listening_speaking", "deep_processing", "controlled_speaking",
-    "finnish_dialogue", "error_repair_second_chance", "final_challenge_recall",
-    "retention_record",
-)
-RETENTION_STAGES = (
-    "retrieval", "controlled_speaking", "finnish_dialogue",
-    "error_repair_second_chance", "final_challenge_recall", "retention_record",
-)
-STAGES_BY_TYPE = {
-    "FULL_LESSON": FULL_STAGES,
-    "RETENTION_SESSION": RETENTION_STAGES,
-}
+SYSTEM = WIKI / "00_System"
+REGISTRY_PATH = SYSTEM / "Session_Types_Registry.json"
+OUT = SYSTEM / "Latest_Audit_State.json"
 SESSION_RECORD_RE = re.compile(r"^\d{4}-\d{2}-\d{2}_Session_Record\.md$")
 SCHEMA_RE = re.compile(r"record_schema:\s*canonical-v(1|2)", re.IGNORECASE)
+
+
+def load_registry() -> dict[str, dict[str, list[str]]]:
+    try:
+        raw = json.loads(REGISTRY_PATH.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise RuntimeError(f"Cannot load Session_Types_Registry.json: {exc}") from exc
+    sessions = raw.get("sessions")
+    if not isinstance(sessions, dict) or not sessions:
+        raise RuntimeError("Session_Types_Registry.json must contain a non-empty 'sessions' object")
+    registry: dict[str, dict[str, list[str]]] = {}
+    for session_type, spec in sessions.items():
+        required = spec.get("required_stages")
+        optional = spec.get("optional_stages", [])
+        if not isinstance(required, list) or not all(isinstance(x, str) for x in required):
+            raise RuntimeError(f"Registry entry {session_type} has invalid required_stages")
+        if not isinstance(optional, list) or not all(isinstance(x, str) for x in optional):
+            raise RuntimeError(f"Registry entry {session_type} has invalid optional_stages")
+        registry[session_type] = {"required_stages": required, "optional_stages": optional}
+    return registry
 
 
 def field(text: str, name: str) -> str | None:
@@ -40,32 +48,32 @@ def field(text: str, name: str) -> str | None:
     return m.group(1).strip() if m else None
 
 
-def session_info(path: Path) -> dict:
+def session_info(path: Path, registry: dict[str, dict[str, list[str]]]) -> dict:
     text = path.read_text(encoding="utf-8")
     schema_match = SCHEMA_RE.search(text)
     schema = f"canonical-v{schema_match.group(1)}" if schema_match else None
     canonical = schema is not None and "## session result" in text.lower()
     session_type = (field(text, "session_type") or "FULL_LESSON").upper()
-    if session_type not in STAGES_BY_TYPE:
+    if session_type not in registry:
         session_type = "FULL_LESSON"
     return {
         "path": path,
         "text": text,
         "schema": schema,
         "canonical": canonical,
-        "eligible": canonical,
+        "eligible": canonical and SESSION_RECORD_RE.match(path.name) is not None,
         "session_type": session_type,
     }
 
 
-def latest_sessions():
+def latest_sessions(registry: dict[str, dict[str, list[str]]]):
     latest = None
     latest_canonical = None
     for path in sorted(SESSIONS.glob("*.md"), key=lambda p: p.name, reverse=True):
-        info = session_info(path)
+        info = session_info(path, registry)
         if latest is None:
             latest = info
-        if latest_canonical is None and SESSION_RECORD_RE.match(path.name) and info["eligible"]:
+        if latest_canonical is None and info["eligible"]:
             latest_canonical = info
     return latest, latest_canonical
 
@@ -83,6 +91,7 @@ def main() -> int:
     parser.add_argument("--exit-code", type=int, required=True)
     args = parser.parse_args()
 
+    registry = load_registry()
     log = Path(args.log).read_text(encoding="utf-8", errors="replace")
     if args.exit_code != 0:
         audit_status = "FAIL"
@@ -91,7 +100,7 @@ def main() -> int:
     else:
         audit_status = "PASS"
 
-    latest, canonical = latest_sessions()
+    latest, canonical = latest_sessions(registry)
 
     if canonical is None:
         state = {
@@ -107,18 +116,16 @@ def main() -> int:
             "protocol_status": "UNKNOWN",
             "required_stage_count": 0,
             "completed_stage_count": 0,
+            "required_stages": [],
             "missing_stages": [],
             "continuation_required": "UNKNOWN",
             "resume_stage": "NONE",
-            "runtime_action": (
-                "Create a canonical-v2 Session Record before evaluating completion."
-                if latest else "Create a canonical-v2 Session Record before evaluating completion."
-            ),
+            "runtime_action": "Create a canonical-v2 Session Record before evaluating completion.",
         }
     else:
         text = canonical["text"]
         session_type = canonical["session_type"]
-        expected = list(STAGES_BY_TYPE[session_type])
+        required_stages = list(registry[session_type]["required_stages"])
         missing = list_field(text, "missing_stages")
         completed = list_field(text, "completed_stages")
         continuation = (field(text, "continuation_required") or "NO").upper()
@@ -135,9 +142,9 @@ def main() -> int:
             "session_type": session_type,
             "lesson_status": lesson_status,
             "protocol_status": "COMPLETED" if not missing else "PARTIAL",
-            "required_stage_count": len(expected),
+            "required_stage_count": len(required_stages),
             "completed_stage_count": len(completed),
-            "required_stages": expected,
+            "required_stages": required_stages,
             "missing_stages": missing,
             "continuation_required": continuation,
             "resume_stage": resume,
