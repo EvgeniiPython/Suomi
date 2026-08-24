@@ -138,5 +138,5 @@ correction: Hint → Repair → Second Chance → independent re-production.
 cause: retrieval, contrast selection, object/possessive form selection, and spelling/processing load.
 next_action: Continue delayed recall and mixed-choice checking.
 
-## Next Step
+### Next Step
 next_action: Return to normal runtime selection after completed FULL_LESSON. Next scheduled long-term retention is 2026-09-02.
