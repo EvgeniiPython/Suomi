@@ -11,8 +11,6 @@ on:
 permissions:
   contents: write
 
-# Keep only the newest audit run. Older runs can report stale state and send
-# duplicate Telegram notifications when several lesson commits arrive close together.
 concurrency:
   group: finnish-learning-audit
   cancel-in-progress: true
@@ -42,6 +40,15 @@ jobs:
           echo "exit_code=$status" >> "$GITHUB_OUTPUT"
           exit "$status"
 
+      - name: Upload audit log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: finnish-learning-audit-log
+          path: audit.log
+          if-no-files-found: warn
+          retention-days: 14
+
       - name: Generate persistent audit state
         if: always()
         run: |
@@ -49,61 +56,41 @@ jobs:
             --log audit.log \
             --exit-code "${{ steps.audit.outputs.exit_code || '1' }}"
 
-      # Keep the generated state outside the Git worktree. This lets us
-      # synchronize with the newest main without creating a rebase conflict.
       - name: Preserve generated audit state
         if: always()
         run: cp Finnish-Learning-Wiki/00_System/Latest_Audit_State.json "$RUNNER_TEMP/Latest_Audit_State.json"
 
-      # Publish only after synchronizing with the latest main. The generated
-      # state is reapplied on top of origin/main, so concurrent user commits
-      # are preserved and Latest_Audit_State.json cannot create a rebase
-      # conflict.
       - name: Commit and push audit state
         id: publish
         if: always()
         shell: bash
         run: |
           set -euo pipefail
-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
           state_file="Finnish-Learning-Wiki/00_System/Latest_Audit_State.json"
           saved_state="$RUNNER_TEMP/Latest_Audit_State.json"
-
           for attempt in 1 2 3; do
             echo "Publish attempt $attempt/3"
             git fetch origin main
-
-            # Start from current remote main. This preserves commits that
-            # arrived while the audit was running.
             git reset --hard origin/main
             cp "$saved_state" "$state_file"
-
             git add "$state_file"
-
             if git diff --cached --quiet; then
               echo "No audit-state change to commit"
               exit 0
             fi
-
             git commit -m "chore: update latest audit state [skip ci]"
-
             if git push origin HEAD:main; then
               echo "Audit state published successfully"
               exit 0
             fi
-
             echo "Push raced with a newer main commit; retrying..."
             git reset --hard origin/main
           done
-
           echo "ERROR: Could not publish audit state after 3 attempts" >&2
           exit 1
 
-      # Telegram is deliberately AFTER successful publication. A failed
-      # audit can still be reported, but only after its state is safely saved.
       - name: Send audit report to Telegram
         if: always() && steps.publish.outcome == 'success'
         env:
