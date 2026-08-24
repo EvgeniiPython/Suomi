@@ -265,9 +265,12 @@ def validate_sessions(results, directives, registry):
             type_counts[session_type] = type_counts.get(session_type, 0) + 1
             if "continuation_required: yes" in lower:
                 block = subsection(text, "Protocol Completion")
-                resume = field_value(block, "continuation_next_stage")
+                resume = field_value(block, "continuation_next_stage") or "NONE"
                 missing = list_field(block, "missing_stages")
-                directives.append(f"{path.name}: TYPE={session_type}; RESUME_STAGE={resume}; MISSING_STAGES={','.join(missing)}")
+                reason = field_value(block, "continuation_reason") or "not specified"
+                directives.append(
+                    f"{path.name}: RESUME_STAGE={resume}; MISSING_STAGES={','.join(missing) or 'none'}; REASON={reason}"
+                )
         elif session_date and session_date >= CANONICAL_REQUIRED_FROM:
             failures.append(f"{path.name}: missing canonical session schema")
         if not re.search(r"^# .*20\d{2}", text, re.MULTILINE):
@@ -275,7 +278,11 @@ def validate_sessions(results, directives, registry):
 
     add_result(results, FAIL if malformed else PASS, "Session structure", f"Checked {len(files)} Session_Record file(s)")
     add_result(results, FAIL if failures else PASS, "Canonical session records", " | ".join(failures) if failures else "All applicable canonical session records are structurally consistent")
-    add_result(results, WARN if directives else PASS, "Lesson continuation", f"{len(directives)} session(s) require continuation" if directives else "No continuation directives")
+    if directives:
+        detail = f"{len(directives)} session(s) require continuation: " + " | ".join(directives)
+        add_result(results, WARN, "Lesson continuation", detail)
+    else:
+        add_result(results, PASS, "Lesson continuation", "No continuation directives")
     add_result(results, PASS, "Session types", "none" if not type_counts else ", ".join(f"{k}={v}" for k, v in sorted(type_counts.items())))
 
 
