@@ -1,8 +1,10 @@
 {
-  "schema": "audit-state-v3",
-  "generated_at_utc": "2026-08-24T18:05:54.030484+00:00",
+  "schema": "audit-state-v4",
+  "generated_at_utc": "2026-08-24T18:08:37.702323+00:00",
   "audit_status": "PASS_WITH_WARNINGS",
   "validator_exit_code": 0,
+  "failure_count": 0,
+  "failed_checks": [],
   "latest_session": "2026-08-24_Session_Record.md",
   "latest_session_schema_status": "CANONICAL_V2",
   "latest_canonical_session": "2026-08-24_Session_Record.md",
