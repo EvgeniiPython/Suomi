@@ -64,10 +64,19 @@ def build_message(state: dict) -> str:
             detail = html.escape(str(item.get("detail", "")))
             lines.append(f"• <b>{check}</b>: {detail}")
         lines.append("<b>Action:</b> Fix the failed check(s) above and rerun the audit.")
-    else:
-        runtime_action = state.get("runtime_action")
-        if runtime_action:
-            lines.extend(["", f"<b>Action:</b> {html.escape(str(runtime_action))}"])
+
+    warnings = state.get("warnings") or []
+    if warnings:
+        lines.extend(["", "⚠️ <b>Warnings:</b>"])
+        for item in warnings:
+            check = html.escape(str(item.get("check", "Unknown check")))
+            detail = html.escape(str(item.get("detail", "")))
+            lines.append(f"• <b>{check}</b>: {detail}")
+        if not failures:
+            lines.append("<b>Action:</b> Review the warnings above if they require attention.")
+
+    if not failures and not warnings:
+        lines.extend(["", "✅ <b>Diagnostics:</b> No failures or warnings."])
 
     generated = state.get("generated_at_utc")
     if generated:
