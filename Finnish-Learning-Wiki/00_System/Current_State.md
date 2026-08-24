@@ -1,6 +1,6 @@
 # Current State
 
-**Последнее занятие:** 22 августа 2026
+**Последнее занятие:** 24 августа 2026
 
 ## Текущий уровень
 Finnish A2 with growing A2+/B1 control in familiar personal and professional topics.
@@ -24,37 +24,32 @@ Continuation is a mode of the previous session type, not a third type.
 ## Текущие статусы
 
 ### Active / Flexible
-- `Sovimme asiakkaan kanssa tapaamisen ensi viikolla.`
-- `asiakkaan kanssa`
 - `minun täytyy + infinitive`
-- `lähetän / lähden` — успешно различены в unlabeled mixed-choice; оставить в active monitoring.
+- `lähetän / lähden` — correctly distinguished in unlabeled mixed-choice and production; continue active monitoring.
+- `en lähetä / lähetän` — improved, but keep under active watch.
 
 ### Consolidating / требует дальнейшего delayed recall
-- `Sovimme asiakkaan kanssa tapaamisesta ensi viikolle.`
-- `Minun täytyy soittaa asiakkaalle lounaan jälkeen.`
-- `Lounaan jälkeen minun täytyy lähettää sähköposti asiakkaalle.`
-- `en soita / soitan`
-- `en lähetä / lähetän`
-- `lähettää / lähteä`
-- `sähköpostia / sähköpostin`
-- `täytyy + infinitive`
 - `lounaan jälkeen`
 - `ennen lounasta`
+- `en soita / soitan`
+- `lähettää / lähteä`
+- `sähköpostia / sähköpostin`
 - `saada projekti valmiiksi`
 - `pyytää häntä tekemään / lähettämään`
 - `jos en ehdi saada projektia valmiiksi, ...`
 - `minun / hänen / pojan täytyy + infinitive`
 
-## Последнее занятие — 22.08.2026
+## Последнее занятие — 24.08.2026
 
-- Выполнен D+6 delayed recall как `RETENTION_SESSION`.
-- `saada projekti valmiiksi`, `pyytää häntä tekemään`, `ennen lounasta` и `jos en ehdi...` были извлечены и перенесены в изменённые контексты.
+- Начат `FULL_LESSON`.
+- Выполнены Retrieval, Controlled Speaking, Finnish Dialogue, Error Repair + Second Chance, Final Speaking Challenge и Final Recall.
 - `lähetän / lähden` успешно различены в unlabeled mixed-choice.
-- `lounaan jälkeen` потребовал одного repair из-за `lounan`, после чего форма была самостоятельно воспроизведена правильно.
-- Changed-context production с `en ehdi lähettää piirustuksia...` и `pyytää häntä lähettämään ne...` выполнена самостоятельно.
-- Finnish Dialogue, Second Chance, Final Speaking Challenge и Final Recall выполнены.
+- `minun täytyy + infinitive` воспроизведено самостоятельно в трёх новых предложениях.
+- `saada projekti valmiiksi`, `jos en ehdi...` и `pyytää häntä lähettämään` использованы в changed-context transfer.
+- Были исправлены `lounaan jälkeen`, `en lähetä`, `lähettämään`, `valmiiksi`, `asiakkaalle`, `piirustukset` и `töihin`.
 - Новых chunks не добавляли.
-- Retention session завершена; continuation не требуется.
+- Урок сохранён как `PARTIAL`, потому что обязательные для `FULL_LESSON` stages `listening_speaking`, `deep_processing` и `retention_record` ещё не закрыты.
+- `continuation_required = YES`; продолжение должно сохранить тип `FULL_LESSON` и начаться с `listening_speaking`.
 
 ## Error Cause Watch
 
@@ -64,7 +59,9 @@ en lähetä -> lähetän | retrieval / contrast_selection | improved, continue m
 sähköpostin -> sähköpostia in negative construction | contrast_selection | context-dependent, active watch
 lähettää vs lähteä | contrast_selection | improved after mixed-choice, continue monitoring
 kotiin vs kotona | processing/context selection | corrected, delayed check optional
-lounan jälkeen -> lounaan jälkeen | retrieval/encoding | corrected independently on Second Chance
+lounan jälkeen -> lounaan jälkeen | retrieval/encoding | corrected, continue delayed check
+lähetämään -> lähettämään | spelling/encoding | corrected, continue monitoring
+valmiksi -> valmiiksi | spelling/encoding | corrected
 Hänelle/Pojalle täytyy -> Hänen/Pojan täytyy | subject-form selection | repaired and independently reproduced
 ```
 
@@ -74,14 +71,13 @@ Hänelle/Pojalle täytyy -> Hänen/Pojan täytyy | subject-form selection | repa
 |---|---:|---|---|---|---|
 | `minun täytyy + infinitive` | 3 | independent | medium | achieved | active-watch / consolidating |
 | `lounaan jälkeen` | 3 | independent after repair | medium | achieved | consolidating |
-| `ennen lounasta` | 3 | independent delayed recall | medium | achieved | consolidating |
-| `en soita / soitan` | 2–3 | independent after repair | medium | achieved | consolidating |
-| `en lähetä / lähetän` | 2–3 | improved | medium | partial/achieved | consolidating |
+| `ennen lounasta` | 3 | independent | medium | achieved | consolidating |
+| `en soita / soitan` | 3 | independent | medium | achieved | consolidating |
+| `en lähetä / lähetän` | 3 | independent after repair | medium | achieved | active-watch / consolidating |
 | `lähettää / lähteä` | 3 | independent mixed-choice | medium | achieved | active-watch |
 | `sähköpostia / sähköpostin` | 2 | context-dependent | hesitant | partial | active watch |
-| `sovimme tapaamisesta` | 2 | working | medium | achieved | consolidating |
 | `saada projekti valmiiksi` | 3 | independent | medium | achieved | consolidating |
-| `pyytää häntä tekemään / lähettämään` | 3 | independent | medium | achieved | consolidating |
+| `pyytää häntä tekemään / lähettämään` | 3 | independent after repair | medium | achieved | consolidating |
 | `jos en ehdi ...` | 3 | independent | medium | achieved | consolidating |
 | `minun / hänen / pojan täytyy` | 2 | independent after repair | medium | achieved in new contexts | consolidating |
 
@@ -99,7 +95,9 @@ These scores are current evidence, not standardized test scores.
 - `kotiin` vs `kotona` по направлению/местонахождению.
 - `ennen lounaan` → `ennen lounasta`.
 - `lounan jälkeen` → `lounaan jälkeen`.
-- субъектные формы с `täytyy`: `Hänen/Pojan`, а не `Hänelle/Poijalle` в соответствующих значениях.
+- `lähetämään` → `lähettämään`.
+- `valmiksi` → `valmiiksi`.
+- субъектные формы с `täytyy`: `Hänen/Pojan`, а не `Hänelle/Pojalle` в соответствующих значениях.
 
 ## Retention
 
@@ -107,11 +105,14 @@ These scores are current evidence, not standardized test scores.
 - 02.09.2026 — долгосрочный recall профессиональных chunks.
 - 12.09.2026 — контроль и пересмотр статусов.
 
-## Следующее занятие
+## Следующее занятие / continuation
 
-`Today.md` определяет следующий runtime как `FULL_LESSON`, поскольку текущая retention-сессия завершена и следующая обязательная retention-точка — 02.09.2026.
+Текущее занятие 24.08.2026 является незавершённым `FULL_LESSON`.
 
-Начать с Retrieval без подсказок, затем пройти полный 8-stage Speaking-First маршрут. Особое внимание: `sähköpostia / sähköpostin`, `en soita / soitan`, `en lähetä / lähetän`, `lähettää / lähteä` и субъектные формы с `täytyy`.
+`continuation_required = YES`
+`continuation_next_stage = listening_speaking`
+
+Следующий runtime должен продолжить **этот же FULL_LESSON** с `Listening → Speaking`, затем выполнить `Deep Processing` и оставшиеся обязательные стадии. Нельзя переключаться на `RETENTION_SESSION` только из-за retention schedule, пока continuation не закрыт.
 
 ## Правило новых chunks
 
