@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
-"""Generate machine-readable audit state for runtime consumers.
-
-Canonical-v1 records are retained as historical FULL_LESSON records. New
-canonical-v2 records declare an explicit session_type. Required/optional
-stages are loaded from the central Session_Types_Registry.json.
-"""
+"""Generate machine-readable audit state for runtime consumers."""
 from __future__ import annotations
 
 import argparse
@@ -21,13 +16,11 @@ REGISTRY_PATH = SYSTEM / "Session_Types_Registry.json"
 OUT = SYSTEM / "Latest_Audit_State.json"
 SESSION_RECORD_RE = re.compile(r"^\d{4}-\d{2}-\d{2}_Session_Record\.md$")
 SCHEMA_RE = re.compile(r"record_schema:\s*canonical-v(1|2)", re.IGNORECASE)
+FAIL_RE = re.compile(r"^\[FAIL\]\s+([^:]+):\s*(.*)$", re.MULTILINE)
 
 
 def load_registry() -> dict[str, dict[str, list[str]]]:
-    try:
-        raw = json.loads(REGISTRY_PATH.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError) as exc:
-        raise RuntimeError(f"Cannot load Session_Types_Registry.json: {exc}") from exc
+    raw = json.loads(REGISTRY_PATH.read_text(encoding="utf-8"))
     sessions = raw.get("sessions")
     if not isinstance(sessions, dict) or not sessions:
         raise RuntimeError("Session_Types_Registry.json must contain a non-empty 'sessions' object")
@@ -56,17 +49,10 @@ def session_info(path: Path, registry: dict[str, dict[str, list[str]]]) -> dict:
     session_type = (field(text, "session_type") or "FULL_LESSON").upper()
     if session_type not in registry:
         session_type = "FULL_LESSON"
-    return {
-        "path": path,
-        "text": text,
-        "schema": schema,
-        "canonical": canonical,
-        "eligible": canonical and SESSION_RECORD_RE.match(path.name) is not None,
-        "session_type": session_type,
-    }
+    return {"path": path, "text": text, "schema": schema, "canonical": canonical, "eligible": canonical and SESSION_RECORD_RE.match(path.name) is not None, "session_type": session_type}
 
 
-def latest_sessions(registry: dict[str, dict[str, list[str]]]):
+def latest_sessions(registry):
     latest = None
     latest_canonical = None
     for path in sorted(SESSIONS.glob("*.md"), key=lambda p: p.name, reverse=True):
@@ -85,6 +71,10 @@ def list_field(text: str, name: str) -> list[str]:
     return [x.strip().lower() for x in re.split(r"[,;]", value) if x.strip()]
 
 
+def extract_failures(log: str) -> list[dict[str, str]]:
+    return [{"check": check.strip(), "detail": detail.strip()} for check, detail in FAIL_RE.findall(log)]
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--log", required=True)
@@ -93,6 +83,7 @@ def main() -> int:
 
     registry = load_registry()
     log = Path(args.log).read_text(encoding="utf-8", errors="replace")
+    failures = extract_failures(log)
     if args.exit_code != 0:
         audit_status = "FAIL"
     elif "WARNING" in log:
@@ -101,13 +92,18 @@ def main() -> int:
         audit_status = "PASS"
 
     latest, canonical = latest_sessions(registry)
+    base = {
+        "schema": "audit-state-v4",
+        "generated_at_utc": datetime.now(timezone.utc).isoformat(),
+        "audit_status": audit_status,
+        "validator_exit_code": args.exit_code,
+        "failure_count": len(failures),
+        "failed_checks": failures,
+    }
 
     if canonical is None:
         state = {
-            "schema": "audit-state-v3",
-            "generated_at_utc": datetime.now(timezone.utc).isoformat(),
-            "audit_status": audit_status,
-            "validator_exit_code": args.exit_code,
+            **base,
             "latest_session": latest["path"].name if latest else None,
             "latest_session_schema_status": latest["schema"].upper().replace("-", "_") if latest else "NONE",
             "latest_canonical_session": None,
@@ -132,10 +128,7 @@ def main() -> int:
         resume = (field(text, "continuation_next_stage") or "NONE").lower()
         lesson_status = (field(text, "lesson_status") or "UNKNOWN").upper()
         state = {
-            "schema": "audit-state-v3",
-            "generated_at_utc": datetime.now(timezone.utc).isoformat(),
-            "audit_status": audit_status,
-            "validator_exit_code": args.exit_code,
+            **base,
             "latest_session": latest["path"].name if latest else canonical["path"].name,
             "latest_session_schema_status": latest["schema"].upper().replace("-", "_") if latest else "NONE",
             "latest_canonical_session": canonical["path"].name,
@@ -148,11 +141,7 @@ def main() -> int:
             "missing_stages": missing,
             "continuation_required": continuation,
             "resume_stage": resume,
-            "runtime_action": (
-                "Continue the previous session from RESUME_STAGE before selecting a new session type."
-                if continuation == "YES"
-                else f"Run normal {session_type} runtime selection."
-            ),
+            "runtime_action": "Continue the previous session from RESUME_STAGE before selecting a new session type." if continuation == "YES" else f"Run normal {session_type} runtime selection.",
         }
 
     OUT.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
