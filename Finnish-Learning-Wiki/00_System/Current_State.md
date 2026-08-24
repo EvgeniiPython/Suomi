@@ -27,29 +27,31 @@ Continuation is a mode of the previous session type, not a third type.
 - `minun täytyy + infinitive`
 - `lähetän / lähden` — correctly distinguished in unlabeled mixed-choice and production; continue active monitoring.
 - `en lähetä / lähetän` — improved, but keep under active watch.
+- `sähköpostia / sähköpostin` — meaning distinction understood; production remains context-sensitive.
 
 ### Consolidating / требует дальнейшего delayed recall
 - `lounaan jälkeen`
 - `ennen lounasta`
 - `en soita / soitan`
 - `lähettää / lähteä`
-- `sähköpostia / sähköpostin`
 - `saada projekti valmiiksi`
 - `pyytää häntä tekemään / lähettämään`
 - `jos en ehdi saada projektia valmiiksi, ...`
 - `minun / hänen / pojan täytyy + infinitive`
+- `tapaamisen jälkeen`
 
 ## Последнее занятие — 24.08.2026
 
-- Начат `FULL_LESSON`.
-- Выполнены Retrieval, Controlled Speaking, Finnish Dialogue, Error Repair + Second Chance, Final Speaking Challenge и Final Recall.
+- `FULL_LESSON` завершён полностью после continuation.
+- Выполнены все 8 обязательных stages: Retrieval, Listening → Speaking, Deep Processing, Controlled Speaking, Finnish Dialogue, Error Repair + Second Chance, Final Speaking Challenge + Final Recall, Retention Record.
 - `lähetän / lähden` успешно различены в unlabeled mixed-choice.
-- `minun täytyy + infinitive` воспроизведено самостоятельно в трёх новых предложениях.
+- `minun täytyy + infinitive` воспроизведено самостоятельно в нескольких новых предложениях.
 - `saada projekti valmiiksi`, `jos en ehdi...` и `pyytää häntä lähettämään` использованы в changed-context transfer.
-- Были исправлены `lounaan jälkeen`, `en lähetä`, `lähettämään`, `valmiiksi`, `asiakkaalle`, `piirustukset` и `töihin`.
+- Были исправлены `lounaan jälkeen`, `en lähetä`, `lähettämään`, `valmiiksi`, `asiakkaalle`, `piirustukset`, `töihin`, `ei ehdi`, `ei saa` и `auttamaan minua`.
+- `sähköpostia / sähköpostin` объяснено правильно, но остаётся active watch из-за ошибок в production.
 - Новых chunks не добавляли.
-- Урок сохранён как `PARTIAL`, потому что обязательные для `FULL_LESSON` stages `listening_speaking`, `deep_processing` и `retention_record` ещё не закрыты.
-- `continuation_required = YES`; продолжение должно сохранить тип `FULL_LESSON` и начаться с `listening_speaking`.
+- Canonical session record: `03_Sessions/2026-08-24_Session_Record.md`.
+- `lesson_status = COMPLETED`; `continuation_required = NO`.
 
 ## Error Cause Watch
 
@@ -63,6 +65,8 @@ lounan jälkeen -> lounaan jälkeen | retrieval/encoding | corrected, continue d
 lähetämään -> lähettämään | spelling/encoding | corrected, continue monitoring
 valmiksi -> valmiiksi | spelling/encoding | corrected
 Hänelle/Pojalle täytyy -> Hänen/Pojan täytyy | subject-form selection | repaired and independently reproduced
+hän ei ehdi -> hän ei ehdi | negative conjugation | corrected, continue monitoring
+auttamaan minulle -> auttamaan minua | verb government / object selection | corrected
 ```
 
 ## Current Mastery Evidence
@@ -80,6 +84,7 @@ Hänelle/Pojalle täytyy -> Hänen/Pojan täytyy | subject-form selection | repa
 | `pyytää häntä tekemään / lähettämään` | 3 | independent after repair | medium | achieved | consolidating |
 | `jos en ehdi ...` | 3 | independent | medium | achieved | consolidating |
 | `minun / hänen / pojan täytyy` | 2 | independent after repair | medium | achieved in new contexts | consolidating |
+| `tapaamisen jälkeen` | 3 | independent | medium | achieved | consolidating |
 
 These scores are current evidence, not standardized test scores.
 
@@ -98,6 +103,8 @@ These scores are current evidence, not standardized test scores.
 - `lähetämään` → `lähettämään`.
 - `valmiksi` → `valmiiksi`.
 - субъектные формы с `täytyy`: `Hänen/Pojan`, а не `Hänelle/Pojalle` в соответствующих значениях.
+- `hän ei ehdi` / `hän ei saa` — negative conjugation.
+- `auttamaan minua` — verb government/object selection.
 
 ## Retention
 
@@ -105,14 +112,11 @@ These scores are current evidence, not standardized test scores.
 - 02.09.2026 — долгосрочный recall профессиональных chunks.
 - 12.09.2026 — контроль и пересмотр статусов.
 
-## Следующее занятие / continuation
+## Следующее занятие
 
-Текущее занятие 24.08.2026 является незавершённым `FULL_LESSON`.
+`FULL_LESSON` 24.08.2026 завершён; continuation больше не требуется.
 
-`continuation_required = YES`
-`continuation_next_stage = listening_speaking`
-
-Следующий runtime должен продолжить **этот же FULL_LESSON** с `Listening → Speaking`, затем выполнить `Deep Processing` и оставшиеся обязательные стадии. Нельзя переключаться на `RETENTION_SESSION` только из-за retention schedule, пока continuation не закрыт.
+Следующий обычный runtime выбирается по `Today.md`; ближайшая обязательная long-term retention-точка — 02.09.2026.
 
 ## Правило новых chunks
 
