@@ -16,7 +16,7 @@ REGISTRY_PATH = SYSTEM / "Session_Types_Registry.json"
 OUT = SYSTEM / "Latest_Audit_State.json"
 SESSION_RECORD_RE = re.compile(r"^\d{4}-\d{2}-\d{2}_Session_Record\.md$")
 SCHEMA_RE = re.compile(r"record_schema:\s*canonical-v(1|2)", re.IGNORECASE)
-FAIL_RE = re.compile(r"^\[FAIL\]\s+([^:]+):\s*(.*)$", re.MULTILINE)
+RESULT_RE = re.compile(r"^\[(FAIL|WARNING)\]\s+([^:]+):\s*(.*)$", re.MULTILINE)
 
 
 def load_registry() -> dict[str, dict[str, list[str]]]:
@@ -49,7 +49,14 @@ def session_info(path: Path, registry: dict[str, dict[str, list[str]]]) -> dict:
     session_type = (field(text, "session_type") or "FULL_LESSON").upper()
     if session_type not in registry:
         session_type = "FULL_LESSON"
-    return {"path": path, "text": text, "schema": schema, "canonical": canonical, "eligible": canonical and SESSION_RECORD_RE.match(path.name) is not None, "session_type": session_type}
+    return {
+        "path": path,
+        "text": text,
+        "schema": schema,
+        "canonical": canonical,
+        "eligible": canonical and SESSION_RECORD_RE.match(path.name) is not None,
+        "session_type": session_type,
+    }
 
 
 def latest_sessions(registry):
@@ -71,8 +78,16 @@ def list_field(text: str, name: str) -> list[str]:
     return [x.strip().lower() for x in re.split(r"[,;]", value) if x.strip()]
 
 
-def extract_failures(log: str) -> list[dict[str, str]]:
-    return [{"check": check.strip(), "detail": detail.strip()} for check, detail in FAIL_RE.findall(log)]
+def extract_diagnostics(log: str) -> tuple[list[dict[str, str]], list[dict[str, str]]]:
+    failures: list[dict[str, str]] = []
+    warnings: list[dict[str, str]] = []
+    for level, check, detail in RESULT_RE.findall(log):
+        item = {"check": check.strip(), "detail": detail.strip()}
+        if level == "FAIL":
+            failures.append(item)
+        else:
+            warnings.append(item)
+    return failures, warnings
 
 
 def main() -> int:
@@ -83,22 +98,25 @@ def main() -> int:
 
     registry = load_registry()
     log = Path(args.log).read_text(encoding="utf-8", errors="replace")
-    failures = extract_failures(log)
+    failures, warnings = extract_diagnostics(log)
+
     if args.exit_code != 0:
         audit_status = "FAIL"
-    elif "WARNING" in log:
+    elif warnings:
         audit_status = "PASS_WITH_WARNINGS"
     else:
         audit_status = "PASS"
 
     latest, canonical = latest_sessions(registry)
     base = {
-        "schema": "audit-state-v4",
+        "schema": "audit-state-v5",
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "audit_status": audit_status,
         "validator_exit_code": args.exit_code,
         "failure_count": len(failures),
         "failed_checks": failures,
+        "warning_count": len(warnings),
+        "warnings": warnings,
     }
 
     if canonical is None:
@@ -141,7 +159,11 @@ def main() -> int:
             "missing_stages": missing,
             "continuation_required": continuation,
             "resume_stage": resume,
-            "runtime_action": "Continue the previous session from RESUME_STAGE before selecting a new session type." if continuation == "YES" else f"Run normal {session_type} runtime selection.",
+            "runtime_action": (
+                "Continue the previous session from RESUME_STAGE before selecting a new session type."
+                if continuation == "YES"
+                else f"Run normal {session_type} runtime selection."
+            ),
         }
 
     OUT.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
