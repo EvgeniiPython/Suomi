@@ -1,17 +1,12 @@
 {
   "schema": "audit-state-v5",
-  "generated_at_utc": "2026-08-24T18:19:34.680277+00:00",
-  "audit_status": "PASS_WITH_WARNINGS",
+  "generated_at_utc": "2026-08-25T15:11:38.557071+00:00",
+  "audit_status": "PASS",
   "validator_exit_code": 0,
   "failure_count": 0,
   "failed_checks": [],
-  "warning_count": 1,
-  "warnings": [
-    {
-      "check": "Lesson continuation",
-      "detail": "1 session(s) require continuation: 2026-08-21_Session_Record.md: RESUME_STAGE=listening_speaking; MISSING_STAGES=listening_speaking,deep_processing; REASON=The lesson reached strong independent production, but the required Listening → Speaking and Deep Processing stages were not completed. Per protocol, the lesson must remain PARTIAL rather than being marked complete."
-    }
-  ],
+  "warning_count": 0,
+  "warnings": [],
   "latest_session": "2026-08-24_Session_Record.md",
   "latest_session_schema_status": "CANONICAL_V2",
   "latest_canonical_session": "2026-08-24_Session_Record.md",
