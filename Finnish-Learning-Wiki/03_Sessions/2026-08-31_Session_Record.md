@@ -48,7 +48,6 @@ Date: 2026-08-31
 - `pyytää minua lähettää` → `pyytää minua lähettämään`.
 - `korjaus piirustukset` → `korjatut piirustukset`.
 - `saamaan projektin` → `saamaan projektin valmiiksi`.
-- `tarkistamaan piirustukset` / `saada piirustukset` object selection was reinforced.
 - `pyytää kollegaani` and `kollegaano` → `pyytää kollegaani`.
 - `tapaamiaen` → `tapaamisen`.
 - `autamaan` → `auttamaan`.
@@ -73,7 +72,7 @@ session_type: FULL_LESSON
 lesson_status: COMPLETED
 primary_skill: flexible spoken production of professional Finnish patterns with transfer and contrast selection
 
-a### Evidence
+### Evidence
 observed: Independent production, variation, transfer, mixed recall, repair and final recall were demonstrated. `saada + objekti + valmiiksi` was successfully reproduced independently after delayed repair. `lähetän / lähden` and negative/positive `lähetä / lähetän` were produced correctly in mixed recall. `sähköpostia / sähköpostin` improved but remains context-sensitive.
 evidence_score: 3
 
