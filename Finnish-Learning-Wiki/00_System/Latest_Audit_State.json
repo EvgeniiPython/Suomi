@@ -1,6 +1,6 @@
 {
   "schema": "audit-state-v5",
-  "generated_at_utc": "2026-09-02T17:05:58.603462+00:00",
+  "generated_at_utc": "2026-09-02T17:37:18.186773+00:00",
   "audit_status": "FAIL",
   "validator_exit_code": 1,
   "failure_count": 0,
@@ -12,9 +12,9 @@
   "latest_canonical_session": "2026-09-02_Session_Record.md",
   "session_type": "FULL_LESSON",
   "lesson_status": "COMPLETED",
-  "protocol_status": "PARTIAL",
+  "protocol_status": "COMPLETED",
   "required_stage_count": 8,
-  "completed_stage_count": 6,
+  "completed_stage_count": 8,
   "required_stages": [
     "retrieval",
     "listening_speaking",
@@ -25,10 +25,7 @@
     "final_challenge_recall",
     "retention_record"
   ],
-  "missing_stages": [
-    "formal listening/deep-processing stage was not separately run in this conversational continuation",
-    "session nevertheless reached final recall and transfer."
-  ],
+  "missing_stages": [],
   "continuation_required": "NO",
   "resume_stage": "none",
   "runtime_action": "Run normal FULL_LESSON runtime selection."
