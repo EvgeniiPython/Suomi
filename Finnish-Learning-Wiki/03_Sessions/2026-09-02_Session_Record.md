@@ -14,8 +14,8 @@ Date: 2026-09-02
 
 ## Runtime
 - `FULL_LESSON` по Today.md.
-- Сессия завершена в текущем разговоре; continuation не требовался.
-- Основной фокус: retrieval → repair → variation → cold recall → transfer → final recall.
+- Сессия завершена после дополнительного выполнения ранее пропущенных обязательных этапов.
+- Все 8 macro-stages теперь закрыты: retrieval, listening_speaking, deep_processing, controlled_speaking, finnish_dialogue, error_repair_second_chance, final_challenge_recall, retention_record.
 - Новые chunks не вводились.
 
 ## Выполнено
@@ -24,31 +24,32 @@ Date: 2026-09-02
 - Cold recall в ситуации общения с клиентом.
 - Second Chance с `ne eivät ole vielä valmiita`, `lähetän ne` и `heti, kun...`.
 - Transfer с `saada + objekti + valmiiksi`, `ehdin/et ehdi + infinitive`.
-- Final speaking challenge о рабочем дне.
-- Final cold recall с `lounaan jälkeen`, `ennen lounasta`, `saada raportti valmiiksi`, `en ehdi` и `soitan asiakkaalle etukäteen`.
+- Listening → Speaking: понимание короткого профессионального input и самостоятельный retell.
+- Deep Processing / Encoding: meaning blocks, вариации и самостоятельная формулировка правила `lähetän / lähden`.
+- Controlled variation и unlabeled contrast recall.
+- Finnish dialogue с клиентом.
+- Final speaking challenge и final cold recall.
 
 ## Representative User Outputs
-- `Minun täytyy pyytää kollegaani tarkistamaan piirustukset ennen asennusta.`
-- `Anteeksi, en lähetä piirustuksia tänään, koska ne eivät ole vielä valmiita. Mutta lähetän ne huomenna. Soitan sinulle heti, kun lähetän ne.`
-- `Jos ehdit tarkistaa piirustukset tänään, lähetän ne asiakkaalle huomenna.`
-- `En voi saada raporttia valmiiksi ennen lounasta, koska minun täytyy tarkistaa pohjatiedot. Jos ehdin tarkistaa ne aamulla, saan raportin valmiiksi ennen lounasta ja lähetän sen asiakkaalle lounaan jälkeen.`
-- `Tänään minun täytyy lähettää piirustukset asiakkaalle. Ennen lounasta minun täytyy tarkistaa ne. Jos en ehdi tarkistaa niitä ennen lounasta, minun täytyy soittaa asiakkaalle heti.`
-- `Huomenna lounaan jälkeen minun täytyy lähettää asiakkaalle raportin. Ennen lounasta minun täytyy tarkistaa se. Jos en ehdi saada raporttia valmiiksi ennen lounasta, soitan asiakkaalle etukäteen.`
+- `Huomenna minulla on paljon töitä. Ensin minun täytyy tarkistaa piirustukset ja saada raportti valmiiksi ennen lounasta.`
+- `Jos ehdin tehdä kaiken aamulla, lähetän piirustukset ja raportin asiakkaalle lounaan jälkeen. Jos en ehdi, soitan asiakkaalle ja kerron tilanteesta.`
+- `Minun täytyy saada raportti valmiiksi ennen lounasta, koska asiakas pyytää minua tekemään sen.`
+- `Minun täytyy saada piirustukset valmiiksi ennen lounasta, koska kollegani pyytää minua tarkistamaan ne.`
+- `Huomenna lähden töihin, mutta tänään lähetän piirustukset asiakkaalle.`
+- `En lähetä raporttia tänään, koska minun täytyy tarkistaa piirustukset huolellisesti. Lähetän raportin asiakkaalle huomenna lounaan jälkeen.`
 
 ## Error / Repair
-- `lounan jalkeen` → `lounaan jälkeen` (spelling + form).
-- `asiakkalle / asiakkaale` → `asiakkaalle` (spelling).
+- `lounan jalkeen` → `lounaan jälkeen`.
+- `asiakkalle / asiakkaale` → `asiakkaalle`.
 - `sähköpostiin` / wrong object → `sähköpostia` in negative/general sending context and `sähköpostin` for a specific completed object.
-- `piirustukset` vs `niitä/ne` was practiced in context.
 - `koska eivät ole vielä valmiit` → `koska ne eivät ole vielä valmiita`.
-- `sen` vs `ne` corrected according to singular/plural reference.
 - `ne ei ole` → `ne eivät ole`.
 - `et ehdi tarkista` → `et ehdi tarkistaa`.
 - `Jos en ehdi...` vs `Jos ehdin...` meaning contrast was explicitly repaired.
 - `saadan` → `saan`.
 - `tarkistaa siitä` → `tarkistaa se` for a singular report reference.
 - `raportia` → `raporttia`.
-- `tarkistaa piirustukset` after already established reference was improved to `tarkistaa niitä` where appropriate.
+- `lähetän / lähden` and `se/ne/niitä` were repeatedly contrasted and successfully recalled.
 
 ## Mastery Evidence
 | Pattern | Evidence | Recall | Fluency | Transfer | Status |
@@ -57,12 +58,12 @@ Date: 2026-09-02
 | `lounaan jälkeen / ennen lounasta` | 3 | independent | medium | achieved | consolidating |
 | `en soita / soitan` | 3 | independent | medium | achieved | consolidating |
 | `en lähetä / lähetän` | 3 | independent | medium | achieved | active-watch |
-| `lähettää / lähteä` | 3 | independent mixed context | medium | achieved | active-watch |
+| `lähettää / lähteä` | 4 | independent mixed recall | medium | achieved | active-watch |
 | `sähköpostia / sähköpostin` | 3 | improved after repair | medium | achieved | active-watch |
-| `saada + objekti + valmiiksi` | 3 | independent after repair and final recall | medium | achieved | consolidating |
+| `saada + objekti + valmiiksi` | 4 | independent after repair and final recall | medium | achieved | consolidating |
 | `pyytää + henkilö + -maan/-mään` | 3 | independent | medium | achieved | consolidating |
 | `jos en ehdi ...` | 3 | independent | medium | achieved | consolidating |
-| object reference `se/ne/niitä` | 2 | improving | medium | achieved | active-watch |
+| object reference `se/ne/niitä` | 3 | improving | medium | achieved | active-watch |
 
 ## Session Result
 record_schema: canonical-v2
@@ -74,8 +75,8 @@ evidence_score: 3
 
 ### Protocol Completion
 required_stages: retrieval, listening_speaking, deep_processing, controlled_speaking, finnish_dialogue, error_repair_second_chance, final_challenge_recall, retention_record
-completed_stages: retrieval, controlled_speaking, cold_recall, transfer, final_challenge_recall, repair_second_chance
-missing_stages: formal listening/deep-processing stage was not separately run in this conversational continuation; session nevertheless reached final recall and transfer.
+completed_stages: retrieval, listening_speaking, deep_processing, controlled_speaking, finnish_dialogue, error_repair_second_chance, final_challenge_recall, retention_record
+missing_stages: none
 continuation_required: NO
 
 ### Chunk Decisions
@@ -91,7 +92,7 @@ next_action: Continue occasional unannounced production.
 
 candidate: `lähetän / lähden`
 decision: KEEP
-reason: Correct production in varied professional contexts.
+reason: Correct mixed-choice and production after an initial contrast error.
 next_action: Delayed unlabeled mixed-choice.
 
 candidate: `sähköpostia / sähköpostin`
@@ -101,7 +102,7 @@ next_action: Continue mixed-choice and changed-context production.
 
 candidate: object reference `se/ne/niitä`
 decision: KEEP/WATCH
-reason: Corrected successfully but several context-sensitive reference choices appeared.
+reason: Corrected successfully; context-sensitive reference selection still deserves delayed evidence.
 next_action: Delayed recall with singular/plural and definite/general object contrasts.
 
 candidate: new chunks
@@ -111,13 +112,13 @@ next_action: Do not add unrelated new chunks automatically.
 
 ### Mastery
 current_level: CONSOLIDATING
-reason: Core professional patterns were independently recalled, repaired, varied and transferred. Object/reference selection still deserves delayed evidence.
-evidence: Multiple independent outputs including changed-context final recall.
+reason: Core professional patterns were independently recalled, repaired, varied and transferred. Object/reference selection and competing forms still deserve delayed evidence.
+evidence: Multiple independent outputs, listening retell, changed-context transfer, contrast recall and Finnish dialogue.
 
 ### Retention
 status: SCHEDULED
 next_review: 2026-09-12
-note: 2026-09-02 professional-chunk retention was incorporated into today's FULL_LESSON; next explicit control recall remains 2026-09-12.
+note: The 2026-09-02 professional-chunk retention focus was completed inside today's FULL_LESSON; next explicit control recall remains 2026-09-12.
 
 ### Errors
 recurring: object/reference selection (`sähköpostia / sähköpostin`, `se/ne/niitä`), occasional spelling (`jälkeen`, `asiakkaalle`, `raporttia`), and one conditional meaning reversal (`jos en ehdi` vs `jos ehdin`).
