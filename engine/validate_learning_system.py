@@ -179,6 +179,9 @@ def validate_canonical(text: str, session_date: date, registry: dict[str, dict[s
     score = field_value(subsection(result, "Evidence"), "evidence_score")
     if score not in {"0", "1", "2", "3"}:
         problems.append("Evidence requires evidence_score 0-3")
+        score_int = None
+    else:
+        score_int = int(score)
 
     level = canonical_value(subsection(result, "Mastery"), "current_level")
     if level not in VALID_LEVELS:
@@ -207,11 +210,10 @@ def validate_canonical(text: str, session_date: date, registry: dict[str, dict[s
 
     evidence = subsection(result, "Evidence")
     observed = field_value(evidence, "observed") or ""
-    score_int = int(score)
     combined = (observed + " " + mastery_evidence).lower()
-    if score_int >= 2 and "independent" not in combined:
+    if score_int is not None and score_int >= 2 and "independent" not in combined:
         problems.append("evidence_score >= 2 requires explicit independent evidence")
-    if score_int == 3 and not any(x in combined for x in ("changed context", "changed-context", "transfer")):
+    if score_int is not None and score_int == 3 and not any(x in combined for x in ("changed context", "changed-context", "transfer")):
         problems.append("evidence_score 3 requires changed-context or transfer evidence")
 
     return problems
