@@ -99,8 +99,11 @@ def main() -> int:
     registry = load_registry()
     log = Path(args.log).read_text(encoding="utf-8", errors="replace")
     failures, warnings = extract_diagnostics(log)
+    validator_error = args.exit_code != 0 and not failures and not warnings
 
-    if args.exit_code != 0:
+    if validator_error:
+        audit_status = "FAIL"
+    elif failures or args.exit_code != 0:
         audit_status = "FAIL"
     elif warnings:
         audit_status = "PASS_WITH_WARNINGS"
@@ -113,6 +116,7 @@ def main() -> int:
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "audit_status": audit_status,
         "validator_exit_code": args.exit_code,
+        "validator_error": validator_error,
         "failure_count": len(failures),
         "failed_checks": failures,
         "warning_count": len(warnings),
