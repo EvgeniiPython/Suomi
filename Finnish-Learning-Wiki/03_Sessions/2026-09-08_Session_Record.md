@@ -1,5 +1,6 @@
 ---
 title: Finnish Session Record — 2026-09-08
+record_schema: canonical-v2
 type: session-record
 session_type: FULL_LESSON
 date: 2026-09-08
@@ -13,6 +14,7 @@ lesson_status: COMPLETED
 primary_skill: Speaking-first professional Finnish with retrieval, variation, transfer, and error repair
 
 ### Evidence
+evidence_score: 3
 observed:
 - Independent retrieval and variation of `minun täytyy + infinitive`.
 - Independent use of `saada + object + valmiiksi` in affirmative and negative/partitive contexts.
@@ -20,7 +22,6 @@ observed:
 - Independent use of `jos en ehdi + infinitive` and conditional response `soitan asiakkaalle`.
 - Independent use of `pyydän kollegaani auttamaan minua` and `pystyy tekemään sen`.
 - Completed a workday/client dialogue and final 4-sentence work-plan recall after repairs.
-evidence_score: 3
 
 ### Protocol Completion
 required_stages: retrieval, listening_speaking, deep_processing, controlled_speaking, finnish_dialogue, error_repair_second_chance, final_challenge_recall, retention_record
@@ -32,7 +33,7 @@ continuation_next_stage: NONE
 
 ### Chunk Decisions
 candidate: New chunks
- decision: DEFER
+decision: DEFER
 reason: Active priority patterns still require consolidation and delayed recall; no unrelated new material introduced.
 evidence: Multiple independent variations, transfer, dialogue, repair, and final recall were completed.
 next_action: Continue retention of existing professional chunks; no new chunks until delayed evidence supports promotion.
@@ -45,7 +46,7 @@ evidence: Correct second attempts and changed-context use were demonstrated duri
 ### Retention
 status: SCHEDULED
 next_review: 2026-09-09
- evidence: Session completed with successful second-chance and final recall; delayed retention check remains required.
+evidence: Session completed with successful second-chance and final recall; delayed retention check remains required.
 
 ### Errors
 recurring:
