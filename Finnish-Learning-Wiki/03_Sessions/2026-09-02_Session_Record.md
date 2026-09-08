@@ -71,7 +71,12 @@ session_type: FULL_LESSON
 lesson_status: COMPLETED
 primary_skill: flexible spoken production of professional Finnish patterns with transfer and contrast selection
 
+### Evidence
 evidence_score: 3
+observed:
+- Independent retrieval of core professional patterns.
+- Independent variations and changed-context transfer.
+- Listening retell, contrast recall, Finnish dialogue, repair, and final cold recall.
 
 ### Protocol Completion
 required_stages: retrieval, listening_speaking, deep_processing, controlled_speaking, finnish_dialogue, error_repair_second_chance, final_challenge_recall, retention_record
