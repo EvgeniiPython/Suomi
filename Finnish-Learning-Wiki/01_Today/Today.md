@@ -3,10 +3,10 @@
 ## Runtime selection
 
 ```text
-session_type: FULL_LESSON
+session_type: RETENTION_SESSION
 ```
 
-`FULL_LESSON` is the normal route because the 22.08 retention session is closed and the next scheduled long-term retention is 02.09.2026.
+The 2026-09-09 retention session is completed. Continuation is not required. The next planned control is 2026-09-12.
 
 If `Latest_Audit_State.json` later reports `continuation_required = YES`, continuation overrides this plan and preserves the previous session type.
 
@@ -16,27 +16,24 @@ If `Latest_Audit_State.json` later reports `continuation_required = YES`, contin
 
 ## Priority patterns
 
-1. `minun täytyy + infinitive`
-2. `lähetän / lähden`
-3. `en lähetä / lähetän`
+1. `saada + object + valmiiksi`
+2. `en ehdi + infinitive + partitive object`
+3. `lähetän / lähden`
 4. `sähköpostia / sähköpostin`
-5. `lounaan jälkeen / ennen lounasta`
-6. `saada projekti valmiiksi`
-7. `pyytää häntä tekemään / lähettämään`
+5. `minun täytyy + infinitive`
+6. `ennen lounasta / lounaan jälkeen`
+7. `pyytää + object + auttamaan`
 8. `jos en ehdi ...`
 
-## Full lesson route
+## Next route
 
-The required stage list is defined centrally in `00_System/Session_Types_Registry.json`.
-The pedagogical route is defined in `00_System/Lesson_Protocol.md`.
+The next runtime should use `RETENTION_SESSION` and focus on delayed recall, unlabeled mixed-choice for competing forms, and changed-context transfer.
 
 ## Retention
 
-Next scheduled long-term retention:
-
 ```text
-2026-09-02 — professional chunks
-2026-09-12 — control recall + status review
+2026-09-09 — RETENTION_SESSION completed
+2026-09-12 — control recall + review Active/Consolidating statuses
 ```
 
 ## New chunks
@@ -45,15 +42,15 @@ Do not introduce new chunks automatically. First establish stable recall + varia
 
 ## Session record rule
 
-The next session must be saved as:
+The session was saved as:
 
 ```text
-03_Sessions/YYYY-MM-DD_Session_Record.md
+03_Sessions/2026-09-09_Session_Record.md
 ```
 
 with:
 
 ```text
 record_schema: canonical-v2
-session_type: FULL_LESSON | RETENTION_SESSION
+session_type: RETENTION_SESSION
 ```
