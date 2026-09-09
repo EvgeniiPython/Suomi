@@ -1,127 +1,67 @@
-# Session Record — 2026-09-09
-
-```yaml
+---
+title: Finnish Session Record — 2026-09-09
 record_schema: canonical-v2
-session_date: 2026-09-09
+type: session-record
 session_type: RETENTION_SESSION
+date: 2026-09-09
+tags: [retention, speaking-first, professional-finnish]
+---
+
+# Finnish Lesson — 2026-09-09
+
+## Session Result
 lesson_status: COMPLETED
-continuation_required: NO
+primary_skill: Delayed recall, controlled speaking, transfer, and error repair in professional Finnish
+
+### Evidence
 evidence_score: 3
-new_chunks_added: 0
-```
+observed:
+- Independent retrieval of `minun täytyy + infinitive`, `saada + object + valmiiksi`, and `en ehdi + infinitive + partitive object` in familiar contexts.
+- Unlabeled mixed-choice successfully distinguished `lähetän / lähden` and relevant object forms, with one incomplete output requiring an explicit object.
+- Changed-context transfer used `en ehdi + infinitive + partitive object` with `raporttia` and transferred `lounaan jälkeen`.
+- Final household-context recall successfully transferred `en ehdi ...`, `ennen lounasta`, `lounaan jälkeen`, and `pyytää + object + auttamaan` after repair.
+- Independent final micro-recall: `Jos en ehdi pestä lattiaa ennen lounasta, lounaan jälkeen pyydän vaimoani auttamaan minua.`
 
-## 1. Retrieval
+### Protocol Completion
+required_stages: retrieval, controlled_speaking, finnish_dialogue, error_repair_second_chance, final_challenge_recall, retention_record
+completed_stages: retrieval, controlled_speaking, finnish_dialogue, error_repair_second_chance, final_challenge_recall, retention_record
+missing_stages: NONE
+continuation_required: NO
+continuation_reason: NONE
+continuation_next_stage: NONE
 
-Five priority prompts were tested.
+### Chunk Decisions
+candidate: New chunks
+decision: DEFER
+reason: Existing priority patterns still require consolidation and delayed evidence; no unrelated new material introduced.
+evidence: Retrieval, variation, mixed-choice, transfer, dialogue, repair, and final recall were completed.
+next_action: Continue retention of existing professional chunks; add no new chunks until delayed evidence supports promotion.
 
-- `Minun täytyy saada projekti valmiiksi.` — correct.
-- `En ehdi saada projektia valmiiksi ennen lounasta.` — correct.
-- `Huomenna lounaan jälkeen minun täytyy lähettää sähköposti asiakkaalle.` — correct.
-- `En soita asiakkaalle tänään, koska olen kiireessä.` — understandable; more natural target: `koska minulla on kiire` / `koska olen kiireinen`.
-- `Minulla on tapaamisesta ja en lähetä sähköpostiin.` — incorrect; repaired to `Lähden tapaamiseen enkä lähetä sähköpostia.`
+### Mastery
+current_level: CONSOLIDATING
+reason: Strong independent and changed-context use was observed, but stable mastery requires delayed +1/+3/+7 evidence and reliable competing-form selection.
+evidence: Independent production, unlabeled mixed-choice, changed-context transfer, and final recall were demonstrated; remaining object-case and spelling errors prevent promotion to STABLE.
 
-## 2. Controlled speaking / Variation
+### Retention
+status: PASSED
+next_review: 2026-09-12
+evidence: Current delayed retention check completed successfully; follow-up remains scheduled to verify delayed stability and status promotion.
 
-- `Lähden tapaamiseen huomenna enkä en lähetä sähköpostia.` → repaired to `Lähden tapaamiseen huomenna enkä lähetä sähköpostia.`
-- `En ehdi tarkistaa piirustuksia ennen lounasta.` — correct.
-- `Lounaan jälkeen minun täytyy saada raportin valmiiksi.` → object-case repaired to `Lounaan jälkeen minun täytyy saada raportti valmiiksi.`
+### Errors
+recurring:
+- Object-case selection in `saada + object + valmiiksi` and `en ehdi saada ...` (`raportti` / `raporttia`, `projekti` / `projektin`).
+- `ennen lounasta` vs incorrect `ennen lounaasta`.
+- `lounaan jälkeen` spelling/form slips such as `lounan` and `jalkeen`.
+- `lähetän / lähden` contrast and spelling (`lähtän`).
+- `sähköposti / sähköpostin` remains context-sensitive.
+- `enkä` construction initially produced as `enkä en`.
+correction:
+- Affirmative result: `saada raportti valmiiksi`; unfinished/negative context: `en ehdi saada raporttia valmiiksi`.
+- `ennen lounasta`; `lounaan jälkeen`.
+- `Lähden tapaamiseen enkä lähetä sähköpostia.`
+- `pyydän vaimoani auttamaan minua`.
+cause: Competing object cases and contrast forms are not yet fully automatic under free speaking pressure; some spelling slips remain.
+next_action: Delayed recall and unlabeled mixed-choice sampling, especially object forms and `lähetän/lähden`.
 
-Unlabeled mixed-choice:
-
-1. `Minun täytyy saada raportti valmiiksi tänään.` — correct.
-2. `En ehdi saada raporttia valmiiksi ennen kokousta.` — correct.
-3. `Huomenna minun täytyy lähettää asiakkaalle.` — incomplete; target required an explicit object, e.g. `lähettää sähköposti asiakkaalle`.
-4. `En soita asiakkaalle tänään, koska minulla on kiire.` — correct.
-5. `Lähden tapaamiseen huomenna aamulla.` — correct.
-
-## 3. Finnish dialogue
-
-Successful production and repair included:
-
-- `Tänään minun täytyy saada projekti valmiiksi.`
-- `En ehdi saada projektia valmiiksi ennen lounasta...`
-- `Jos en ehdi saada piirustuksia valmiiksi ennen lounasta, pyydän kollegaani auttamaan minua.` — correct transfer.
-- `Jos projekti valmistuu ennen lounasta, minä aloitan toisen projektin.` — correct after spelling/conjugation/object repair.
-- `Jos saan piirustukset valmiiksi ennen lounasta, lounaan jälkeen aloitan uuden projektin.` — repaired from an incorrect `piirustukset valmistuvat` construction.
-- `Jos en ehdi saada piirustuksia valmiiksi ennen lounasta, lounaan jälkeen pyydän kollegaani auttamaan minua.` — correct transfer.
-
-## 4. Cold recall / Second chance
-
-Cold recall contained several object/case and form errors:
-
-`Hei Juuso, en ehdi saada piirustuksia ennen lounaasta, mutta lounaan jälkeen minun täytyy lähettää sähköpostin asiakkaalle. Mutta ensin minun täytyy saada projektin valmiiksi. Jos en ehdi, pyydän kollegaani auttamaan minua.`
-
-Repairs:
-- `ennen lounaasta` → `ennen lounasta`
-- `lähettää sähköpostin asiakkaalle` → in the intended generic construction: `lähettää sähköposti asiakkaalle`
-- `saada projektin valmiiksi` → `saada projekti valmiiksi`
-- `Jos en ehdi...` remained correct.
-
-Second chance:
-- `Ennen lounasta minun täytyy saada projekti valmiiksi.` — correct.
-- `Ensin minun täytyy lähettää sähköpostin asiakkaalle.` → repaired to `Ensin minun täytyy lähettää sähköposti asiakkaalle.`
-- `Tänään minä saan projektin valmiiksi.` — correct.
-
-## 5. Changed-context transfer
-
-Target:
-“Сегодня я не успеваю закончить отчёт до обеда. После обеда я закончу его и отправлю клиенту письмо.”
-
-User output:
-`Tänään en ehdi saada raportti valmiiksi ennen lounaasta. Lounan jalkeen saan sen valmiiksi ja lähtän sähköpostin asiakkaalle.`
-
-Observed repairs:
-- `raportti` → `raporttia`
-- `lounaasta` → `lounasta`
-- `Lounan` → `Lounaan`
-- `jalkeen` → `jälkeen`
-- `lähtän` → `lähetän`
-- `sähköpostin` was accepted as correct here because the context referred to a specific email.
-
-This confirms transfer of `en ehdi + infinitive + partitive object` to a new object (`raporttia`) and of `lounaan jälkeen`; spelling/contrast still needs delayed monitoring.
-
-## 6. Final recall
-
-User transferred the target structures to a household context:
-
-`Tänään minun täytyy pestä lattia. Jos en ehdi pestä lattia ennen lounasta, lounaan jälkeen pyydän vaimoni auttamaan minua.`
-
-Repairs:
-- `pesta` → `pestä`
-- `enne` → `ennen`
-- `vaimoni` → `vaimoani` after `pyytää`
-
-Final micro-recall:
-
-`Jos en ehdi pestä lattiaa ennen lounasta, lounaan jälkeen pyydän vaimoani auttamaan minua.` — fully correct.
-
-## Retention result
-
-Current retention check: **PASSED**, with delayed follow-up still required.
-
-No new chunks were added.
-
-### Mastery snapshot
-
-| Pattern | Evidence | Status | Note |
-|---|---:|---|---|
-| `minun täytyy + infinitive` | 3 | consolidating / active-watch | independent and flexible; continue delayed recall |
-| `saada + object + valmiiksi` | 3 | consolidating | affirmative/negative contrast improved; object case still needs delayed evidence |
-| `en ehdi + infinitive + partitive object` | 2 | active watch | transfer achieved, but object-case errors appeared in free output |
-| `lähetän / lähden` | 3 | active-watch / consolidating | distinction understood; spelling slip occurred |
-| `sähköpostia / sähköpostin` | 2 | active watch | context-sensitive; generic vs specific object needs monitoring |
-| `lounaan jälkeen` | 3 | consolidating | independently reproduced after repair |
-| `ennen lounasta` | 3 | consolidating | independently reproduced after repair |
-| `pyytää + object + auttamaan` | 3 | consolidating | transferred from `kollegaani` to `vaimoani` successfully |
-| `jos en ehdi ...` | 3 | consolidating | independently transferred |
-
-## Error causes observed
-
-- object-case selection
-- contrast_selection (`lähetän / lähden`, `enkä`)
-- retrieval/spelling (`lähetän`, `jälkeen`, `lounaan`, `valmistuu`)
-- processing under free production
-
-## Next step
-
-Keep the existing priority set. Do not add new chunks yet. Next planned control is **2026-09-12**, focusing on delayed recall, competing forms, and whether Active/Consolidating statuses can be promoted or must remain under watch.
+### Next Step
+next_action: Run the planned 2026-09-12 control with priority on `saada + object + valmiiksi`, `en ehdi + infinitive + partitive object`, `lähetän/lähden`, `sähköpostia/sähköpostin`, `ennen lounasta`, and `lounaan jälkeen`; avoid unrelated new chunks.
