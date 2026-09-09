@@ -6,22 +6,32 @@
 none
 ```
 
-The 22.08.2026 D+6 retention session is complete. The next scheduled long-term retention is 02.09.2026.
+The 2026-09-09 RETENTION_SESSION is complete and the current retention check passed. The next planned control is 2026-09-12.
 
 ## Upcoming
 
 | Date | Interval | Session type | Task | Priority |
 |---|---|---|---|---|
-| 02.09.2026 | D+17 | RETENTION_SESSION | Long-term recall of professional chunks | 🟡 Medium |
-| 12.09.2026 | D+27 | RETENTION_SESSION | Control recall + review Active/Consolidating statuses | 🟡 Medium |
+| 12.09.2026 | delayed control | RETENTION_SESSION | Control recall + review Active/Consolidating statuses | 🟡 Medium |
 
 ## Current retention focus
 
+- `saada + object + valmiiksi`
+- `en ehdi + infinitive + partitive object`
+- `lähetän / lähden`
 - `sähköpostia / sähköpostin`
-- `en soita / soitan`
-- `en lähetä / lähetän`
-- `lähettää / lähteä`
-- `minun / hänen / pojan täytyy + infinitive`
+- `minun täytyy + infinitive`
+- `ennen lounasta / lounaan jälkeen`
+- `pyytää + object + auttamaan`
+- `jos en ehdi ...`
+
+## 2026-09-09 result
+
+- Delayed retrieval completed.
+- Unlabeled mixed-choice completed.
+- Changed-context transfer completed.
+- Object-case selection remains the main active watch, especially with `saada ... valmiiksi` and `en ehdi saada ...`.
+- No new chunks added.
 
 ## Rules
 
