@@ -1,14 +1,19 @@
 {
   "schema": "audit-state-v5",
-  "generated_at_utc": "2026-09-08T17:00:11.670582+00:00",
-  "audit_status": "PASS",
-  "validator_exit_code": 0,
+  "generated_at_utc": "2026-09-09T17:26:50.331286+00:00",
+  "audit_status": "FAIL",
+  "validator_exit_code": 1,
   "validator_error": false,
-  "failure_count": 0,
-  "failed_checks": [],
+  "failure_count": 1,
+  "failed_checks": [
+    {
+      "check": "Canonical session records",
+      "detail": "2026-09-09_Session_Record.md: canonical session requires exactly one final ## Session Result section"
+    }
+  ],
   "warning_count": 0,
   "warnings": [],
-  "latest_session": "2026-09-08_Session_Record.md",
+  "latest_session": "2026-09-09_Session_Record.md",
   "latest_session_schema_status": "CANONICAL_V2",
   "latest_canonical_session": "2026-09-08_Session_Record.md",
   "session_type": "FULL_LESSON",
