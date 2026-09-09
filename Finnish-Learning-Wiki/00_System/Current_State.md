@@ -1,6 +1,6 @@
 # Current State
 
-**Последнее занятие:** 8 сентября 2026
+**Последнее занятие:** 9 сентября 2026
 
 ## Текущий уровень
 Finnish A2 with growing A2+/B1 control in familiar personal and professional topics.
@@ -41,18 +41,19 @@ Continuation is a mode of the previous session type, not a third type.
 - `minun / hänen / pojan täytyy + infinitive`
 - `tapaamisen jälkeen`
 
-## Последнее занятие — 08.09.2026
+## Последнее занятие — 09.09.2026
 
-- `FULL_LESSON` завершён полностью.
-- Выполнены все 8 обязательных stages: Retrieval, Listening → Speaking, Deep Processing, Controlled Speaking, Finnish Dialogue, Error Repair + Second Chance, Final Speaking Challenge + Final Recall, Retention Record.
-- `minun täytyy + infinitive` воспроизведено самостоятельно в нескольких вариациях.
-- `saada + object + valmiiksi` использовано самостоятельно в affirmative и negative/partitive contexts.
-- `ennen lounasta` / `lounaan jälkeen` исправлены и независимо воспроизведены.
-- `jos en ehdi + infinitive` и `soitan asiakkaalle` использованы самостоятельно.
-- `pyydän kollegaani auttamaan minua` и `pystyy tekemään sen` использованы самостоятельно.
-- Завершён workday/client dialogue и финальный 4-sentence work-plan recall.
+- `RETENTION_SESSION` завершён полностью.
+- Выполнены обязательные stages: Retrieval, Controlled Speaking, Finnish Dialogue, Error Repair + Second Chance, Final Speaking Challenge + Final Recall, Retention Record.
+- `saada + object + valmiiksi` проверено в affirmative и negative/partitive contexts; object-case selection всё ещё требует delayed evidence.
+- `en ehdi + infinitive + partitive object` перенесено на `piirustuksia`, `raporttia` и `lattiaa`; в свободной речи сохраняются object-case ошибки.
+- `lähetän / lähden` различаются; была отдельная spelling/retrieval ошибка `lähtän`.
+- `sähköpostia / sähköpostin` понимается контекстно; generic/specific object требует дальнейшего мониторинга.
+- `ennen lounasta` / `lounaan jälkeen` после исправления воспроизведены самостоятельно.
+- `pyytää + object + auttamaan` успешно перенесено с `kollegaani` на `vaimoani`.
+- `jos en ehdi ...` использовано самостоятельно в профессиональном и бытовом контексте.
 - Новых chunks не добавляли.
-- Canonical session record: `03_Sessions/2026-09-08_Session_Record.md`.
+- Canonical session record: `03_Sessions/2026-09-09_Session_Record.md`.
 - `lesson_status = COMPLETED`; `continuation_required = NO`.
 
 ## Error Cause Watch
@@ -111,12 +112,12 @@ These scores are current evidence, not standardized test scores.
 - 22.08.2026 — D+6 delayed recall + mixed-choice + changed-context transfer выполнены.
 - 02.09.2026 — долгосрочный recall профессиональных chunks.
 - 08.09.2026 — FULL_LESSON completed; successful second-chance and final recall, with new delayed evidence required.
-- 09.09.2026 — next delayed retention review after the 08.09 session.
+- 09.09.2026 — RETENTION_SESSION completed; delayed recall + mixed-choice + changed-context transfer performed. Current check PASSED; delayed follow-up remains required.
 - 12.09.2026 — контроль и пересмотр статусов.
 
 ## Следующее занятие
 
-`FULL_LESSON` 08.09.2026 завершён; continuation не требуется.
+`RETENTION_SESSION` 09.09.2026 завершён; continuation не требуется.
 
 Следующий runtime должен выбрать `RETENTION_SESSION` с приоритетом на delayed recall и transfer:
 
