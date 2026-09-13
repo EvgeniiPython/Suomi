@@ -15,7 +15,7 @@ primary_skill: Delayed recall, controlled speaking, transfer, mixed-choice, and 
 
 ### Evidence
 evidence_score: 3
-observed:
+observed: Independent retrieval of priority patterns; successful unlabeled mixed-choice; changed-context transfer and transfer to new professional contexts; Finnish dialogue and second-chance repair.
 - Independent retrieval of `minun täytyy + infinitive`, `saada + object + valmiiksi`, `en ehdi + infinitive + partitive object`, `lähetän / lähden`, and `en soita / soitan` in familiar contexts.
 - Unlabeled mixed-choice successfully distinguished `lähetän / lähden`, `en soita`, `en ehdi ... piirustuksia`, and specific `sähköposti`; one item initially omitted its selected answer and was then corrected independently.
 - Changed-context transfer used `en ehdi saada raporttia valmiiksi` and `en voi lähettää sitä asiakkaalle` after repair.
