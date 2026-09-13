@@ -41,6 +41,28 @@ Continuation is a mode of the previous session type, not a third type.
 - `minun / hänen / pojan täytyy + infinitive`
 - `tapaamisen jälkeen`
 
+## Acquisition policy
+
+Weak existing chunks remain in automatic review, but they do **not** automatically block new chunk acquisition.
+
+The previous implicit policy of waiting for all active triggers to stabilize before introducing anything new is superseded. A single unresolved grammar error or context-sensitive chunk is not sufficient to freeze language expansion.
+
+The runtime should make two separate decisions:
+
+```text
+review_priority        = how strongly an existing chunk needs review
+acquisition_eligibility = whether new learning may be introduced
+```
+
+Thus a chunk can have `review_priority = HIGH` while `acquisition_eligibility = ALLOWED`.
+
+New chunks may be introduced when core retrieval remains sufficiently functional, weak patterns receive targeted practice, errors are repairable, and overall lesson load is manageable. New acquisition may still be reduced/deferred when core sentence production repeatedly collapses across contexts or overall learning readiness is poor.
+
+Default post-foundation lesson balance:
+- 60–70% retention, weak-chunk review, retrieval, repair and transfer;
+- 20–30% new chunks/patterns;
+- 10% free speaking/integration/challenge.
+
 ## Последнее занятие — 09.09.2026
 
 - `RETENTION_SESSION` завершён полностью.
@@ -127,11 +149,11 @@ These scores are current evidence, not standardized test scores.
 4. `sähköpostia / sähköpostin`;
 5. `minun täytyy + infinitive`.
 
-Для competing forms использовать unlabeled mixed-choice. Новые chunks не добавлять, пока active triggers и нестабильный recall не улучшатся.
+Для competing forms использовать unlabeled mixed-choice. Слабые chunks продолжать возвращать в review, но не блокировать автоматически новые chunks; решение о new acquisition принимать по общей готовности, а не по отсутствию всех активных ошибок.
 
 ## Правило новых chunks
 
-Новые chunks добавляются только после устойчивого **recall + variation + transfer**. При активном grammar trigger новые chunks не добавляются автоматически.
+Новые chunks добавляются после достаточного recall текущего ядра и при наличии capacity для acquisition. Устойчивость старых chunks остаётся целью retention, variation и transfer, но их неполная автоматизация сама по себе не блокирует новые chunks.
 
 ## Source of truth
 
