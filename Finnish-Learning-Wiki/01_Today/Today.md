@@ -3,12 +3,12 @@
 ## Runtime selection
 
 ```text
-session_type: RETENTION_SESSION
+last_session_type: RETENTION_SESSION
+next_session_type: RETENTION_SESSION
+continuation_required: NO
 ```
 
-The 2026-09-09 retention session is completed. Continuation is not required. The next planned control is 2026-09-12.
-
-If `Latest_Audit_State.json` later reports `continuation_required = YES`, continuation overrides this plan and preserves the previous session type.
+The 2026-09-13 RETENTION_SESSION is completed. Continuation is not required. The next planned review is 2026-09-16.
 
 ## Objective
 
@@ -33,7 +33,9 @@ The next runtime should use `RETENTION_SESSION` and focus on delayed recall, unl
 
 ```text
 2026-09-09 — RETENTION_SESSION completed
-2026-09-12 — control recall + review Active/Consolidating statuses
+2026-09-12 — planned control superseded by the actual 2026-09-13 session
+2026-09-13 — RETENTION_SESSION completed; object-case stability remains under watch
+2026-09-16 — next planned delayed review
 ```
 
 ## New chunks
@@ -42,10 +44,10 @@ Do not introduce new chunks automatically. First establish stable recall + varia
 
 ## Session record rule
 
-The session was saved as:
+The current session was saved as:
 
 ```text
-03_Sessions/2026-09-09_Session_Record.md
+03_Sessions/2026-09-13_Session_Record.md
 ```
 
 with:
