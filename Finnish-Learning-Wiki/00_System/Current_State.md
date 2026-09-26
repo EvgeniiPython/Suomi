@@ -68,6 +68,82 @@ Default post-foundation lesson balance:
 - 20–30% new chunks/patterns;
 - 10% free speaking/integration/challenge.
 
+## Последнее занятие — 26.09.2026
+
+- `RETENTION_SESSION` завершён полностью.
+- Выполнены обязательные stages: Retrieval, Controlled Speaking, Finnish Dialogue, Error Repair + Second Chance, Final Speaking Challenge + Final Recall, Transfer, Retention Record.
+- Сильный recall: `en ehdi tarkistaa piirustuksia`, `jos en ehdi saada projektia valmiiksi, pyydän kollegaani auttamaan minua`, `tapaamisen jälkeen lähetän piirustukset asiakkaalle`, `lounaan jälkeen tarkistan ne`.
+- Успешно выполнен changed-context transfer с `3D-malli`.
+- Продолжаем delayed monitoring object-case selection и competing forms; слабые chunks не блокируют acquisition.
+- Canonical session record: `03_Sessions/2026-09-26_Session_Record.md`.
+- `lesson_status = COMPLETED`; `continuation_required = NO`.
+
+## Текущий уровень
+Finnish A2 with growing A2+/B1 control in familiar personal and professional topics.
+
+## Текущий фокус
+Профессиональный разговорный финский: `minun täytyy + infinitive`, `saada + object + valmiiksi`, `en ehdi + infinitive + partitive object`, `lähetän / lähden`, `sähköpostia / sähköpostin`, `sen / sitä`, `ne / niitä`, `lounaan jälkeen`, `ennen tapaamista`, `tapaamisen jälkeen`, `pyytää kollegaani auttamaan minua`, `jos en ehdi...`, plus professional lexical transfer such as `3D-malli`.
+
+## Session model
+
+```text
+FULL_LESSON
+RETENTION_SESSION
+```
+
+Continuation is a mode of the previous session type, not a third type.
+
+## Учебное ядро
+
+**Attempt → Check → Correct → Repair → Second Output → Variation → Cold Recall → Transfer → Finnish Dialogue → Second Chance → Final Speaking Challenge → Final Recall → Retention**
+
+## Текущие статусы
+
+### Active / Flexible
+- `saada + object + valmiiksi` — strong independent use and transfer; object-case selection still needs delayed evidence under free recall.
+- `en ehdi + infinitive + partitive object` — strong functional control; partitive object selection mostly reliable, continue delayed consolidation.
+- `lähetän / lähden` — correctly distinguished in recent production; continue delayed monitoring.
+- `sähköpostia / sähköposti / sähköpostin` — distinction increasingly reliable; continue delayed monitoring of context-sensitive object forms.
+- `sen / sitä` and `ne / niitä` — successful recent transfer; continue delayed check under free speech.
+- `minun täytyy + infinitive` — independently reproduced and transferred; monitor tense/form selection (`täytyy` vs `täytyi`).
+- `työskentelen` — recurring spelling/retrieval vulnerability despite successful repair; requires delayed unannounced sampling.
+- `3D-malli` — newly activated professional lexical item; useful transfer target, not yet a stable chunk.
+
+### Consolidating / требует дальнейшего delayed recall
+- `lounaan jälkeen`
+- `ennen lounasta`
+- `ennen tapaamista`
+- `en soita / soitan`
+- `lähettää / lähteä`
+- `saada projekti / raportti / 3D-malli valmiiksi`
+- `pyytää häntä tekemään / lähettämään`
+- `pyytää kollegaani auttamaan minua`
+- `jos en ehdi saada projektia valmiiksi, ...`
+- `minun / hänen / pojan täytyy + infinitive`
+- `tapaamisen jälkeen`
+
+## Acquisition policy
+
+Weak existing chunks remain in automatic review, but they do **not** automatically block new chunk acquisition.
+
+The previous implicit policy of waiting for all active triggers to stabilize before introducing anything new is superseded. A single unresolved grammar error or context-sensitive chunk is not sufficient to freeze language expansion.
+
+The runtime should make two separate decisions:
+
+```text
+review_priority        = how strongly an existing chunk needs review
+acquisition_eligibility = whether new learning may be introduced
+```
+
+Thus a chunk can have `review_priority = HIGH` while `acquisition_eligibility = ALLOWED`.
+
+New chunks may be introduced when core retrieval remains sufficiently functional, weak patterns receive targeted practice, errors are repairable, and overall lesson load is manageable. New acquisition may still be reduced/deferred when core sentence production repeatedly collapses across contexts or overall learning readiness is poor.
+
+Default post-foundation lesson balance:
+- 60–70% retention, weak-chunk review, retrieval, repair and transfer;
+- 20–30% new chunks/patterns;
+- 10% free speaking/integration/challenge.
+
 ## Последнее занятие — 17.09.2026
 
 - `RETENTION_SESSION` завершён полностью.
