@@ -68,14 +68,17 @@ Default post-foundation lesson balance:
 - 20–30% new chunks/patterns;
 - 10% free speaking/integration/challenge.
 
-## Последнее занятие — 26.09.2026
+## Последнее занятие — 27.09.2026
 
 - `RETENTION_SESSION` завершён полностью.
-- Выполнены обязательные stages: Retrieval, Controlled Speaking, Finnish Dialogue, Error Repair + Second Chance, Final Speaking Challenge + Final Recall, Transfer, Retention Record.
-- Сильный recall: `en ehdi tarkistaa piirustuksia`, `jos en ehdi saada projektia valmiiksi, pyydän kollegaani auttamaan minua`, `tapaamisen jälkeen lähetän piirustukset asiakkaalle`, `lounaan jälkeen tarkistan ne`.
-- Успешно выполнен changed-context transfer с `3D-malli`.
-- Продолжаем delayed monitoring object-case selection и competing forms; слабые chunks не блокируют acquisition.
-- Canonical session record: `03_Sessions/2026-09-26_Session_Record.md`.
+- Выполнены retrieval, controlled speaking, error repair + second chance, transfer, final speaking challenge, final recall и retention record.
+- Сильный delayed recall: `Tapaamisen jälkeen lähetän piirustukset asiakkaalle, jos ehdin tarkistaa ne.`, `Kun saan raportin valmiiksi, lähetän sen asiakkaalle.`, `Jos en ehdi saada raporttia valmiiksi ennen tapaamista, lähetän sen asiakkaalle lounaan jälkeen.`.
+- Успешно закреплены competing forms: `lähetän / lähden`, `sen / sitä`, `ne / niitä`, `sähköposti / sähköpostin / sähköpostia`.
+- `saada ... valmiiksi` и `en ehdi saada ...` успешно перенесены на `raportti`, `projekti`, `piirustukset` и `3D-malli`.
+- Были исправлены спонтанные ошибки в object case, отрицательном глаголе, написании и формах `lähetän`, `ehdi`, `tarkistaa`, `virheen`, `auttamaan`.
+- `3D-malli` использован в changed-context transfer.
+- Object-case competition остаётся основным delayed-monitoring target; слабые chunks не блокируют acquisition.
+- Canonical session record: `03_Sessions/2026-09-27_Session_Record.md`.
 - `lesson_status = COMPLETED`; `continuation_required = NO`.
 
 ## Текущий уровень
@@ -235,19 +238,16 @@ These scores are current evidence, not standardized test scores.
 
 ## Следующее занятие
 
-`RETENTION_SESSION` 17.09.2026 завершён; continuation не требуется.
+`RETENTION_SESSION` 27.09.2026 завершён; continuation не требуется.
 
 Следующий runtime должен выбрать `RETENTION_SESSION` с приоритетом на delayed recall и transfer:
-
-1. `saada + object + valmiiksi`;
-2. `en ehdi + infinitive + partitive object`;
+1. object-case selection after `saada ... valmiiksi` and `en ehdi saada ...`;
+2. `sen / sitä` и `ne / niitä`;
 3. `sähköpostia / sähköposti / sähköpostin`;
-4. `sen / sitä` vs `ne / niitä`;
-5. `työskentelen` as unannounced spelling/recall sample;
-6. `lähetän / lähden` и `en soita / soitan`;
-7. `ennen lounasta / ennen tapaamista / lounaan jälkeen / tapaamisen jälkeen`.
-
-Для competing forms использовать unlabeled mixed-choice. Слабые chunks продолжать возвращать в review, но не блокировать автоматически новые chunks; решение о new acquisition принимать по общей готовности, а не по отсутствию всех активных ошибок.
+4. unannounced `työskentelen` spelling/recall;
+5. `lähetän / lähden` и `en soita / soitan`;
+6. time expressions `ennen tapaamista / lounaan jälkeen / tapaamisen jälkeen`.
+Weak existing chunks continue in review but do not block new chunks.
 
 ## Правило новых chunks
 
