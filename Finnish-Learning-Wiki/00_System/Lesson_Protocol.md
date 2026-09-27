@@ -215,6 +215,26 @@ active → consolidating → stable → dormant
 нестабильный recall или активный trigger → новых chunks не добавлять
 ```
 
+## Candidate Chunks
+
+New material discovered during stories, listening, dialogue, corrections, or professional contexts is first handled through Candidate_Chunks.md.
+
+Rules:
+
+1. Do not automatically turn every unfamiliar item into an active learning target.
+2. Record potentially useful candidates in Candidate_Chunks.md.
+3. Check whether the user already knows the item before promoting it.
+4. Select only a small number of high-value candidates for active learning.
+5. Candidate status does not count as active learning and does not affect mastery.
+6. Candidate accumulation does not prevent new acquisition when acquisition_eligibility is ALLOWED.
+7. Promote candidates according to usefulness, reusability, relevance, level, and cognitive cost.
+
+Lifecycle:
+
+candidate → selected → active → consolidating → stable → dormant
+
+The candidate bank is a reservoir, not a second active vocabulary list.
+
 ## Canonical Session Result
 
 Каждая новая сессия должна заканчиваться одной canonical `## Session Result` записью с:
