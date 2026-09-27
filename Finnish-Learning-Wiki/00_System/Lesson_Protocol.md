@@ -182,6 +182,29 @@ FULL_LESSON complete
 active → consolidating → stable → dormant
 ```
 
+Для `stable` нужны delayed +1/+3/+7 evidence, новый личный контекст и mixed-choice check при конкурирующих формах.
+
+**Stable не является входным условием для нового материала.** Если recall в целом функционален, ошибки локальны/ремонтируемы и нет блокирующего grammar trigger, новые chunks/patterns можно вводить во время consolidation.
+
+```text
+isolated spelling/surface slip
+    -> correct briefly; no mastery downgrade; no acquisition block
+
+isolated retrieval/form slip with clear intended construction
+    -> repair/observe; no automatic conceptual downgrade
+
+repeated meaningful conceptual failure
+    -> trigger according to Grammar_Trigger_Rule.md
+```
+
+## New chunks
+
+Используем:
+
+```text
+active → consolidating → stable → dormant
+```
+
 Для stable нужны delayed +1/+3/+7 evidence, новый личный контекст и mixed-choice check при конкурирующих формах.
 
 ## New chunks
