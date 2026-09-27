@@ -73,6 +73,32 @@ Use in at least two self-created contexts.
 Do not count recognition in a text as active vocabulary.
 ```
 
+## Status protection and error granularity
+
+A single isolated mistake does not automatically move a pattern backward.
+
+Classify the error before using it as mastery evidence:
+
+- conceptual/grammar or contrast error: may affect mastery/trigger when repeated;
+- retrieval/form slip: observe recurrence; one slip does not automatically downgrade conceptual mastery;
+- spelling/surface slip: does not downgrade grammar mastery and does not create a grammar trigger when the intended construction is clear.
+
+Stable or consolidating patterns should be reactivated only when repeated meaningful evidence shows loss of retrieval, a speaking blocker, or recurring confusion with a competing form.
+
+## Acquisition eligibility
+
+Mastery status and new-material eligibility are separate decisions:
+
+```text
+review_priority
+    = how strongly existing material needs review
+
+acquisition_eligibility
+    = whether new material may be introduced
+```
+
+A pattern may remain **consolidating** while acquisition is allowed. Reaching `stable` or 100% error-free performance is not required before new chunks/patterns are introduced.
+
 ## Reactivation
 
 Move a stable or dormant item back to active if:
