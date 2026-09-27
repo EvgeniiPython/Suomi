@@ -34,6 +34,35 @@ Continuation is a runtime mode, not a session type.
 - A saved lesson is not automatically a completed lesson.
 - `PARTIAL` / `INTERRUPTED` lessons require a valid continuation directive when required stages remain.
 
+## Acquisition routing
+
+Runtime must keep two decisions separate:
+
+```text
+review_priority
+    = urgency of existing-material review
+
+acquisition_eligibility
+    = whether new chunks/patterns may be introduced
+```
+
+Do not infer `acquisition_eligibility = BLOCKED` merely because a pattern is still `consolidating`.
+
+Default behavior:
+
+```text
+consolidating + broadly functional recall + repairable local errors
+    -> acquisition may remain ALLOWED
+
+isolated spelling/surface slip
+    -> no acquisition block
+
+repeated meaningful conceptual failure / active micro-focused trigger
+    -> reduce or defer acquisition according to Lesson_Protocol.md
+```
+
+Old weak/consolidating material continues to be interleaved with new material; 100% automation is not a prerequisite.
+
 ## Pedagogical boundaries
 
 Do not duplicate or override the detailed teaching route here. Follow `Lesson_Protocol.md` for:
