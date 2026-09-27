@@ -39,6 +39,32 @@ encoding = form/concept is not reliably known
 retrieval = form is known but unavailable during output
 contrast_selection = a competing form was selected
 processing_load = form breaks inside longer speech
+spelling_surface = orthographic/surface slip with intended construction otherwise correct
+pronunciation_blocker = production breaks at sound/rhythm level
+```
+
+Do not invent a cause for one-off errors.
+
+### Error counting protection
+
+Only meaningful conceptual/contrast failures in unaided retrieval count toward grammar-trigger repetition thresholds.
+
+Do not count:
+- one-off spelling/orthographic slips when the intended construction is clear;
+- isolated surface typos;
+- a single retrieval/form slip as if it were a repeated conceptual failure.
+
+Recurring spelling/retrieval vulnerabilities may remain in an error-watch list without automatically lowering grammar mastery.
+
+## Trigger Watch States
+
+When evidence supports it, assign one primary cause:
+
+```text
+encoding = form/concept is not reliably known
+retrieval = form is known but unavailable during output
+contrast_selection = a competing form was selected
+processing_load = form breaks inside longer speech
 pronunciation_blocker = production breaks at sound/rhythm level
 ```
 
