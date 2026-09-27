@@ -48,6 +48,33 @@ Continuation is a mode of the previous session type, not a third type.
 
 ## Acquisition policy
 
+**Core principle: consolidation does not block progression.**
+
+Weak or consolidating chunks remain in automatic review and delayed sampling, but they do not require 100% automation before new material is introduced.
+
+```text
+review_priority
+    = how strongly an existing chunk needs review
+
+acquisition_eligibility
+    = whether new learning may be introduced
+```
+
+A chunk may have `review_priority = HIGH` while `acquisition_eligibility = ALLOWED`.
+
+### Acquisition gate
+
+New chunks/patterns may be introduced when core retrieval is broadly functional, old patterns still work in variation/transfer, errors are local and repairable, no active micro/focused trigger requires a repair block first, and lesson load remains manageable.
+
+### Error classification
+
+Conceptual grammar/contrast errors may affect trigger/mastery when repeated. Retrieval/form slips are observed and retested rather than automatically treated as conceptual failures. Spelling/surface slips are tracked separately and do not automatically lower grammar mastery or block acquisition when the intended construction is clear.
+
+### Interleaving
+
+When acquisition is allowed, lessons deliberately interleave existing weak/consolidating targets, new chunks/patterns, and unannounced sampling of older material.
+
+
 Weak existing chunks remain in automatic review, but they do **not** automatically block new chunk acquisition.
 
 The previous implicit policy of waiting for all active triggers to stabilize before introducing anything new is superseded. A single unresolved grammar error or context-sensitive chunk is not sufficient to freeze language expansion.
@@ -63,10 +90,10 @@ Thus a chunk can have `review_priority = HIGH` while `acquisition_eligibility = 
 
 New chunks may be introduced when core retrieval remains sufficiently functional, weak patterns receive targeted practice, errors are repairable, and overall lesson load is manageable. New acquisition may still be reduced/deferred when core sentence production repeatedly collapses across contexts or overall learning readiness is poor.
 
-Default post-foundation lesson balance:
-- 60–70% retention, weak-chunk review, retrieval, repair and transfer;
-- 20–30% new chunks/patterns;
-- 10% free speaking/integration/challenge.
+Default post-foundation lesson balance when acquisition is ALLOWED:
+- 50–60% retention, weak-chunk review, retrieval, repair and transfer;
+- 25–35% new chunks/patterns;
+- 10–20% free speaking/integration/challenge.
 
 ## Последнее занятие — 27.09.2026
 
@@ -76,6 +103,7 @@ Default post-foundation lesson balance:
 - Успешно закреплены competing forms: `lähetän / lähden`, `sen / sitä`, `ne / niitä`, `sähköposti / sähköpostin / sähköpostia`.
 - `saada ... valmiiksi` и `en ehdi saada ...` успешно перенесены на `raportti`, `projekti`, `piirustukset` и `3D-malli`.
 - Были исправлены спонтанные ошибки в object case, отрицательном глаголе, написании и формах `lähetän`, `ehdi`, `tarkistaa`, `virheen`, `auttamaan`.
+- Ошибки spelling/surface рассматриваются отдельно от conceptual grammar errors и сами по себе не понижают mastery и не блокируют новый материал.
 - `3D-malli` использован в changed-context transfer.
 - Object-case competition остаётся основным delayed-monitoring target; слабые chunks не блокируют acquisition.
 - Canonical session record: `03_Sessions/2026-09-27_Session_Record.md`.
@@ -240,7 +268,11 @@ These scores are current evidence, not standardized test scores.
 
 `RETENTION_SESSION` 27.09.2026 завершён; continuation не требуется.
 
-Следующий runtime должен выбрать `RETENTION_SESSION` с приоритетом на delayed recall и transfer:
+Следующий runtime может перейти к новому материалу, потому что acquisition eligibility = ALLOWED. Новый pattern должен вводиться вместе с delayed review старых targets.
+
+Рекомендуемый новый pattern для 28.09: `koska + clause` — объяснение причины.
+
+Старые targets для interleaving:
 1. object-case selection after `saada ... valmiiksi` and `en ehdi saada ...`;
 2. `sen / sitä` и `ne / niitä`;
 3. `sähköpostia / sähköposti / sähköpostin`;
