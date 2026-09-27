@@ -57,8 +57,25 @@ Every 14 days, compare:
 
 ## Decision Gate For New Chunks
 
+New acquisition is allowed before full stability.
+
 ```text
-Recall + variation + transfer stable -> 2–3 new chunks may be introduced.
-Recall broadly stable but 1–2 local errors -> repair first; then at most 1–2 new chunks.
-Recall unstable or a priority trigger is active -> no new chunks.
+Recall broadly functional + variation/transfer usable + no blocking trigger
+    -> 2–3 new chunks/patterns may be introduced.
+
+Recall broadly functional + 1–2 local/repairable errors
+    -> brief repair; then 1–2 new chunks/patterns may still be introduced.
+
+One isolated spelling/surface slip
+    -> does not block acquisition.
+
+One isolated retrieval/form slip with clear intended construction
+    -> observe/retest; does not automatically block acquisition.
+
+Recall unstable across contexts OR an active micro/focused grammar trigger
+    -> defer/reduce new acquisition until repair is completed.
 ```
+
+A pattern at **consolidating** does not need to reach `stable` or 100% automaticity before new material is introduced. Old weak/consolidating patterns continue to receive retention, transfer and unannounced sampling while new material is interleaved.
+
+The target is cumulative usable language, not complete automation of one pattern before the next pattern appears.
