@@ -4,11 +4,11 @@
 
 ```text
 last_session_type: RETENTION_SESSION
-next_session_type: RETENTION_SESSION
+next_session_type: FULL_LESSON
 continuation_required: NO
 ```
 
-The 2026-09-17 RETENTION_SESSION is completed. Continuation is not required.
+The 2026-10-01 RETENTION_SESSION is completed. Continuation is not required.
 
 ## Schedule
 
@@ -46,7 +46,7 @@ Acquisition is allowed when overall readiness is sufficient. Isolated spelling/o
 The current session was saved as:
 
 ```text
-03_Sessions/2026-09-17_Session_Record.md
+03_Sessions/2026-10-01_Session_Record.md
 ```
 
 with:
