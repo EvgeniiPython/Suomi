@@ -95,6 +95,18 @@ Default post-foundation lesson balance when acquisition is ALLOWED:
 - 25–35% new chunks/patterns;
 - 10–20% free speaking/integration/challenge.
 
+## Последнее занятие — 01.10.2026
+
+- `RETENTION_SESSION` завершён.
+- Независимо использованы `minun täytyy`, `saada ... valmiiksi`, `en ehdi + infinitive`, `ennen tapaamista`, `lounaan jälkeen`, `pyytää kollegaani auttamaan minua`.
+- В second chance пользователь правильно переключил `täytyy` → `täytyi` и `en ehdi` → `en ehtinyt`.
+- В финальном challenge самостоятельно построил рабочий контекст с `lähetän`, `en ehdi tarkistaa kaikkia piirustuksia`, `pyytää kollegaani auttamaan minua` и сообщил о уже отправленном отчёте.
+- Основные оставшиеся трудности: object-case под свободной речью и отдельные spelling/retrieval slips (`lähettänyt`, `raportin`, `työpäivän lopussa`, `auttamaan`, `asiakkaalle`).
+- Spelling/surface slips не понижают grammar mastery автоматически.
+- `3D-malli` продолжает использоваться как professional transfer target.
+- Canonical session record: `03_Sessions/2026-10-01_Session_Record.md`.
+- `lesson_status = COMPLETED`; `continuation_required = NO`.
+
 ## Последнее занятие — 27.09.2026
 
 - `RETENTION_SESSION` завершён полностью.
