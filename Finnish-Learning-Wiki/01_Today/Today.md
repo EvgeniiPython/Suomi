@@ -4,36 +4,36 @@
 
 ```text
 last_session_type: FULL_LESSON
-next_session_type: FULL_LESSON
-continuation_required: YES
-resume_stage: listening_speaking
+next_session_type: RETENTION_SESSION
+continuation_required: NO
+resume_stage: NONE
 ```
 
-The 2026-10-23 FULL_LESSON is PARTIAL. Resume the same lesson at `listening_speaking`, then complete `deep_processing`. Do not start a new session type until the continuation is closed.
+The 2026-10-23 FULL_LESSON is COMPLETED (8/8 required stages). The continuation at `listening_speaking` and `deep_processing` is closed. The next planned session is a D+1 RETENTION_SESSION on 2026-10-24.
 
 ## Objective
 
-Развивать самостоятельную профессиональную речь, одновременно укрепляя выбор времени и падежа объекта. Старые chunks продолжают повторяться и не блокируют приобретение нового материала после закрытия continuation.
+Проверить delayed recall профессиональных конструкций без подсказок, особенно выбор времени, падежа объекта и управление глагола `pyytää`.
 
 ## Priority patterns
 
 1. `minun täytyy / täytyi + infinitive`
 2. `saada + object + valmiiksi`
 3. `en ehdi / en ehtinyt + infinitive + object`
-4. `sen / sitä`
-5. `pyytää kollegaani auttamaan minua`
-6. `ennen kokousta / lounaan jälkeen / tapaamisen jälkeen`
-7. Professional vocabulary: `3D-malli`, `kokoonpanopiirustukset`, `raportti`
+4. `pyytää minua + -maan/-mään`
+5. `työskennellä pidempään`
+6. `kokoonpanopiirustukset`, `3D-malli`, `raportti`
 
 ## Next route
 
-1. Continue `FULL_LESSON` at `listening_speaking`: short Finnish input, big-picture understanding, then retell without copying.
-2. Complete `deep_processing` around 1–2 core chunks and their competing forms.
-3. Close the session with one canonical record update and schedule delayed recall after completion.
+1. Run D+1 delayed retrieval without naming the target rule first.
+2. Use unlabeled mixed-choice for present/past and object-case contrasts.
+3. Add changed-context professional transfer and a short Finnish dialogue.
+4. Record the result in a canonical RETENTION_SESSION record.
 
 ## Acquisition
 
-No new active grammar chunk was introduced on 2026-10-23. Acquisition remains possible after the continuation, provided overall recall is functional and no blocking trigger remains active.
+No new active grammar chunk was introduced on 2026-10-23. Weak patterns remain in review but do not automatically block new material.
 
 ## Session record
 
@@ -42,7 +42,7 @@ No new active grammar chunk was introduced on 2026-10-23. Acquisition remains po
 ```text
 record_schema: canonical-v2
 session_type: FULL_LESSON
-lesson_status: PARTIAL
-continuation_required: YES
-continuation_next_stage: listening_speaking
+lesson_status: COMPLETED
+continuation_required: NO
+completed_stages: 8/8
 ```
