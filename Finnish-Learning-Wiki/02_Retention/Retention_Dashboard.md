@@ -6,32 +6,32 @@
 none
 ```
 
-The 2026-09-09 RETENTION_SESSION is complete and the current retention check passed. The next planned control is 2026-09-12.
+The 2026-10-23 FULL_LESSON was completed (8/8 required stages). The next planned control is D+1 delayed recall on 2026-10-24.
 
 ## Upcoming
 
 | Date | Interval | Session type | Task | Priority |
 |---|---|---|---|---|
-| 12.09.2026 | delayed control | RETENTION_SESSION | Control recall + review Active/Consolidating statuses | 🟡 Medium |
+| 24.10.2026 | D+1 | RETENTION_SESSION | Blind recall of `täytyy / täytyi`, `en ehdi / en ehtinyt`, object case with `saada ... valmiiksi`, and `pyytää minua + -maan/-mään`; mixed-choice and changed-context transfer | 🟡 Medium |
+| 26.10.2026 | D+3 | RETENTION_SESSION | Recheck the same targets in a new professional context if the D+1 check does not establish stable evidence | 🟡 Medium |
 
 ## Current retention focus
 
 - `saada + object + valmiiksi`
-- `en ehdi + infinitive + partitive object`
-- `lähetän / lähden`
-- `sähköpostia / sähköpostin`
-- `minun täytyy + infinitive`
-- `ennen lounasta / lounaan jälkeen`
-- `pyytää + object + auttamaan`
-- `jos en ehdi ...`
+- `en ehdi / en ehtinyt + infinitive + object`
+- `minun täytyy / täytyi + infinitive`
+- `pyytää minua saamaan ... ja lähettämään ...`
+- `työskennellä pidempään`
+- `kokoonpanopiirustukset`, `3D-malli`, `raportti`
+- Older interleaved contrasts: `sen / sitä`, `ne / niitä`, `lähetän / lähden`
 
-## 2026-09-09 result
+## 2026-10-23 FULL_LESSON result
 
-- Delayed retrieval completed.
-- Unlabeled mixed-choice completed.
-- Changed-context transfer completed.
-- Object-case selection remains the main active watch, especially with `saada ... valmiiksi` and `en ehdi saada ...`.
-- No new chunks added.
+- Continuation stages `listening_speaking` and `deep_processing` completed.
+- Full protocol completed: 8/8 stages.
+- Core professional patterns used in independent retell and changed-context speaking.
+- Tense, object-case, `pyytää` government, and spelling still require delayed sampling.
+- No new grammar chunks added; acquisition remains allowed.
 
 ## Rules
 
