@@ -1,6 +1,6 @@
 {
   "schema": "audit-state-v5",
-  "generated_at_utc": "2026-10-23T10:52:56.869042+00:00",
+  "generated_at_utc": "2026-10-23T11:27:56.617820+00:00",
   "audit_status": "FAIL",
   "validator_exit_code": 1,
   "validator_error": false,
@@ -8,24 +8,19 @@
   "failed_checks": [
     {
       "check": "Canonical session records",
-      "detail": "2026-09-26_Session_Record.md: missing canonical session schema | 2026-09-27_Session_Record.md: missing canonical session schema | 2026-10-01_Session_Record.md: missing canonical session schema"
+      "detail": "2026-10-01_Session_Record.md: missing canonical session schema"
     }
   ],
-  "warning_count": 1,
-  "warnings": [
-    {
-      "check": "Lesson continuation",
-      "detail": "1 session(s) require continuation: 2026-10-23_Session_Record.md: RESUME_STAGE=listening_speaking; MISSING_STAGES=listening_speaking,deep_processing; REASON=Required Listening-to-Speaking and Deep Processing stages were not completed."
-    }
-  ],
+  "warning_count": 0,
+  "warnings": [],
   "latest_session": "2026-10-23_Session_Record.md",
   "latest_session_schema_status": "CANONICAL_V2",
   "latest_canonical_session": "2026-10-23_Session_Record.md",
   "session_type": "FULL_LESSON",
-  "lesson_status": "PARTIAL",
-  "protocol_status": "PARTIAL",
+  "lesson_status": "COMPLETED",
+  "protocol_status": "COMPLETED",
   "required_stage_count": 8,
-  "completed_stage_count": 6,
+  "completed_stage_count": 8,
   "required_stages": [
     "retrieval",
     "listening_speaking",
@@ -36,11 +31,8 @@
     "final_challenge_recall",
     "retention_record"
   ],
-  "missing_stages": [
-    "listening_speaking",
-    "deep_processing"
-  ],
-  "continuation_required": "YES",
-  "resume_stage": "listening_speaking",
-  "runtime_action": "Continue the previous session from RESUME_STAGE before selecting a new session type."
+  "missing_stages": [],
+  "continuation_required": "NO",
+  "resume_stage": "none",
+  "runtime_action": "Run normal FULL_LESSON runtime selection."
 }
