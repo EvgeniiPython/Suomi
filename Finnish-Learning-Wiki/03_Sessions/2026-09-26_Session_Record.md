@@ -2,56 +2,43 @@
 
 ## Session Result
 
-- Session type: RETENTION_SESSION
-- Status: COMPLETED
-- Protocol: COMPLETED
-- Main focus:
-  - `saada + object + valmiiksi`
-  - `en ehdi + infinitive + partitive object`
-  - `ne / niitä`
-  - `tarkistaa piirustukset / tarkistaa piirustuksia`
-  - `lounaan jälkeen / ennen tapaamista / tapaamisen jälkeen`
-  - `pyytää kollegaani auttamaan minua`
-  - professional transfer with `3D-malli`
+record_schema: canonical-v2
+session_type: RETENTION_SESSION
+lesson_status: COMPLETED
+primary_skill: Delayed recall and professional transfer of core Finnish patterns.
 
-### Completed Stages
+### Evidence
+observed: Independent recall and changed-context transfer; successfully used the target patterns in a professional situation. Several local form and object-case errors were repaired.
+evidence_score: 2
 
-- Retrieval
-- Controlled speaking
-- Finnish dialogue
-- Error repair
-- Second chance
-- Final speaking challenge
-- Final recall
-- Transfer
-- Retention record
+### Protocol Completion
+required_stages: retrieval, controlled_speaking, finnish_dialogue, error_repair_second_chance, final_challenge_recall, retention_record
+completed_stages: retrieval, controlled_speaking, finnish_dialogue, error_repair_second_chance, final_challenge_recall, retention_record
+missing_stages: none
+continuation_required: NO
 
-### Strong Evidence
+### Chunk Decisions
+candidate: `saada + object + valmiiksi`; `en ehdi + infinitive + partitive object`; `ne / niitä`; time expressions; `pyytää kollegaani auttamaan minua`; professional transfer with `3D-malli`
+decision: KEEP
+reason: Core constructions transferred successfully, while object-case and surface forms remain useful review targets.
+evidence: `en ehdi tarkistaa piirustuksia tänään`; `jos en ehdi saada projektia valmiiksi, pyydän kollegaani auttamaan minua`; `tapaamisen jälkeen lähetän piirustukset asiakkaalle`; `lounaan jälkeen tarkistan ne`.
+next_action: Continue delayed monitoring and interleave weak forms without blocking new acquisition.
 
-- `en ehdi tarkistaa piirustuksia tänään`
-- `jos en ehdi saada projektia valmiiksi, pyydän kollegaani auttamaan minua`
-- `tapaamisen jälkeen lähetän piirustukset asiakkaalle`
-- `lounaan jälkeen tarkistan ne`
-- Correctly distinguished `ne` from `niitä` in changed context.
-- Successfully transferred the target patterns into a new professional situation.
+### Mastery
+current_level: CONSOLIDATING
+reason: Good recall and transfer, with some repair needed in object-case and spelling.
+evidence: Independent professional sentences and changed-context transfer; delayed monitoring still required.
 
-### Errors / Repair
+### Retention
+status: SCHEDULED
+next_review: Continue spaced recall of object case, `työskentelen`, pronoun contrasts, and time expressions.
+evidence: This session itself does not establish future delayed mastery.
 
-- `asiakkalta` -> `asiakkaalta`
-- `uuden versiota` -> `uuden version`
-- `autamaan` -> `auttamaan`
-- In a specific completed context, `tarkistan piirustuksia` -> `tarkistan piirustukset` / `tarkistan ne`
-- Final transfer refined to: `Jos en ehdi tarkistaa niitä loppuun, pyydän kollegaani auttamaan minua.`
+### Errors
+recurring: Object-case choice in completed versus unfinished actions; spelling slips; `ne / niitä` and time-expression contrasts.
+correction: `asiakkalta` → `asiakkaalta`; `uuden versiota` → `uuden version`; `autamaan` → `auttamaan`; completed checking uses `tarkistan piirustukset / tarkistan ne`.
+cause: Context-sensitive form selection and spelling/retrieval slips.
+next_action: Continue delayed sampling and mixed-choice checks.
 
-### Retention Decision
-
-- Core constructions remain in active review.
-- Weak forms should continue to reappear through delayed recall and transfer.
-- Weak existing chunks do not block new acquisition.
-- New material may be introduced when overall readiness remains sufficient.
-
-### Current Follow-up
-
-- Continue delayed monitoring of object-case selection.
-- Continue unannounced recall of `työskentelen`.
-- Continue mixed-choice contrasts: `ne / niitä`, `sen / sitä`, `lähetän / lähden`, `en soita / soitan`.
+### Next Step
+next_action: Keep these patterns in interleaved retention while allowing new material when overall readiness is sufficient.
