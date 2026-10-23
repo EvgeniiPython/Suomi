@@ -1,15 +1,13 @@
 # Current State
 
-## Последняя сессия — 23.10.2026 (FULL_LESSON, PARTIAL)
+## Последняя сессия — 23.10.2026 (FULL_LESSON, COMPLETED)
 
-- Сохранена в `03_Sessions/2026-10-23_Session_Record.md` по `canonical-v2`.
-- Самостоятельно восстановлены и перенесены в рабочий контекст: `minun täytyy + infinitive`, `en ehdi / en ehtinyt + infinitive`, `saada + object + valmiiksi`, `lounaan jälkeen`, `pyytää kollegaani auttamaan minua`.
-- Верные outputs после практики: `Eilen en ehtinyt saada 3D-mallia valmiiksi`; `Minun täytyy saada 3D-malli valmiiksi`; `Lähetän sen asiakkaalle`; `Jos en ehdi lähettää raporttia ennen lounasta, soitan asiakkaalle`.
-- Главные зоны наблюдения: выбор `täytyy / täytyi` в свободной речи; падеж объекта в `saada ... valmiiksi`; орфография длинных профессиональных слов.
-- Повторные ошибки в `täytyy / täytyi` получили same-lesson repair; требуется delayed changed-context check. Орфографические ошибки учитываются отдельно и сами по себе не понижают mastery.
-- Текущая оценка evidence: 2/3 (самостоятельное использование в знакомом контексте с repair в части форм); статус `CONSOLIDATING`, не `STABLE`.
-- Сессия частичная: обязательные stages `listening_speaking` и `deep_processing` ещё не выполнены. `continuation_required = YES`; следующая точка входа — `listening_speaking`. Новые grammar chunks в этой сессии не вводились.
-
+- Продолжение закрыто: выполнены stages `listening_speaking` и `deep_processing`; полный протокол теперь 8/8.
+- Самостоятельный пересказ профессионального текста: вчера не успел закончить модель; сегодня нужно закончить 3D-модель и проверить сборочные чертежи; если отчёт не будет отправлен до обеда — позвонить клиенту; после обеда попросить коллегу помочь.
+- Успешные outputs после практики: `Eilen en ehtinyt tarkistaa piirustuksia`; `En ehdi lähettää raporttia ennen lounasta`; `Minun täytyy saada 3D-malli valmiiksi tänään`; `Eilen en ehtinyt viimeistellä piirustuksia, joten tänään minun täytyy työskennellä pidempään`; `Pomo pyytää minua saamaan 3D-mallin valmiiksi ja lähettämään sen asiakkaalle`.
+- Главные зоны наблюдения: `täytyy / täytyi`; объектные формы в `saada ... valmiiksi`; `en ehdi / en ehtinyt`; конструкция `pyytää minua + -maan/-mään`; написание `työskennellä`, `kokoonpanopiirustukset`, `lähettämään`.
+- Evidence score: 2/3; статус `CONSOLIDATING`, не `STABLE`. В заданиях были подсказки и repair; delayed evidence ещё отсутствует.
+- Новые grammar chunks не вводились. Следующий шаг: D+1 delayed recall 24.10.2026; старые targets продолжают review и не блокируют acquisition.
 
 **Последнее занятие:** 17 сентября 2026
 
