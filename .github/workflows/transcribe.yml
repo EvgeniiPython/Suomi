@@ -17,9 +17,9 @@ on:
         required: false
         default: "https://youtu.be/GqiTxI9KbAQ"
       language:
-        description: "Preferred subtitle language code (blank = choose automatically)"
+        description: "Preferred subtitle language code"
         required: false
-        default: ""
+        default: "ru"
       model:
         description: "Whisper fallback model"
         required: true
@@ -65,7 +65,7 @@ jobs:
         shell: bash
         env:
           INPUT_URL: ${{ github.event.inputs.video_url }}
-          INPUT_LANGUAGE: ${{ github.event.inputs.language }}
+          INPUT_LANGUAGE: ${{ github.event.inputs.language || 'ru' }}
           INPUT_MODEL: ${{ github.event.inputs.model }}
         run: |
           if [[ -n "${INPUT_URL:-}" ]]; then
