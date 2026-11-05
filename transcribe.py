@@ -11,6 +11,9 @@ import re
 import shutil
 import subprocess
 import sys
+import urllib.error
+import urllib.parse
+import urllib.request
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -121,15 +124,122 @@ def track_language(info: dict, requested: str | None) -> tuple[str | None, bool]
     return chosen, chosen not in manual
 
 
-def download_video_info(url: str) -> dict:
-    result = run([
-        sys.executable, "-m", "yt_dlp", "--dump-single-json",
-        "--skip-download", "--no-warnings", url
-    ])
+
+def video_id_from_url(url: str) -> str | None:
+    match = re.search(r"(?:youtu\\.be/|youtube\\.com/(?:watch\\?v=|shorts/|embed/))([A-Za-z0-9_-]{11})", url)
+    if match:
+        return match.group(1)
+    match = re.search(r"[A-Za-z0-9_-]{11}", url)
+    return match.group(0) if match else None
+
+
+def fetch_text(url: str, timeout: int = 18) -> str:
+    request = urllib.request.Request(
+        url,
+        headers={"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/126 Safari/537.36"},
+    )
+    with urllib.request.urlopen(request, timeout=timeout) as response:
+        return response.read().decode("utf-8", errors="replace")
+
+
+def json_transcript_segments(payload: object) -> list[Segment]:
+    if isinstance(payload, dict):
+        payload = payload.get("segments") or payload.get("transcript") or payload.get("data")
+    if not isinstance(payload, list):
+        return []
+    output: list[Segment] = []
+    for item in payload:
+        if not isinstance(item, dict):
+            continue
+        text = clean_caption_text(str(item.get("text") or item.get("utf8") or ""))
+        if not text:
+            continue
+        try:
+            start = float(item.get("start", item.get("offset", 0)))
+            end = float(item.get("end", start + float(item.get("duration", item.get("dur", 2)))))
+        except (TypeError, ValueError):
+            continue
+        if not output or output[-1].text != text:
+            output.append(Segment(start, max(end, start + 0.05), text))
+    return output
+
+
+def obtain_external_captions(
+    url: str, info: dict, work_dir: Path, requested_language: str | None
+) -> tuple[list[Segment], str] | None:
+    video_id = info.get("id") or video_id_from_url(url)
+    if not video_id:
+        return None
+
+    # Public transcript endpoint; no API key or YouTube login is requested.
+    transcript_url = f"https://yt-transcript.net/{video_id}?fmt=json"
+    if requested_language:
+        transcript_url += "&lang=" + urllib.parse.quote(requested_language)
     try:
-        return json.loads(result.stdout)
-    except json.JSONDecodeError as exc:
-        raise RuntimeError("yt-dlp did not return valid video metadata.") from exc
+        payload = json.loads(fetch_text(transcript_url))
+        segments = json_transcript_segments(payload)
+        if segments:
+            return segments, "yt-transcript.net public transcript endpoint"
+        print("yt-transcript.net returned no usable transcript; trying Invidious.", flush=True)
+    except Exception as exc:
+        print(f"yt-transcript.net unavailable: {exc}", flush=True)
+
+    # Officially listed public Invidious instances; each exposes a captions API.
+    hosts = [
+        "https://inv.nadeko.net",
+        "https://yewtu.be",
+        "https://invidious.nerdvpn.de",
+    ]
+    preferred = requested_language or info.get("language")
+    for host in hosts:
+        try:
+            caption_data = json.loads(fetch_text(f"{host}/api/v1/captions/{video_id}"))
+            tracks = caption_data.get("captions") or []
+            if not tracks:
+                continue
+            selected = None
+            if preferred:
+                selected = next(
+                    (t for t in tracks if str(t.get("languageCode", "")).lower().startswith(preferred.lower().split("-")[0])),
+                    None,
+                )
+            if selected is None:
+                selected = tracks[0]
+            language = selected.get("languageCode", "unknown")
+            label = selected.get("label", "")
+            caption_url = f"{host}/api/v1/captions/{video_id}?" + urllib.parse.urlencode({"label": label})
+            vtt = fetch_text(caption_url)
+            subtitle_dir = work_dir / "external"
+            subtitle_dir.mkdir(parents=True, exist_ok=True)
+            caption_path = subtitle_dir / "invidious.vtt"
+            caption_path.write_text(vtt, encoding="utf-8")
+            segments = parse_caption_file(caption_path)
+            if segments:
+                return segments, f"Invidious public captions ({language})"
+        except Exception as exc:
+            print(f"Invidious instance {host} unavailable: {exc}", flush=True)
+    return None
+
+
+def download_video_info(url: str) -> dict:
+    attempts = [
+        [],
+        ["--extractor-args", "youtube:player_client=tv,web_safari"],
+    ]
+    for extra in attempts:
+        result = run([
+            sys.executable, "-m", "yt_dlp", "--dump-single-json",
+            "--skip-download", "--no-warnings", *extra, url
+        ], check=False)
+        if result.returncode == 0:
+            try:
+                return json.loads(result.stdout)
+            except json.JSONDecodeError:
+                pass
+    # Metadata failure must not prevent trying caption-only services.
+    video_id = video_id_from_url(url) or "youtube-video"
+    print("yt-dlp could not read metadata; continuing with public caption services.", flush=True)
+    return {"id": video_id, "title": video_id, "subtitles": {}, "automatic_captions": {}}
 
 
 def obtain_captions(
@@ -176,17 +286,24 @@ def transcribe_audio(url: str, work_dir: Path, model_size: str) -> tuple[list[Se
     audio_dir = work_dir / "audio"
     audio_dir.mkdir(parents=True, exist_ok=True)
     output_template = str(audio_dir / "source.%(ext)s")
-    run([
-        sys.executable, "-m", "yt_dlp",
-        "-f", "bestaudio/best", "-o", output_template,
-        "--no-playlist", "--no-warnings", url,
-    ])
-    audio_files = [
-        p for p in audio_dir.iterdir()
-        if p.is_file() and p.suffix.lower() not in {".part", ".json"}
-    ]
+    audio_files = []
+    for extra in [
+        [],
+        ["--extractor-args", "youtube:player_client=tv,web_safari"],
+    ]:
+        result = run([
+            sys.executable, "-m", "yt_dlp",
+            "-f", "bestaudio/best", "-o", output_template,
+            "--no-playlist", "--no-warnings", *extra, url,
+        ], check=False)
+        audio_files = [
+            p for p in audio_dir.iterdir()
+            if p.is_file() and p.suffix.lower() not in {".part", ".json"}
+        ]
+        if result.returncode == 0 and audio_files:
+            break
     if not audio_files:
-        raise RuntimeError("yt-dlp finished without producing an audio file.")
+        raise RuntimeError("YouTube blocked audio download from GitHub Actions even after switching player clients.")
     source_audio = max(audio_files, key=lambda p: p.stat().st_size)
     wav_path = audio_dir / "audio_16khz_mono.wav"
     run([
@@ -326,7 +443,9 @@ def main() -> int:
     info = download_video_info(url)
     title = info.get("title") or info.get("id") or "YouTube video"
     print(f"Video: {title}", flush=True)
-    result = obtain_captions(url, info, work_dir, args.language)
+    result = obtain_external_captions(url, info, work_dir, args.language)
+    if result is None:
+        result = obtain_captions(url, info, work_dir, args.language)
     if result is None:
         segments, source = transcribe_audio(url, work_dir, args.model)
     else:
