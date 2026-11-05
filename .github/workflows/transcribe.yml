@@ -1,0 +1,96 @@
+name: YouTube transcript to PDF
+
+on:
+  push:
+    branches:
+      - youtube-transcript-pdf
+    paths:
+      - "transcribe.py"
+      - "requirements.txt"
+      - "video_url.txt"
+      - ".github/workflows/transcribe.yml"
+  workflow_dispatch:
+    inputs:
+      video_url:
+        description: "Public YouTube video URL"
+        required: false
+        default: "https://youtu.be/GqiTxI9KbAQ"
+      language:
+        description: "Preferred subtitle language code (blank = choose automatically)"
+        required: false
+        default: ""
+      model:
+        description: "Whisper fallback model"
+        required: true
+        type: choice
+        options:
+          - small
+          - base
+          - tiny
+        default: small
+
+permissions:
+  contents: read
+
+concurrency:
+  group: youtube-transcript-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  transcribe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Check out project
+        uses: actions/checkout@v4
+
+      - name: Install FFmpeg and Unicode fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+
+      - name: Resolve workflow inputs
+        shell: bash
+        env:
+          INPUT_URL: ${{ github.event.inputs.video_url }}
+          INPUT_LANGUAGE: ${{ github.event.inputs.language }}
+          INPUT_MODEL: ${{ github.event.inputs.model }}
+        run: |
+          if [[ -n "${INPUT_URL:-}" ]]; then
+            echo "VIDEO_URL=$INPUT_URL" >> "$GITHUB_ENV"
+          else
+            echo "VIDEO_URL=$(cat video_url.txt)" >> "$GITHUB_ENV"
+          fi
+          echo "LANGUAGE=$INPUT_LANGUAGE" >> "$GITHUB_ENV"
+          if [[ -n "${INPUT_MODEL:-}" ]]; then
+            echo "MODEL=$INPUT_MODEL" >> "$GITHUB_ENV"
+          else
+            echo "MODEL=small" >> "$GITHUB_ENV"
+          fi
+
+      - name: Create transcript PDF, TXT and SRT
+        run: |
+          if [[ -n "$LANGUAGE" ]]; then
+            python transcribe.py --url "$VIDEO_URL" --language "$LANGUAGE" --model "$MODEL" --output-dir output
+          else
+            python transcribe.py --url "$VIDEO_URL" --model "$MODEL" --output-dir output
+          fi
+
+      - name: Upload transcript files
+        uses: actions/upload-artifact@v4
+        with:
+          name: youtube-transcript
+          path: output/
+          if-no-files-found: error
+          retention-days: 30
