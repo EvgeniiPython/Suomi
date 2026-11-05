@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Download YouTube subtitles, falling back to local Whisper transcription, and build PDF/TXT/SRT."""
+# For Russian-language videos pass --language ru; Whisper auto-detects speech if captions are absent.
 
 from __future__ import annotations
 
