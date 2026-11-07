@@ -3,46 +3,46 @@
 ## Runtime selection
 
 ```text
-last_session_type: FULL_LESSON
+last_session_type: RETENTION_SESSION
 next_session_type: RETENTION_SESSION
 continuation_required: NO
 resume_stage: NONE
 ```
 
-The 2026-10-23 FULL_LESSON is COMPLETED (8/8 required stages). The continuation at `listening_speaking` and `deep_processing` is closed. The next planned session is a D+1 RETENTION_SESSION on 2026-10-24.
+The 2026-11-07 RETENTION_SESSION is COMPLETED (6/6 required stages). No continuation is required.
 
-## Objective
+## Completed session
+Canonical record: `03_Sessions/2026-11-07_Session_Record.md`
 
-Проверить delayed recall профессиональных конструкций без подсказок, особенно выбор времени, падежа объекта и управление глагола `pyytää`.
+## Objective achieved
+Проверен delayed recall профессиональных конструкций в связной речи, диалоге и финальном recall.
 
-## Priority patterns
-
-1. `minun täytyy / täytyi + infinitive`
-2. `saada + object + valmiiksi`
-3. `en ehdi / en ehtinyt + infinitive + object`
-4. `pyytää minua + -maan/-mään`
-5. `työskennellä pidempään`
-6. `kokoonpanopiirustukset`, `3D-malli`, `raportti`
+## Priority patterns for next session
+1. `pyysi / pyytää` — past vs present request.
+2. `jos ehdin / jos en ehdi` — conditional polarity and intended meaning.
+3. `saada + object + valmiiksi` — object case in affirmative/unfinished contexts.
+4. `sen / sitä`, `ne / niitä` — object selection.
+5. `lounaan jälkeen`, `ennen lounasta`.
+6. Professional spelling: `kokoonpanopiirustukset`, `tuotantoon`, `huolellisesti`.
 
 ## Next route
-
-1. Run D+1 delayed retrieval without naming the target rule first.
-2. Use unlabeled mixed-choice for present/past and object-case contrasts.
-3. Add changed-context professional transfer and a short Finnish dialogue.
-4. Record the result in a canonical RETENTION_SESSION record.
+D+3 RETENTION_SESSION on 2026-11-10:
+- blind recall without naming target rules;
+- unlabeled mixed-choice for tense, object forms, and conditional polarity;
+- changed-context work dialogue;
+- second chance for any meaningful error;
+- update canonical session record.
 
 ## Acquisition
-
-No new active grammar chunk was introduced on 2026-10-23. Weak patterns remain in review but do not automatically block new material.
+Existing patterns remain in consolidation. Candidate expressions `saada tehtyä`, `joka piti saada tehtyä`, and `auttaa jotakuta jonkin kanssa` are deferred until independently sampled. Weak chunks do not automatically block acquisition.
 
 ## Session record
-
-`03_Sessions/2026-10-23_Session_Record.md`
+`03_Sessions/2026-11-07_Session_Record.md`
 
 ```text
 record_schema: canonical-v2
-session_type: FULL_LESSON
+session_type: RETENTION_SESSION
 lesson_status: COMPLETED
 continuation_required: NO
-completed_stages: 8/8
+completed_stages: 6/6
 ```
