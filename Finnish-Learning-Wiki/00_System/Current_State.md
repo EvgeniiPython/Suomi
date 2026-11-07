@@ -1,3 +1,18 @@
+## Последняя сессия — 07.11.2026 (RETENTION_SESSION, COMPLETED)
+
+- Выполнены все 6 обязательных stages: retrieval, controlled speaking, Finnish dialogue, error repair + second chance, final challenge/recall, retention record.
+- Самостоятельная профессиональная речь: объяснение задержки чертежей, просьба о помощи коллеге, план отправки чертежей в производство, условное предложение о помощи после обеда.
+- Успешные outputs: `En ehtinyt saada 3D-mallia valmiiksi eilen`; `Tänään minun täytyy saada se valmiiksi ja lähettää asiakkaalle`; `Kollegaani pyysi minua auttamaan piirustusten kanssa, koska hän ei ehtinyt tarkistaa niitä ennen lounasta` (последнее предложение после подсказки/исправления).
+- Final recall: `Eilen en ehtinyt saada kokoonpanopiirustuksia valmiiksi` — правильно; `Pomo pyytää...` требовало past `pyysi`; в условии была инверсия смысла `jos en ehdi` вместо `jos ehdin`.
+- Приоритеты: `pyysi / pyytää`; `jos ehdin / jos en ehdi`; `sen / sitä / ne / niitä`; `saada ... valmiiksi`; `lounaan jälkeen`; spelling в профессиональной лексике.
+- Evidence score: 2/3; статус CONSOLIDATING. Не объявлять patterns STABLE на основании исправлений внутри одной сессии.
+- Кандидаты `saada tehtyä`, `joka piti saada tehtyä`, `auttaa jotakuta jonkin kanssa` пока DEFER; самостоятельное delayed evidence недостаточно.
+- Следующий контроль: D+3, 10.11.2026.
+
+Canonical record: `03_Sessions/2026-11-07_Session_Record.md`.
+
+---
+
 # Current State
 
 ## Последняя сессия — 23.10.2026 (FULL_LESSON, COMPLETED)
