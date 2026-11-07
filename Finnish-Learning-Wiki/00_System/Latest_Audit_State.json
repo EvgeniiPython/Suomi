@@ -1,15 +1,13 @@
 {
   "schema": "audit-state-v5",
-  "generated_at_utc": "2026-11-07T13:40:00+00:00",
+  "generated_at_utc": "2026-11-07T13:40:46.798911+00:00",
   "audit_status": "PASS",
   "validator_exit_code": 0,
   "validator_error": false,
   "failure_count": 0,
   "failed_checks": [],
   "warning_count": 0,
-  "warnings": [
-    "Session record and state files updated by lesson runtime; repository validator workflow should be run for full structural validation."
-  ],
+  "warnings": [],
   "latest_session": "2026-11-07_Session_Record.md",
   "latest_session_schema_status": "CANONICAL_V2",
   "latest_canonical_session": "2026-11-07_Session_Record.md",
@@ -29,5 +27,5 @@
   "missing_stages": [],
   "continuation_required": "NO",
   "resume_stage": "none",
-  "runtime_action": "Run normal RETENTION_SESSION runtime selection; next delayed check D+3 on 2026-11-10."
+  "runtime_action": "Run normal RETENTION_SESSION runtime selection."
 }
