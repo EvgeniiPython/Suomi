@@ -1,3 +1,18 @@
+## Последняя сессия — 08.11.2026 (RETENTION_SESSION, COMPLETED)
+
+- Выполнены 6 обязательных stages в speaking-first практике: retrieval, controlled speaking, Finnish dialogue, error repair + second chance, final challenge/recall, retention record.
+- Основной контекст: начальник попросил отправить/проверить чертежи; закончить kokoonpanopiirustukset; объяснить задержку из-за другого проекта; условно спланировать помощь коллеге.
+- Независимый финальный output: `Kyllä, ehdin saada piirustukset valmiiksi tänään, mutta jos en ehdi saada niitä valmiiksi tänään, pyydän kollegaani auttamaan minua.`
+- Корректный output после подсказок: `Pomo pyysi minua tarkistamaan 3D-mallin ennen piirustusten lähettämistä asiakkaalle.`
+- Повторно отработаны `pyysi minua + -maan/-mään`, `saada + object + valmiiksi`, `jos ehdin / jos en ehdi`, `lounaan jälkeen`, `ennen + genitive + -minen`.
+- Ошибки/repair: сначала `jos en ehdi` вместо `jos ehdin` с изменением смысла; объектная форма `3D-mallin`; структура `ennen piirustusten lähettämistä`; написание `lounaan`; запятая после придаточного условия.
+- Evidence score: 2/3; mastery CONSOLIDATING. Исправления после подсказок не являются delayed mastery.
+- `ennen + genitive + -minen` остаётся новым candidate/pattern под delayed monitoring, не объявлять STABLE.
+- Canonical session record: `03_Sessions/2026-11-08_Session_Record.md`.
+- Следующий контроль D+3 остаётся назначенным на 10.11.2026.
+
+---
+
 ## Последняя сессия — 07.11.2026 (RETENTION_SESSION, COMPLETED)
 
 - Выполнены все 6 обязательных stages: retrieval, controlled speaking, Finnish dialogue, error repair + second chance, final challenge/recall, retention record.
