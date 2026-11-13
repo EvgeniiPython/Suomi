@@ -4,7 +4,7 @@ name: YouTube transcript to PDF
 on:
   push:
     branches:
-      - youtube-transcript-pdf
+      - youtube-transcript-r-s-sejahyo
     paths:
       - "transcribe.py"
       - "requirements.txt"
@@ -15,7 +15,7 @@ on:
       video_url:
         description: "Public YouTube video URL"
         required: false
-        default: "https://youtu.be/GqiTxI9KbAQ"
+        default: "https://youtu.be/r_s_SEjahYo?is=lQgKhBvb68M_TE0z"
       language:
         description: "Preferred subtitle language code"
         required: false
