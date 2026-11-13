@@ -478,3 +478,5 @@ if __name__ == "__main__":
     except Exception as exc:
         print(f"ERROR: {exc}", file=sys.stderr, flush=True)
         raise SystemExit(1)
+
+# Transcript target updated for video r_s_SEjahYo.
