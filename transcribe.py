@@ -187,9 +187,10 @@ def obtain_external_captions(
 
     # Officially listed public Invidious instances; each exposes a captions API.
     hosts = [
-        "https://inv.nadeko.net",
-        "https://yewtu.be",
+        "https://invidious.tiekoetter.com",
+        "https://yt.chocolatemoo53.com",
         "https://invidious.nerdvpn.de",
+        "https://inv.nadeko.net",
     ]
     preferred = requested_language or info.get("language")
     for host in hosts:
