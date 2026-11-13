@@ -305,7 +305,40 @@ def transcribe_audio(url: str, work_dir: Path, model_size: str) -> tuple[list[Se
         if result.returncode == 0 and audio_files:
             break
     if not audio_files:
-        raise RuntimeError("YouTube blocked audio download from GitHub Actions even after switching player clients.")
+        piped_hosts = [
+            'https://pipedapi.nosebs.ru',
+            'https://pipedapi.adminforge.de',
+            'https://piped-api.privacy.com.de',
+            'https://api.piped.yt',
+            'https://pipedapi.kavin.rocks',
+            'https://pipedapi.drgns.space',
+        ]
+        video_id = video_id_from_url(url)
+        if video_id:
+            for host in piped_hosts:
+                try:
+                    payload = json.loads(fetch_text(host + '/streams/' + video_id, timeout=25))
+                    streams = payload.get('audioStreams') or []
+                    streams.sort(key=lambda x: int(re.sub(r'[^0-9]', '', str(x.get('bitrate') or '0')) or 0), reverse=True)
+                    for index, stream in enumerate(streams):
+                        audio_url = stream.get('url')
+                        if not audio_url:
+                            continue
+                        audio_path = audio_dir / ('piped_' + str(index) + '.m4a')
+                        request = urllib.request.Request(audio_url, headers={'User-Agent': 'Mozilla/5.0', 'Accept': '*/*'})
+                        with urllib.request.urlopen(request, timeout=90) as response, audio_path.open('wb') as output:
+                            shutil.copyfileobj(response, output)
+                        if audio_path.stat().st_size > 50000:
+                            audio_files.append(audio_path)
+                            print('Downloaded audio using Piped instance ' + host, flush=True)
+                            break
+                        audio_path.unlink(missing_ok=True)
+                    if audio_files:
+                        break
+                except Exception as exc:
+                    print('Piped instance ' + host + ' unavailable: ' + str(exc), flush=True)
+    if not audio_files:
+        raise RuntimeError('YouTube and public Piped instances blocked audio download from GitHub Actions.')
     source_audio = max(audio_files, key=lambda p: p.stat().st_size)
     wav_path = audio_dir / "audio_16khz_mono.wav"
     run([
