@@ -9,32 +9,41 @@ continuation_required: NO
 resume_stage: NONE
 ```
 
-The 2026-11-08 RETENTION_SESSION is COMPLETED (6/6 required stages). No continuation is required.
+The 2026-11-15 RETENTION_SESSION is COMPLETED (6/6 required stages). No continuation is required.
 
 ## Completed session
-Canonical record: `03_Sessions/2026-11-08_Session_Record.md`
+
+Canonical record: `03_Sessions/2026-11-15_Session_Record.md`
 
 ## Objective achieved
-Закреплена профессиональная речь: просьбы начальника, завершение чертежей, условное планирование, временные конструкции и объяснение задержки отправки.
+
+Практика профессиональной речи: просьбы начальника, сроки отправки чертежей, готовность 3D-модели, помощь коллеге, условные конструкции и временные выражения.
 
 ## Evidence and remaining focus
-- Correct independent final output: `Kyllä, ehdin saada piirustukset valmiiksi tänään, mutta jos en ehdi saada niitä valmiiksi tänään, pyydän kollegaani auttamaan minua.`
-- Corrected after hints: `Pomo pyysi minua tarkistamaan 3D-mallin ennen piirustusten lähettämistä asiakkaalle.`
-- Continue monitoring `pyysi / pyytää`, object forms with `saada ... valmiiksi`, `jos ehdin / jos en ehdi`, `ennen + genitive + -minen`, and `lounaan jälkeen`.
-- Mastery remains CONSOLIDATING; same-session repair is not delayed mastery.
+
+- Correct outputs include `Eilen pomo pyysi minua lähettämään piirustukset asiakkaalle lounaan jälkeen.`, `Jos ehdin saada piirustukset valmiiksi ennen lounasta, lounaan jälkeen autan kollegaani.`, and final corrected `Jos en ehdi tarkistaa piirustuksia, pyydän kollegaani auttamaan minua.`
+- Final corrected output: `Minun täytyy lähettää piirustukset asiakkaalle ennen työpäivän loppua.`
+- `ennen + genitive + -minen` required repeated hints and an explicit model; keep it as weak / priority review.
+- Partitive object after `en ehdi tarkistaa` was corrected and then recalled correctly.
+- `pyysi minua + -maan/-mään` vs `en ehtinyt + A-infinitive` needs further unprompted sampling.
+- Mastery remains CONSOLIDATING (evidence 2/3); same-session repair is not delayed mastery.
 
 ## Next route
-Keep the previously scheduled D+3 RETENTION_SESSION on 2026-11-10:
-- blind recall of request tense and conditional polarity;
-- object-form choice in a new work context;
-- `ennen + nominalization` without naming the rule;
+
+The scheduled D+7 control dated 2026-11-14 is overdue. Run a fresh RETENTION_SESSION next:
+- blind recall of `ennen + genitive + -minen` in at least two new contexts;
+- mixed-choice object forms after `en ehdi tarkistaa` and `en ehdi saada ... valmiiksi`;
+- contrast `pyysi minua tarkistamaan` vs `en ehtinyt tarkistaa`;
+- unprompted `minun täytyy + infinitive`;
 - changed-context workplace dialogue and second chance.
 
 ## Acquisition
-Weak chunks remain in review and do not block new material. Candidate expressions `saada tehtyä`, `joka piti saada tehtyä`, and `auttaa jotakuta jonkin kanssa` remain deferred pending independent sampling.
+
+Weak chunks remain in review and do not block new material when acquisition readiness is ALLOWED.
 
 ## Session record
-`03_Sessions/2026-11-08_Session_Record.md`
+
+`03_Sessions/2026-11-15_Session_Record.md`
 
 ```text
 record_schema: canonical-v2
