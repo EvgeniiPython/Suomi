@@ -1,3 +1,17 @@
+## Последняя сессия — 15.11.2026 (RETENTION_SESSION, COMPLETED)
+
+- Выполнены 6 обязательных stages: retrieval, controlled speaking, Finnish dialogue, error repair + second chance, final challenge/recall, retention record.
+- Самостоятельные outputs: `Eilen pomo pyysi minua lähettämään piirustukset asiakkaalle lounaan jälkeen.`; `Jos ehdin saada piirustukset valmiiksi ennen lounasta, lounaan jälkeen autan kollegaani.`; `Eilen en ehtinyt lähettää piirustuksia asiakkaalle.`.
+- Финальный recall после repair: `Jos en ehdi tarkistaa piirustuksia, pyydän kollegaani auttamaan minua.` и `Minun täytyy lähettää piirustukset asiakkaalle ennen työpäivän loppua.`.
+- `ennen + genitive + -minen` потребовала нескольких подсказок и прямого образца; остаётся слабой конструкцией с высоким приоритетом повторения.
+- Объект в отрицательной/незавершённой конструкции `en ehdi tarkistaa piirustuksia` в конце воспроизведён правильно.
+- Различие `pyysi minua tarkistamaan` vs `en ehtinyt tarkistaa` нужно ещё проверить без названия правила.
+- Evidence score: 2/3; mastery CONSOLIDATING. Успешный repair внутри занятия не считается delayed mastery.
+- Canonical record: `03_Sessions/2026-11-15_Session_Record.md`.
+- `lesson_status = COMPLETED`; `continuation_required = NO`.
+
+---
+
 ## Последняя сессия — 08.11.2026 (RETENTION_SESSION, COMPLETED)
 
 - Выполнены 6 обязательных stages в speaking-first практике: retrieval, controlled speaking, Finnish dialogue, error repair + second chance, final challenge/recall, retention record.
