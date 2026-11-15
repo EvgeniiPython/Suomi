@@ -80,3 +80,20 @@ The previously scheduled D+7 check (14.11.2026) is overdue as of 15.11.2026. Run
 - changed-context workplace dialogue, no grammar labels before the attempt.
 
 Keep weak patterns in automatic review; they do not block introduction of new material when acquisition readiness remains ALLOWED.
+
+## Session Result
+
+```text
+session_type: RETENTION_SESSION
+lesson_status: COMPLETED
+protocol_status: COMPLETED
+required_stage_count: 6
+completed_stage_count: 6
+missing_stages: []
+continuation_required: NO
+resume_stage: none
+evidence_score: 2/3
+mastery_status: CONSOLIDATING
+```
+
+The lesson is complete. The next scheduled delayed retention check is overdue (D+7 was 2026-11-14). Prioritize blind recall of `ennen + genitive + -minen`, object forms after negative/unfinished actions, and the infinitive contrast after `pyytää` vs `ehtiä`. Do not mark the patterns STABLE based on same-session repairs.
