@@ -3,17 +3,16 @@
 ## Due now
 
 ```text
-none
+D+7 overdue — 2026-11-14
 ```
 
-The 2026-11-08 RETENTION_SESSION was completed (6/6 required stages). The next delayed check remains D+3 on 2026-11-10.
+The 2026-11-15 RETENTION_SESSION was completed (6/6 required stages). The next delayed D+7 check from the 2026-11-08 session is overdue and remains to be tested without hints.
 
 ## Upcoming
 
 | Date | Interval | Session type | Task | Priority |
 |---|---|---|---|---|
-| 10.11.2026 | D+3 | RETENTION_SESSION | Blind recall of `pyysi / pyytää`, `jos ehdin / jos en ehdi`, object forms with `saada ... valmiiksi`, `sen / sitä / ne / niitä`, and `ennen + nominalization` in a new professional context | High |
-| 14.11.2026 | D+7 | RETENTION_SESSION | Recheck only the patterns that remain unstable after D+3; include free speaking and unlabeled mixed-choice | Medium |
+| Next session | overdue D+7 | RETENTION_SESSION | Blind recall of `ennen + genitive + -minen`, object cases after negative/unfinished actions, infinitive government after `pyytää` vs `ehtiä`, and `minun täytyy + infinitive` in fresh work contexts | High |
 
 ## Current retention focus
 
@@ -23,9 +22,20 @@ The 2026-11-08 RETENTION_SESSION was completed (6/6 required stages). The next d
 - `pyytää minua + -maan/-mään`, especially `pyysi / pyytää`
 - `sen / sitä`, `ne / niitä`
 - Conditional polarity: `jos ehdin` vs `jos en ehdi`
-- Time expressions: `lounaan jälkeen`, `ennen lounasta`
-- `ennen + genitive + -minen`, e.g. `ennen piirustusten lähettämistä`
+- Time expressions: `lounaan jälkeen`, `ennen lounasta`, `ennen työpäivän loppua`
+- `ennen + genitive + -minen`, e.g. `ennen piirustusten lähettämistä` — priority review
 - Professional vocabulary and spelling: `kokoonpanopiirustukset`, `3D-malli`, `tuotantoon`, `huolellisesti`
+
+## 2026-11-15 RETENTION_SESSION result
+
+- Completed all six required stages in a guided speaking-first practice.
+- Correct outputs include `Eilen pomo pyysi minua lähettämään piirustukset asiakkaalle lounaan jälkeen.`, `Jos ehdin saada piirustukset valmiiksi ennen lounasta, lounaan jälkeen autan kollegaani.`, and `Eilen en ehtinyt lähettää piirustuksia asiakkaalle.`
+- Final corrected recall: `Jos en ehdi tarkistaa piirustuksia, pyydän kollegaani auttamaan minua.` and `Minun täytyy lähettää piirustukset asiakkaalle ennen työpäivän loppua.`
+- `ennen + genitive + -minen` required repeated hints and an explicit model; this pattern remains weak / priority review.
+- Partitive object after `en ehdi tarkistaa` was corrected and then reproduced correctly in final recall.
+- `pyysi minua + -maan/-mään` vs `en ehtinyt + A-infinitive` needs further unprompted sampling.
+- Evidence score 2/3; mastery remains CONSOLIDATING, not STABLE.
+- Canonical record: `03_Sessions/2026-11-15_Session_Record.md`.
 
 ## 2026-11-08 RETENTION_SESSION result
 
