@@ -42,7 +42,7 @@ reason: `en ehdi tarkistaa + partitive object`, `pyysi minua + -maan/-mään`, `
 next_action: Interleave these patterns in the next retention session. No chunk is promoted to STABLE on the basis of same-session repair.
 
 ### Mastery
-current_level: A2
+current_level: Finnish A2 with growing A2+/B1 control in familiar personal and professional topics
 status: CONSOLIDATING
 reason: The learner produced several correct workplace sentences independently and repaired object selection successfully. However, the structure after `ennen` required repeated hints and an explicit model; some other constructions also needed repair. Immediate correction is not delayed mastery.
 evidence: Independent examples include `Eilen pomo pyysi minua lähettämään piirustukset asiakkaalle lounaan jälkeen.` and `Jos ehdin saada piirustukset valmiiksi ennen lounasta, lounaan jälkeen autan kollegaani.` Final corrected recall includes `Jos en ehdi tarkistaa piirustuksia, pyydän kollegaani auttamaan minua.`
