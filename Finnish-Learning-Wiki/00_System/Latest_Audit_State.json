@@ -1,6 +1,6 @@
 {
   "schema": "audit-state-v5",
-  "generated_at_utc": "2026-11-15T13:19:16.110808+00:00",
+  "generated_at_utc": "2026-11-15T13:20:45.388206+00:00",
   "audit_status": "FAIL",
   "validator_exit_code": 1,
   "validator_error": false,
@@ -8,7 +8,7 @@
   "failed_checks": [
     {
       "check": "Canonical session records",
-      "detail": "2026-11-15_Session_Record.md: Session Result missing ### Evidence; Session Result missing ### Protocol Completion; Session Result missing ### Chunk Decisions; Session Result missing ### Mastery; Session Result missing ### Retention; Session Result missing ### Errors; Session Result missing ### Next Step; Evidence requires evidence_score 0-3; invalid or missing current_level; invalid or missing Retention status; required_stages does not match registry for RETENTION_SESSION; missing_stages does not match required stages for session type; invalid or missing continuation_required; incomplete protocol requires continuation_required: YES; continuation_next_stage must be the first missing required stage; incomplete protocol requires continuation_reason; lesson_status cannot be COMPLETED while required stages are missing"
+      "detail": "2026-11-15_Session_Record.md: invalid or missing current_level"
     }
   ],
   "warning_count": 0,
@@ -18,9 +18,9 @@
   "latest_canonical_session": "2026-11-15_Session_Record.md",
   "session_type": "RETENTION_SESSION",
   "lesson_status": "COMPLETED",
-  "protocol_status": "PARTIAL",
+  "protocol_status": "COMPLETED",
   "required_stage_count": 6,
-  "completed_stage_count": 1,
+  "completed_stage_count": 6,
   "required_stages": [
     "retrieval",
     "controlled_speaking",
@@ -29,9 +29,7 @@
     "final_challenge_recall",
     "retention_record"
   ],
-  "missing_stages": [
-    "[]"
-  ],
+  "missing_stages": [],
   "continuation_required": "NO",
   "resume_stage": "none",
   "runtime_action": "Run normal RETENTION_SESSION runtime selection."
