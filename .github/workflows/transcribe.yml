@@ -80,7 +80,7 @@ jobs:
             echo "MODEL=small" >> "$GITHUB_ENV"
           fi
 
-      - name: Test rolling-caption cleanup
+      - name: Test overlap-aware rolling-caption cleanup
         run: python -m unittest discover -s tests -v
 
       - name: Create transcript PDF, TXT and SRT
