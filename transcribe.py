@@ -70,9 +70,9 @@ def clean_caption_text(value: str) -> str:
 
 
 
-_WORD_TOKEN_RE = re.compile(r"\\w+(?:[-’'][\\w]+)*", re.UNICODE)
-_TRAILING_PUNCTUATION_RE = re.compile(r"""[.!?…,:;»"')\\]]+\\s*$""")
-_DUPLICATE_LEADING_PUNCTUATION_RE = re.compile(r"""^\\s*[,.;:!?…»"')\\]]+\\s*""")
+_WORD_TOKEN_RE = re.compile(r"\w+(?:[-’'][\w]+)*", re.UNICODE)
+_TRAILING_PUNCTUATION_RE = re.compile(r"""[.!?…,:;»"')\]]+\s*$""")
+_DUPLICATE_LEADING_PUNCTUATION_RE = re.compile(r"""^\s*[,.;:!?…»"')\]]+\s*""")
 
 
 def deduplicate_rolling_captions(
@@ -138,13 +138,13 @@ def join_transcript_text(segments: list[Segment]) -> str:
             continue
         if not result:
             result = piece
-        elif re.match(r"^[,.;:!?…%)\\]}»]", piece):
+        elif re.match(r"^[,.;:!?…%)\]}»]", piece):
             result += piece
         elif result.endswith(("«", "(", "[", "{")):
             result += piece
         else:
             result += " " + piece
-    return re.sub(r"[ \\t]+([,.;:!?…])", r"\\1", result).strip()
+    return re.sub(r"[ \t]+([,.;:!?…])", r"\1", result).strip()
 
 def parse_caption_file(path: Path) -> list[Segment]:
     content = path.read_text(encoding="utf-8-sig", errors="replace")

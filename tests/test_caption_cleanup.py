@@ -12,7 +12,7 @@ class RollingCaptionCleanupTests(unittest.TestCase):
         ]
         cleaned, stats = deduplicate_rolling_captions(source)
         self.assertEqual(join_transcript_text(cleaned), "Это важная фраза продолжается дальше.")
-        self.assertEqual(stats["removed_words"], 4)
+        self.assertEqual(stats["removed_words"], 3)
 
     def test_removes_single_word_overlap(self):
         source = [
