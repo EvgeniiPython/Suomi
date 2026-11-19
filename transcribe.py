@@ -69,6 +69,83 @@ def clean_caption_text(value: str) -> str:
     return re.sub(r"\s+", " ", value).strip()
 
 
+
+_WORD_TOKEN_RE = re.compile(r"\\w+(?:[-’'][\\w]+)*", re.UNICODE)
+_TRAILING_PUNCTUATION_RE = re.compile(r"""[.!?…,:;»"')\\]]+\\s*$""")
+_DUPLICATE_LEADING_PUNCTUATION_RE = re.compile(r"""^\\s*[,.;:!?…»"')\\]]+\\s*""")
+
+
+def deduplicate_rolling_captions(
+    segments: list[Segment], max_gap_seconds: float = 0.25
+) -> tuple[list[Segment], dict[str, int]]:
+    """Remove text repeated by rolling subtitle cues without deleting spoken repeats."""
+    cleaned: list[Segment] = []
+    previous: Segment | None = None
+    raw_words = 0
+    clean_words = 0
+    removed_entries = 0
+
+    for segment in segments:
+        text = clean_caption_text(segment.text)
+        if not text:
+            previous = segment
+            continue
+
+        current_tokens = list(_WORD_TOKEN_RE.finditer(text))
+        raw_words += len(current_tokens)
+        overlap = 0
+
+        if previous is not None and segment.start - previous.end <= max_gap_seconds:
+            previous_words = [
+                match.group(0).casefold()
+                for match in _WORD_TOKEN_RE.finditer(previous.text)
+            ]
+            current_words = [match.group(0).casefold() for match in current_tokens]
+            for count in range(1, min(len(previous_words), len(current_words)) + 1):
+                if previous_words[-count:] == current_words[:count]:
+                    overlap = count
+
+        if overlap:
+            remainder = text[current_tokens[overlap - 1].end():]
+            if previous is not None and _TRAILING_PUNCTUATION_RE.search(previous.text):
+                remainder = _DUPLICATE_LEADING_PUNCTUATION_RE.sub("", remainder)
+            text = remainder.lstrip()
+
+        remaining_words = len(list(_WORD_TOKEN_RE.finditer(text)))
+        clean_words += remaining_words
+        if remaining_words == 0:
+            removed_entries += 1
+        else:
+            cleaned.append(Segment(segment.start, segment.end, text))
+
+        # Use the original cue for the next overlap comparison.
+        previous = segment
+
+    return cleaned, {
+        "raw_entries": len(segments),
+        "clean_entries": len(cleaned),
+        "removed_entries": removed_entries,
+        "removed_words": max(0, raw_words - clean_words),
+    }
+
+
+def join_transcript_text(segments: list[Segment]) -> str:
+    """Join cleaned caption fragments into readable continuous text."""
+    result = ""
+    for segment in segments:
+        piece = segment.text.strip()
+        if not piece:
+            continue
+        if not result:
+            result = piece
+        elif re.match(r"^[,.;:!?…%)\\]}»]", piece):
+            result += piece
+        elif result.endswith(("«", "(", "[", "{")):
+            result += piece
+        else:
+            result += " " + piece
+    return re.sub(r"[ \\t]+([,.;:!?…])", r"\\1", result).strip()
+
 def parse_caption_file(path: Path) -> list[Segment]:
     content = path.read_text(encoding="utf-8-sig", errors="replace")
     lines = content.splitlines()
@@ -374,9 +451,7 @@ def format_time(seconds: float, srt: bool = False) -> str:
 
 def write_text_and_srt(segments: list[Segment], output_dir: Path, title: str, source: str) -> None:
     header = f"{title}\nSource: {source}\n\n"
-    txt = header + "\n".join(
-        f"[{format_time(s.start)}] {s.text}" for s in segments
-    )
+    txt = header + join_transcript_text(segments)
     (output_dir / "transcript.txt").write_text(txt + "\n", encoding="utf-8")
 
     blocks = []
@@ -483,8 +558,17 @@ def main() -> int:
         result = obtain_captions(url, info, work_dir, args.language)
     if result is None:
         segments, source = transcribe_audio(url, work_dir, args.model)
+        cleanup_stats = {
+            "applied": False,
+            "raw_entries": len(segments),
+            "clean_entries": len(segments),
+            "removed_entries": 0,
+            "removed_words": 0,
+        }
     else:
         segments, source = result
+        segments, cleanup_stats = deduplicate_rolling_captions(segments)
+        cleanup_stats["applied"] = True
 
     write_text_and_srt(segments, output_dir, title, source)
     create_pdf(segments, output_dir / "transcript.pdf", title, source, url)
@@ -497,7 +581,8 @@ def main() -> int:
         "source": source,
         "language": info.get("language"),
         "entries": len(segments),
-        "method": "captions" if "subtitles" in source or "auto-captions" in source else "speech_recognition",
+        "caption_cleanup": cleanup_stats,
+        "method": "captions" if any(term in source.lower() for term in ("caption", "subtitle")) else "speech_recognition",
     }
     (output_dir / "metadata.json").write_text(
         json.dumps(metadata, ensure_ascii=False, indent=2), encoding="utf-8"
