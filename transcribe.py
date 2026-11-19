@@ -582,7 +582,7 @@ def main() -> int:
         "language": info.get("language"),
         "entries": len(segments),
         "caption_cleanup": cleanup_stats,
-        "method": "captions" if any(term in source.lower() for term in ("caption", "subtitle")) else "speech_recognition",
+        "method": "captions" if any(term in source.lower() for term in ("caption", "subtitle", "transcript endpoint")) else "speech_recognition",
     }
     (output_dir / "metadata.json").write_text(
         json.dumps(metadata, ensure_ascii=False, indent=2), encoding="utf-8"
