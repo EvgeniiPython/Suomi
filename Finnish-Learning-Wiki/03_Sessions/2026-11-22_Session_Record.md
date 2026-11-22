@@ -46,7 +46,7 @@ status: CONSOLIDATING
 reason: The learner produced useful connected workplace speech with several target constructions. Corrected final recall was successful, but `ennen + genitive + -minen`, object forms and some inflection/word-form choices needed support. Same-session repair is not delayed mastery.
 
 ### Retention
-status: REVIEW
+status: DUE
 next_review: 2026-11-23 (D+1)
 targets: `ennen + genitive + -minen`; partitive after `en ehdi tarkistaa`; `en ehtinyt / pyysi` past-tense distinction; `on tarkistettu` passive; `piirustusten mukaisia`; `eron ... välillä`.
 
