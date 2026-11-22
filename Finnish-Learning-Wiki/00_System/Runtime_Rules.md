@@ -49,14 +49,16 @@ Default behavior:
 
 Old weak/consolidating material continues to be interleaved with new material; 100% automation is not a prerequisite.
 
-## Fixed new-chunk target
+## Fixed new-chunk targets and frequency filter
 
-- Every `FULL_LESSON` must introduce exactly 2 new active chunks.
-- The two chunks must be genuinely new to the learner, useful, and selected before or during the lesson from Candidate_Chunks.md or suitable lesson input.
-- Both must receive explicit teaching/encoding and meaningful independent user production; merely mentioning them does not count.
-- Existing weak chunks remain interleaved for retrieval, repair, delayed recall, and transfer. They do not replace either of the two new chunks.
-- A `RETENTION_SESSION` has no required new acquisition; candidates discovered there remain candidates unless deliberately promoted in a later FULL_LESSON.
-- If readiness is poor, simplify and scaffold the two new chunks after targeted repair rather than silently reverting to zero or one. Record any genuine inability to complete the acquisition in the Session Result and continuation state.
+- `FULL_LESSON`: introduce exactly **4** new active chunks, relevant to the user's engineering/work context, workplace communication and practical tasks.
+- `RETENTION_SESSION`: introduce exactly **2** new active chunks, integrated into the retention route.
+- Chunks must be genuinely new, explicitly taught/encoded, and produced independently by the user in meaningful context; include variation/transfer and record them.
+- Select chunks built primarily from **high-frequency, common Finnish words and natural collocations**. Prefer broadly useful everyday/workplace language that can transfer across contexts.
+- Avoid rare, archaic, literary, unnecessarily formal, narrowly technical or low-utility vocabulary. Specialist vocabulary is used selectively only if genuinely useful and reasonably common in the user's work.
+- Existing weak targets remain interleaved but never substitute for the required new chunks.
+- If learner readiness is low, repair and scaffold while preserving the target count; transparently record chunks not completed rather than falsely marking acquisition as achieved.
+
 
 ## Candidate Chunk Bank
 
