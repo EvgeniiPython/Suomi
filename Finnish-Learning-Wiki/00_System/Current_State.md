@@ -111,6 +111,16 @@ Continuation is a mode of the previous session type, not a third type.
 
 ---
 
+## Acquisition target update (22.11.2026)
+
+- `FULL_LESSON` target: **4 new active chunks**, work-relevant and built primarily from high-frequency Finnish words/expressions.
+- `RETENTION_SESSION` target: **2 new active chunks**, high-frequency and useful, integrated into the retention stages.
+- Avoid rare, archaic, literary, low-utility and unnecessarily specialized expressions when selecting new chunks. Prefer common words, natural collocations and transferable workplace/everyday language.
+- New chunks require explicit encoding and independent user output. Old targets remain interleaved but do not count toward the new-chunk quota.
+- If chunks are not fully acquired during the session, record that honestly and schedule continuation/retention.
+
+---
+
 ## Acquisition policy
 
 **Core principle: consolidation does not block progression.**
