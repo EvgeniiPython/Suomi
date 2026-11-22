@@ -197,22 +197,25 @@ repeated meaningful conceptual failure
     -> trigger according to Grammar_Trigger_Rule.md
 ```
 
-## New chunks
+## New chunks — fixed acquisition target
 
-Используем:
+**Каждый обычный `FULL_LESSON` включает ровно 2 новых активных chunks.** Это обязательная цель занятия, а не верхний предел и не необязательная рекомендация.
+
+Правила:
+1. В начале занятия выбрать ровно два полезных, ранее не активированных chunks из Candidate_Chunks.md или сформировать их из подходящего материала занятия.
+2. Проверить, что пользователь уже не владеет ими; знакомый или уже активный chunk не считается новым.
+3. Каждый из двух chunks должен быть явно представлен, разобран по смыслу и использованию, затем применён пользователем в самостоятельной речи.
+4. Встроить оба новых chunks в controlled speaking, variation, dialogue и/или transfer; не ограничиваться показом примеров.
+5. Сохранить оба в Session Result и продвинуть в активный учебный учёт согласно структуре проекта.
+6. Продолжать interleaving старых слабых chunks и delayed recall. Новые chunks не отменяют повторение.
+
+Если recall нестабилен или есть активный grammar trigger, занятие всё равно планируется вокруг двух новых chunks, но сначала дать необходимый targeted repair и представить новые chunks в посильном формате. Не заменять новые chunks очередным повторением старого материала автоматически.
+
+Исключение: `RETENTION_SESSION` остаётся сессией исключительно на recall/retention и не обязана вводить новые chunks. Если в ходе неё обнаружен ценный новый материал, записать его как candidate, а не вводить в активный учёт принудительно.
 
 ```text
-active → consolidating → stable → dormant
-```
-
-Для stable нужны delayed +1/+3/+7 evidence, новый личный контекст и mixed-choice check при конкурирующих формах.
-
-## New chunks
-
-```text
-устойчивый recall + variation + transfer → 2–3 новых chunks
-локальные ошибки при в целом устойчивом recall → repair → максимум 1–2 новых
-нестабильный recall или активный trigger → новых chunks не добавлять
+FULL_LESSON       -> exactly 2 new active chunks
+RETENTION_SESSION -> 0 required new chunks
 ```
 
 ## Candidate Chunks
