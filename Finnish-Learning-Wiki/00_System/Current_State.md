@@ -1,3 +1,17 @@
+## Последняя сессия — 22.11.2026 (RETENTION_SESSION, COMPLETED)
+
+- Выполнены 6 обязательных stages; continuation не требуется.
+- Практика: проверка чертежей и 3D-модели, соответствие соединений чертежам, сообщение клиенту о расхождениях, сроки и просьбы коллеге.
+- Final corrected recall: `Ennen piirustusten lähettämistä asiakkaalle minun täytyy varmistaa, että kaikki liitokset on tarkistettu. Jos en ehdi tehdä sitä, pyydän kollegaani auttamaan minua.`
+- `ennen + genitive + -minen` остаётся priority delayed review.
+- Object selection after `en ehdi tarkistaa`, `kaikkia`, past tense `ehtinyt / pyysin`, and passive `on tarkistettu` require delayed sampling.
+- Two chunks practiced: `Pitää vielä tarkistaa, että kaikki mitat ovat oikein.` and `Jos huomaan virheen, korjaan sen ennen kuin lähetän piirustukset asiakkaalle.`; delayed evidence is pending.
+- Mastery remains CONSOLIDATING; immediate repair is not delayed mastery.
+- Canonical record: `03_Sessions/2026-11-22_Session_Record.md`.
+- `lesson_status = COMPLETED`; `continuation_required = NO`.
+
+---
+
 ## Последняя сессия — 15.11.2026 (RETENTION_SESSION, COMPLETED)
 
 - Выполнены 6 обязательных stages: retrieval, controlled speaking, Finnish dialogue, error repair + second chance, final challenge/recall, retention record.
