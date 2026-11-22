@@ -65,7 +65,7 @@ Sampling может влиять на последующие mastery/retention �
 ## RETENTION_SESSION
 
 ### Цель
-Проверить delayed retrieval, автоматизацию и transfer уже изученных patterns. Новые chunks не являются целью и добавляются только при устойчивом evidence и отсутствии блокирующих triggers.
+Проверить delayed retrieval, автоматизацию и transfer уже изученных patterns. Сессия включает **2 новых активных chunks**, наряду с delayed retrieval, автоматизацией и transfer. Их выбор и отработка должны быть посильными и встроенными в retention маршрут.
 
 ### Обязательные macro-stages
 
@@ -197,25 +197,29 @@ repeated meaningful conceptual failure
     -> trigger according to Grammar_Trigger_Rule.md
 ```
 
-## New chunks — fixed acquisition target
+## New chunks — fixed acquisition targets
 
-**Каждый обычный `FULL_LESSON` включает ровно 2 новых активных chunks.** Это обязательная цель занятия, а не верхний предел и не необязательная рекомендация.
+- `FULL_LESSON`: **4 новых активных chunks**, связанных с работой пользователя и практическими ситуациями инженерной/проектной работы, коммуникации с коллегами, клиентами, организации задач, meetings, deadlines, reporting and problem-solving.
+- `RETENTION_SESSION`: **2 новых активных chunks**. Они должны быть компактными и естественно встроены в retrieval, dialogue, repair/second chance or final challenge.
+- Все chunks должны быть действительно новыми (не уже активными и не известными пользователю); коротко объяснить смысл и употребление, получить самостоятельную речь пользователя, включить variation/transfer и записать результат.
+- Для `FULL_LESSON` четыре chunks не обязательно объединять в один узкий грамматический сюжет; допускается тематическая связь, чтобы расширять реальные коммуникативные возможности.
+- Старые weak/consolidating targets продолжают interleaving, но не заменяют новые acquisition targets.
 
-Правила:
-1. В начале занятия выбрать ровно два полезных, ранее не активированных chunks из Candidate_Chunks.md или сформировать их из подходящего материала занятия.
-2. Проверить, что пользователь уже не владеет ими; знакомый или уже активный chunk не считается новым.
-3. Каждый из двух chunks должен быть явно представлен, разобран по смыслу и использованию, затем применён пользователем в самостоятельной речи.
-4. Встроить оба новых chunks в controlled speaking, variation, dialogue и/или transfer; не ограничиваться показом примеров.
-5. Сохранить оба в Session Result и продвинуть в активный учебный учёт согласно структуре проекта.
-6. Продолжать interleaving старых слабых chunks и delayed recall. Новые chunks не отменяют повторение.
+### Frequency and usefulness filter
 
-Если recall нестабилен или есть активный grammar trigger, занятие всё равно планируется вокруг двух новых chunks, но сначала дать необходимый targeted repair и представить новые chunks в посильном формате. Не заменять новые chunks очередным повторением старого материала автоматически.
+Выбирать chunks, построенные преимущественно на **высокочастотных словах и естественных, широко употребительных выражениях** Finnish everyday/workplace language.
 
-Исключение: `RETENTION_SESSION` остаётся сессией исключительно на recall/retention и не обязана вводить новые chunks. Если в ходе неё обнаружен ценный новый материал, записать его как candidate, а не вводить в активный учёт принудительно.
+При отборе:
+1. Prioritize common verbs, nouns, connectors, time expressions, requests, explanations, opinions, planning, clarification, problem-solving and reusable collocations.
+2. Prefer high-frequency everyday language that also applies to engineering/work contexts, rather than rare specialist terminology.
+3. A technical word is allowed only when it is genuinely useful and commonly encountered in the user's work; introduce it through common language patterns.
+4. Avoid rare, literary, archaic, unnecessarily formal, narrow technical or low-utility words and expressions as the basis for new chunks.
+5. Do not select a chunk merely because it is difficult or novel. Use frequency, usefulness, reusability, naturalness and learner level as the filter.
+6. If frequency is uncertain, favor simpler, commonly heard wording and avoid claiming a precise frequency rank without evidence.
 
 ```text
-FULL_LESSON       -> exactly 2 new active chunks
-RETENTION_SESSION -> 0 required new chunks
+FULL_LESSON       -> 4 new active chunks (work-relevant + high-frequency)
+RETENTION_SESSION -> 2 new active chunks (high-frequency)
 ```
 
 ## Candidate Chunks
