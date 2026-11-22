@@ -49,6 +49,15 @@ Default behavior:
 
 Old weak/consolidating material continues to be interleaved with new material; 100% automation is not a prerequisite.
 
+## Fixed new-chunk target
+
+- Every `FULL_LESSON` must introduce exactly 2 new active chunks.
+- The two chunks must be genuinely new to the learner, useful, and selected before or during the lesson from Candidate_Chunks.md or suitable lesson input.
+- Both must receive explicit teaching/encoding and meaningful independent user production; merely mentioning them does not count.
+- Existing weak chunks remain interleaved for retrieval, repair, delayed recall, and transfer. They do not replace either of the two new chunks.
+- A `RETENTION_SESSION` has no required new acquisition; candidates discovered there remain candidates unless deliberately promoted in a later FULL_LESSON.
+- If readiness is poor, simplify and scaffold the two new chunks after targeted repair rather than silently reverting to zero or one. Record any genuine inability to complete the acquisition in the Session Result and continuation state.
+
 ## Candidate Chunk Bank
 
 Candidate_Chunks.md is the staging bank for potentially useful future material.
