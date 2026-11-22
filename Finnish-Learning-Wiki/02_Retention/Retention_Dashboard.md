@@ -1,3 +1,13 @@
+## 2026-11-22 RETENTION_SESSION result
+
+- Completed all six required stages.
+- Final corrected recall combined `ennen piirustusten lähettämistä`, `minun täytyy varmistaa`, passive `on tarkistettu`, `en ehdi tehdä sitä`, and `pyydän kollegaani auttamaan minua`.
+- Practiced checking/verification, drawing-model differences, `piirustusten mukaisia`, `eron ... välillä`, object forms, past tense, and passive construction.
+- Priority delayed review: `ennen + genitive + -minen`, object selection after `en ehdi tarkistaa`, `ehtinyt / pyysin`, and `on tarkistettu`.
+- Two chunks practiced: `Pitää vielä tarkistaa, että kaikki mitat ovat oikein.` and `Jos huomaan virheen, korjaan sen ennen kuin lähetän piirustukset asiakkaalle.`.
+- Mastery remains CONSOLIDATING; immediate correction does not count as delayed mastery.
+- Canonical session record: `03_Sessions/2026-11-22_Session_Record.md`.
+
 # Retention Dashboard
 
 ## Due now
