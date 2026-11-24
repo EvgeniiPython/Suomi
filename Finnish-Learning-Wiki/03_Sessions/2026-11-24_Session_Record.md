@@ -8,7 +8,7 @@ lesson_status: COMPLETED
 primary_skill: Workplace Finnish; drawings/model readiness, checking joints, deadlines, client communication and colleague requests.
 
 ### Evidence
-observed: Learner produced connected workplace sentences and completed the final recall. Errors were repaired and a second-chance transfer was completed. Main recurring issues: object case/partitive forms, infinitive after täytyy, spelling/word choice, and nominalized ennen construction.
+observed: Independent evidence: the learner independently produced connected workplace sentences across retrieval, controlled speaking, dialogue, second-chance transfer, and final recall before correction. Errors were repaired and a second-chance transfer was completed. Main recurring issues: object case/partitive forms, infinitive after täytyy, spelling/word choice, and nominalized ennen construction.
 evidence_score: 2
 
 ### Explicit Independent Evidence (raw learner outputs before correction)
