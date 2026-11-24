@@ -11,6 +11,16 @@ primary_skill: Workplace Finnish; drawings/model readiness, checking joints, dea
 observed: Learner produced connected workplace sentences and completed the final recall. Errors were repaired and a second-chance transfer was completed. Main recurring issues: object case/partitive forms, infinitive after täytyy, spelling/word choice, and nominalized ennen construction.
 evidence_score: 2
 
+### Explicit Independent Evidence (raw learner outputs before correction)
+These are verbatim learner attempts made before feedback. Corrections below are separate and are not counted as independent evidence.
+
+- Retrieval: `Eilen en ehtinyt tarkistaa kaikkia piirustuksia, joten pyydän kollegani auttamaan minua.`
+- Controlled speaking: `Jos en ehdi saada piirustukset valmiiksi tänään, lähetän ne asiakalle huomenna.`
+- Controlled speaking: `Jos en ehdi tarkistaa 3d-mallia ennen tapaamista, pyydän kollegaani tarkistamaan se.`
+- Dialogue: `3d-mallin melkein on valmistettu, mutta minun täytyy vielä tarkistaa paria liitoksia ennen piirustuiden lähettämistä asiakkaalle.`
+- Second-chance transfer: `3d-malli on valmis, mutta en ehtinyt tarkistaa kaikki liitokse. Joten lähetän piirustukset asiakkaalle huomenna.`
+- Final challenge recall: `Ennen piirustusten lähettämista asiakkaalle, minun täytyy varmista , että maali on tarkistettu.`
+
 Independent outputs (with corrections noted):
 - `Eilen en ehtinyt tarkistaa kaikkia piirustuksia, joten pyydän kollegani auttamaan minua.` → corrected tense and object form: `Eilen en ehtinyt tarkistaa kaikkia piirustuksia, joten pyysin kollegaani auttamaan minua.`
 - `Ennen piirustuiden lähettämistä asiakkalle minum täytyu tarkista että kaikkia liitokset tarkistettu` → corrected: `Ennen piirustusten lähettämistä asiakkaalle minun täytyy varmistaa, että kaikki liitokset on tarkistettu.`
