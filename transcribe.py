@@ -127,7 +127,7 @@ def track_language(info: dict, requested: str | None) -> tuple[str | None, bool]
 
 
 def video_id_from_url(url: str) -> str | None:
-    match = re.search(r"(?:youtu\\.be/|youtube\\.com/(?:watch\\?v=|shorts/|embed/))([A-Za-z0-9_-]{11})", url)
+    match = re.search(r"(?:youtu\.be/|youtube\.com/(?:watch\?v=|shorts/|embed/))([A-Za-z0-9_-]{11})", url)
     if match:
         return match.group(1)
     match = re.search(r"[A-Za-z0-9_-]{11}", url)
@@ -462,6 +462,10 @@ def main() -> int:
     work_dir.mkdir(parents=True)
 
     info = download_video_info(url)
+    requested_id = video_id_from_url(url)
+    resolved_id = info.get("id")
+    if requested_id and resolved_id and requested_id != resolved_id:
+        raise RuntimeError(f"Video ID mismatch: URL requests {requested_id}, yt-dlp resolved {resolved_id}. Aborting to avoid transcribing the wrong video.")
     title = info.get("title") or info.get("id") or "YouTube video"
     print(f"Video: {title}", flush=True)
     result = obtain_external_captions(url, info, work_dir, args.language)
