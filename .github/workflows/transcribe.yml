@@ -15,7 +15,7 @@ on:
       video_url:
         description: "Public YouTube video URL"
         required: false
-        default: "https://youtu.be/GqiTxI9KbAQ"
+        default: "https://youtu.be/bH8Zi8uI4xk?is=D0mZSDNYnQ8x6gmp"
       language:
         description: "Preferred subtitle language code"
         required: false
@@ -80,7 +80,7 @@ jobs:
             echo "MODEL=small" >> "$GITHUB_ENV"
           fi
 
-      - name: Create transcript PDF, TXT and SRT
+      - name: Create transcript Markdown, PDF, TXT and SRT
         run: |
           if [[ -n "$LANGUAGE" ]]; then
             python transcribe.py --url "$VIDEO_URL" --language "$LANGUAGE" --model "$MODEL" --output-dir output
