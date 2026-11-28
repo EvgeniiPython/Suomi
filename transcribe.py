@@ -338,12 +338,32 @@ def format_time(seconds: float, srt: bool = False) -> str:
     return f"{hours:02}:{minutes:02}:{secs:02}{separator}{ms:03}"
 
 
-def write_text_and_srt(segments: list[Segment], output_dir: Path, title: str, source: str) -> None:
+def write_text_and_srt(segments: list[Segment], output_dir: Path, title: str, source: str, url: str) -> None:
     header = f"{title}\nSource: {source}\n\n"
     txt = header + "\n".join(
         f"[{format_time(s.start)}] {s.text}" for s in segments
     )
     (output_dir / "transcript.txt").write_text(txt + "\n", encoding="utf-8")
+
+    # Markdown transcript is the canonical human-readable output for later analysis.
+    md_lines = [
+        f"# {title}",
+        "",
+        f"- **Video:** {url}",
+        f"- **Transcript source:** {source}",
+        f"- **Language:** Russian (as supplied by the available captions)",
+        f"- **Segments:** {len(segments)}",
+        "",
+        "> This file preserves the original spoken language and approximate caption timecodes. "
+        "Automatic captions may contain recognition errors.",
+        "",
+        "## Transcript",
+        "",
+    ]
+    for segment in segments:
+        md_lines.append(f"**[{format_time(segment.start)}]** {segment.text}")
+        md_lines.append("")
+    (output_dir / "transcript.md").write_text("\n".join(md_lines).rstrip() + "\n", encoding="utf-8")
 
     blocks = []
     for number, segment in enumerate(segments, 1):
@@ -452,7 +472,7 @@ def main() -> int:
     else:
         segments, source = result
 
-    write_text_and_srt(segments, output_dir, title, source)
+    write_text_and_srt(segments, output_dir, title, source, url)
     create_pdf(segments, output_dir / "transcript.pdf", title, source, url)
     metadata = {
         "url": url,
